@@ -1,6 +1,6 @@
 # <h1>E-Learning Platform for the Business Category</h1>
 
-<h3>Website Live:<a href="build/index.html">Vist</a></h3>
+<h3>Website Live:  <a href="build/index.html">Vist</a></h3>
 
 <h3>Description:</h3>
 
