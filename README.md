@@ -1,5 +1,7 @@
 # <h1>E-Learning Platform for the Business Category</h1>
 
+<h3>🤝 collaboration welcome</h3>
+
 <h3>Description:</h3>
 
 The e-learning platform is a web-based application that allows users to access courses and learning materials related to starting and growing a business. The platform also allows instructors to upload and share their own business-related courses. The goal of the platform is to provide a convenient and effective way for users to learn the skills and knowledge they need to succeed in the business world, such as marketing, financial management, and leadership.
