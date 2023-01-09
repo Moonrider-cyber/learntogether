@@ -46,9 +46,12 @@ $lightfont : 'Ubuntu', sans-serif;
                 position: absolute;
                 justify-content: center;
                 background-color: rgb(245 245 245);
-                top: 70px;
+                top: 60px;
                 left: 150px;
-                display: none;
+                opacity: 0;
+                overflow: hidden;
+                pointer-events: none;
+                transform: translateY(-10px);
                 ul{
                     list-style: none;
                     padding: 0;
@@ -90,7 +93,11 @@ $lightfont : 'Ubuntu', sans-serif;
             
         }
         .nav-menu-wapper:hover .catagory-menu{
-            display: flex;
+            display: block;
+            transition: .5s ease-out all;
+            transform: translateY(10px);
+            opacity: 1;
+            pointer-events: auto;    
         }
         .nav-search{
             padding-left: 1.5rem;
