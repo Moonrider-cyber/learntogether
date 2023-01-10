@@ -1,6 +1,6 @@
 import React from 'react';
-import '../scss/index.scss';
-const vid = require('../img/hero section.mp4');
+import './Hero-section.scss';
+const vid = require('./asset/hero section.mp4');
 
 function Banner() {
     return(

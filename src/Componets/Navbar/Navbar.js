@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/Nav&footer.scss';
+import './Navbar.scss';
 
 function Navbar(){
     function menuclick(){
@@ -11,15 +11,6 @@ function Navbar(){
         nav.classList.toggle('res-nav-open');
         nav.classList.toggle('res-nav-close');
     }
-    // function navcatagory(){
-    //     const catmenu = document.querySelector('.catagory-menu');
-    //     // catagorytitle.addEventListener('focus',()=>{
-    //     //     console.log('yoo');
-    //     // })
-    //     console.log('outside');
-    //     catmenu.classList.toggle('catagory-menu-open')
-
-    // }
     return(
         <div>
             <nav>
