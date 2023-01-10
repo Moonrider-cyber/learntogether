@@ -230,15 +230,24 @@ $lightfont : 'Ubuntu', sans-serif;
             display: none;
         }
         .navbar-left{
-            display: none;
-        }
-        .res-nav-btn{
-            display: flex;
-            padding-right: 20px;
-            i{
-                font-size: 30px;
-                color: white;
+            .nav-links{
+                display: none;
             }
+            .res-nav-btn{
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 20px;
+                i{
+                    font-size: 30px;
+                    color: white;
+                }
+
+            }
+            // .navbaropen{
+            //     .res-nav-btn{
+            //         display: none;
+            //     }
+            // }
         }
     }
     .res-nav{
@@ -283,9 +292,17 @@ $lightfont : 'Ubuntu', sans-serif;
         transition: .4s ease transform;
         transform: translateY(0px);
     }
-    .navbaropen{
+    .resnavbaropen{
         transition: .5s;
         background-color: black;
+        #nav-bars{
+            display: none;
+        }
+    }
+    .resnavbarclose{
+        #nav-xmark{
+            display: none;
+        }
     }
 }
 @media only screen and (max-width: 468px) {

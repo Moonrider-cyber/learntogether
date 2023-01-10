@@ -6,7 +6,8 @@ function Navbar(){
         const navbar = document.querySelector('.navbar');
         const nav = document.querySelector('.res-nav');
 
-        navbar.classList.toggle('navbaropen');
+        navbar.classList.toggle('resnavbaropen');
+        navbar.classList.toggle('resnavbarclose');
         nav.classList.toggle('res-nav-open');
         nav.classList.toggle('res-nav-close');
     }
@@ -22,7 +23,7 @@ function Navbar(){
     return(
         <div>
             <nav>
-                <header className='navbar'>
+                <header className='navbar resnavbarclose'>
                     <section className='navbar-right'>
                     <div className='logo'>
                         <h1>Busilearn</h1>
@@ -46,16 +47,17 @@ function Navbar(){
                     </div>
                     </section>
                     <section className='navbar-left'>
-                    <div className='nav-links'>
-                        <ul>
-                            <li><a href='#'>Teach with us</a></li>
-                            <li><i className="fa-solid fa-cart-shopping"></i></li>
-                            <li><button>Sign Up</button></li>
-                        </ul>
-                    </div>
-                    <div className='res-nav-btn' onClick={menuclick}>
-                        <i className="fa-solid fa-bars"></i>
-                    </div>
+                        <div className='nav-links'>
+                            <ul>
+                                <li><a href='#'>Teach with us</a></li>
+                                <li><i className="fa-solid fa-cart-shopping"></i></li>
+                                <li><button>Sign Up</button></li>
+                            </ul>
+                        </div>
+                        <div className='res-nav-btn' onClick={menuclick}>
+                            <i className="fa-solid fa-bars" id='nav-bars'></i>
+                            <i className="fa-solid fa-xmark" id='nav-xmark'></i>
+                        </div>
                     </section>
                 </header>
                     <div className='res-nav res-nav-close'>
