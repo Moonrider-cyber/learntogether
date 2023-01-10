@@ -18,7 +18,6 @@ function Navbar(){
                     <section className='navbar-right'>
                     <div className='logo'>
                         <h1>Busilearn</h1>
-                        {/* <img src={logo}></img> */}
                     </div>
                     <div className='nav-menu-wapper'>
                         <button type="button" className='nav-menu-title'><span>Categories</span></button>
@@ -55,6 +54,9 @@ function Navbar(){
                         <div className='res-search'>
                             <i className="fa-solid fa-magnifying-glass"></i>
                             <input type={'text'} placeholder="Search anything"/>
+                        </div>
+                        <div className='res-links'>
+                            
                         </div>
                     </div>
             </nav>
