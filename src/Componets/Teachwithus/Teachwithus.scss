@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Ubuntu&display=swap');
+
+$dark : #1c1d1f;
+$boldfont : 'Oswald', sans-serif;
+$lightfont : 'Ubuntu', sans-serif;
+
+.teach-with-us{
+    margin: 30px 20%;
+    .container{
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        .teach-with-us-img{
+            img{
+                width: 100%;
+            }
+        }
+        .teach-with-us-context{
+            width: 45%;
+            .context-title h1{
+                font-family: $boldfont;
+                font-weight: 800;
+            }
+            .context-main{
+                padding: 10px 0;
+                font-family: $lightfont;
+                font-size: 18px;
+            }
+            .context-btn button{
+                background-color: $dark;
+                color: white;
+                height: 40px;
+                font-weight: 500;
+            }
+        }
+    }
+}

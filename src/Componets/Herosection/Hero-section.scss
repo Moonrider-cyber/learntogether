@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Ubuntu&display=swap');
 
+$dark : #1c1d1f;
 $boldfont : 'Oswald', sans-serif;
 $lightfont : 'Ubuntu', sans-serif;
 
 .hero {
-    position: absolute;
+    position: relative;
     height: 80vh;
     width: 100%;
     overflow: hidden;
@@ -61,11 +62,12 @@ $lightfont : 'Ubuntu', sans-serif;
                 width: 180px;
                 height: 45px;
                 border: none;
-                background-color: black;
+                background-color: $dark;
                 color: white;
+                font-weight: 600;
             }
             button:hover{
-                background-color: rgba(28, 28, 28, 0.959)
+                background-color: black;
             }
         }
     }

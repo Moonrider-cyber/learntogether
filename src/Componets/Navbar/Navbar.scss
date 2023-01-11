@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Ubuntu&display=swap');
 
-$black : black;
+$dark : #1c1d1f;
 $white : white;
 $gray : gray;
 $boldfont : 'Oswald', sans-serif;
 $lightfont : 'Ubuntu', sans-serif;
 
+nav{
+    position: absolute;
+    width: 100%;
+}
 .navbar{
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -73,7 +78,7 @@ $lightfont : 'Ubuntu', sans-serif;
                             display: flex;
                             justify-content: space-between;
                             font-size: 15px;
-                            color: black;
+                            color: $dark;
                             width: 200px;
                             padding: 12px 15px;
                             border: none;
@@ -184,7 +189,7 @@ $lightfont : 'Ubuntu', sans-serif;
                     border: 2px black solid;
                 }
                 button:hover{
-                    background-color: rgb(20, 20, 20);
+                    background-color: $dark;
                 }
     
             }
@@ -299,7 +304,7 @@ $lightfont : 'Ubuntu', sans-serif;
     }
     .resnavbaropen{
         transition: .5s;
-        background-color: black;
+        background-color: $dark;
         #nav-bars{
             display: none;
         }
