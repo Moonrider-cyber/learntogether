@@ -20,7 +20,7 @@ function Navbar(){
                         <h1>Busilearn</h1>
                     </div>
                     <div className='nav-menu-wapper'>
-                        <button type="button" className='nav-menu-title'><span>Categories</span></button>
+                        <button type="button" className='nav-menu-title'><span>Categories</span><i class="fa-solid fa-angle-down"></i></button>
                                 <div className='catagory-menu'>
                                     <ul>
                                         <li><button><span>Entrepreneurship</span><i className="fa-solid fa-angle-right"></i></button></li>
