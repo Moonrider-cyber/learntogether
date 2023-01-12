@@ -15,7 +15,7 @@ function Banner() {
                         <p>Start, switch, or advance your career with more than 5,400 courses, Professional Certificates from world-class top instructor</p>
                     </div>
                     <div className='hero-text-btn'>
-                        <button>Join Free</button>
+                        <button>Join for Free</button>
                     </div>
                 </div>
             </div>
