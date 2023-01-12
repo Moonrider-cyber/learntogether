@@ -118,6 +118,7 @@ $lightfont : 'Ubuntu', sans-serif;
                    }
                    p{
                     font-size: 15px;
+                    padding: 0;
                    }    
                 }
                 .hero-text-btn{
@@ -135,7 +136,7 @@ $lightfont : 'Ubuntu', sans-serif;
 @media only screen and (max-width: 468px) {
     /* For mobile phones: */
     .hero{
-        height: calc(80vh - 100px);
+        height: calc(80vh - 120px);
         .blayer{
             background-color: rgb(0, 0, 0, 0.4);
           }
