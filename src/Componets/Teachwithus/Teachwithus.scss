@@ -16,21 +16,60 @@ $lightfont : 'Ubuntu', sans-serif;
             }
         }
         .teach-with-us-context{
-            width: 45%;
+            width: 50%;
             .context-title h1{
                 font-family: $boldfont;
-                font-weight: 800;
+                font-weight: 400;
             }
             .context-main{
-                padding: 10px 0;
+                padding: 20px 0;
                 font-family: $lightfont;
                 font-size: 18px;
             }
             .context-btn button{
                 background-color: $dark;
                 color: white;
-                height: 40px;
-                font-weight: 500;
+                height: 45px;
+                font-weight: 700;
+                padding: 0 10px;
+                border: none;
+                user-select: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .teach-with-us{
+        margin: 20px 5%;
+        .container{
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            .teach-with-us-context{
+                width: 100%;
+                .context-btn button{
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .teach-with-us{
+        .container{
+            .teach-with-us-context{
+                .context-title{
+                    font-size: 16px;
+                }
+                .context-main{
+                    font-size: 15px;
+                }
+                .context-btn button{
+                    width: 100%;
+                    margin-top: 5px;
+                }
             }
         }
     }
