@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@500&family=Ubuntu&display=swap');
 
 $dark : #1c1d1f;
 $boldfont : 'Oswald', sans-serif;
 $lightfont : 'Ubuntu', sans-serif;
+$lightfont1 : 'Lato', sans-serif;
 
 .teach-with-us{
     margin: 30px 20%;
@@ -23,10 +24,46 @@ $lightfont : 'Ubuntu', sans-serif;
             }
             .context-main{
                 padding: 20px 0;
-                font-family: $lightfont;
+                font-family: $lightfont1;
                 font-size: 18px;
             }
             .context-btn button{
+                background-color: $dark;
+                color: white;
+                height: 45px;
+                font-weight: 700;
+                padding: 0 10px;
+                border: none;
+                user-select: none;
+            }
+        }
+    }
+}
+.join-us{
+    margin: 10px 20%;
+    margin-top: 40px;
+    .container{
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        .join-us-img{
+            img{
+                width: 100%;
+            }
+        }
+        .join-us-context{
+            width: 50%;
+            .join-context-title h1{
+                font-family: $boldfont;
+                font-weight: 400;
+            }
+            .join-context-main{
+                padding: 20px 0;
+                font-weight: 200;
+                font-family: $lightfont1;
+                font-size: 18px;
+            }
+            .join-context-btn button{
                 background-color: $dark;
                 color: white;
                 height: 45px;
@@ -54,6 +91,21 @@ $lightfont : 'Ubuntu', sans-serif;
             }
         }
     }
+    .join-us{
+        margin: 20px 5%;
+        .container{
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 20px;
+            text-align: center;
+            .join-us-context{
+                width: 100%;
+                .join-context-btn button{
+                    width: 50%;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -67,6 +119,22 @@ $lightfont : 'Ubuntu', sans-serif;
                     font-size: 15px;
                 }
                 .context-btn button{
+                    width: 100%;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+    .join-us{
+        .container{
+            .join-us-context{
+                .join-context-title{
+                    font-size: 16px;
+                }
+                .join-context-main{
+                    font-size: 15px;
+                }
+                .join-context-btn button{
                     width: 100%;
                     margin-top: 5px;
                 }
