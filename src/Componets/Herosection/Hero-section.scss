@@ -65,6 +65,7 @@ $lightfont : 'Ubuntu', sans-serif;
                 background-color: $dark;
                 color: white;
                 font-weight: 600;
+                transition: .4s ease all;
             }
             button:hover{
                 background-color: black;

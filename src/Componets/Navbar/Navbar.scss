@@ -262,11 +262,13 @@ nav{
     .res-nav{
         display: block;
         position: relative;
-        z-index: 999;
+        z-index: 99;
         background-color: white;
         width: 100%;
-        height: calc(89vh - 1px);
+        // height: calc(89vh - 1px);
+        height: 100vh;
         top: 0;
+        padding-top: 75px;
 
         .res-search{
             display: flex;
@@ -275,7 +277,7 @@ nav{
             width: 100%;
             padding-top: 30px;
             border-bottom: 1px #d7afaf inset;
-            padding-bottom: 34px;
+            padding-bottom: 30px;
             i{
                 position: absolute;
                 padding: 0 20px;
@@ -292,18 +294,69 @@ nav{
                 color: $gray;
             }
         }
+        .res-links{
+            width: 100%;
+            ul{
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                li{
+                    width: 100%;
+                    padding: 10px 0;
+                }
+                li:hover{
+                    border: .1px solid #0056d2;
+                    // background-color: #0056d2;
+                    // color: #fff;
+                }
+            }
+        }
+        .res-nav-btn-warp{
+            position: fixed;
+            bottom: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            padding: 20px 0;
+            box-shadow: 0 1px 6px 0 rgb(31 31 31 / 50%);
+            button:first-child{
+                width: 90%;
+                background-color: #0056d2;
+                color: white;
+            }
+            button{
+                color: #0056d2;
+                font-family: $lightfont;
+                font-weight: 600;
+                height: 48px;
+                width: 90%;
+                border: 2px #0056d2 solid;
+            }
+        }
     }
     .res-nav-close{
         transition: .4s ease transform;
         transform: translateY(-200%);
     }
     .res-nav-open{
-        // display: flex;
+        position: fixed;
         transition: .4s ease transform;
         transform: translateY(0px);
     }
+    .fixed{
+        overflow: hidden;
+    }
     .resnavbaropen{
+        position: fixed;
         transition: .5s;
+        z-index: 9999;
         background-color: $dark;
         #nav-bars{
             display: none;
@@ -314,6 +367,7 @@ nav{
             display: none;
         }
     }
+    
 }
 @media only screen and (max-width: 468px) {
     /* For mobile phones: */

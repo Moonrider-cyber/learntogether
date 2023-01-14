@@ -32,9 +32,13 @@ $lightfont1 : 'Lato', sans-serif;
                 color: white;
                 height: 45px;
                 font-weight: 700;
-                padding: 0 10px;
+                padding: 0 20px;
                 border: none;
                 user-select: none;
+                transition: .4s ease all;
+            }
+            .context-btn button:hover{
+                background-color: black;
             }
         }
     }
@@ -68,9 +72,13 @@ $lightfont1 : 'Lato', sans-serif;
                 color: white;
                 height: 45px;
                 font-weight: 700;
-                padding: 0 10px;
+                padding: 0 40px;
+                transition: .4s ease all;
                 border: none;
                 user-select: none;
+            }
+            .join-context-btn button:hover{
+                background-color: black;
             }
         }
     }
