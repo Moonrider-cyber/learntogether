@@ -3,6 +3,7 @@ import './Navbar.scss';
 
 function Navbar(){
     function menuclick(){
+        const body = document.querySelector('body');
         const navbar = document.querySelector('.navbar');
         const nav = document.querySelector('.res-nav');
 
@@ -10,6 +11,8 @@ function Navbar(){
         navbar.classList.toggle('resnavbarclose');
         nav.classList.toggle('res-nav-open');
         nav.classList.toggle('res-nav-close');
+        body.classList.toggle('fixed');
+        
     }
     return(
         <div>
@@ -56,7 +59,17 @@ function Navbar(){
                             <input type={'text'} placeholder="Search anything"/>
                         </div>
                         <div className='res-links'>
-                            
+                            <ul>
+                                <li><span>Entrepreneurship</span></li>
+                                <li><span>Communication</span></li>
+                                <li><span>Sales</span></li>
+                                <li><span>Project Management</span></li>
+                                <li><span>E-Commerce</span></li>
+                            </ul>
+                        </div>
+                        <div className='res-nav-btn-warp'>
+                            <button>Join for Free</button>
+                            <button>Log In</button>
                         </div>
                     </div>
             </nav>
