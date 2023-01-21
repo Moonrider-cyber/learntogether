@@ -1,0 +1,15 @@
+$boldfont : 'Oswald', sans-serif;
+$lightfont : 'Ubuntu', sans-serif;
+
+.courselist{
+    padding: 40px 0;
+    h1{
+        font-family: $lightfont;
+        font-weight: 600;
+        font-size: 37px;
+    }
+    p{
+        font-size: 16px;
+        font-family: $lightfont;
+    }
+}
