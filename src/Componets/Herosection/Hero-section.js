@@ -6,7 +6,9 @@ function Banner() {
     return(
         <div>
             <div className="hero">
-                <span className='blayer'></span>
+                <span className='blayer'>
+                </span>
+                    
                 <video autoPlay loop src={vid} muted></video>
 
                 <div className='hero-text'>
