@@ -1,8 +1,9 @@
 import React from "react";
-import "./Signupcom.scss";
+import "./Logincom.scss";
 import { Link } from "react-router-dom";
 
-function Signupcom() {
+
+function Logincom() {
   return (
     <div>
       {/* <div class="alertbox">
@@ -16,7 +17,7 @@ function Signupcom() {
           <div class="form">
             <div class="right-side">
               <div class="forms">
-                <h1 class="forms-heading">Sign Up</h1>
+                <h1 class="forms-heading">Login</h1>
                 <div class="form-inputs">
                   <i class="fa fa-user"></i>
                   <input
@@ -53,8 +54,8 @@ function Signupcom() {
                 </div>
 
                 <div class="form-acc">
-                  <p>Already have account?</p>
-                  <Link to="/login">Login</Link>
+                  <p>Dont have account?</p>
+                  <Link to="/signup">Signup</Link>
                 </div>
               </div>
             </div>
@@ -65,4 +66,4 @@ function Signupcom() {
   );
 }
 
-export default Signupcom;
+export default Logincom;
