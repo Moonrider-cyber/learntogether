@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
 }
 .alertbox {
   position: absolute;
@@ -24,6 +22,7 @@
   position: relative;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  padding: 0;
 }
 
 .section .container .form {
@@ -119,8 +118,9 @@
 }
 
 .section .container .right-side .forms {
-  width: 50%;
+  width: 80%;
   height: 100%;
+  padding-top: 20px;
 }
 
 .section .container .right-side .forms .forms-heading {
@@ -128,6 +128,8 @@
   padding: 20px;
   margin: 20px 0;
   font-size: 40px;
+  font-weight: 500;
+  font-family: var(--lato);
 }
 
 .section .container .right-side .forms input {
@@ -144,8 +146,9 @@
   box-shadow: none;
 }
 
-.section .container .right-side .forms input[type="submit"] {
+.section .container .right-side .forms  button {
   width: 100%;
+  height: 40px;
   background-color: #040387;
   border-radius: 5px;
   color: #fff;
@@ -157,12 +160,8 @@
   margin: 10px 0 0;
 }
 
-.section .container .right-side .forms input[type="submit"]:hover {
+.section .container .right-side .forms button:hover {
   background-color: black;
-}
-
-.submit-button {
-  width: 100%;
 }
 
 .section .container .right-side .forms input:focus {
@@ -191,10 +190,11 @@
 .form-acc {
   margin: 10px 0px 0;
   letter-spacing: 0.5px;
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--ptfont);
 }
 .form-acc p {
   padding: 0;
@@ -207,7 +207,6 @@
   padding: 0;
   cursor: pointer;
 }
-
 @media (max-width: 750px) {
   .section .container {
     max-width: 350px;

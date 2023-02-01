@@ -1,61 +1,82 @@
 import React from "react";
 import "./Signupcom.scss";
 import { Link } from "react-router-dom";
+const loginimg = require("../Login/Asset/loginbg.png");
 
 function Signupcom() {
   return (
     <div>
-      {/* <div class="alertbox">
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {/* <div className="alertbox">
+            <div className="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Alert!</strong> Email Already Exist
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div> */}
-      <div class="section">
-        <div class="container">
-          <div class="form">
-            <div class="right-side">
-              <div class="forms">
-                <h1 class="forms-heading">Sign Up</h1>
-                <div class="form-inputs">
-                  <i class="fa fa-user"></i>
+      <div className="section">
+        <div className="container">
+          <div className="form">
+          <div className="left-side">
+                    <div className="content">
+                        <h1>BUSILEARN</h1>
+                        <h5>Learn with confidence</h5>
+                            <img src={loginimg} width="300"/>
+                    </div>
+                    <div className="social">
+                        <ul className="social-icons">
+                            <li><a href="#"><i className="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i className="fa-brands fa-twitter"></i></a></li>
+                            <li><a href="#"><i className="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i className="fa-brands fa-instagram"></i></a></li>
+                        </ul>
+                        <ul className="terms">
+                            <li><a href="#">Terms</a></li>
+                            <li><span className="dots"></span></li>
+                            <li><a href="#">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            <div className="right-side">
+              <div className="forms">
+                <h1 className="forms-heading">Sign Up</h1>
+                <div className="form-inputs">
+                  <i className="fa fa-user"></i>
                   <input
                     type="text"
                     placeholder="User name"
-                    name="name"
                     required
                   />
                 </div>
-                <div class="form-inputs">
+                <div className="form-inputs">
                   <input
                     type="email"
                     placeholder="Email"
-                    autocomplete="chrome-off"
-                    name="email"
+                    autoComplete="chrome-off"
                     required
                   />
-                  <i class="fa fa-envelope"></i>
+                  <i className="fa fa-envelope"></i>
                 </div>
-                <div class="form-inputs">
+                <div className="form-inputs">
                   <input
-                    class="password-input"
+                    className="password-input"
                     autocomplete="chrome-off"
                     type="password"
                     placeholder="Password"
-                    name="pwd"
                     required
                   />
-                  <i class="fa fa-eye" id="password_eye"></i>
+                  <i className="fa fa-eye" id="password_eye"></i>
                 </div>
 
-                <div class="submit-button">
-                  <input type="submit" name="signsubmit" />
+                <div className="sign-button">
+                  <button type="submit">Sign up</button>
                 </div>
 
-                <div class="form-acc">
+                <div className="form-acc">
                   <p>Already have account?</p>
                   <Link to="/login">Login</Link>
                 </div>
+                {/* <div className="othersign">
+                  <button>Continue with Google</button>
+                </div> */}
               </div>
             </div>
           </div>
