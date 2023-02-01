@@ -1,7 +1,7 @@
 import React from "react";
 import "./Logincom.scss";
 import { Link } from "react-router-dom";
-
+const loginimg = require("./Asset/loginbg.png");
 
 function Logincom() {
   return (
@@ -18,15 +18,6 @@ function Logincom() {
             <div class="right-side">
               <div class="forms">
                 <h1 class="forms-heading">Login</h1>
-                <div class="form-inputs">
-                  <i class="fa fa-user"></i>
-                  <input
-                    type="text"
-                    placeholder="User name"
-                    name="name"
-                    required
-                  />
-                </div>
                 <div class="form-inputs">
                   <input
                     type="email"
@@ -49,14 +40,56 @@ function Logincom() {
                   <i class="fa fa-eye" id="password_eye"></i>
                 </div>
 
-                <div class="submit-button">
-                  <input type="submit" name="signsubmit" />
+                <div class="login-button">
+                  <button>Login</button>
                 </div>
 
                 <div class="form-acc">
                   <p>Dont have account?</p>
                   <Link to="/signup">Signup</Link>
                 </div>
+              </div>
+            </div>
+            <div className="left-side">
+              <div className="content">
+                <h1>BUSILEARN</h1>
+                <h5>Learn with confidence</h5>
+                <img src={loginimg} width="300" />
+              </div>
+              <div className="social">
+                <ul className="social-icons">
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+                <ul className="terms">
+                  <li>
+                    <a href="#">Terms</a>
+                  </li>
+                  <li>
+                    <span className="dots"></span>
+                  </li>
+                  <li>
+                    <a href="#">Services</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

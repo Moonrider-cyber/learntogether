@@ -15,36 +15,54 @@ function Signupcom() {
       <div className="section">
         <div className="container">
           <div className="form">
-          <div className="left-side">
-                    <div className="content">
-                        <h1>BUSILEARN</h1>
-                        <h5>Learn with confidence</h5>
-                            <img src={loginimg} width="300"/>
-                    </div>
-                    <div className="social">
-                        <ul className="social-icons">
-                            <li><a href="#"><i className="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i className="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i className="fa-brands fa-instagram"></i></a></li>
-                        </ul>
-                        <ul className="terms">
-                            <li><a href="#">Terms</a></li>
-                            <li><span className="dots"></span></li>
-                            <li><a href="#">Services</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div className="left-side">
+              <div className="content">
+                <h1>BUSILEARN</h1>
+                <h5>Learn with confidence</h5>
+                <img src={loginimg} width="300" />
+              </div>
+              <div className="social">
+                <ul className="social-icons">
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="fa-brands fa-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+                <ul className="terms">
+                  <li>
+                    <a href="#">Terms</a>
+                  </li>
+                  <li>
+                    <span className="dots"></span>
+                  </li>
+                  <li>
+                    <a href="#">Services</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div className="right-side">
               <div className="forms">
                 <h1 className="forms-heading">Sign Up</h1>
                 <div className="form-inputs">
                   <i className="fa fa-user"></i>
-                  <input
-                    type="text"
-                    placeholder="User name"
-                    required
-                  />
+                  <input type="text" placeholder="User name" required />
                 </div>
                 <div className="form-inputs">
                   <input

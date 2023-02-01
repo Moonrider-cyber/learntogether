@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-:root{
+:root {
   --lato: "Lato", sans-serif;
   --ptfont: "PT Sans", sans-serif;
 }
