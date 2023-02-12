@@ -144,6 +144,17 @@
   outline: none;
   box-shadow: none;
 }
+.section .container .right-side .forms .file-inputs input{
+  padding: 0 10px;
+  margin: 0;
+  height: 40px;
+  // background-color: white;
+  // border: none;
+}
+.file-input::file-selector-button {
+  // padding: 10px;
+  height: 45px;
+}
 
 .section .container .right-side .forms button {
   width: 100%;

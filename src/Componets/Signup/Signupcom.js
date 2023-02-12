@@ -83,7 +83,17 @@ function Signupcom() {
                   />
                   <i className="fa fa-eye" id="password_eye"></i>
                 </div>
-
+                
+                <div className="form-inputs file-inputs">
+                <input 
+                  class="form-control file-input" 
+                  type="file" 
+                  id="formFile"
+                  accept="image/jpg, image/png, image/jpeg"
+                  required
+                />
+                </div>
+                
                 <div className="sign-button">
                   <button type="submit">Sign up</button>
                 </div>
