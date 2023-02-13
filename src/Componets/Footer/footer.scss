@@ -1,0 +1,39 @@
+footer{
+    width: 100%;
+    background-color: #1c1d1f;
+    padding: 20px 5%;
+    font-family: "Ubuntu", sans-serif;
+
+    .footer-logo{
+        position: absolute;
+        right: 50px;
+        h1{
+            color: white;
+            font-size: 40px;
+        }
+    }
+    .footer-links{
+        display: flex;
+        padding: 10px 50px;
+        
+        li{
+            list-style: none;
+            padding: 3px 0;
+            font-size: 15px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .footer-links-c2{
+            padding: 0 0 0 10%;
+        }
+    }
+    .footer-copyright{
+        p{
+            color: white;
+        }
+    }
+    
+
+}
