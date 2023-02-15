@@ -21,7 +21,7 @@ function Footer() {
                 <div className="footer-section-c2">
                     <h1>BUSILEARN</h1>
                     <input type={"email"} placeholder="Your Email Adress" />
-                    <button>Subscribe</button>
+                    <button>Subscribe Now</button>
                 </div>
                 <div className="footer-section-c3">
                     <h5>Contact</h5>

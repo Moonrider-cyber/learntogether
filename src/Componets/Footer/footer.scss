@@ -4,7 +4,7 @@ footer{
     padding: 70px ;
     font-family: "Ubuntu", sans-serif;
     color: white;
-
+    margin-top: 50px;
     .footer-sections{
 
         display: flex;
@@ -96,4 +96,59 @@ footer{
     }
     
 
+}
+@media only screen and (max-width: 768px) {
+    footer{
+        padding: 35px 0;
+        .footer-sections{
+            padding: 20px 5px;
+            .footer-section-c1{
+                h5{ font-size: 15px; }
+                ul{ li{ font-size: 13px; } }
+            }
+            .footer-section-c2{
+                h1{ font-size: 18px; }
+                input[type=email]{
+                    padding: 5px;
+                    font-size: 13px;
+                    margin: 19px 0;
+                }
+                button{ 
+                    width: 80%;
+                    font-size: 13px;
+                }
+            }
+            .footer-section-c3{
+                h5{ font-size: 15px; }
+                p{ font-size: 13px; }
+                .footer-social{
+                    i{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 468px) {
+    /* For mobile phones: */
+    footer{
+        padding: 5px 0px;
+        .footer-sections{
+            flex-direction: column;
+
+            .footer-section-c2{
+                padding-top: 20px;
+                width: auto;
+                align-items: center;
+
+                input[type=email]{
+                    margin: 20px;
+                }
+            }
+            .footer-section-c3{
+                padding-top: 20px;
+            }
+        }
+    }
 }
