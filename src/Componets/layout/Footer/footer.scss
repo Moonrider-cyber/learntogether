@@ -32,6 +32,9 @@ footer{
                     text-decoration: none;
                     color: white;
                 }
+                a:hover{
+                    text-decoration: underline;
+                }
             }
         }
         .footer-section-c2{
@@ -82,6 +85,10 @@ footer{
                     cursor: pointer;
                     padding: 0 20px;
                     font-size: 20px;
+                    transition: .3s ease-in;
+                }
+                i:hover{
+                    color: lightblue;
                 }
             }
         }
