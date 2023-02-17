@@ -2,49 +2,58 @@ import React from "react";
 import "./Logincom.scss";
 import { Link } from "react-router-dom";
 const loginimg = require("./Asset/loginbg.png");
+const { login } = require("../../redux/actions/user");
+const { useDispatch } = require("react-redux");
+const { useState } = require("react");
 
 function Logincom() {
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const disatch = useDispatch();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    disatch(login(email,password));
+  }
+
   return (
     <div>
-      {/* <div class="alertbox">
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Alert!</strong> Email Already Exist
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div> */}
-      <div class="section">
-        <div class="container">
-          <div class="form">
-            <div class="right-side">
-              <div class="forms">
-                <h1 class="forms-heading">Login</h1>
-                <div class="form-inputs">
+     
+      <div className="section">
+        <div className="container">
+          <form className="form" onSubmit={submitHandler}>
+            <div className="right-side">
+              <div className="forms">
+                <h1 className="forms-heading">Login</h1>
+                <div className="form-inputs">
                   <input
                     type="email"
                     placeholder="Email"
-                    autocomplete="chrome-off"
+                    autoComplete="chrome-off"
                     name="email"
                     required
                   />
-                  <i class="fa fa-envelope"></i>
+                  <i className="fa fa-envelope"></i>
                 </div>
-                <div class="form-inputs">
+                <div className="form-inputs">
                   <input
-                    class="password-input"
-                    autocomplete="chrome-off"
+                    className="password-input"
+                    autoComplete="chrome-off"
                     type="password"
                     placeholder="Password"
                     name="pwd"
                     required
                   />
-                  <i class="fa fa-eye" id="password_eye"></i>
+                  <i className="fa fa-eye" id="password_eye"></i>
                 </div>
 
-                <div class="login-button">
+                <div className="login-button">
                   <button>Login</button>
                 </div>
 
-                <div class="form-acc">
+                <div className="form-acc">
                   <p>Dont have account?</p>
                   <Link to="/signup">Signup</Link>
                 </div>
@@ -92,7 +101,7 @@ function Logincom() {
                 </ul>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
