@@ -2,14 +2,14 @@ import React from "react";
 import "./Logincom.scss";
 import { Link } from "react-router-dom";
 const loginimg = require("./Asset/loginbg.png");
-const login  = require("../../redux/actions/user");
+const { login } = require("../../redux/actions/user");
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
 
 function Logincom() {
   
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const disatch = useDispatch();
 
@@ -43,7 +43,7 @@ function Logincom() {
                     placeholder="Email"
                     autoComplete="chrome-off"
                     name="email"
-                    value={email}
+                    value={ email ? email : ""}
                     onChange={fillEmailInput}
                     required
                   />
@@ -57,7 +57,7 @@ function Logincom() {
                     placeholder="Password"
                     name="pwd"
                     onChange={FillPasswordInput}
-                    value={password}
+                    value={ password ? password : ""}
                     required
                   />
                   <i className="fa fa-eye" id="password_eye"></i>
