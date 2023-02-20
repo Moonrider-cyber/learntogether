@@ -76,7 +76,7 @@ function Signupcom() {
                 <div className="form-inputs">
                   <input
                     className="password-input"
-                    autocomplete="chrome-off"
+                    autoComplete="chrome-off"
                     type="password"
                     placeholder="Password"
                     required

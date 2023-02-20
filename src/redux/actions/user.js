@@ -1,7 +1,7 @@
 import {server} from '../store';
 import axios from 'axios';
 
-const login = (email,password) => async (dispatch) => {
+export const login = (email,password) => async dispatch => {
     try{
         dispatch({type:"loginrequest"});
  

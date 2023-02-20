@@ -2,20 +2,30 @@ import React from "react";
 import "./Logincom.scss";
 import { Link } from "react-router-dom";
 const loginimg = require("./Asset/loginbg.png");
-const { login } = require("../../redux/actions/user");
+const login  = require("../../redux/actions/user");
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
 
 function Logincom() {
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   const disatch = useDispatch();
 
+  function fillEmailInput(e) {
+    setEmail(e.target.value);
+  }
+  function FillPasswordInput(e) {
+    setPassword(e.target.value);
+  }
+
   const submitHandler = (e) => {
     e.preventDefault();
-    disatch(login(email,password));
+    console.log("email", email);
+    console.log("password", password);
+
+    disatch(login(email, password));
   }
 
   return (
@@ -23,7 +33,7 @@ function Logincom() {
      
       <div className="section">
         <div className="container">
-          <form className="form" onSubmit={submitHandler}>
+          <form className="form" onSubmit={submitHandler} method="post" >
             <div className="right-side">
               <div className="forms">
                 <h1 className="forms-heading">Login</h1>
@@ -33,6 +43,8 @@ function Logincom() {
                     placeholder="Email"
                     autoComplete="chrome-off"
                     name="email"
+                    value={email}
+                    onChange={fillEmailInput}
                     required
                   />
                   <i className="fa fa-envelope"></i>
@@ -44,13 +56,15 @@ function Logincom() {
                     type="password"
                     placeholder="Password"
                     name="pwd"
+                    onChange={FillPasswordInput}
+                    value={password}
                     required
                   />
                   <i className="fa fa-eye" id="password_eye"></i>
                 </div>
 
                 <div className="login-button">
-                  <button>Login</button>
+                  <input type={"submit"} value="login" />
                 </div>
 
                 <div className="form-acc">
