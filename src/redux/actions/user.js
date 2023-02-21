@@ -11,8 +11,22 @@ export const login = (email,password) => async (dispatch) => {
                 "Content-Type":"application/json",
             },withCredentials:true,
         });
-        dispatch({type:"loginSucess",payload: data});
+        dispatch({type:"loginsuccess",payload: data});
     }catch(error){
         dispatch({type:"loginFail",payload:error.response.data.message});
+    }
+}
+
+export const loadUser = () => async (dispatch) => {
+    try{
+        dispatch({type:"loadUserRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/me`,{
+                withCredentials:true,
+        });
+        dispatch({type:"loadUsersuccess",payload: data.user});
+    }catch(error){
+        dispatch({type:"loadUserFail",payload:error.response.data.message});
     }
 }

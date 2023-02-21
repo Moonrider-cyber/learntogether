@@ -4,10 +4,10 @@ export const userReducer = createReducer({},{
     loginRequest:(state)=>{
         state.loading=true;
     },
-    loginSucess:(state,action)=>{
+    loginsuccess:(state,action)=>{
         state.loding=false;
         state.isAuthenicated=true;
-        state.user=action.payload;
+        state.user=action.payload.user;
         state.message=action.payload.message;
     },
     loginFail:(state,action)=>{
@@ -18,8 +18,21 @@ export const userReducer = createReducer({},{
     clearError:(state)=>{
         state.error=null;
     },
-    clearmessage:(state)=>{
+    clearMessage:(state)=>{
         state.message=null;
-    }
+    },
 
+    loadUserRequest:(state)=>{
+        state.loading=true;
+    },
+    loadUsersuccess:(state,action)=>{
+        state.loding=false;
+        state.isAuthenicated=true;
+        state.user=action.payload;
+    },
+    loadUserFail:(state,action)=>{
+        state.loding = false;
+        state.isAuthenicated = false;
+        state.error = action.payload;
+    },
 })
