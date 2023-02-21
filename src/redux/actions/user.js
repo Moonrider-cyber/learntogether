@@ -22,9 +22,10 @@ export const loadUser = () => async (dispatch) => {
         dispatch({type:"loadUserRequest"});
  
         const {data} = await axios.post(
-            `${server}/me`,{
+            `${server}/me`,{},{
                 withCredentials:true,
         });
+        console.log("data",data)
         dispatch({type:"loadUsersuccess",payload: data.user});
     }catch(error){
         dispatch({type:"loadUserFail",payload:error.response.data.message});
