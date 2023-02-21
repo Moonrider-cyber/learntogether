@@ -86,7 +86,7 @@ function Signupcom() {
                 
                 <div className="form-inputs file-inputs">
                 <input 
-                  class="form-control file-input" 
+                  className="form-control file-input" 
                   type="file" 
                   id="formFile"
                   accept="image/jpg, image/png, image/jpeg"

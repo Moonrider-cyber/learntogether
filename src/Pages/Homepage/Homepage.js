@@ -4,10 +4,12 @@ import Courselist from "../../Componets/Courselist/Courselist";
 import Teachwithus from "../../Componets/layout/Banner-Teachwithus/Teachwithus";
 import Footer from "../../Componets/layout/Footer/footer";
 
-function Homepage() {
+
+function Homepage(isAuthenticated,user) {
+
   return (
     <div>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} user={user} />
       <Banner />
       <Courselist />
       <Teachwithus />

@@ -13,19 +13,9 @@ function Logincom() {
 
   const disatch = useDispatch();
 
-  function fillEmailInput(e) {
-    setEmail(e.target.value);
-  }
-  function FillPasswordInput(e) {
-    setPassword(e.target.value);
-  }
-
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("email", email);
-    console.log("password", password);
-
-    disatch(login(email, password));
+    disatch(login(email,password));
   }
 
   return (
@@ -44,7 +34,7 @@ function Logincom() {
                     autoComplete="chrome-off"
                     name="email"
                     value={ email ? email : ""}
-                    onChange={fillEmailInput}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                   <i className="fa fa-envelope"></i>
@@ -56,7 +46,7 @@ function Logincom() {
                     type="password"
                     placeholder="Password"
                     name="pwd"
-                    onChange={FillPasswordInput}
+                    onChange={(e) => setPassword(e.target.value)}
                     value={ password ? password : ""}
                     required
                   />

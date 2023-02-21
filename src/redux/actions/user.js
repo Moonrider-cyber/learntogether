@@ -1,17 +1,18 @@
 import {server} from '../store';
 import axios from 'axios';
 
-export const login = (email,password) => async dispatch => {
+export const login = (email,password) => async (dispatch) => {
     try{
-        dispatch({type:"loginrequest"});
+        dispatch({type:"loginRequest"});
  
         const {data} = await axios.post(`${server}/login`,{email,password},{
+            
             headers:{
                 "Content-Type":"application/json",
             },withCredentials:true,
         });
-        dispatch({type:"loginsucess"});
+        dispatch({type:"loginSucess",payload: data});
     }catch(error){
-        dispatch({type:"loginfail",payload:error.response.data.message});
+        dispatch({type:"loginFail",payload:error.response.data.message});
     }
 }

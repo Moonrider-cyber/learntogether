@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 
-function Navbar() {
+function Navbar(isAuthenticated = false, user) {
   function menuclick() {
     const body = document.querySelector("body");
     const navbar = document.querySelector(".navbar");
@@ -14,6 +14,8 @@ function Navbar() {
     nav.classList.toggle("res-nav-close");
     body.classList.toggle("fixed");
   }
+
+
   return (
     <div>
       <nav>

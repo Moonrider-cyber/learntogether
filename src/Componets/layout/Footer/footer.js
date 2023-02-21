@@ -28,10 +28,10 @@ function Footer() {
                     <p>125, Busilearn Adajan</p>
                     <p>Surat , Gujarat , IN</p>
                     <div className="footer-social">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-youtube"></i>
+                        <i className="fa-brands fa-instagram"></i>
+                        <i className="fa-brands fa-facebook"></i>
+                        <i className="fa-brands fa-twitter"></i>
+                        <i className="fa-brands fa-youtube"></i>
                     </div>
                 </div>
             </div>
