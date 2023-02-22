@@ -12,20 +12,28 @@ $lightfont: "Ubuntu", sans-serif;
     font-size: 16px;
     font-family: $lightfont;
   }
-}
-
-
-
-.courseCard{
+  .courses-cards{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    width: 100%;
-    margin: 3% 5%;
+    margin: 10px 0;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.courseCard{
+  margin-top: 30px;
+  width: 100%;
     .c-card{
       background-color: rgb(239, 239, 239);
       display: flex;
       flex-direction: column;
       border-radius: 10px;
+      transition: .4s ease-in-out;
+      cursor: pointer;
         .c-card-img{
           width: 100%;
           height: 100%;
@@ -40,33 +48,49 @@ $lightfont: "Ubuntu", sans-serif;
         .c-card-details{
           padding: 19px 19px;
           .c-card-title{
+            padding: 3px 0;
             h5{
               font-size: 18px;
               margin: 0;
             }
           }
           .c-card-instructor p{
-            padding: 5px 0;
+            padding: 3px 0;
             margin: 0;
             font-size: 13px;
             font-weight: 100;
             color: rgb(94, 94, 94);
           }
           .c-card-rating{
+            padding: 3px 0;
             display: flex;
-            gap: 5px;
+            gap: 3px;
             align-items: center;
+            font-weight: 400;
               i{
                 color: rgb(209, 178, 2);
               }
+              p{
+                margin: 0;
+                color: red;
+              }
+              :last-child{
+                color: rgb(94, 94, 94);
+              }
           }
           .c-card-price{
+            padding: 3px 0;
             display: flex;
             gap: 3px;
+            span{ font-size: 18px; }
             p{
               font-size: 18px;
+              color: black;
             }
           }
         } 
+    }
+    .c-card:hover{
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.459);
     }
 }

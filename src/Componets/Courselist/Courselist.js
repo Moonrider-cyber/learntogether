@@ -7,7 +7,17 @@ function Navbar() {
     <div className="container courselist">
       <h1>Learn in-demand professional skills</h1>
       <p>Choose from courses in English and many other languages</p>
+      <div className="courses-cards">
+
       <CourseCard />
+      <CourseCard />
+      <CourseCard />
+      <CourseCard />
+      <CourseCard />
+      <CourseCard />
+      <CourseCard />
+      <CourseCard />
+      </div>
     </div>
   );
 }
