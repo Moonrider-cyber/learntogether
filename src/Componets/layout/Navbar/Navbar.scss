@@ -331,8 +331,12 @@ nav {
         font-family: $lightfont;
         font-weight: 600;
         height: 48px;
-        width: 90%;
+        width: 100%;
         border: 2px #0056d2 solid;
+      }
+      a{  
+        width: 100%;
+        text-align: center;
       }
     }
   }

@@ -14,7 +14,7 @@ function Navbar(isAuthenticated = false, user) {
     nav.classList.toggle("res-nav-close");
     body.classList.toggle("fixed");
   }
-
+    let auth = isAuthenticated;
 
   return (
     <div>
@@ -79,9 +79,14 @@ function Navbar(isAuthenticated = false, user) {
                   <i className="fa-solid fa-cart-shopping"></i>
                 </li>
                 <li>
-                  <Link to="/signup">
-                    <button>Sign Up</button>
-                  </Link>
+                  {
+                    auth ? <div>No</div> 
+                    : 
+                    <Link to="/signup">
+                        <button>Sign Up</button>
+                      </Link>
+                } 
+
                 </li>
               </ul>
             </div>
@@ -116,8 +121,8 @@ function Navbar(isAuthenticated = false, user) {
             </ul>
           </div>
           <div className="res-nav-btn-warp">
-            <button>Join for Free</button>
-            <button>Log In</button>
+          <Link to={"/teachwithme"}><button>Join for Free</button></Link>
+            <Link to={"/login"}><button>Log In</button></Link>
           </div>
         </div>
       </nav>

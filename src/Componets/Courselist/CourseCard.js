@@ -19,7 +19,7 @@ const CourseCard = () => {
                         <p><a>Jetha Gada</a></p>
                     </div>
                     <div className='c-card-rating'>
-                        <i class="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
                         <p>4.9</p>
                         <p>(<span>33</span> reviews)</p>
                     </div>

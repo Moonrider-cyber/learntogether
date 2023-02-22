@@ -25,7 +25,6 @@ export const loadUser = () => async (dispatch) => {
             `${server}/me`,{},{
                 withCredentials:true,
         });
-        console.log("data",data)
         dispatch({type:"loadUserSuccess",payload: data.user});
     }catch(error){
         dispatch({type:"loadUserFail",payload:error.response.data.message});
