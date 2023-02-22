@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {useSelector} from "react-redux";
 import { loadUser } from "./redux/actions/user";
+import {ProtectedRoute} from "protected-route-react"
 
 function App() {
 
@@ -41,7 +42,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/login" element={
+          <ProtectedRoute isAuthenticated={! isAuthenticated} redirect="/">
+            <Login />  
+          </ProtectedRoute>
+          }></Route>
         </Routes>
         <Toaster />
       </BrowserRouter>
