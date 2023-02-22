@@ -1,6 +1,7 @@
 $boldfont: "Oswald", sans-serif;
 $lightfont: "Ubuntu", sans-serif;
 
+// all courses cards
 .courselist {
   padding: 40px 0;
   h1 {
@@ -19,11 +20,38 @@ $lightfont: "Ubuntu", sans-serif;
   }
 }
 
-a{
-  text-decoration: none;
-  color: black;
+
+@media only screen and (max-width: 800px) {
+  .courselist {
+    padding: 40px 20px;
+    h1{
+      font-size: 30px;
+    }
+    p{
+      font-size: 14px;
+    }
+    .courses-cards{
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+}
+@media only screen and (max-width: 468px) {
+  .courselist {
+    padding: 40px 20px;
+    h1{
+      font-size: 30px;
+    }
+    p{
+      font-size: 14px;
+    }
+    .courses-cards{
+      grid-template-columns: repeat(1,1fr);
+    }
+  }
 }
 
+
+// Single course card
 .courseCard{
   margin-top: 30px;
   width: 100%;

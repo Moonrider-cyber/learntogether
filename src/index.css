@@ -16,5 +16,7 @@ code {
     monospace;
 }
 
-/* navbar css */
-/* navbar css */
+a{
+  text-decoration: none;
+  color: black;
+}
