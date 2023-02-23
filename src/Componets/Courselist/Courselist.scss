@@ -66,6 +66,7 @@ $lightfont: "Ubuntu", sans-serif;
           width: 100%;
           height: 100%;
           img{
+            transition: .4s ease all;
               border-top-right-radius: 10px;
               border-top-left-radius: 10px;
               width: 100%;
@@ -120,5 +121,10 @@ $lightfont: "Ubuntu", sans-serif;
     }
     .c-card:hover{
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.459);
+      .c-card-img{
+        img{
+          transform: scale(1.01);
+        }
+      }
     }
 }
