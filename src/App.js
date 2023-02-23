@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import {useSelector} from "react-redux";
 import { loadUser } from "./redux/actions/user";
 import {ProtectedRoute} from "protected-route-react"
+import AdminApp from "./Admin/AdminApp";
 
 function App() {
 
@@ -43,10 +44,11 @@ function App() {
           <Route path="/" element={<Homepage isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={
-          <ProtectedRoute isAuthenticated={! isAuthenticated} redirect="/">
+            <ProtectedRoute isAuthenticated={! isAuthenticated} redirect="/">
             <Login />  
           </ProtectedRoute>
           }></Route>
+          <Route path="/admin/*" element={<AdminApp/>}></Route>
         </Routes>
         <Toaster />
       </BrowserRouter>
