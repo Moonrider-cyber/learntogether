@@ -19,7 +19,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function Dashboard() {
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' , marginY:3,  marginX:10 }}>
       <CssBaseline />
       
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
