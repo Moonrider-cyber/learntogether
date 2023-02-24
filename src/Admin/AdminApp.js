@@ -1,18 +1,16 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./AdminComponets/Dashboard";
-import Login from "./AdminComponets/Login";
+import { CssBaseline, StyledEngineProvider } from "@mui/material";
+import MainRoutes from "./routes/MainRoutes";
+import Header from "./AdminComponets/Header";
 
 function AdminApp() {
 
   return (
-    <>
-      <Routes>
-          <Route index element={<Dashboard />}></Route>
-          <Route path="login" element={<Login />}></Route>
-        </Routes>
-
-    </>
+    <StyledEngineProvider injectFirst>
+      <CssBaseline />
+      <Header />
+          <MainRoutes />
+    </StyledEngineProvider>
   );
 }
 

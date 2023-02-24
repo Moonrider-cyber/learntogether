@@ -1,12 +1,4 @@
-import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
+import React from 'react'
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -16,12 +8,18 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupIcon from '@mui/icons-material/Group';
 import SchoolIcon from '@mui/icons-material/School';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import MuiDrawer from '@mui/material/Drawer';
+import MuiAppBar from '@mui/material/AppBar';
+import { styled, useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -45,15 +43,6 @@ const closedMixin = (theme) => ({
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
 });
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -89,8 +78,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+}));
 
-export default function Header() {
+
+const Header = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -101,11 +99,9 @@ export default function Header() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
+    <>
+      <AppBar position="fixed" open={open} >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -133,6 +129,7 @@ export default function Header() {
         <Divider />
         <List>
           <ListItem disablePadding sx={{ display: 'block' }}>
+            <Link to="/admin">
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -151,6 +148,8 @@ export default function Header() {
                 </ListItemIcon>
                 <ListItemText primary={"Dashboard"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+            </Link>
+            <Link to="/admin/user">
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -169,6 +168,7 @@ export default function Header() {
                 </ListItemIcon>
                 <ListItemText primary={"Users"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+            </Link>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -187,6 +187,7 @@ export default function Header() {
                 </ListItemIcon>
                 <ListItemText primary={"Instructor"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+            <Link to="/admin/course">
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -205,29 +206,14 @@ export default function Header() {
                 </ListItemIcon>
                 <ListItemText primary={"Courses"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Link>
             </ListItem>
         </List>
 
 
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        
-      </Box>
-    </Box>
-  );
+    </>
+  )
 }
+
+export default Header
