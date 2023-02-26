@@ -53,5 +53,19 @@ export const userReducer = createReducer({},{
         state.error = action.payload.message;
     },
     
-    
+    signupRequest:(state)=>{
+        state.loading=true;
+    },
+    signupsuccess:(state,action)=>{
+        state.loding=false;
+        state.isAuthenticated=true;
+        state.user=action.payload.user;
+        state.message=action.payload.message;
+    },
+    signupFail:(state,action)=>{
+        state.loding = false;
+        state.isAuthenticated = false;
+        state.error = action.payload;
+    },
+
 })

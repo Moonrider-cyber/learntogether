@@ -16,19 +16,20 @@ export const login = (email,password) => async (dispatch) => {
         dispatch({type:"loginFail",payload:error.response.data.message});
     }
 }
-export const signup = (email,password) => async (dispatch) => {
+export const signup = (formdata) => async (dispatch) => {
     try{
-        dispatch({type:"loginRequest"});
+        dispatch({type:"signupRequest"});
  
-        const {data} = await axios.post(`${server}/login`,{email,password},{
-            
-            headers:{
-                "Content-Type":"application/json",
-            },withCredentials:true,
-        });
-        dispatch({type:"loginsuccess",payload: data});
+        const {data} = await axios.post(`${server}/register`,
+            formdata,{
+                headers:{
+                    "Content-Type":"multipart/form-data",
+                },withCredentials:true,
+            }
+        );
+        dispatch({type:"signupsuccess",payload: data});
     }catch(error){
-        dispatch({type:"loginFail",payload:error.response.data.message});
+        dispatch({type:"signupFail",payload: error.response.data.message});
     }
 }
 
