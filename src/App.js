@@ -32,19 +32,23 @@ function App() {
   
   // load user when app starts
   useEffect(() => {
-    dispatch(loadUser())
-  
+    dispatch(loadUser())  
   }, [dispatch]);
   
-
+console.log(isAuthenticated)
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage isAuthenticated={isAuthenticated} user={user} />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/signup" element={
+            <ProtectedRoute isAuthenticated={!isAuthenticated} redirect="/">
+              <Signup />
+          </ProtectedRoute>
+          
+          }></Route>
           <Route path="/login" element={
-            <ProtectedRoute isAuthenticated={! isAuthenticated} redirect="/">
+            <ProtectedRoute isAuthenticated={!isAuthenticated} redirect="/">
             <Login />  
           </ProtectedRoute>
           }></Route>

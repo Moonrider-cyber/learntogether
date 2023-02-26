@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
+import { useSelector } from "react-redux";
 
-function Navbar(isAuthenticated = false, user) {
+function Navbar() {
   function menuclick() {
     const body = document.querySelector("body");
     const navbar = document.querySelector(".navbar");
@@ -14,8 +15,10 @@ function Navbar(isAuthenticated = false, user) {
     nav.classList.toggle("res-nav-close");
     body.classList.toggle("fixed");
   }
-    let auth = isAuthenticated;
 
+  const { isAuthenticated } = useSelector((state) => state.user);
+
+console.log()
   return (
     <div>
       <nav>
@@ -79,8 +82,9 @@ function Navbar(isAuthenticated = false, user) {
                   <i className="fa-solid fa-cart-shopping"></i>
                 </li>
                 <li>
+                  
                   {
-                    auth ? <div>No</div> 
+                    isAuthenticated ? <div>No</div> 
                     : 
                     <Link to="/signup">
                         <button>Sign Up</button>

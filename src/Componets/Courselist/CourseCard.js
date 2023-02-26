@@ -1,22 +1,25 @@
 import React from 'react';
 import './Courselist.scss';
 const img = require('./asset/Best-Blockchain-Courses.png');
+import { Link } from 'react-router-dom';
 
 const CourseCard = () => {
   return (
     <>
         <div className="container courseCard">
             <div className='c-card'>
-                <a href='/'>
+                <Link to='/'>
                 <div className='c-card-img'>
                     <img src={img}/>
                 </div>
                 <div className='c-card-details'>
                     <div className='c-card-title'>
-                        <h5><a>Best Blockchain Course - Must Try One Time</a></h5>
+                        {/* <h5><Link to={"/"}>Best Blockchain Course - Must Try One Time</Link></h5> */}
+                        <h5>Best Blockchain Course - Must Try One Time</h5>
                     </div>
                     <div className='c-card-instructor'>
-                        <p><a>Jetha Gada</a></p>
+                        {/* <p><Link to={"/"}>Jetha Gada</Link></p> */}
+                        <p>Jetha Gada</p>
                     </div>
                     <div className='c-card-rating'>
                         <i className="fa-solid fa-star"></i>
@@ -27,7 +30,7 @@ const CourseCard = () => {
                         <span>₹</span><p>4999</p>
                     </div>
                 </div>
-                </a>
+                </Link>
             </div>
         </div>
     </>

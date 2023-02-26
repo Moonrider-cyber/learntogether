@@ -24,35 +24,35 @@ function Signupcom() {
               <div className="social">
                 <ul className="social-icons">
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i className="fa-brands fa-facebook-f"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i className="fa-brands fa-twitter"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i className="fa-brands fa-linkedin-in"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/">
                       <i className="fa-brands fa-instagram"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 <ul className="terms">
                   <li>
-                    <a href="#">Terms</a>
+                    <Link to="/">Terms</Link>
                   </li>
                   <li>
                     <span className="dots"></span>
                   </li>
                   <li>
-                    <a href="#">Services</a>
+                    <Link to="/">Services</Link>
                   </li>
                 </ul>
               </div>

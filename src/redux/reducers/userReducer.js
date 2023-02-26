@@ -6,13 +6,13 @@ export const userReducer = createReducer({},{
     },
     loginsuccess:(state,action)=>{
         state.loding=false;
-        state.isAuthenicated=true;
+        state.isAuthenticated=true;
         state.user=action.payload.user;
         state.message=action.payload.message;
     },
     loginFail:(state,action)=>{
         state.loding = false;
-        state.isAuthenicated = false;
+        state.isAuthenticated = false;
         state.error = action.payload;
     },
     clearError:(state)=>{
@@ -27,12 +27,12 @@ export const userReducer = createReducer({},{
     },
     loadUserSuccess:(state,action)=>{
         state.loding=false;
-        state.isAuthenicated=true;
+        state.isAuthenticated=true;
         state.user=action.payload;
     },
     loadUserFail:(state,action)=>{
         state.loding = false;
-        state.isAuthenicated = false;
+        state.isAuthenticated = false;
         state.error = action.payload;
     },
 })
