@@ -35,7 +35,6 @@ function App() {
     dispatch(loadUser())  
   }, [dispatch]);
   
-console.log(isAuthenticated)
   return (
     <>
       <BrowserRouter>

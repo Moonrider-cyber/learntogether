@@ -16,7 +16,7 @@ function Logincom() {
   const submitHandler = (e) => {
     e.preventDefault();
     disatch(login(email,password));
-  }
+  } 
 
   return (
     <div>

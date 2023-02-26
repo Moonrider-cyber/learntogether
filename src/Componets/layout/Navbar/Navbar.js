@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/actions/user";
 
 function Navbar() {
   function menuclick() {
@@ -17,6 +19,12 @@ function Navbar() {
   }
 
   const { isAuthenticated } = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  }
 
 console.log()
   return (
@@ -84,7 +92,9 @@ console.log()
                 <li>
                   
                   {
-                    isAuthenticated ? <div>No</div> 
+                    isAuthenticated ? <Link to="/">
+                    <button onClick={logoutHandler}>Logout</button>
+                  </Link> 
                     : 
                     <Link to="/signup">
                         <button>Sign Up</button>
