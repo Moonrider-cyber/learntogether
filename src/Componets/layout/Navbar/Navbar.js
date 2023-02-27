@@ -4,6 +4,12 @@ import "./Navbar.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/actions/user";
+const testimg = require("./asset/avatar.png");
+
+import Avatar from '@mui/material/Avatar';
+import Paper from '@mui/material/Paper';
+import { Typography,Box, Divider, ListItemButton, ListItemText, ListItem, Button } from "@mui/material";
+
 
 function Navbar() {
   function menuclick() {
@@ -24,6 +30,11 @@ function Navbar() {
 
   const logoutHandler = () => {
     dispatch(logout());
+  }
+
+  function dropdownHandler(){
+    const dropdown = document.querySelector(".nav-profile-dropdown");
+    dropdown.classList.toggle("none");
   }
 
 console.log()
@@ -92,12 +103,37 @@ console.log()
                 <li>
                   
                   {
-                    isAuthenticated ? <Link to="/">
-                    <button onClick={logoutHandler}>Logout</button>
-                  </Link> 
+                    isAuthenticated ? 
+                  <div className="nav-profile">
+                    <Avatar alt="Remy Sharp" src={testimg} sx={{ width: 30, height: 30, cursor:"pointer" }} onClick={dropdownHandler} />
+                    <div className="nav-profile-dropdown none">
+                      <Paper elevation={3} sx={{ position:"absolute",p:2,right:40,mt:1 }} >
+                      
+                      <Box component="span" sx={{ p: 0 }}>
+                      <Typography sx={{ fontSize: "small",fontWeight:600,p:"2px" }}>
+                        Demo12
+                      </Typography>
+                      <Typography sx={{ fontSize: "small",p:"2px" }}>
+                        Demo@gmail.com
+                      </Typography>
+                      </Box>
+                      <Divider />
+                      <ListItem sx={{display:"flex",flexDirection:"column"}}>
+                        <ListItemButton  sx={{color:"black"}}>
+                            <ListItemText primary="Home" />
+                          </ListItemButton>
+                          <ListItemButton sx={{color:"black"}} >
+                            <ListItemText primary="Profile"/>
+                          </ListItemButton>
+                      </ListItem>
+                      <Divider />
+                      <Button color="error" variant="outlined" fullWidth sx={{mt:1}} onClick={logoutHandler}>Logout</Button>
+                      </Paper>
+                    </div>
+                  </div> 
                     : 
                     <Link to="/signup">
-                        <button>Sign Up</button>
+                        <button className="signupbtn">Sign Up</button>
                       </Link>
                 } 
 

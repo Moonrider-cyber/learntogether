@@ -176,7 +176,7 @@ nav {
             color: violet;
           }
         }
-        button {
+        .signupbtn {
           font-size: 15px;
           width: 90px;
           padding: 5px 0;
@@ -186,7 +186,7 @@ nav {
           font-weight: 700;
           border: 2px black solid;
         }
-        button:hover {
+        .signupbtn:hover {
           background-color: $dark;
         }
       }
@@ -224,6 +224,10 @@ nav {
       padding-right: 7px;
     }
   }
+}
+.none{
+  display: none;
+  
 }
 @media only screen and (max-width: 767px) {
   .navbar {
