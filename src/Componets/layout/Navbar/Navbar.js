@@ -24,7 +24,7 @@ function Navbar() {
     body.classList.toggle("fixed");
   }
 
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated,user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -105,16 +105,16 @@ console.log()
                   {
                     isAuthenticated ? 
                   <div className="nav-profile">
-                    <Avatar alt="Remy Sharp" src={testimg} sx={{ width: 30, height: 30, cursor:"pointer" }} onClick={dropdownHandler} />
+                    <Avatar alt="Remy Sharp" src={user ? user.avatar.url : testimg} sx={{ width: 32, height: 32, cursor:"pointer" }} onClick={dropdownHandler} />
                     <div className="nav-profile-dropdown none">
                       <Paper elevation={3} sx={{ position:"absolute",p:2,right:40,mt:1 }} >
                       
                       <Box component="span" sx={{ p: 0 }}>
                       <Typography sx={{ fontSize: "small",fontWeight:600,p:"2px" }}>
-                        Demo12
+                        {user ? user.name : 'test'}
                       </Typography>
                       <Typography sx={{ fontSize: "small",p:"2px" }}>
-                        Demo@gmail.com
+                      {user ? user.email : "test"}
                       </Typography>
                       </Box>
                       <Divider />
