@@ -11,6 +11,7 @@ import {useSelector} from "react-redux";
 import { loadUser } from "./redux/actions/user";
 import {ProtectedRoute} from "protected-route-react"
 import AdminApp from "./Admin/AdminApp";
+import { Profile } from "./Pages/Profile/Profile";
 
 function App() {
 
@@ -49,6 +50,11 @@ function App() {
           <Route path="/login" element={
             <ProtectedRoute isAuthenticated={!isAuthenticated} redirect="/">
             <Login />  
+          </ProtectedRoute>
+          }></Route>
+          <Route path="/profile" element={
+            <ProtectedRoute isAuthenticated={isAuthenticated} redirect="/">
+            <Profile user={user} />  
           </ProtectedRoute>
           }></Route>
           <Route path="/admin/*" element={<AdminApp/>}></Route>

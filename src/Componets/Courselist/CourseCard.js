@@ -1,6 +1,6 @@
 import React from 'react';
 import './Courselist.scss';
-const img = require('./asset/Best-Blockchain-Courses.png');
+const img = require('./asset/musk.jpg');
 import { Link } from 'react-router-dom';
 
 const CourseCard = () => {
@@ -15,7 +15,7 @@ const CourseCard = () => {
                 <div className='c-card-details'>
                     <div className='c-card-title'>
                         {/* <h5><Link to={"/"}>Best Blockchain Course - Must Try One Time</Link></h5> */}
-                        <h5>Best Blockchain Course - Must Try One Time</h5>
+                        <h5>5 Din me paise doubble</h5>
                     </div>
                     <div className='c-card-instructor'>
                         {/* <p><Link to={"/"}>Jetha Gada</Link></p> */}
@@ -27,7 +27,7 @@ const CourseCard = () => {
                         <p>(<span>33</span> reviews)</p>
                     </div>
                     <div className='c-card-price'>
-                        <span>₹</span><p>4999</p>
+                        <span>₹</span><p>9999</p>
                     </div>
                 </div>
                 </Link>

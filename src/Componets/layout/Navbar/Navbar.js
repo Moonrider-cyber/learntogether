@@ -7,8 +7,7 @@ import { logout } from "../../../redux/actions/user";
 const testimg = require("./asset/avatar.png");
 
 import Avatar from '@mui/material/Avatar';
-import Paper from '@mui/material/Paper';
-import { Typography,Box, Divider, ListItemButton, ListItemText, ListItem, Button } from "@mui/material";
+import { Box, Divider, Button, Tooltip, IconButton, MenuItem, Menu } from "@mui/material";
 
 
 function Navbar() {
@@ -32,10 +31,14 @@ function Navbar() {
     dispatch(logout());
   }
 
-  function dropdownHandler(){
-    const dropdown = document.querySelector(".nav-profile-dropdown");
-    dropdown.classList.toggle("none");
-  }
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
 console.log()
   return (
@@ -104,33 +107,81 @@ console.log()
                   
                   {
                     isAuthenticated ? 
-                  <div className="nav-profile">
-                    <Avatar alt="Remy Sharp" src={user ? user.avatar.url : testimg} sx={{ width: 32, height: 32, cursor:"pointer" }} onClick={dropdownHandler} />
-                    <div className="nav-profile-dropdown none">
-                      <Paper elevation={3} sx={{ position:"absolute",p:2,right:40,mt:1 }} >
-                      
-                      <Box component="span" sx={{ p: 0 }}>
-                      <Typography sx={{ fontSize: "small",fontWeight:600,p:"2px" }}>
-                        {user ? user.name : 'test'}
-                      </Typography>
-                      <Typography sx={{ fontSize: "small",p:"2px" }}>
-                      {user ? user.email : "test"}
-                      </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+                      <div className="nav-profile">
+
+
+                    <Tooltip title="Profile"> 
+                      <IconButton
+                          onClick={handleClick}
+                          // onClick={dropdownHandler}
+                          size="small"
+                          sx={{ ml: 2 }}
+                          aria-controls={open ? 'account-menu' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                        >
+
+                        <Avatar alt="Profile pic" src={user ? user.avatar.url : testimg} sx={{ width: 32, height: 32 }}  />
+                      </IconButton>
+                    </Tooltip>
+                    <Menu
+                      anchorEl={anchorEl}
+                      id="account-menu"
+                      open={open}
+                      onClose={handleClose}
+                      onClick={handleClose}
+                      disableScrollLock={ true }
+                      PaperProps={{
+                        elevation: 0,
+                        sx: {
+                          overflow: 'visible',
+                          filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                          mt: 1.5,
+                          '& .MuiAvatar-root': {
+                            width: 32,
+                            height: 32,
+                            ml: -0.50,
+                            mr: 1,
+                            
+                          },
+                          '&:before': {
+                            content: '""',
+                            display: 'block',
+                            position: 'absolute',
+                            top: 0,
+                            right: 14,
+                            width: 10,
+                            height: 10,
+                            bgcolor: 'background.paper',
+                            transform: 'translateY(-50%) rotate(45deg)',
+                            zIndex: 0,
+                          },
+                        },
+                      }}
+                        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                      >
+                        <Link to={"/profile"}>
+                        <MenuItem onClick={handleClose}>
+                          Profile
+                        </MenuItem>
+                        </Link> 
+                        {/* <MenuItem onClick={handleClose}>
+                          
+                        </MenuItem> */}
+                        <Divider />
+                        <MenuItem onClick={handleClose}>
+                          
+                          Settings
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>
+                        <Button color="error" variant="outlined" fullWidth sx={{mt:1}} onClick={logoutHandler}>Logout</Button>
+                        </MenuItem>
+                    </Menu>
+                    
+                      </div> 
                       </Box>
-                      <Divider />
-                      <ListItem sx={{display:"flex",flexDirection:"column"}}>
-                        <ListItemButton  sx={{color:"black"}}>
-                            <ListItemText primary="Home" />
-                          </ListItemButton>
-                          <ListItemButton sx={{color:"black"}} >
-                            <ListItemText primary="Profile"/>
-                          </ListItemButton>
-                      </ListItem>
-                      <Divider />
-                      <Button color="error" variant="outlined" fullWidth sx={{mt:1}} onClick={logoutHandler}>Logout</Button>
-                      </Paper>
-                    </div>
-                  </div> 
                     : 
                     <Link to="/signup">
                         <button className="signupbtn">Sign Up</button>
