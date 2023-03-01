@@ -41,8 +41,6 @@ export default function login() {
     const data = new FormData(event.currentTarget);
   
     disatch(Adminlogin(data.get('email'),data.get('password')));
-    console.log(data.get('email'),data.get('password'));
-  
 
   };
 

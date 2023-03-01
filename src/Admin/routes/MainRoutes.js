@@ -10,24 +10,27 @@ import Dashboard from '../AdminComponets/Dashboard';
 
 const MainRoutes = () => {
     
-    const { isadmin,admin,message,error } = useSelector((state) => state.user);
-    
-    const dispatch = useDispatch();
+  const { isadmin,admin,message,error } = useSelector((state) => state.admin);
 
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        if(error){
-          toast.error(error);
-          dispatch({type:'clearError'})
-        }
-        if(message){
-          toast.success(message);
-          dispatch({type:'clearMessage'})
-        }
-      }, [dispatch,error,message]);
-      
-      // load user when app starts      
-
+  // show toast when error or message is updated
+  useEffect(() => {
+    if(error){
+      toast.error(error);
+      dispatch({type:'clearError'})
+    }
+    if(message){
+      toast.success(message);
+      dispatch({type:'clearMessage'})
+    }
+  }, [dispatch,error,message]);
+  
+  // load user when app starts
+  // useEffect(() => {
+  //   dispatch(loadUser())  
+  // }, [dispatch]);
+  
 
       return (    
 

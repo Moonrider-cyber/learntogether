@@ -21,4 +21,18 @@ export const adminReducer = createReducer({},{
     clearMessage:(state)=>{
         state.message=null;
     },
+    loadAdminRequest:(state)=>{
+        state.loading=true;
+    },
+    loadAdminSuccess:(state,action)=>{
+        state.loding=false;
+        state.isAdmin=true;
+        state.admin=action.payload;
+    },
+    loadAdminFail:(state,action)=>{
+        state.loding = false;
+        state.isAdmin = false;
+        state.error = action.payload;
+    },
+    
 });
