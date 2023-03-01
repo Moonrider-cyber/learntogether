@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch } from 'react-redux';
+const { Adminlogin } = require('../../redux/actions/admin');
+import { useNavigate } from 'react-router-dom';
+
 
 function Copyright(props) {
   return (
@@ -25,17 +29,21 @@ function Copyright(props) {
     </Typography>
   );
 }
-
+ 
 const theme = createTheme();
 
 export default function login() {
+
+  const disatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  
+    disatch(Adminlogin(data.get('email'),data.get('password')));
+    console.log(data.get('email'),data.get('password'));
+  
+
   };
 
   return (

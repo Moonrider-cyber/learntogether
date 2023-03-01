@@ -1,45 +1,179 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import SchoolIcon from '@mui/icons-material/School';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import { Avatar } from '@mui/material';
+import "../App.css";
+import { Navbar } from './Navbar';
+import Sidebar from './Sidebar';
 
-
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
-
-export default function Dashboard() {
+function Dashboard() {
 
   return (
-    <Box sx={{ display: 'flex' , marginY:3,  marginX:10 }}>
-      <CssBaseline />
-      
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
+    <>
+      <Sidebar/>
+      <section className="home-section">
+      <Navbar/>
+
+    <div className="home-content">
+      <div className="overview-boxes">
+        <div className="box">
+          <PeopleAltIcon sx={{fontSize:70 , mr:4,ml:0}} />
+          <div className="right-side">
+            <div className="box-topic">Total Student</div>
+            <div className="number">100</div>
+            
+          </div>
+          <i className=''></i>
+        </div>
+        <div className="box">
+          <AssignmentIndIcon sx={{fontSize:70 , mr:4,ml:0}} />
+          <div className="right-side">
+            <div className="box-topic">Total Instructor</div>
+            <div className="number">22</div>
+          </div>
+          <i className='' ></i>
+        </div>
+        <div className="box">
+        <SchoolIcon sx={{fontSize:70 , mr:4,ml:0}} />            
+
+          <div className="right-side">
+            <div className="box-topic">Total Course</div>
+            <div className="number">120</div>
+            
+          </div>
+          <i className='' ></i>
+        </div>
+
+        <div className="box">
+        <CurrencyRupeeIcon sx={{fontSize:70 , mr:4,ml:0}} />            
+
+          <div className="right-side">
+            <div className="box-topic">Subscription</div>
+            <div className="number">11,086</div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div className="video-boxes">
+        <div className="recent-video box">
+          <div className="title">Course List</div>
+          <div className="video-details">
+            <ul className="details">
+              <li className="topic">Course Date</li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+            </ul>
+            <ul className="details">
+            <li className="topic">Courses Name</li>
+            <li><a href="#">How To Start Business</a></li>
+            <li><a href="#">Increase Profit In Business</a></li>
+            <li><a href="#">How To Start Zero Investment Business</a></li>
+            <li><a href="#">Affiliate Marketing</a></li>
+            <li><a href="#">How To Make A Brand For Your Business</a></li>
+            <li><a href="#">Marketing Tips</a></li>
+            <li><a href="#">Profitable Businessess</a></li>
+          
+          </ul>
+          <ul className="details">
+            <li className="topic">Total View</li>
+            <li><a href="#">10000</a></li>
+            <li><a href="#">5000</a></li>
+            <li><a href="#">10000</a></li>
+            <li><a href="#">600</a></li>
+            <li><a href="#">1369</a></li>
+            <li><a href="#">99999</a></li>
+            <li><a href="#">500</a></li>
+             
+          </ul>
+          {/* <ul className="details">
+            <li className="topic">Incom</li>
+            <li><a href="#">$204.98</a></li>
+            <li><a href="#">$24.55</a></li>
+            <li><a href="#">$25.88</a></li>
+            <li><a href="#">$170.66</a></li>
+            <li><a href="#">$56.56</a></li>
+            <li><a href="#">$44.95</a></li>
+            <li><a href="#">$67.33</a></li>
+             
+          </ul> */}
+          </div>
+          <div className="button">
+            <a href="#">See All</a>
+          </div>
+        </div>
+
+
+
+
         
-      </Box>
-    </Box>
+        <div className="top-video box">
+          <div className="title">Student List</div>
+
+        
+          <ul className="top-video-details">
+            <li>
+           
+              
+              <span className="video">
+                Student
+              </span>
+           
+            <span className="view">
+              Join Date
+            </span>
+          </li>
+
+            <li>
+            <a href="#">
+              <Avatar sx={{mx:1}}/>
+              {/* <img src={stdimg} alt=""/> */}
+              <span className="video">Jainex Patel</span>
+            </a>
+            <span className="view">20-Feb-2023</span>
+          </li>
+          <li>
+            <a href="#">
+            <Avatar sx={{mx:1}}/>
+              {/* <img src={stdimg} alt=""/> */}
+              <span className="video">Parth Makadiya</span>
+            </a>
+            <span className="view">19-Feb-2023</span>
+          </li>
+          <li>
+            <a href="#">
+            <Avatar sx={{mx:1}}/>
+              {/* <img src={stdimg} alt=""/> */}
+              <span className="video">Jay Parmar</span>
+            </a>
+            <span className="view">15-Feb-2023</span>
+          </li>
+          <li>
+            <a href="#">
+            <Avatar sx={{mx:1 }}/>
+              {/* <img src={stdimg} alt=""/> */}
+              <span className="video">Rohit Parmar</span>
+            </a>
+            <span className="view">01-Feb-2023</span>
+          </li>
+         
+          </ul>
+        </div>
+      </div>
+    </div>
+    </section>
+    </>
   );
 }
+
+export default Dashboard;

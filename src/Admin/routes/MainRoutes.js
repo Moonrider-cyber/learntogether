@@ -1,25 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import {useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 
 // project imports
 import Login from '../AdminComponets/Login';
 import Dashboard from '../AdminComponets/Dashboard';
-import Users from '../AdminComponets/Users';
-import Course from '../AdminComponets/Course';
 
 
 const MainRoutes = () => {
     
-    return (    
-                
+    const { isadmin,user,message,error } = useSelector((state) => state.user);
+    
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        if(error){
+          toast.error(error);
+          dispatch({type:'clearError'})
+        }
+        if(message){
+          toast.success(message);
+          dispatch({type:'clearMessage'})
+        }
+      }, [dispatch,error,message]);
+      
+      // load user when app starts      
+
+
+      return (    
+
         <Routes>
-                      {/* <Route path="/" element={<Dashboard />}></Route> */}
-                      <Route path="/" element={<Dashboard />}></Route>
-                      <Route path="/user" element={<Users />}></Route>
-                      <Route path="/course" element={<Course />}></Route>
-                      
-                      <Route path="/login" element={<Login />}></Route>
-                      <Route path="/wow" element={<div>wow</div>}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>      
+                    <Route path="/" element={<Login />}></Route>
             </Routes>
 
     );
