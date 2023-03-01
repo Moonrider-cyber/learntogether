@@ -1,13 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-export const userReducer = createReducer({},{
+export const adminReducer = createReducer({},{
     AdminLoginRequest:(state)=>{
         state.loading=true;
     },
     AdminLoginSuccess:(state,action)=>{
         state.loding=false;
         state.isAdmin=true;
-        state.user=action.payload.user;
+        state.admin=action.payload.user;
         state.message=action.payload.message;
     },
     AdminLoginFail:(state,action)=>{

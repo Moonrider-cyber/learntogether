@@ -5,7 +5,7 @@ export const Adminlogin = (email,password) => async (dispatch) => {
     try{
         dispatch({type:"AdminLoginRequest"});
  
-        const {data} = await axios.post(`${server}/login`,{email,password},{
+        const {data} = await axios.post(`${server}/admin/login`,{email,password},{
             
             headers:{
                 "Content-Type":"application/json",

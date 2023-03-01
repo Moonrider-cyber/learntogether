@@ -10,7 +10,7 @@ import Dashboard from '../AdminComponets/Dashboard';
 
 const MainRoutes = () => {
     
-    const { isadmin,user,message,error } = useSelector((state) => state.user);
+    const { isadmin,admin,message,error } = useSelector((state) => state.user);
     
     const dispatch = useDispatch();
 
