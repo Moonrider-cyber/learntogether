@@ -4,8 +4,8 @@ import "./Navbar.scss";
 
 function NavOnlyLogo() {
   return (
-    <div>
-      <nav>
+    <>
+      <nav className="navonlylogo">
         <header className="navbar resnavbarclose">
           <section className="navbar-right">
             <div className="logo">
@@ -19,7 +19,7 @@ function NavOnlyLogo() {
           
         </header>
       </nav>
-    </div>
+    </>
   );
 }
 export default NavOnlyLogo;

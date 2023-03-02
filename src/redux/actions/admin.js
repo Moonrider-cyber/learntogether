@@ -25,7 +25,7 @@ export const loadAdmin = () => async (dispatch) => {
             `${server}/admin/me`,{},{
                 withCredentials:true,
         });
-        
+
         dispatch({type:"loadAdminSuccess",payload: data.user});
     }catch(error){
         dispatch({type:"loadAdminFail"});
