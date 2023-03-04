@@ -46,11 +46,10 @@ export default function login() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{ display:"flex",justifyContent:"center",height:"100vh",flexDirection:"column" }}>
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -85,12 +84,12 @@ export default function login() {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
                   label="Remember Me."
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
             <Button
               type="submit"

@@ -16,15 +16,15 @@ const profile_head = () => {
   return (
     <>
 
-    <Container sx={{mt:1}}>
+    <Container sx={{mt:1,display:"flex",flexDirection:"column",justifyContent:"center",height:"100vh" }}>
       <Typography variant='h3' sx={{textAlign:"center",fontWeight:"bold"}}>Profile</Typography>
       <Box gap={2} mt={7} >
       <Box sx={{display:"flex",justifyContent:"center"}}>
-        <Avatar sx={{width: 150, height: 150}} src={user.avatar.url} />
+        <Avatar sx={{width: 150, height: 150}} src={user ? user.avatar.url : "a" } />
       </Box>
       <Box sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-        <Typography variant='h5' sx={{textAlign:"center",fontWeight:"bold",mt:3}}>{user.name}</Typography>
-        <Typography variant='body1' sx={{textAlign:"center",mt:1}}>{user.email}</Typography>
+        <Typography variant='h5' sx={{textAlign:"center",fontWeight:"bold",mt:3}}>{user ? user.name : "Name"}</Typography>
+        <Typography variant='body1' sx={{textAlign:"center",mt:1}}>{user ? user.email : "email"}</Typography>
           <Button variant="outlined" sx={{ width:150,mt:2 }}>Edit Profile</Button>
       </Box>
       <Box sx={{ width: '100%',py:4 }}>
@@ -34,9 +34,7 @@ const profile_head = () => {
       <Tab label="Item Two" />
       <Tab label="Item Three" />
     </Tabs>
-    <TabPanel value={value} index={0}>
-      Item One
-      </TabPanel>  
+    
       </Box>
       </Box>
     </Container>

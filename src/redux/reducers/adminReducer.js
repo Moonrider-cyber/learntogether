@@ -1,6 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-export const adminReducer = createReducer({},{
+export const adminReducer = createReducer({
+    isAdmin: false
+},{
     AdminLoginRequest:(state)=>{
         state.loading=true;
     },
@@ -15,6 +17,23 @@ export const adminReducer = createReducer({},{
         state.isAdmin = false;
         state.error = action.payload;
     },
+
+    AdminlogoutRequest:(state)=>{
+        state.loading=true;
+    },
+    AdminlogoutSuccess:(state,action)=>{
+        state.loding=false;
+        state.isAdmin=false;
+        state.admin=null;
+        state.message=action.payload.message;
+    },
+    logoutFail:(state,action)=>{
+        state.loding = false;
+        state.isAdmin = true;
+        state.message=action.payload.message;
+        state.error = action.payload.message;
+    },
+
     clearError:(state)=>{
         state.error=null;
     },

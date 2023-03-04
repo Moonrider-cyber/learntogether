@@ -1,9 +1,20 @@
 import React from 'react'
-import { FaChalkboardTeacher,FaChartBar,FaDollarSign,FaCopyright,FaCog,FaCommentAlt,FaSearch,FaUsers} from "react-icons/fa";
+import { FaChalkboardTeacher,FaChartBar,FaDollarSign,FaCopyright,FaCog,FaCommentAlt} from "react-icons/fa";
 import { BsFillCalendar3WeekFill} from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
+import { useDispatch } from 'react-redux';
+import { Adminlogout } from '../../redux/actions/admin';
+import { Link, Navigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  
+  const dispatch = useDispatch();
+  
+  function logoutHandler(){
+    dispatch(Adminlogout());
+
+    <Navigate to={"/admin"}/>
+  }
   return (
     <>
               <div className="sidebar">
@@ -14,17 +25,17 @@ const Sidebar = () => {
       <ul className="nav-links">
         
         <li>
-          <a href="#" className="active">
+        <Link to="/admin/dashboard">
             <i className='' ><BsFillCalendar3WeekFill/></i>
             <span className="links_name">Dashboard</span>
-          </a>
+          </Link>
         </li>
 
         <li>
-          <a href="#">
+          <Link to="/admin/dashboard/users">
             <i className='' ><FaChalkboardTeacher/></i>
             <span className="links_name">content</span>
-          </a>
+          </Link>
         </li>
 
         <li>
@@ -63,10 +74,11 @@ const Sidebar = () => {
           </a>
         </li>
         <li className="log_out">
-          <a href="#">
+          
+          <button onClick={logoutHandler}>
             <i className=''><BiLogIn/></i>
-            <span className="links_name">Log out</span>
-          </a>
+            {/* <span className="links_name">Log out</span> */}
+          </button>
         </li>
       </ul>
   </div>   

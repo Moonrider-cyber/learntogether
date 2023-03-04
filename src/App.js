@@ -15,7 +15,7 @@ import { Profile } from "./Pages/Profile/Profile";
 
 function App() {
 
-  const { isAuthenticated,user,message,error } = useSelector((state) => state.user);
+  const { isAuthenticated = true,user,message,error } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 

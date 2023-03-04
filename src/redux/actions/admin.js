@@ -31,3 +31,18 @@ export const loadAdmin = () => async (dispatch) => {
         dispatch({type:"loadAdminFail"});
     }
 }
+
+export const Adminlogout = () => async (dispatch) => {
+    try{
+        dispatch({type:"AdminlogoutRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/admin/logout`,{},{
+                withCredentials:true,
+        }).catch((err)=>console.log(err));
+        
+        dispatch({type:"AdminlogoutSuccess",payload:data});
+    }catch(error){
+        dispatch({type:"AdminlogoutFail",payload:"logout failed"});
+    }
+}

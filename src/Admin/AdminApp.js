@@ -5,13 +5,13 @@ import { useEffect } from 'react';
 import {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-
-
+import { ProtectedRoute } from './AdminProtectedRoute/ProtectedRoute';
 
 // project imports
 import Login from './AdminComponets/Login';
 import Dashboard from './AdminComponets/Dashboard';
 import { loadAdmin } from '../redux/actions/admin';
+import { Users } from './AdminComponets/Users';
 
 
 function AdminApp() {
@@ -39,19 +39,26 @@ function AdminApp() {
   
   return (
   <>
+  
     <Routes>
       
-    <Route path="/"
+        <Route path="/"
      element={
-          <Login />
+      <ProtectedRoute isAdmin={!isAdmin} redirect={"/admin/dashboard"} >
+      <Login />
+      </ProtectedRoute>
         }></Route>
 
-    <Route path="/login" element={
-        <Login />
-        }></Route>
       
         <Route path="/dashboard" element={
-          <Dashboard />
+          <ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} >
+          <Dashboard home={true} />
+          </ProtectedRoute>
+        }></Route>      
+        <Route path="/dashboard/users" element={
+          // <ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} >
+          <Dashboard users={true} />
+          // </ProtectedRoute>
         }></Route>      
       
           
