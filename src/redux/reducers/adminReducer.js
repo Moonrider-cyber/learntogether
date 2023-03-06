@@ -53,5 +53,16 @@ export const adminReducer = createReducer({
         state.isAdmin = false;
         state.error = action.payload;
     },
+    getAllUsersRequest:(state)=>{
+        state.loading=true;
+    },
+    getAllUsersSuccess:(state,action)=>{
+        state.loding=false;
+        state.users=action.payload.users;
+    },
+    getAllUsersFail:(state,action)=>{
+        state.loding = false;
+        state.error = action.payload;
+    },
     
 });

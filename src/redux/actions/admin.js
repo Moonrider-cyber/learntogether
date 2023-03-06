@@ -46,3 +46,17 @@ export const Adminlogout = () => async (dispatch) => {
         dispatch({type:"AdminlogoutFail",payload:"logout failed"});
     }
 }
+
+export const getAllUsers = () => async (dispatch) => {
+    try{
+        dispatch({type:"getAllUsersRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/admin/users`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"getAllUsersSuccess",payload: data.users});
+    }catch(error){
+        dispatch({type:"getAllUsersFail"});
+    }
+}

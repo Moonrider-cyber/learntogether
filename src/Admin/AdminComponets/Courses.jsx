@@ -21,7 +21,8 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
-import { getAllUsers } from '../../redux/actions/admin';
+import { getAllCourses } from '../../redux/actions/courses';
+import { useSelector } from 'react-redux';
 
 function createData(name, Email, Role, CreateAt, protein) {
   return {
@@ -195,7 +196,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Users
+          Courses
         </Typography>
       )}
 
@@ -220,15 +221,16 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export const Users = () => {
+export const Courses = () => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getAllUsers());
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(getAllCourses());
+  }, [dispatch])
   
-  
+  const { courses } = useSelector((state) => state.courses);
+console.log(courses)
 
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('Email');

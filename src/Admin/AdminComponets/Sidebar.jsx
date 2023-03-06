@@ -1,10 +1,12 @@
 import React from "react";
-import { FaChalkboardTeacher,FaChartBar,FaDollarSign,FaCopyright,FaCog,FaCommentAlt} from "react-icons/fa";
-import { BsFillCalendar3WeekFill} from "react-icons/bs";
-import { BiLogIn } from "react-icons/bi";
 import { useDispatch } from 'react-redux';
 import { Adminlogout } from '../../redux/actions/admin';
 import { Link, Navigate } from 'react-router-dom';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import SchoolIcon from '@mui/icons-material/School';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Sidebar = () => {
   
@@ -26,70 +28,53 @@ const Sidebar = () => {
         
         <li>
         <Link to="/admin/dashboard">
-            <i className='' ><BsFillCalendar3WeekFill/></i>
+            <i><DashboardIcon/></i>
             <span className="links_name">Dashboard</span>
           </Link>
         </li>
 
         <li>
           <Link to="/admin/dashboard/users">
-            <i className='' ><FaChalkboardTeacher/></i>
-            <span className="links_name">content</span>
+            <i><PeopleIcon/></i>
+            <span className="links_name">Users</span>
+          </Link>
+        </li>
+        
+        <li>
+          <Link to="/admin/dashboard/users">
+            <i><AssignmentIndIcon/></i>
+            <span className="links_name">Instructor</span>
           </Link>
         </li>
 
-          <li>
-            <a href="#">
-              {/* <i className='' ><FaChartBar/></i> */}
-              <span className="links_name">Analytics</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              {/* <i className='' ><FaCommentAlt/></i> */}
-              <span className="links_name">comment</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              {/* <i className='' ><FaCopyright/></i> */}
-              <span className="links_name">Copyright</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              {/* <i className='' ><FaDollarSign/></i> */}
-              <span className="links_name">Earn Money</span>
-            </a>
-          </li>
-
         <li>
-          <a href="#">
-            <i className='' ><FaCopyright/></i>
-            <span className="links_name">Copyright</span>
-          </a>
+        <Link to="/admin/dashboard/courses">
+            <i className='' ><SchoolIcon/></i>
+            <span className="links_name">Courses</span>
+          </Link>
         </li>
 
-        <li>
+        {/* <li>
           <a href="#">
             <i className='' ><FaDollarSign/></i>
             <span className="links_name">Earn Money</span>
           </a>
-        </li>
+        </li> */}
       
-        <li>
+        {/* <li>
           <a href="#">
             <i className='' ><FaCog/></i>
             <span className="links_name">Setting</span>
           </a>
-        </li>
+        </li> */}
+        
         <li className="log_out">
           
           <button onClick={logoutHandler}>
-            <i className=''><BiLogIn/></i>
-            {/* <span className="links_name">Log out</span> */}
+            <a>
+                <i className=''><LogoutIcon/></i>
+                <span className="links_name">Log out</span>
+            </a>
           </button>
         </li>
       </ul>

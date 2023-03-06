@@ -5,9 +5,10 @@ import "../App.css";
 import { Home } from './Home';
 import { Navbar } from './Navbar';
 import { Users } from './Users';
+import { Courses } from './Courses';
 import Sidebar from './Sidebar';
 
-function Dashboard({home,users}) {
+function Dashboard({home,users,courses}) {
 
   return (
     <>
@@ -19,6 +20,7 @@ function Dashboard({home,users}) {
 
       { home ? <Home /> : null}
       { users ? <Users /> : null }
+      { courses ? <Courses /> : null }
 
       {/* <Home /> */}
         {/* <Routes>

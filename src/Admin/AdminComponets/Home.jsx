@@ -6,6 +6,8 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { Avatar } from '@mui/material';
 
 export const Home = () => {
+  
+
   return (
     <div className="home-content">
       <div className="overview-boxes">

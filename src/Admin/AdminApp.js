@@ -60,6 +60,11 @@ function AdminApp() {
           <Dashboard users={true} />
           // </ProtectedRoute>
         }></Route>      
+        <Route path="/dashboard/courses" element={
+          // <ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} >
+          <Dashboard courses={true} />
+          // </ProtectedRoute>
+        }></Route>      
       
           
     </Routes>
