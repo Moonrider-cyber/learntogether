@@ -10,46 +10,46 @@ import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { getAllUsers,deleteUser } from '../../redux/actions/admin';
 import { useSelector } from 'react-redux';
-import { Button, Typography } from '@mui/material';
-import { Link, Navigate } from 'react-router-dom';
-import RefreshIcon from '@mui/icons-material/Refresh';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
-export const Users = () => {
+export const Admins = () => {
 
   const dispatch = useDispatch();
-
-  const { users,message } = useSelector((state) => state.admin);
-
-  function deleteBtnHandler(e){
-    dispatch(deleteUser(e.target.attributes.dataid.value));
-  }
 
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch])
- 
+  
+  const { users,message } = useSelector((state) => state.admin);
+  
   useEffect(() => {
     if(message){
       dispatch(getAllUsers());
     }
   }, [message]);
-  
-  
+ 
+
+  function deleteBtnHandler(e){
+    dispatch(deleteUser(e.target.attributes.dataid.value));
+  }
+// console.log("users",users);
 
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
       <Box sx={{ width: '100%' }}>
-        <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Users</Typography>
+      <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Admins</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
-        {/* <Button onClick={() => <Navigate to={"/admin/dashboard/users"}/>} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
-        <Link to={"/admin/dashboard/users/adduser"}><Button variant="contained" sx={{mY:5}}>Add User</Button></Link>
+        {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
+        <Link to={"/admin/dashboard/admins/addadmin"}><Button variant="contained" sx={{mY:5}}>Add Admin</Button></Link>
         </Box>
       <Paper sx={{ width: '100%', mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Profile photo</TableCell>
+            <TableCell>Avatar</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">CreateAt</TableCell>
@@ -60,10 +60,9 @@ export const Users = () => {
           
 
           {
-            users ?
-          users.length > 0 ?
+          users ?
           users.map((row,index) => (
-            users[index].role === "user" ?
+            users[index].role === "admin" ?
             <TableRow
               key={index}
             >
@@ -72,12 +71,11 @@ export const Users = () => {
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
-              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
             </TableRow>
             : null
           ))
-          : null 
           : null
         }
         </TableBody>

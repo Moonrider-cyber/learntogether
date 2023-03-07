@@ -60,3 +60,33 @@ export const getAllUsers = () => async (dispatch) => {
         dispatch({type:"getAllUsersFail"});
     }
 }
+
+export const deleteUser = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"deleteUserRequest"});
+ 
+        const {data} = await axios.delete(
+            `${server}/admin/users/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"deleteUserSuccess",payload: "user deleted"});
+    }catch(error){
+        dispatch({type:"deleteUserFail",payload:"somthing went wrong"});
+    }
+}
+export const addWithRole = (formdata) => async (dispatch) => {
+    try{
+        dispatch({type:"addUserRequest"});
+ 
+        const {data} = await axios.post(`${server}/admin/addwithrole`,
+            formdata,{
+                headers:{
+                    "Content-Type":"multipart/form-data",
+                },withCredentials:true,
+            }
+        );
+        dispatch({type:"addUsersuccess",payload: data});
+    }catch(error){
+        dispatch({type:"addUserFail",payload: error.response.data.message });
+    }
+}

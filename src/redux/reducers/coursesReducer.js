@@ -14,6 +14,19 @@ export const coursesReducer = createReducer({},{
         state.loding = false;
         state.error = action.payload;
     },
+    deleteCourseRequest:(state)=>{
+        state.loading=true;
+    },
+    deleteCourseSuccess:(state,action)=>{
+        state.loding=false;
+        state.message=action.payload;
+        // state.error = action.payload.error;
+    },
+    deleteCourseFail:(state,action)=>{
+        state.loding = false;
+        state.message=action.payload;
+        // state.error = action.payload;
+    },
 
     
 });

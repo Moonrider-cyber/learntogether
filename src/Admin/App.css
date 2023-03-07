@@ -328,14 +328,11 @@ nav .profile-details i{
   font-weight: 400;
   border-radius: 4px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 .video-boxes .box .button a:hover{
   background:  #000000;
 }
-
-
-
 
 /* Right box */
 .home-content .video-boxes .top-video{
@@ -470,3 +467,4 @@ nav .profile-details i{
     width: calc(100% - 60px);
   }
 }
+

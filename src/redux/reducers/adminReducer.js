@@ -38,6 +38,7 @@ export const adminReducer = createReducer({
         state.error=null;
     },
     clearMessage:(state)=>{
+        state.isadduser=false;
         state.message=null;
     },
     loadAdminRequest:(state)=>{
@@ -58,11 +59,37 @@ export const adminReducer = createReducer({
     },
     getAllUsersSuccess:(state,action)=>{
         state.loding=false;
-        state.users=action.payload.users;
+        state.users=action.payload;
     },
     getAllUsersFail:(state,action)=>{
         state.loding = false;
         state.error = action.payload;
     },
-    
+    deleteUserRequest:(state)=>{
+        state.loading=true;
+    },
+    deleteUserSuccess:(state,action)=>{
+        state.loding=false;
+        state.message=action.payload;
+        // state.error = action.payload.error;
+    },
+    deleteUserFail:(state,action)=>{
+        state.loding = false;
+        state.message=action.payload;
+        // state.error = action.payload;
+    },
+    addUserRequest:(state)=>{
+        state.loading=true;
+        state.isadduser=false;
+    },
+    addUsersuccess:(state,action)=>{
+        state.loding=false;
+        state.isadduser=true;
+        state.message=action.payload.message;
+    },
+    addUserFail:(state,action)=>{
+        state.loding = false;
+        state.isadduser=false;
+        state.error = action.payload;
+    },
 });

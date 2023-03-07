@@ -7,6 +7,10 @@ import PeopleIcon from '@mui/icons-material/People';
 import SchoolIcon from '@mui/icons-material/School';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LogoutIcon from '@mui/icons-material/Logout';
+import TurnedInIcon from '@mui/icons-material/TurnedIn';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
 const Sidebar = () => {
   
@@ -41,9 +45,15 @@ const Sidebar = () => {
         </li>
         
         <li>
-          <Link to="/admin/dashboard/users">
+          <Link to="/admin/dashboard/instructor">
             <i><AssignmentIndIcon/></i>
             <span className="links_name">Instructor</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/admin/dashboard/admins">
+            <i><AdminPanelSettingsIcon/></i>
+            <span className="links_name">Admins</span>
           </Link>
         </li>
 
@@ -53,20 +63,26 @@ const Sidebar = () => {
             <span className="links_name">Courses</span>
           </Link>
         </li>
+        
+        <li>
+        <Link to="/admin/dashboard/catagory">
+            <i className='' ><TurnedInIcon/></i>
+            <span className="links_name">Catagory</span>
+          </Link>
+        </li>
+        <li>
+        <a>
+            <i className='' ><CurrencyRupeeIcon/></i>
+            <span className="links_name">Payment</span>
+          </a>
+        </li>
+        <li>
+        <a>
+            <i className='' ><SupportAgentIcon/></i>
+            <span className="links_name">Support</span>
+          </a>
+        </li>
 
-        {/* <li>
-          <a href="#">
-            <i className='' ><FaDollarSign/></i>
-            <span className="links_name">Earn Money</span>
-          </a>
-        </li> */}
-      
-        {/* <li>
-          <a href="#">
-            <i className='' ><FaCog/></i>
-            <span className="links_name">Setting</span>
-          </a>
-        </li> */}
         
         <li className="log_out">
           

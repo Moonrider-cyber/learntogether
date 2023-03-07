@@ -7,17 +7,20 @@ import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { ProtectedRoute } from './AdminProtectedRoute/ProtectedRoute';
 
+
 // project imports
 import Login from './AdminComponets/Login';
 import Dashboard from './AdminComponets/Dashboard';
 import { loadAdmin } from '../redux/actions/admin';
-import { Users } from './AdminComponets/Users';
-
+import  AddUser from './AdminComponets/AddUser';
+import AddAdmin from './AdminComponets/AddAdmin';
+import AddInstructor from './AdminComponets/AddInstructor';
 
 function AdminApp() {
 
-  const { isAdmin,admin,message,error } = useSelector((state) => state.admin);
+  const { isAdmin,admin,isadduser = false,message,error } = useSelector((state) => state.admin);
 
+  // console.log(isadduser);
 
   const dispatch = useDispatch();
   // show toast when error or message is updated
@@ -48,6 +51,12 @@ function AdminApp() {
       <Login />
       </ProtectedRoute>
         }></Route>
+        {/* <Route path="/dashboard/users/adduser"
+     element={
+      <ProtectedRoute isAdmin={!isadduser} redirect={"/admin/dashboard/users"} >
+        <AddUser />
+      </ProtectedRoute>
+        }></Route> */}
 
       
         <Route path="/dashboard" element={
@@ -55,16 +64,21 @@ function AdminApp() {
           <Dashboard home={true} />
           </ProtectedRoute>
         }></Route>      
-        <Route path="/dashboard/users" element={
-          // <ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} >
-          <Dashboard users={true} />
-          // </ProtectedRoute>
-        }></Route>      
-        <Route path="/dashboard/courses" element={
-          // <ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} >
-          <Dashboard courses={true} />
-          // </ProtectedRoute>
-        }></Route>      
+        
+        
+        <Route element={<ProtectedRoute isAdmin={!isadduser} redirect={"/admin"} />}>  
+          <Route path="/dashboard/users/adduser" element={<AddUser />}></Route>      
+          <Route path="/dashboard/admins/addadmin" element={<AddAdmin />}></Route>      
+          <Route path="/dashboard/admins/addinstructor" element={<AddInstructor />}></Route>      
+        </Route>      
+        
+        <Route element={<ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} />}>  
+          <Route path="/dashboard/users" element={<Dashboard userspage={true} />}></Route>      
+          <Route path="/dashboard/instructor" element={<Dashboard instructorpage={true} />}></Route>      
+          <Route path="/dashboard/admins" element={<Dashboard adminspage={true} />}></Route>      
+          <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>      
+          <Route path="/dashboard/catagory" element={<Dashboard catagorypage={true} />}></Route>      
+        </Route>      
       
           
     </Routes>

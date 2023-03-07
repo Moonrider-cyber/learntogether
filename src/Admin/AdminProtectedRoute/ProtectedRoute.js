@@ -1,7 +1,7 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
-export const ProtectedRoute = ({isAdmin,redirect, children }) => {
+export const ProtectedRoute = ({isAdmin,isadduser,redirect, children }) => {
   
     if(!isAdmin){
         return (
@@ -9,6 +9,6 @@ export const ProtectedRoute = ({isAdmin,redirect, children }) => {
         )
     }
 return (
-    children
+    children ? children : <Outlet />
   )
 }
