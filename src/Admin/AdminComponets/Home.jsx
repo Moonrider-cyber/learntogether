@@ -4,9 +4,29 @@ import SchoolIcon from '@mui/icons-material/School';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { Avatar } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 export const Home = () => {
   
+  const { users } = useSelector((state) => state.admin);
+  // const { courses } = useSelector((state) => state.admin);
+
+  let usercount = 0;
+  let admincount = 0;
+  let inscount = 0;
+  if(users){
+    for (let i = 0; i < users.length; i++) {
+      if(users[i].role === "user"){
+        usercount++;
+      }
+      if(users[i].role === "admin"){
+        admincount++;
+      }
+      if(users[i].role === "instructor"){
+        inscount++;
+      }
+    }
+  }
 
   return (
     <div className="home-content">
@@ -15,7 +35,7 @@ export const Home = () => {
           <PeopleAltIcon sx={{fontSize:70 , mr:4,ml:0}} />
           <div className="right-side">
             <div className="box-topic">Total Student</div>
-            <div className="number">100</div>
+            <div className="number">{usercount ? usercount : 0}</div>
             
           </div>
           <i className=''></i>
@@ -24,7 +44,7 @@ export const Home = () => {
           <AssignmentIndIcon sx={{fontSize:70 , mr:4,ml:0}} />
           <div className="right-side">
             <div className="box-topic">Total Instructor</div>
-            <div className="number">22</div>
+            <div className="number">{usercount ? inscount : 0}</div>
           </div>
           <i className='' ></i>
         </div>
@@ -33,7 +53,7 @@ export const Home = () => {
 
           <div className="right-side">
             <div className="box-topic">Total Course</div>
-            <div className="number">120</div>
+            <div className="number">{usercount ? admincount : 0}</div>
             
           </div>
           <i className='' ></i>
@@ -44,7 +64,7 @@ export const Home = () => {
 
           <div className="right-side">
             <div className="box-topic">Subscription</div>
-            <div className="number">11,086</div>
+            <div className="number">0</div>
             
           </div>
         </div>

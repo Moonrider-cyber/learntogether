@@ -17,7 +17,7 @@ export const Navbar = () => {
         </div> */}
   
         <div className="profile-details">
-          <span className="admin_name">cosigner</span>
+          <span className="admin_name">admin</span>
         </div>
       </nav>
 

@@ -25,7 +25,7 @@ const Sidebar = () => {
     <>
               <div className="sidebar">
     <div className="logo-details">
-      <i className='bx bxl-c-plus-plus'></i>
+    <i class="fa-solid fa-b"></i>
       <span className="logo_name">Busilearn</span>
     </div>
       <ul className="nav-links">
