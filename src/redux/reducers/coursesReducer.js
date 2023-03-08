@@ -4,29 +4,42 @@ export const coursesReducer = createReducer({},{
 
 
     getAllCoursesRequest:(state)=>{
-        state.loading=true;
+        state.courseLoding=true;
     },
     getAllCoursesSuccess:(state,action)=>{
-        state.loading=false;
+        state.courseLoding=false;
         state.courses=action.payload.courses;
     },
     getAllCoursesFail:(state,action)=>{
-        state.loading = false;
+        state.courseLoding = false;
         state.error = action.payload;
     },
     deleteCourseRequest:(state)=>{
-        state.loading=true;
+        state.courseLoding=true;
     },
     deleteCourseSuccess:(state,action)=>{
-        state.loading=false;
+        state.courseLoding=false;
         state.message=action.payload;
         // state.error = action.payload.error;
     },
     deleteCourseFail:(state,action)=>{
-        state.loading = false;
+        state.courseLoding = false;
         state.message=action.payload;
         // state.error = action.payload;
     },
-
+    adcourseRequest:(state)=>{
+        state.courseLoding=true;
+        state.message=null;
+    },
+    adcourseSuccess:(state,action)=>{
+        state.courseLoding=false;
+        state.message=action.payload;
+        // state.error = action.payload;
+    },
+    adcourseFail:(state,action)=>{
+        state.courseLoding = false;
+        // state.message=action.payload.message;
+        state.error = action.payload;
+    },
     
 });

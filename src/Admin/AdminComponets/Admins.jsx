@@ -50,7 +50,7 @@ export const Admins = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Avatar</TableCell>
+            <TableCell align="center">Avatar</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">Role</TableCell>
@@ -68,7 +68,7 @@ export const Admins = (props) => {
             <TableRow
               key={index}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="center">
                 {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
@@ -92,7 +92,7 @@ export const Admins = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Avatar</TableCell>
+            <TableCell align="center">Avatar</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">Role</TableCell>
@@ -109,7 +109,7 @@ export const Admins = (props) => {
             <TableRow
               key={index}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="center">
                 {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>

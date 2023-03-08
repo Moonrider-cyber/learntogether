@@ -29,3 +29,16 @@ export const deleteCourse = (id) => async (dispatch) => {
         dispatch({type:"deleteCourseFail",payload:"somthing went wrong"});
     }
 }
+export const activeDeactiveCourse = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"adcourseRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/admin/controlcourse/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"adcourseSuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"adcourseFail",payload:"somthing went wrong"});
+    }
+}

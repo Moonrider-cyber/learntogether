@@ -16,8 +16,9 @@ import Loader from "./Componets/layout/Loader/Loader";
 
 function App() {
 
-  const { isAuthenticated = true,user,message,error} = useSelector((state) => state.user);
-  const { loading } = useSelector((state) => state.admin);
+  const { isAuthenticated = true,user,message,error,loading} = useSelector((state) => state.user);
+  const { adminLoading } = useSelector((state) => state.admin);
+  const { courseLoading } = useSelector((state) => state.courses);
   const dispatch = useDispatch();
 
   // show toast when error or message is updated
@@ -41,6 +42,8 @@ function App() {
     <>
       <BrowserRouter>
         {loading ? <Loader/> : null}
+        {courseLoading ? <Loader/> : null}
+        {adminLoading ? <Loader/> : null}
         <Routes>
           <Route path="/" element={<Homepage isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/signup" element={

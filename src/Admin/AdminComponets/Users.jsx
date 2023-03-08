@@ -10,9 +10,10 @@ import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { getAllUsers,deleteUser, activeDeactiveUser } from '../../redux/actions/admin';
 import { useSelector } from 'react-redux';
-import { Button, Typography } from '@mui/material';
+import { Button, IconButton, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Loader from '../../Componets/layout/Loader/Loader';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Users = (props) => {
 
@@ -53,12 +54,13 @@ export const Users = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Profile photo</TableCell>
+            <TableCell align="center">Profile photo</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Status</TableCell>
             <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">Action</TableCell>
             <TableCell align="center">Enable/Disable</TableCell>
+            <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -72,14 +74,15 @@ export const Users = (props) => {
             <TableRow
               key={index}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="center">
                 {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.active ? "Active" : "Deactive"}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
-              <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+              <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
             </TableRow>
             : null
           ))
@@ -95,9 +98,10 @@ export const Users = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Profile photo</TableCell>
+            <TableCell align="center">Profile photo</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Status</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">Enable/Disable</TableCell>
           </TableRow>
@@ -113,11 +117,12 @@ export const Users = (props) => {
             <TableRow
               key={index}
             >
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="center">
                 {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.active ? "Active" : "Deactive"}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>

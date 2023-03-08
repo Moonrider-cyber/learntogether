@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { deleteCourse, getAllCourses } from '../../redux/actions/courses';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { activeDeactiveCourse } from '../../redux/actions/courses';
 
 export const Courses = (courses) => {
 
@@ -29,7 +30,9 @@ export const Courses = (courses) => {
     }
   }, [message]);
   
-  // );
+  function adBtnHandler(e){
+    dispatch(activeDeactiveCourse(e.target.attributes.dataid.value));
+  }
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
@@ -51,6 +54,8 @@ export const Courses = (courses) => {
             <TableCell align="center">Catagory</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">Delete</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -65,7 +70,7 @@ export const Courses = (courses) => {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
             >
-              <TableCell component="th" scope="row" >
+              <TableCell component="th" scope="row" align="center">
                 {row.title}
               </TableCell>
               <TableCell align="center">{row.description}</TableCell>
@@ -73,6 +78,7 @@ export const Courses = (courses) => {
               <TableCell align="center">{row.catagory}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>
           ))
         // : null
@@ -86,11 +92,13 @@ export const Courses = (courses) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell align="right">Description</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Catagory</TableCell>
-            <TableCell align="right">CreateAt</TableCell>
+            {/* <TableCell align="center">Cover Photo</TableCell> */}
+            <TableCell align="center">Title</TableCell>
+            <TableCell align="center">Description</TableCell>
+            <TableCell align="center">Price</TableCell>
+            <TableCell align="center">Catagory</TableCell>
+            <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center">CreateBy</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -102,13 +110,17 @@ export const Courses = (courses) => {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
             >
-              <TableCell component="th" scope="row" >
+              {/* <TableCell align="center" sx={{width:5}}><img src={row.poster[0].url} 
+                style={{width:100}}
+              /> </TableCell> */}
+              <TableCell component="th" scope="row" align="center">
                 {row.title}
               </TableCell>
-              <TableCell align="right">{row.description}</TableCell>
-              <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.catagory}</TableCell>
-              <TableCell align="right">{row.createAt}</TableCell>
+              <TableCell align="center">{row.description}</TableCell>
+              <TableCell align="center">{row.price}</TableCell>
+              <TableCell align="center">{row.catagory}</TableCell>
+              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center">{row.createBy}</TableCell>
             </TableRow>
           ))
         : null
