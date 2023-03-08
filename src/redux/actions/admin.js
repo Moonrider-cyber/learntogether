@@ -50,7 +50,6 @@ export const Adminlogout = () => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
     try{
         dispatch({type:"getAllUsersRequest"});
- 
         const {data} = await axios.post(
             `${server}/admin/users`,{},{
                 withCredentials:true,
@@ -72,6 +71,19 @@ export const deleteUser = (id) => async (dispatch) => {
         dispatch({type:"deleteUserSuccess",payload: "user deleted"});
     }catch(error){
         dispatch({type:"deleteUserFail",payload:"somthing went wrong"});
+    }
+}
+export const activeDeactiveUser = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"adUserRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/admin/controluser/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"adUserSuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"adUserFail",payload:"somthing went wrong"});
     }
 }
 export const addWithRole = (formdata) => async (dispatch) => {

@@ -8,11 +8,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
-import { getAllUsers,deleteUser } from '../../redux/actions/admin';
+import { getAllUsers,deleteUser, activeDeactiveUser } from '../../redux/actions/admin';
 import { useSelector } from 'react-redux';
 import { Button, Typography } from '@mui/material';
 import { Link, Navigate } from 'react-router-dom';
-import RefreshIcon from '@mui/icons-material/Refresh';
 
 export const Users = () => {
 
@@ -22,6 +21,9 @@ export const Users = () => {
 
   function deleteBtnHandler(e){
     dispatch(deleteUser(e.target.attributes.dataid.value));
+  }
+  function adBtnHandler(e){
+    dispatch(activeDeactiveUser(e.target.attributes.dataid.value));
   }
 
   useEffect(() => {
@@ -54,6 +56,7 @@ export const Users = () => {
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">Action</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -74,6 +77,7 @@ export const Users = () => {
               <TableCell align="center">{row.email}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>
             : null
           ))

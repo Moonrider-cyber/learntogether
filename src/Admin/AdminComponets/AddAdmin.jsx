@@ -32,7 +32,7 @@ function AddAdmin() {
     myForm.append("email", Email);
     myForm.append("password", password);
     myForm.append("avatar", Img);
-    myForm.append("role", "admin");
+    myForm.append("role", "sub-admin");
 
     dispatch(addWithRole(myForm));
   }

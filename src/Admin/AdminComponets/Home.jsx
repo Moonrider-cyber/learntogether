@@ -9,25 +9,21 @@ import { useSelector } from 'react-redux';
 export const Home = () => {
   
   const { users } = useSelector((state) => state.admin);
-  // const { courses } = useSelector((state) => state.admin);
+  const { courses } = useSelector((state) => state.courses);
 
   let usercount = 0;
-  let admincount = 0;
   let inscount = 0;
+  let coursecount = courses ? courses.length : 0;
   if(users){
     for (let i = 0; i < users.length; i++) {
       if(users[i].role === "user"){
         usercount++;
-      }
-      if(users[i].role === "admin"){
-        admincount++;
       }
       if(users[i].role === "instructor"){
         inscount++;
       }
     }
   }
-
   return (
     <div className="home-content">
       <div className="overview-boxes">
@@ -53,7 +49,7 @@ export const Home = () => {
 
           <div className="right-side">
             <div className="box-topic">Total Course</div>
-            <div className="number">{usercount ? admincount : 0}</div>
+            <div className="number">{coursecount ? coursecount : 0}</div>
             
           </div>
           <i className='' ></i>

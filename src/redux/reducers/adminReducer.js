@@ -78,6 +78,19 @@ export const adminReducer = createReducer({
         state.message=action.payload;
         // state.error = action.payload;
     },
+    adUserRequest:(state)=>{
+        state.loading=true;
+    },
+    adUserSuccess:(state,action)=>{
+        state.loding=false;
+        state.message=action.payload;
+        // state.error = action.payload;
+    },
+    adUserFail:(state,action)=>{
+        state.loding = false;
+        // state.message=action.payload.message;
+        state.error = action.payload;
+    },
     addUserRequest:(state)=>{
         state.loading=true;
         state.isadduser=false;

@@ -22,7 +22,7 @@ export const Admins = () => {
     dispatch(getAllUsers());
   }, [dispatch])
   
-  const { users,message } = useSelector((state) => state.admin);
+  const { users,message,admin } = useSelector((state) => state.admin);
   
   useEffect(() => {
     if(message){
@@ -45,6 +45,9 @@ export const Admins = () => {
         {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
         <Link to={"/admin/dashboard/admins/addadmin"}><Button variant="contained" sx={{mY:5}}>Add Admin</Button></Link>
         </Box>
+
+      {admin ? admin.role === "super-admin" ?  
+
       <Paper sx={{ width: '100%', mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -52,6 +55,7 @@ export const Admins = () => {
             <TableCell>Avatar</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Role</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">Action</TableCell>
           </TableRow>
@@ -62,7 +66,7 @@ export const Admins = () => {
           {
           users ?
           users.map((row,index) => (
-            users[index].role === "admin" ?
+            users[index].role === "super-admin" || users[index].role === "sub-admin" ?
             <TableRow
               key={index}
             >
@@ -71,6 +75,7 @@ export const Admins = () => {
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.role}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
             </TableRow>
@@ -83,6 +88,48 @@ export const Admins = () => {
     
   
       </Paper>
+      : admin.role === "sub-admin" ? 
+      
+      <Paper sx={{ width: '100%', mt: 4 }}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Avatar</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Role</TableCell>
+            <TableCell align="center">CreateAt</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          
+
+          {
+          users ?
+          users.map((row,index) => (
+            users[index].role === "super-admin" || users[index].role === "sub-admin" ?
+            <TableRow
+              key={index}
+            >
+              <TableCell component="th" scope="row">
+                {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
+              </TableCell>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.role}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
+            </TableRow>
+            : null
+          ))
+          : null
+        }
+        </TableBody>
+      </Table>
+    
+  
+      </Paper>
+
+      : null : null}
       
     </Box>
         </Box>
