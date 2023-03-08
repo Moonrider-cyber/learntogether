@@ -12,13 +12,13 @@ import { ProtectedRoute } from './AdminProtectedRoute/ProtectedRoute';
 import Login from './AdminComponets/Login';
 import Dashboard from './AdminComponets/Dashboard';
 import { loadAdmin } from '../redux/actions/admin';
-import  AddUser from './AdminComponets/AddUser';
-import AddAdmin from './AdminComponets/AddAdmin';
-import AddInstructor from './AdminComponets/AddInstructor';
+import  AddUser from './AdminComponets/FormPage/AddUser';
+import AddAdmin from './AdminComponets/FormPage/AddAdmin';
+import AddInstructor from './AdminComponets/FormPage/AddInstructor';
 
 function AdminApp() {
 
-  const { isAdmin,admin,isadduser = false,message,error } = useSelector((state) => state.admin);
+  const { isAdmin,isadduser = false,message,error } = useSelector((state) => state.admin);
 
   // console.log(isadduser);
 

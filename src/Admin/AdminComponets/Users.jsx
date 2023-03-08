@@ -11,13 +11,15 @@ import { useDispatch} from 'react-redux';
 import { getAllUsers,deleteUser, activeDeactiveUser } from '../../redux/actions/admin';
 import { useSelector } from 'react-redux';
 import { Button, Typography } from '@mui/material';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const Users = () => {
+export const Users = (props) => {
 
+
+  let users = props.users;
   const dispatch = useDispatch();
 
-  const { users,message } = useSelector((state) => state.admin);
+  const { message } = useSelector((state) => state.admin);
 
   function deleteBtnHandler(e){
     dispatch(deleteUser(e.target.attributes.dataid.value));
@@ -27,15 +29,10 @@ export const Users = () => {
   }
 
   useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch])
- 
-  useEffect(() => {
     if(message){
       dispatch(getAllUsers());
     }
   }, [message]);
-  
   
 
   return (

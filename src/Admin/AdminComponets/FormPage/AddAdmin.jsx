@@ -1,9 +1,9 @@
 import React from "react";
-import { addWithRole } from "../../redux/actions/admin";
+import { addWithRole } from "../../../redux/actions/admin";
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
 
-function AddUser() {
+function AddAdmin() {
 
   const [Name, setName] = useState();
   const [Email, setEmail] = useState();
@@ -32,6 +32,7 @@ function AddUser() {
     myForm.append("email", Email);
     myForm.append("password", password);
     myForm.append("avatar", Img);
+    myForm.append("role", "sub-admin");
 
     dispatch(addWithRole(myForm));
   }
@@ -44,10 +45,10 @@ function AddUser() {
             
             <div className="right-side">
               <div className="forms">
-                <h1 className="forms-heading">ADD USER</h1>
+                <h1 className="forms-heading">ADD ADMIN</h1>
                 <div className="form-inputs">
                   <i className="fa fa-user"></i>
-                  <input type="text" placeholder="User name"
+                  <input type="text" placeholder="Admin name"
                     name="name" 
                     value={Name ? Name : ""}
                     onChange={(e) => setName(e.target.value)}
@@ -57,7 +58,7 @@ function AddUser() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Admin Email"
                     value={Email ? Email : ""}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -70,7 +71,7 @@ function AddUser() {
                     autoComplete="chrome-off"
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder="Admin Password"
                     value={password ? password : ""}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -91,7 +92,7 @@ function AddUser() {
                 </div>
                 
                 <div className="sign-button">
-                  <button type="submit">ADD USER</button>
+                  <button type="submit">ADD ADMIN</button>
                 </div>
               </div>
             </div>
@@ -102,4 +103,4 @@ function AddUser() {
   );
 }
 
-export default AddUser;
+export default AddAdmin;

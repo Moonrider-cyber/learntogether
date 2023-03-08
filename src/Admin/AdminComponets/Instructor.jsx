@@ -14,15 +14,12 @@ import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
-export const Instructor = () => {
+export const Instructor = (props) => {
 
+  let users = props.users;
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch])
-  
-  const { users,message } = useSelector((state) => state.admin);
+  const { message } = useSelector((state) => state.admin);
   
   useEffect(() => {
     if(message){
@@ -30,8 +27,6 @@ export const Instructor = () => {
     }
   }, [message]);
  
-// console.log("users",users);
-
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>

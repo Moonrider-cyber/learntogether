@@ -7,11 +7,11 @@ import { useSelector } from 'react-redux';
 
 import "../App.css";
 import { Home } from './Home';
-import { Navbar } from './Navbar';
+import { Navbar } from './Layout/Navbar';
 import { Users } from './Users';
 import { Courses } from './Courses';
 import { Catagory } from './Catagory';
-import Sidebar from './Sidebar';
+import Sidebar from './Layout/Sidebar';
 import { Admins } from './Admins';
 import { Instructor } from './Instructor';
 
@@ -40,8 +40,8 @@ function Dashboard({home,userspage,coursespage,catagorypage,adminspage,instructo
       { userspage ? <Users users={users} /> : null }
       { coursespage ? <Courses courses={courses} /> : null }
       { catagorypage ? <Catagory /> : null }
-      { adminspage ? <Admins /> : null }
-      { instructorpage ? <Instructor /> : null }
+      { adminspage ? <Admins users={users} /> : null }
+      { instructorpage ? <Instructor users={users} /> : null }
 
       {/* <Home /> */}
         {/* <Routes>

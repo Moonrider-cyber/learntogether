@@ -5,6 +5,8 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { Avatar } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { LineChart,DoughutChart } from './Chart';
+import { Box } from '@mui/system';
 
 export const Home = () => {
   
@@ -69,116 +71,16 @@ export const Home = () => {
 
 
 
-      <div className="video-boxes">
-        <div className="recent-video box">
-          <div className="title">Course List</div>
-          <div className="video-details">
-            <ul className="details">
-              <li className="topic">Course Date</li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-            </ul>
-            <ul className="details">
-            <li className="topic">Courses Name</li>
-            <li><a href="#">How To Start Business</a></li>
-            <li><a href="#">Increase Profit In Business</a></li>
-            <li><a href="#">How To Start Zero Investment Business</a></li>
-            <li><a href="#">Affiliate Marketing</a></li>
-            <li><a href="#">How To Make A Brand For Your Business</a></li>
-            <li><a href="#">Marketing Tips</a></li>
-            <li><a href="#">Profitable Businessess</a></li>
-          
-          </ul>
-          <ul className="details">
-            <li className="topic">Total View</li>
-            <li><a href="#">10000</a></li>
-            <li><a href="#">5000</a></li>
-            <li><a href="#">10000</a></li>
-            <li><a href="#">600</a></li>
-            <li><a href="#">1369</a></li>
-            <li><a href="#">99999</a></li>
-            <li><a href="#">500</a></li>
-             
-          </ul>
-          {/* <ul className="details">
-            <li className="topic">Incom</li>
-            <li><a href="#">$204.98</a></li>
-            <li><a href="#">$24.55</a></li>
-            <li><a href="#">$25.88</a></li>
-            <li><a href="#">$170.66</a></li>
-            <li><a href="#">$56.56</a></li>
-            <li><a href="#">$44.95</a></li>
-            <li><a href="#">$67.33</a></li>
-             
-          </ul> */}
-          </div>
-          <div className="button">
-            <a href="#">See All</a>
-          </div>
-        </div>
-
-
-
+      <Box sx={{px:10,width:"100%",height:"40vh",display:"flex",gap:"40px"}}>
+        <Box sx={{width:"100%"}}>
+          <LineChart />
+        </Box>
 
         
-        <div className="top-video box">
-          <div className="title">Student List</div>
-
-        
-          <ul className="top-video-details">
-            <li>
-           
-              
-              <span className="video">
-                Student
-              </span>
-           
-            <span className="view">
-              Join Date
-            </span>
-          </li>
-
-            <li>
-            <a href="#">
-              <Avatar sx={{mx:1}}/>
-              {/* <img src={stdimg} alt=""/> */}
-              <span className="video">Jainex Patel</span>
-            </a>
-            <span className="view">20-Feb-2023</span>
-          </li>
-          <li>
-            <a href="#">
-            <Avatar sx={{mx:1}}/>
-              {/* <img src={stdimg} alt=""/> */}
-              <span className="video">Parth Makadiya</span>
-            </a>
-            <span className="view">19-Feb-2023</span>
-          </li>
-          <li>
-            <a href="#">
-            <Avatar sx={{mx:1}}/>
-              {/* <img src={stdimg} alt=""/> */}
-              <span className="video">Jay Parmar</span>
-            </a>
-            <span className="view">15-Feb-2023</span>
-          </li>
-          <li>
-            <a href="#">
-            <Avatar sx={{mx:1 }}/>
-              {/* <img src={stdimg} alt=""/> */}
-              <span className="video">Rohit Parmar</span>
-            </a>
-            <span className="view">01-Feb-2023</span>
-          </li>
-         
-          </ul>
-        </div>
-      </div>
+        <Box sx={{width:"100%"}}>
+          <DoughutChart />
+          </Box>
+      </Box>
     </div>
   )
 }

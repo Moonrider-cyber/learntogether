@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
-import { Adminlogout } from '../../redux/actions/admin';
+import { Adminlogout } from '../../../redux/actions/admin';
 import { Link, Navigate } from 'react-router-dom';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';

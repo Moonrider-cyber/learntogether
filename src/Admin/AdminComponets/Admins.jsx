@@ -14,15 +14,13 @@ import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
-export const Admins = () => {
+export const Admins = (props) => {
+
+  let users = props.users;
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch])
-  
-  const { users,message,admin } = useSelector((state) => state.admin);
+  const { message,admin } = useSelector((state) => state.admin);
   
   useEffect(() => {
     if(message){

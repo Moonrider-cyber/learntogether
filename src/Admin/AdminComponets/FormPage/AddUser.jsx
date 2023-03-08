@@ -1,9 +1,9 @@
 import React from "react";
-import { addWithRole } from "../../redux/actions/admin";
+import { addWithRole } from "../../../redux/actions/admin";
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
 
-function AddInstructor() {
+function AddUser() {
 
   const [Name, setName] = useState();
   const [Email, setEmail] = useState();
@@ -32,7 +32,6 @@ function AddInstructor() {
     myForm.append("email", Email);
     myForm.append("password", password);
     myForm.append("avatar", Img);
-    myForm.append("role", "instructor");
 
     dispatch(addWithRole(myForm));
   }
@@ -45,10 +44,10 @@ function AddInstructor() {
             
             <div className="right-side">
               <div className="forms">
-                <h1 className="forms-heading">ADD INSTRUCTOR</h1>
+                <h1 className="forms-heading">ADD USER</h1>
                 <div className="form-inputs">
                   <i className="fa fa-user"></i>
-                  <input type="text" placeholder="Instructor name"
+                  <input type="text" placeholder="User name"
                     name="name" 
                     value={Name ? Name : ""}
                     onChange={(e) => setName(e.target.value)}
@@ -58,7 +57,7 @@ function AddInstructor() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Instructor Email"
+                    placeholder="Email"
                     value={Email ? Email : ""}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -71,7 +70,7 @@ function AddInstructor() {
                     autoComplete="chrome-off"
                     type="password"
                     name="password"
-                    placeholder="Instructor Password"
+                    placeholder="Password"
                     value={password ? password : ""}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -92,7 +91,7 @@ function AddInstructor() {
                 </div>
                 
                 <div className="sign-button">
-                  <button type="submit">ADD INSTRUCTOR</button>
+                  <button type="submit">ADD USER</button>
                 </div>
               </div>
             </div>
@@ -103,4 +102,4 @@ function AddInstructor() {
   );
 }
 
-export default AddInstructor;
+export default AddUser;
