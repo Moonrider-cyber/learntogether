@@ -3,7 +3,6 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SchoolIcon from '@mui/icons-material/School';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import { Avatar } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { LineChart,DoughutChart } from './Chart';
 import { Box } from '@mui/system';
@@ -28,7 +27,7 @@ export const Home = () => {
   }
   return (
     <div className="home-content">
-      <div className="overview-boxes">
+           <div className="overview-boxes">
         <div className="box">
           <PeopleAltIcon sx={{fontSize:70 , mr:4,ml:0}} />
           <div className="right-side">

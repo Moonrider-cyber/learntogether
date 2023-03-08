@@ -12,11 +12,12 @@ import { loadUser } from "./redux/actions/user";
 import {ProtectedRoute} from "protected-route-react"
 import AdminApp from "./Admin/AdminApp";
 import { Profile } from "./Pages/Profile/Profile";
+import Loader from "./Componets/layout/Loader/Loader";
 
 function App() {
 
-  const { isAuthenticated = true,user,message,error } = useSelector((state) => state.user);
-
+  const { isAuthenticated = true,user,message,error} = useSelector((state) => state.user);
+  const { loading } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
 
   // show toast when error or message is updated
@@ -39,6 +40,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {loading ? <Loader/> : null}
         <Routes>
           <Route path="/" element={<Homepage isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/signup" element={

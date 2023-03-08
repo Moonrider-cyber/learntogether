@@ -7,13 +7,13 @@ export const adminReducer = createReducer({
         state.loading=true;
     },
     AdminLoginSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAdmin=true;
         state.admin=action.payload.user;
         state.message=action.payload.message;
     },
     AdminLoginFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAdmin = false;
         state.error = action.payload;
     },
@@ -22,13 +22,13 @@ export const adminReducer = createReducer({
         state.loading=true;
     },
     AdminlogoutSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAdmin=false;
         state.admin=null;
         state.message=action.payload.message;
     },
     logoutFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAdmin = true;
         state.message=action.payload.message;
         state.error = action.payload.message;
@@ -45,12 +45,12 @@ export const adminReducer = createReducer({
         state.loading=true;
     },
     loadAdminSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAdmin=true;
         state.admin=action.payload;
     },
     loadAdminFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAdmin = false;
         state.error = action.payload;
     },
@@ -58,23 +58,23 @@ export const adminReducer = createReducer({
         state.loading=true;
     },
     getAllUsersSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.users=action.payload;
     },
     getAllUsersFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.error = action.payload;
     },
     deleteUserRequest:(state)=>{
         state.loading=true;
     },
     deleteUserSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.message=action.payload;
         // state.error = action.payload.error;
     },
     deleteUserFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.message=action.payload;
         // state.error = action.payload;
     },
@@ -82,12 +82,12 @@ export const adminReducer = createReducer({
         state.loading=true;
     },
     adUserSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.message=action.payload;
         // state.error = action.payload;
     },
     adUserFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         // state.message=action.payload.message;
         state.error = action.payload;
     },
@@ -96,12 +96,12 @@ export const adminReducer = createReducer({
         state.isadduser=false;
     },
     addUsersuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isadduser=true;
         state.message=action.payload.message;
     },
     addUserFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isadduser=false;
         state.error = action.payload;
     },

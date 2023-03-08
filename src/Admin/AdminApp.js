@@ -18,7 +18,7 @@ import AddInstructor from './AdminComponets/FormPage/AddInstructor';
 
 function AdminApp() {
 
-  const { isAdmin,isadduser = false,message,error } = useSelector((state) => state.admin);
+  const { isAdmin,isadduser = false,message,error,loading } = useSelector((state) => state.admin);
 
   // console.log(isadduser);
 
@@ -44,7 +44,6 @@ function AdminApp() {
   <>
   
     <Routes>
-      
         <Route path="/"
      element={
       <ProtectedRoute isAdmin={!isAdmin} redirect={"/admin/dashboard"} >

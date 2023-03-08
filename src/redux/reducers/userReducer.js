@@ -7,13 +7,13 @@ export const userReducer = createReducer({
         state.loading=true;
     },
     loginsuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAuthenticated=true;
         state.user=action.payload.user;
         state.message=action.payload.message;
     },
     loginFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAuthenticated = false;
         state.error = action.payload;
     },
@@ -28,12 +28,12 @@ export const userReducer = createReducer({
         state.loading=true;
     },
     loadUserSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAuthenticated=true;
         state.user=action.payload;
     },
     loadUserFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAuthenticated = false;
         state.error = action.payload;
     },
@@ -43,13 +43,13 @@ export const userReducer = createReducer({
         state.loading=true;
     },
     logoutSuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAuthenticated=false;
         state.user=null;
         state.message=action.payload.message;
     },
     logoutFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAuthenticated = true;
         state.message=action.payload.message;
         state.error = action.payload.message;
@@ -59,13 +59,13 @@ export const userReducer = createReducer({
         state.loading=true;
     },
     signupsuccess:(state,action)=>{
-        state.loding=false;
+        state.loading=false;
         state.isAuthenticated=true;
         state.user=action.payload.user;
         state.message=action.payload.message;
     },
     signupFail:(state,action)=>{
-        state.loding = false;
+        state.loading = false;
         state.isAuthenticated = false;
         state.error = action.payload;
     },

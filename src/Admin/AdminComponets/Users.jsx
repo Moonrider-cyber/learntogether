@@ -12,6 +12,7 @@ import { getAllUsers,deleteUser, activeDeactiveUser } from '../../redux/actions/
 import { useSelector } from 'react-redux';
 import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Loader from '../../Componets/layout/Loader/Loader';
 
 export const Users = (props) => {
 
@@ -37,6 +38,7 @@ export const Users = (props) => {
 
   return (
     <div className="home-content">
+      {/* <Loader/> */}
       <Box sx={{paddingX:5,paddingTop:5}}>
       <Box sx={{ width: '100%' }}>
         <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Users</Typography>
