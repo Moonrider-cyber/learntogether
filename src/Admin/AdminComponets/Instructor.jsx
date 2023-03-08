@@ -19,7 +19,7 @@ export const Instructor = (props) => {
   let users = props.users;
   const dispatch = useDispatch();
 
-  const { message } = useSelector((state) => state.admin);
+  const { message,admin } = useSelector((state) => state.admin);
   
   useEffect(() => {
     if(message){
@@ -27,6 +27,12 @@ export const Instructor = (props) => {
     }
   }, [message]);
  
+  function deleteBtnHandler(e){
+    dispatch(deleteUser(e.target.attributes.dataid.value));
+  }
+  function adBtnHandler(e){
+    dispatch(activeDeactiveUser(e.target.attributes.dataid.value));
+  }
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
@@ -35,21 +41,27 @@ export const Instructor = (props) => {
       <Box sx={{display:"flex",justifyContent:"right"}}>
         {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
         <Link to={"/admin/dashboard/admins/addinstructor"}><Button variant="contained" sx={{mY:5}}>Add Instructor</Button></Link>
-        </Box>      <Paper sx={{ width: '100%', mt: 4 }}>
+        </Box>      
+        {admin ? admin.role === "super-admin" ?  
+
+      <Paper sx={{ width: '100%', mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Avatar</TableCell>
+            <TableCell>Profile photo</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center">Action</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           
 
           {
-          users ?
+            users ?
+          users.length > 0 ?
           users.map((row,index) => (
             users[index].role === "instructor" ?
             <TableRow
@@ -61,16 +73,58 @@ export const Instructor = (props) => {
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>
             : null
           ))
+          : null 
           : null
         }
         </TableBody>
       </Table>
-    
-  
       </Paper>
+      : admin.role === "sub-admin" ? 
+      
+      <Paper sx={{ width: '100%', mt: 4 }}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Profile photo</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          
+
+          {
+            users ?
+          users.length > 0 ?
+          users.map((row,index) => (
+            users[index].role === "instructor" ?
+            <TableRow
+              key={index}
+            >
+              <TableCell component="th" scope="row">
+                {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
+              </TableCell>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+            </TableRow>
+            : null
+          ))
+          : null 
+          : null
+        }
+        </TableBody>
+      </Table>
+      </Paper>
+      : null : null}
       
     </Box>
         </Box>

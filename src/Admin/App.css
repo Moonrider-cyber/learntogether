@@ -165,8 +165,8 @@ nav .search-box .bx-search{
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
-  background: #F5F6FA;
-  border: 2px solid #EFEEF1;
+  /* background: #F5F6FA; */
+  /* border: 2px solid #EFEEF1; */
   border-radius: 6px;
   height: 50px;
   /* min-width: 130px; */

@@ -24,7 +24,7 @@ function Dashboard({home,userspage,coursespage,catagorypage,adminspage,instructo
     dispatch(getAllCourses());
   }, [dispatch])
   
-  const { users } = useSelector((state) => state.admin);
+  const { users,admin } = useSelector((state) => state.admin);
   const { courses } = useSelector((state) => state.courses);
 
 
@@ -34,7 +34,7 @@ function Dashboard({home,userspage,coursespage,catagorypage,adminspage,instructo
       <Sidebar/>
       <section className="home-section">
         
-        <Navbar/>
+        <Navbar admin={admin} />
 
       { home ? <Home /> : null}
       { userspage ? <Users users={users} /> : null }

@@ -1,8 +1,9 @@
+import { Avatar } from '@mui/material';
 import React from 'react'
 import '../../App.css';
 
 
-export const Navbar = () => {
+export const Navbar = ({admin}) => {
   return (
     <div>
       <nav>
@@ -10,14 +11,9 @@ export const Navbar = () => {
           <i className=''></i>
           <span className="dashboard">Dashboard</span>
         </div>
-    
-        {/* <div className="search-box">
-          <input type="text" placeholder="Search..."/>
-          <i className='' ><FaSearch/></i>
-        </div> */}
-  
         <div className="profile-details">
-          <span className="admin_name">admin</span>
+      <Avatar src={admin ? admin.avatar.url : null}/>
+          {/* <span className="admin_name">{admin ? admin.name : "Admin"}</span> */}
         </div>
       </nav>
 

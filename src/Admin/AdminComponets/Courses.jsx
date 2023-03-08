@@ -21,6 +21,7 @@ export const Courses = (courses) => {
     dispatch(deleteCourse(e.target.attributes.dataid.value));
   }
   const { message } = useSelector((state) => state.courses);
+  const { admin } = useSelector((state) => state.admin);
 
   useEffect(() => {
     if(message){
@@ -38,16 +39,18 @@ export const Courses = (courses) => {
         {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
         <Link to={"/admin/dashboard/courses"}><Button variant="contained" sx={{mY:5}}>Add Courses</Button></Link>
         </Box>
+
+        { admin ? admin.role === "super-admin" ?
       <Paper sx={{ width: '100%', mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Title</TableCell>
-            <TableCell align="right">Description</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Catagory</TableCell>
-            <TableCell align="right">CreateAt</TableCell>
-            <TableCell align="right">Delete</TableCell>
+            <TableCell align="center">Description</TableCell>
+            <TableCell align="center">Price</TableCell>
+            <TableCell align="center">Catagory</TableCell>
+            <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center">Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -65,10 +68,10 @@ export const Courses = (courses) => {
               <TableCell component="th" scope="row" >
                 {row.title}
               </TableCell>
-              <TableCell align="right">{row.description}</TableCell>
-              <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.catagory}</TableCell>
-              <TableCell align="right">{row.createAt}</TableCell>
+              <TableCell align="center">{row.description}</TableCell>
+              <TableCell align="center">{row.price}</TableCell>
+              <TableCell align="center">{row.catagory}</TableCell>
+              <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={deleteBtnHandler}> Delete </Button></TableCell>
             </TableRow>
           ))
@@ -77,10 +80,43 @@ export const Courses = (courses) => {
         }
         </TableBody>
       </Table>
-    
-  
       </Paper>
-      
+      : admin.role === "sub-admin" ?
+      <Paper sx={{ width: '100%', mt: 4 }}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Title</TableCell>
+            <TableCell align="right">Description</TableCell>
+            <TableCell align="right">Price</TableCell>
+            <TableCell align="right">Catagory</TableCell>
+            <TableCell align="right">CreateAt</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+            courses.courses ?
+          courses.courses.map((row,index) => (
+            <TableRow
+              key={index}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+
+            >
+              <TableCell component="th" scope="row" >
+                {row.title}
+              </TableCell>
+              <TableCell align="right">{row.description}</TableCell>
+              <TableCell align="right">{row.price}</TableCell>
+              <TableCell align="right">{row.catagory}</TableCell>
+              <TableCell align="right">{row.createAt}</TableCell>
+            </TableRow>
+          ))
+        : null
+        }
+        </TableBody>
+      </Table>
+      </Paper>
+      : null : null }
     </Box>
         </Box>
     </div>

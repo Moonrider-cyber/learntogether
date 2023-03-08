@@ -20,7 +20,7 @@ export const Users = (props) => {
   let users = props.users;
   const dispatch = useDispatch();
 
-  const { message } = useSelector((state) => state.admin);
+  const { message,admin } = useSelector((state) => state.admin);
 
   function deleteBtnHandler(e){
     dispatch(deleteUser(e.target.attributes.dataid.value));
@@ -46,6 +46,9 @@ export const Users = (props) => {
         {/* <Button onClick={() => <Navigate to={"/admin/dashboard/users"}/>} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
         <Link to={"/admin/dashboard/users/adduser"}><Button variant="contained" sx={{mY:5}}>Add User</Button></Link>
         </Box>
+
+        {admin ? admin.role === "super-admin" ?  
+
       <Paper sx={{ width: '100%', mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -85,10 +88,48 @@ export const Users = (props) => {
         }
         </TableBody>
       </Table>
-    
-  
       </Paper>
+      : admin.role === "sub-admin" ? 
       
+      <Paper sx={{ width: '100%', mt: 4 }}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Profile photo</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          
+
+          {
+            users ?
+          users.length > 0 ?
+          users.map((row,index) => (
+            users[index].role === "user" ?
+            <TableRow
+              key={index}
+            >
+              <TableCell component="th" scope="row">
+                {row.avatar ? <img src={row.avatar.url} alt="avatar" style={{width:50,height:50,borderRadius:50}}/> : null }
+              </TableCell>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+            </TableRow>
+            : null
+          ))
+          : null 
+          : null
+        }
+        </TableBody>
+      </Table>
+      </Paper>
+      : null : null}
     </Box>
         </Box>
     </div>
