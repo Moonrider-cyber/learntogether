@@ -42,7 +42,7 @@ export const Instructor = (props) => {
       <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Instructor</Typography>
       <Box sx={{display:"flex",justifyContent:"right"}}>
         {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
-        <Link to={"/admin/dashboard/admins/addinstructor"}><Button variant="contained" sx={{mY:5}}>Add Instructor</Button></Link>
+        <Link to={"/admin/dashboard/instructors/addinstructor"}><Button variant="contained" sx={{mY:5}}>Add Instructor</Button></Link>
         </Box>      
         {admin ? admin.role === "super-admin" ?  
 

@@ -15,6 +15,8 @@ import { loadAdmin } from '../redux/actions/admin';
 import  AddUser from './AdminComponets/FormPage/AddUser';
 import AddAdmin from './AdminComponets/FormPage/AddAdmin';
 import AddInstructor from './AdminComponets/FormPage/AddInstructor';
+import AddCourse from './AdminComponets/FormPage/AddCourse';
+import AddCategory from './AdminComponets/FormPage/AddCategory';
 
 function AdminApp() {
 
@@ -68,7 +70,9 @@ function AdminApp() {
         <Route element={<ProtectedRoute isAdmin={!isadduser} redirect={"/admin"} />}>  
           <Route path="/dashboard/users/adduser" element={<AddUser />}></Route>      
           <Route path="/dashboard/admins/addadmin" element={<AddAdmin />}></Route>      
-          <Route path="/dashboard/admins/addinstructor" element={<AddInstructor />}></Route>      
+          <Route path="/dashboard/instructors/addinstructor" element={<AddInstructor />}></Route>      
+          <Route path="/dashboard/courses/addcourse" element={<AddCourse />}></Route>      
+          <Route path="/dashboard/category/addcategory" element={<AddCategory />}></Route>      
         </Route>      
         
         <Route element={<ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} />}>  

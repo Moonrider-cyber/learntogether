@@ -144,6 +144,18 @@
   outline: none;
   box-shadow: none;
 }
+.section .container .right-side .forms textarea {
+  width: 100%;
+  border: none;
+  margin-bottom: 10px;
+  padding: 8px 0 0 55px;
+  border: 2px solid #eee;
+  transition: all 0.5s;
+  background-color: #e8f0fe;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: none;
+}
 .section .container .right-side .forms .file-inputs input{
   padding: 0 10px;
   margin: 0;
@@ -177,6 +189,9 @@
 .section .container .right-side .forms input:focus {
   border: 2px solid #000;
 }
+.section .container .right-side .forms textarea:focus {
+  border: 2px solid #000;
+}
 
 .strength-list {
   margin-left: 5px;
@@ -186,7 +201,7 @@
 
 .form-inputs {
   position: relative;
-  width: 100% !important;
+  width: 100% ;
 }
 
 .form-inputs i {

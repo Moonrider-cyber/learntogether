@@ -42,3 +42,17 @@ export const activeDeactiveCourse = (id) => async (dispatch) => {
         dispatch({type:"adcourseFail",payload:"somthing went wrong"});
     }
 }
+export const getAllCategory = () => async (dispatch) => {
+    try{
+        dispatch({type:"getAllCategoryRequest"});
+ 
+        const {data} = await axios.get(
+            `${server}/category`,{},{
+                withCredentials:true,
+        });
+        // console.log("Data",data);
+        dispatch({type:"getAllCategorySuccess",payload: data});
+    }catch(error){
+        dispatch({type:"getAllCategoryFail"});
+    }
+}

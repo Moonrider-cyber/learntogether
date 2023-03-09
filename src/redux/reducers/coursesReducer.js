@@ -42,4 +42,15 @@ export const coursesReducer = createReducer({},{
         state.error = action.payload;
     },
     
+    getAllCategoryRequest:(state)=>{
+        state.courseLoding=true;
+    },
+    getAllCategorySuccess:(state,action)=>{
+        state.courseLoding=false;
+        state.category=action.payload.category;
+    },
+    getAllCategoryFail:(state,action)=>{
+        state.courseLoding = false;
+        state.error = action.payload;
+    },
 });
