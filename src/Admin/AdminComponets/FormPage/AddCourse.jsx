@@ -22,13 +22,16 @@ function AddCourse() {
   const { category } = useSelector((state) => state.courses);
 
   
-  const steps = ['Course Details', 'Create an ad group', 'Create an ad'];
+  const steps = ['Course Details 1', 'Course details 2'];
   const categorydata = category ? category : [];
   
+
+  const myForm = React.useRef(null);
 
     const [activeStep, setActiveStep] = React.useState(0);
     const [completed, setCompleted] = React.useState({});
   
+
     const totalSteps = () => {
       return steps.length;
     };
@@ -46,6 +49,9 @@ function AddCourse() {
     };
   
     const handleNext = () => {
+      if (!myForm.current.checkValidity()) {
+        return;
+     }
       const newActiveStep =
         isLastStep() && !allStepsCompleted()
           ? // It's the last step, but not all steps have been completed,
@@ -70,10 +76,6 @@ function AddCourse() {
       handleNext();
     };
   
-    const handleReset = () => {
-      setActiveStep(0);
-      setCompleted({});
-    };
     const [ImgPrev, setImgPrev] = React.useState();
     const [Img , setImg] = React.useState();
     const [Title, setTitle] = useState('');
@@ -81,6 +83,7 @@ function AddCourse() {
     const [Price, setPrice] = useState('');
     const [Categoryform, setCategoryform] = useState('');
 
+    const submitbtnhandler = () => {}
 
   function changeimgHandler(e){
     
@@ -109,22 +112,11 @@ function AddCourse() {
                   </Step>
                 ))}
               </Stepper>
-              <div>
-                {allStepsCompleted() ? (
-                  <React.Fragment>
-                    <Typography sx={{ mt: 2, mb: 1 }}>
-                      All steps completed - you&apos;re finished
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                      <Box sx={{ flex: '1 1 auto' }} />
-                      <Button onClick={handleReset}>Reset</Button>
-                    </Box>
-                  </React.Fragment>
-                ) : (
+              <form action="/admin/dashboard/course/addcourse" method="POST" ref={myForm}>
                   <React.Fragment>
                     {activeStep === 0 && (
                     <Container sx={{pt:7}}>
-
+                      
                         <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
                             <FormLabel component="legend" sx={{width:"20%"}}>Course Name</FormLabel>
                             <TextField 
@@ -148,20 +140,28 @@ function AddCourse() {
                                   rows={3}
                                   sx={{width:"50%"}}
                                   required
+                                  value={Desc ? Desc : ""}
+                                  onChange={(e) => setDesc(e.target.value)}
+                    
                                 />
                         </Box>
                         <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
                         <FormLabel component="legend" sx={{width:"20%"}}>Course Price </FormLabel>
                         <FormControl  sx={{width:"50%"}}>
-                              <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-                              <OutlinedInput
+                              {/* <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel> */}
+                              <TextField
                                 id="outlined-adornment-amount"
-                                startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                // startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                InputProps={{ inputProps: { min: 1 } }}
                                 label="Price"
+                                type={'number'}
                                required
+                                value={Price ? Price : ""}
+                                onChange={(e) => setPrice(e.target.value)}
                               />
                         </FormControl> 
                         </Box>
+                        
                     </Container>
                     )}
                     {activeStep === 1 && (
@@ -177,6 +177,8 @@ function AddCourse() {
                                       sx={{width:"50%"}}
                                       required
                                       defaultValue="choose"
+                                      value={Categoryform ? Categoryform : 'choose'}
+                                      onChange={(e) => setCategoryform(e.target.value)}
                                     >
                                       <MenuItem disabled value="choose">Choose Option</MenuItem>
                                       {
@@ -204,11 +206,17 @@ function AddCourse() {
                                     />
                                 </div>
                         </Box>
-                            
+                            <Box sx={{textAlign:"center",pt:2}}>
+                              <Typography variant='p' sx={{fontSize:15,color:"gray"}} >You Can Add Lecture After Course Was Created </Typography>
+                            </Box>
                         </Container>
                      </>   
                     )}
-
+                    {/* {activeStep === 1 && (
+                     <>
+                     
+                     </>
+                    )} */}
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                       <Button
                         color="inherit"
@@ -219,25 +227,24 @@ function AddCourse() {
                         Back
                       </Button>
                       <Box sx={{ flex: '1 1 auto' }} />
-                      <Button onClick={handleNext} sx={{ mr: 1 }}>
-                        Next
-                      </Button>
-                      {activeStep !== steps.length &&
-                        (completed[activeStep] ? (
-                          <Typography variant="caption" sx={{ display: 'inline-block' }}>
-                            Step {activeStep + 1} already completed
-                          </Typography>
-                        ) : (
-                          <Button onClick={handleComplete}>
-                            {completedSteps() === totalSteps() - 1
-                              ? 'Finish'
-                              : 'Complete Step'}
-                          </Button>
-                        ))}
+                        { activeStep != steps.length ? (
+                          activeStep === steps.length - 1 ? (
+                            <>
+                            <Button onClick={submitbtnhandler} type={"submit"}>
+                             Add Course
+                            </Button>  
+                            </>
+                          ) : 
+                          (
+                          <Button onClick={handleComplete} type={"submit"}>
+                             Complete Step
+                        </Button>
+                        )
+                        ) : null}
                     </Box>
                   </React.Fragment>
-                )}
-              </div>
+                {/* )} */}
+              </form>
             </Box>
       </Container>
       </>

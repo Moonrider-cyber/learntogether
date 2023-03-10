@@ -123,9 +123,9 @@ export const Courses = (courses) => {
               </TableCell>
               <TableCell align="center">{row.description}</TableCell>
               <TableCell align="center">{row.price}</TableCell>
-              <TableCell align="center">{row.category}</TableCell>
+              <TableCell align="center">{row.catagory}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
-              <TableCell align="center">{row.createBy}</TableCell>
+              <TableCell align="center">{row.createBy[0].name}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>
           ))
