@@ -4,40 +4,40 @@ export const coursesReducer = createReducer({},{
 
 
     getAllCoursesRequest:(state)=>{
-        state.courseLoding=true;
+        state.courseLoading=true;
     },
     getAllCoursesSuccess:(state,action)=>{
-        state.courseLoding=false;
+        state.courseLoading=false;
         state.courses=action.payload.courses;
     },
     getAllCoursesFail:(state,action)=>{
-        state.courseLoding = false;
+        state.courseLoading = false;
         state.error = action.payload;
     },
     deleteCourseRequest:(state)=>{
-        state.courseLoding=true;
+        state.courseLoading=true;
     },
     deleteCourseSuccess:(state,action)=>{
-        state.courseLoding=false;
+        state.courseLoading=false;
         state.message=action.payload;
         // state.error = action.payload.error;
     },
     deleteCourseFail:(state,action)=>{
-        state.courseLoding = false;
+        state.courseLoading = false;
         state.message=action.payload;
         // state.error = action.payload;
     },
     adcourseRequest:(state)=>{
-        state.courseLoding=true;
+        state.courseLoading=true;
         state.message=null;
     },
     adcourseSuccess:(state,action)=>{
-        state.courseLoding=false;
+        state.courseLoading=false;
         state.message=action.payload;
         // state.error = action.payload;
     },
     adcourseFail:(state,action)=>{
-        state.courseLoding = false;
+        state.courseLoading = false;
         // state.message=action.payload.message;
         state.error = action.payload;
     },
@@ -45,14 +45,14 @@ export const coursesReducer = createReducer({},{
 
 
     getAllCategoryRequest:(state)=>{
-        state.courseLoding=true;
+        state.courseLoading=true;
     },
     getAllCategorySuccess:(state,action)=>{
-        state.courseLoding=false;
+        state.courseLoading=false;
         state.category=action.payload.category;
     },
     getAllCategoryFail:(state,action)=>{
-        state.courseLoding = false;
+        state.courseLoading = false;
         state.error = action.payload;
     },
     

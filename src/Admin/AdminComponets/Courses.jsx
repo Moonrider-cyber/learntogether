@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
+import { Button, TableContainer } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -20,9 +20,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 export const Courses = (courses) => {
 
   const dispatch = useDispatch();
-  function deleteBtnHandler(e){
-    dispatch(deleteCourse(e.target.attributes.dataid.value));
-  }
+ 
   const { message } = useSelector((state) => state.courses);
   const { admin } = useSelector((state) => state.admin);
 
@@ -46,18 +44,19 @@ export const Courses = (courses) => {
         </Box>
 
         { admin ? admin.role === "super-admin" ?
-      <Paper sx={{ width: '100%', mt: 4 }}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+      
+      <TableContainer component={Paper} sx={{ mt: 4 }}>
+      <Table sx={{ minWidth: 650,overflowX:"scroll" }}>
+        <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
-            <TableCell>Title</TableCell>
+            <TableCell align="center">Title</TableCell>
             <TableCell align="center">Description</TableCell>
             <TableCell align="center">Price</TableCell>
-            <TableCell align="center">Catagory</TableCell>
+            <TableCell align="center">Category</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
-            <TableCell align="center">Delete</TableCell>
             <TableCell align="center">Enable/Disable</TableCell>
+            <TableCell align="center">Delete</TableCell>
 
           </TableRow>
         </TableHead>
@@ -78,11 +77,11 @@ export const Courses = (courses) => {
               </TableCell>
               <TableCell align="center">{row.description}</TableCell>
               <TableCell align="center">{row.price}</TableCell>
-              <TableCell align="center">{row.category}</TableCell>
+              <TableCell align="center">{row.catagory}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
-              <TableCell align="center">{row.createBy}</TableCell>
-              <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
+              <TableCell align="center">{row.createBy[0].name}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+              <TableCell align="center"><IconButton aria-label="delete" onClick={()=> dispatch(deleteCourse(row._id))}> <DeleteIcon/> </IconButton></TableCell>
             </TableRow>
           ))
         // : null
@@ -90,9 +89,10 @@ export const Courses = (courses) => {
         }
         </TableBody>
       </Table>
-      </Paper>
+      {/* </Paper> */}
+      </TableContainer>
       : admin.role === "sub-admin" ?
-      <Paper sx={{ width: '100%', mt: 4 }}>
+      <TableContainer component={Paper} sx={{ mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -103,6 +103,7 @@ export const Courses = (courses) => {
             <TableCell align="center">Catagory</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -125,13 +126,14 @@ export const Courses = (courses) => {
               <TableCell align="center">{row.category}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center">{row.createBy}</TableCell>
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>
           ))
         : null
         }
         </TableBody>
       </Table>
-      </Paper>
+      </TableContainer>
       : null : null }
     </Box>
         </Box>

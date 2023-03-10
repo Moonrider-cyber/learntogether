@@ -12,7 +12,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { activeDeactiveCourse, getAllCategory } from '../../redux/actions/courses';
+import { getAllCategory } from '../../redux/actions/courses';
+import { activeDeactivecategory } from '../../redux/actions/admin';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deletecategory } from '../../redux/actions/admin';
@@ -20,16 +21,10 @@ import { deletecategory } from '../../redux/actions/admin';
 export const Category = (props) => {
 
   const dispatch = useDispatch();
-  function deleteBtnHandler(e){
-    console.log(e.target.attributes);
-    dispatch(deletecategory(e.target.attributes.dataid.value));
-  }
-  const { category } = useSelector((state) => state.courses);
+  
+  let category = props.category ? props.category : [];
   const { admin } = useSelector((state) => state.admin);
 
-  function adBtnHandler(e){
-    dispatch(activeDeactiveCourse(e.target.attributes.dataid.value));
-  }
 
   const { message } = useSelector((state) => state.admin);
   
@@ -59,8 +54,8 @@ export const Category = (props) => {
             <TableCell align="center">Description</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
-            <TableCell align="center">Delete</TableCell>
             <TableCell align="center">Enable/Disable</TableCell>
+            <TableCell align="center">Delete</TableCell>
 
           </TableRow>
         </TableHead>
@@ -79,12 +74,20 @@ export const Category = (props) => {
               <TableCell component="th" scope="row" align="center">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.description}</TableCell>
+              <TableCell align="center" style={{
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                  width: "300px",
+                  padding:'25px',
+                  display: "block",
+                  overflow: "hidden"
+                }}
+                >{row.description}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
-              <TableCell align="center">{row.createBy}</TableCell>
-              <TableCell align="center"><Button aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </Button></TableCell>
-              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
-            </TableRow>
+              <TableCell align="center">{row.createBy[0].name}</TableCell>
+              <TableCell align="center"><Button onClick={()=> dispatch(activeDeactivecategory(row._id))}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+              <TableCell align="center"><IconButton aria-label="delete" onClick={() => dispatch(deletecategory(row._id)) }> <DeleteIcon/> </IconButton></TableCell>
+              </TableRow>
           ))
         // : null
         : null

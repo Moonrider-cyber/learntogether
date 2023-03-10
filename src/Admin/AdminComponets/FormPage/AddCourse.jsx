@@ -5,31 +5,27 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Container, FormLabel, IconButton, InputAdornment, InputLabel, MenuItem, OutlinedInput, TextField } from '@mui/material';
+import { Container, FormLabel, IconButton, InputAdornment, InputLabel, MenuItem, OutlinedInput, Select, TextField } from '@mui/material';
 import { FormControl } from '@mui/material';
-const steps = ['Course Details', 'Create an ad group', 'Create an ad'];
-const categorydata = [
-    {
-      value: 'Web Development',
-      label: 'Web Development',
-    },
-    {
-      value: 'Mobile Development',
-      label: 'Mobile Development',
-    },
-    {
-      value: 'Data Science',
-      label: 'Data Science',
-    },
-    {
-      value: 'Artificial Intelligence',
-      label: 'Artificial Intelligence',
-    },
-  ];
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCategory } from '../../../redux/actions/courses';
+import { useEffect,useState } from 'react';
 
 function AddCourse() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCategory());
+  }, [dispatch])
+  
+  const { category } = useSelector((state) => state.courses);
+
+  
+  const steps = ['Course Details', 'Create an ad group', 'Create an ad'];
+  const categorydata = category ? category : [];
+  
+
     const [activeStep, setActiveStep] = React.useState(0);
     const [completed, setCompleted] = React.useState({});
   
@@ -79,7 +75,12 @@ function AddCourse() {
       setCompleted({});
     };
     const [ImgPrev, setImgPrev] = React.useState();
-  const [Img , setImg] = React.useState();
+    const [Img , setImg] = React.useState();
+    const [Title, setTitle] = useState('');
+    const [Desc, setDesc] = useState('');
+    const [Price, setPrice] = useState('');
+    const [Categoryform, setCategoryform] = useState('');
+
 
   function changeimgHandler(e){
     
@@ -126,11 +127,20 @@ function AddCourse() {
 
                         <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
                             <FormLabel component="legend" sx={{width:"20%"}}>Course Name</FormLabel>
-                            <TextField id="outlined-basic" label="Course Title" variant="outlined" required sx={{width:"50%"}} />
+                            <TextField 
+                              id="outlined-basic" 
+                              label="Course Title"  
+                              variant="outlined" 
+                              required 
+                              sx={{width:"50%"}}
+                              value={Title ? Title : ""}
+                              onChange={(e) => setTitle(e.target.value)}
+                    
+                              />
                         </Box>
 
                         <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
-                            <FormLabel component="legend" sx={{width:"20%"}}>Course Description </FormLabel>
+                            <FormLabel component="legend" sx={{width:"20%"}}>Course Description </FormLabel  >
                             <TextField
                                   id="outlined-multiline-static"
                                   label="Course Description"
@@ -160,18 +170,24 @@ function AddCourse() {
 
                             <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
                                 <FormLabel component="legend" sx={{width:"20%"}}>Course Catagory</FormLabel>
-                                <TextField
-                                      select
+                                <Select
+                                      id='category'
                                       label="Select Catagory"
+                                      name="category"
                                       sx={{width:"50%"}}
                                       required
+                                      defaultValue="choose"
                                     >
-                                      {categorydata.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                          {option.label}
+                                      <MenuItem disabled value="choose">Choose Option</MenuItem>
+                                      {
+                                      categorydata ?
+                                      categorydata.map((option,index) => (
+                                        <MenuItem key={index} value={option._id}>
+                                          {option.name} 
                                         </MenuItem>
-                                      ))}
-                                </TextField>
+                                      ))
+                                    : null}
+                                </Select>
                             </Box>
                             <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
                             <FormLabel component="legend" sx={{width:"20%"}}>Course Thumbnail</FormLabel>

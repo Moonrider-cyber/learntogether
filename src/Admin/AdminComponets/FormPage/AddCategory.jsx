@@ -14,7 +14,7 @@ function AddCategory() {
 
   function addUserHandler(e){
     e.preventDefault();
-    dispatch(addCategory(Name, Desc, admin._id));
+    dispatch(addCategory(Name, Desc, admin._id, admin.name));
   }
 
   return (
@@ -27,18 +27,18 @@ function AddCategory() {
               <div className="forms">
                 <h1 className="forms-heading">ADD CATEGORY</h1>
                 <div className="form-inputs">
-                  <i className="fa fa-user"></i>
+                  <i className="fa fa-tag"></i>
                   <input type="text" placeholder="category name"
-                    name="name" 
+                    name="categoryname" 
                     value={Name ? Name : ""}
                     onChange={(e) => setName(e.target.value)}
                   required />
                 </div>
                 
                 <div className="form-inputs">
-                  <i className="fa fa-user"></i>
+                  <i className="fa fa-message"></i>
                   <textarea type="text" placeholder="category description"
-                    name="description"
+                    name="categorydescription"
                     rows="4" 
                     value={Desc ? Desc : ""}
                     onChange={(e) => setDesc(e.target.value)}

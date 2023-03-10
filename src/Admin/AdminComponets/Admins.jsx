@@ -77,7 +77,10 @@ export const Admins = (props) => {
               <TableCell align="center">{row.email}</TableCell>
               <TableCell align="center">{row.role}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
+              { row._id === admin._id ? 
+              <TableCell align="center">Your Account</TableCell> :
               <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
+              }
             </TableRow>
             : null
           ))

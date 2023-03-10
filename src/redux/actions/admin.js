@@ -103,12 +103,17 @@ export const addWithRole = (formdata) => async (dispatch) => {
     }
 }
 
-export const addCategory = (name,description,createBy) => async (dispatch) => {
+export const addCategory = (name,description,id,creatorname) => async (dispatch) => {
     try{
         dispatch({type:"addcategoryRequest"});
  
         const {data} = await axios.post(`${server}/admin/category/new`,
-        {name,description,createBy},{
+        {name,description,
+            createBy:[{
+                creatorid:id,
+                name:creatorname
+            }]
+        },{
             headers:{
                 "Content-Type":"application/json",
             },withCredentials:true,
@@ -131,5 +136,19 @@ export const deletecategory = (id) => async (dispatch) => {
         dispatch({type:"deletecategorySuccess",payload: "category deleted"});
     }catch(error){
         dispatch({type:"deletecategoryFail",payload:"somthing went wrong"});
+    }
+}
+
+export const activeDeactivecategory = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"adcategoryRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/admin/controlcategory/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"adcategorySuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"adcategoryFail",payload:"somthing went wrong"});
     }
 }
