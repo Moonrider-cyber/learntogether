@@ -15,7 +15,7 @@ import Sidebar from './Layout/Sidebar';
 import { Admins } from './Admins';
 import { Instructor } from './Instructor';
 
-function Dashboard({home,userspage,coursespage,catagorypage,adminspage,instructorpage}) {
+function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructorpage}) {
 
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ function Dashboard({home,userspage,coursespage,catagorypage,adminspage,instructo
   }, [dispatch])
   
   const { users,admin } = useSelector((state) => state.admin);
-  const { courses,catagory } = useSelector((state) => state.courses);
+  const { courses,category } = useSelector((state) => state.courses);
 
 
 
@@ -40,7 +40,7 @@ function Dashboard({home,userspage,coursespage,catagorypage,adminspage,instructo
       { home ? <Home /> : null}
       { userspage ? <Users users={users} /> : null }
       { coursespage ? <Courses courses={courses} /> : null }
-      { catagorypage ? <Category catagory={catagory} /> : null }
+      { categorypage ? <Category category={category} /> : null }
       { adminspage ? <Admins users={users} /> : null }
       { instructorpage ? <Instructor users={users} /> : null }
 

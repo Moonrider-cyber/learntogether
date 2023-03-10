@@ -20,12 +20,9 @@ import AddCategory from './AdminComponets/FormPage/AddCategory';
 
 function AdminApp() {
 
-  const { isAdmin,isadduser = false,message,error,loading } = useSelector((state) => state.admin);
-
-  // console.log(isadduser);
-
+  const { isAdmin,isadduser = false,message,error,isaddcategory = false } = useSelector((state) => state.admin);
+ 
   const dispatch = useDispatch();
-  // show toast when error or message is updated
   useEffect(() => {
     if(error){
       toast.error(error);
@@ -46,18 +43,12 @@ function AdminApp() {
   <>
   
     <Routes>
-        <Route path="/"
-     element={
-      <ProtectedRoute isAdmin={!isAdmin} redirect={"/admin/dashboard"} >
-      <Login />
-      </ProtectedRoute>
-        }></Route>
-        {/* <Route path="/dashboard/users/adduser"
-     element={
-      <ProtectedRoute isAdmin={!isadduser} redirect={"/admin/dashboard/users"} >
-        <AddUser />
-      </ProtectedRoute>
-        }></Route> */}
+        <Route path="/" element={
+        <ProtectedRoute isAdmin={!isAdmin} redirect={"/admin/dashboard"} >
+            <Login />
+        </ProtectedRoute>
+      }></Route>
+    
 
       
         <Route path="/dashboard" element={
@@ -67,11 +58,14 @@ function AdminApp() {
         }></Route>      
         
         
-        <Route element={<ProtectedRoute isAdmin={!isadduser} redirect={"/admin"} />}>  
+        <Route element={<ProtectedRoute isAdmin={!isadduser} redirect={"/admin/dashboard"} />}>  
           <Route path="/dashboard/users/adduser" element={<AddUser />}></Route>      
           <Route path="/dashboard/admins/addadmin" element={<AddAdmin />}></Route>      
           <Route path="/dashboard/instructors/addinstructor" element={<AddInstructor />}></Route>      
           <Route path="/dashboard/courses/addcourse" element={<AddCourse />}></Route>      
+        </Route>      
+
+        <Route element={<ProtectedRoute isAdmin={!isaddcategory} redirect={"/admin/dashboard/category"} />}>  
           <Route path="/dashboard/category/addcategory" element={<AddCategory />}></Route>      
         </Route>      
         
@@ -80,7 +74,7 @@ function AdminApp() {
           <Route path="/dashboard/instructor" element={<Dashboard instructorpage={true} />}></Route>      
           <Route path="/dashboard/admins" element={<Dashboard adminspage={true} />}></Route>      
           <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>      
-          <Route path="/dashboard/catagory" element={<Dashboard catagorypage={true} />}></Route>      
+          <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>      
         </Route>      
       
           

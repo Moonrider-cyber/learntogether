@@ -39,6 +39,7 @@ export const adminReducer = createReducer({
     },
     clearMessage:(state)=>{
         state.isadduser=false;
+        state.isaddcategory=false;
         state.message=null;
     },
     loadAdminRequest:(state)=>{
@@ -103,6 +104,31 @@ export const adminReducer = createReducer({
     addUserFail:(state,action)=>{
         state.adminLoding = false;
         state.isadduser=false;
+        state.error = action.payload;
+    },
+    addcategoryRequest:(state)=>{
+        state.adminLoding=true;
+        state.isaddcategory=false;
+    },
+    addcategorysuccess:(state,action)=>{
+        state.adminLoding=false;
+        state.isaddcategory=true;
+        state.message=action.payload.message;
+    },
+    addcategoryFail:(state,action)=>{
+        state.adminLoding = false;
+        state.isaddcategory=false;
+        state.error = action.payload;
+    },
+    deletecategoryRequest:(state)=>{
+        state.adminLoding=true;
+    },
+    deletecategorySuccess:(state,action)=>{
+        state.adminLoding=false;
+        state.message=action.payload;
+    },
+    deletecategoryFail:(state,action)=>{
+        state.adminLoding = false;
         state.error = action.payload;
     },
 });

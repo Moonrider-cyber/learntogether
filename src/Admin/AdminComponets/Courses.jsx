@@ -78,7 +78,7 @@ export const Courses = (courses) => {
               </TableCell>
               <TableCell align="center">{row.description}</TableCell>
               <TableCell align="center">{row.price}</TableCell>
-              <TableCell align="center">{row.catagory}</TableCell>
+              <TableCell align="center">{row.category}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center">{row.createBy}</TableCell>
               <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
@@ -122,7 +122,7 @@ export const Courses = (courses) => {
               </TableCell>
               <TableCell align="center">{row.description}</TableCell>
               <TableCell align="center">{row.price}</TableCell>
-              <TableCell align="center">{row.catagory}</TableCell>
+              <TableCell align="center">{row.category}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center">{row.createBy}</TableCell>
             </TableRow>

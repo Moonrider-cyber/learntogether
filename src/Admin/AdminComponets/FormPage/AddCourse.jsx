@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Container, FormLabel, IconButton, InputAdornment, InputLabel, MenuItem, OutlinedInput, TextField } from '@mui/material';
 import { FormControl } from '@mui/material';
 const steps = ['Course Details', 'Create an ad group', 'Create an ad'];
-const catagorydata = [
+const categorydata = [
     {
       value: 'Web Development',
       label: 'Web Development',
@@ -166,7 +166,7 @@ function AddCourse() {
                                       sx={{width:"50%"}}
                                       required
                                     >
-                                      {catagorydata.map((option) => (
+                                      {categorydata.map((option) => (
                                         <MenuItem key={option.value} value={option.value}>
                                           {option.label}
                                         </MenuItem>

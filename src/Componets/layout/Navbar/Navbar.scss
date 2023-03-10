@@ -57,7 +57,7 @@ nav {
       .nav-menu-title span:hover {
         padding-bottom: 40px;
       }
-      .catagory-menu {
+      .category-menu {
         position: absolute;
         justify-content: center;
         background-color: rgb(245 245 245);
@@ -106,7 +106,7 @@ nav {
         }
       }
     }
-    .nav-menu-wapper:hover .catagory-menu {
+    .nav-menu-wapper:hover .category-menu {
       display: block;
       transition: 0.5s ease-out all;
       transform: translateY(10px);

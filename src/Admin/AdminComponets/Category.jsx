@@ -10,25 +10,36 @@ import { Button } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteCourse, getAllCategory } from '../../redux/actions/courses';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { activeDeactiveCourse } from '../../redux/actions/courses';
+import { activeDeactiveCourse, getAllCategory } from '../../redux/actions/courses';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { deletecategory } from '../../redux/actions/admin';
 
 export const Category = (props) => {
 
   const dispatch = useDispatch();
   function deleteBtnHandler(e){
-    dispatch(deleteCourse(e.target.attributes.dataid.value));
+    console.log(e.target.attributes);
+    dispatch(deletecategory(e.target.attributes.dataid.value));
   }
   const { category } = useSelector((state) => state.courses);
   const { admin } = useSelector((state) => state.admin);
 
   function adBtnHandler(e){
     dispatch(activeDeactiveCourse(e.target.attributes.dataid.value));
-  } 
+  }
+
+  const { message } = useSelector((state) => state.admin);
+  
+  useEffect(() => {
+    if(message){
+      dispatch(getAllCategory());
+    }
+  }, [message]);
+ 
+
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
@@ -71,7 +82,7 @@ export const Category = (props) => {
               <TableCell align="center">{row.description}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center">{row.createBy}</TableCell>
-              <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
+              <TableCell align="center"><Button aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </Button></TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>
           ))

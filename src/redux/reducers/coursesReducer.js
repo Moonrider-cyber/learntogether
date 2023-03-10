@@ -42,6 +42,8 @@ export const coursesReducer = createReducer({},{
         state.error = action.payload;
     },
     
+
+
     getAllCategoryRequest:(state)=>{
         state.courseLoding=true;
     },
@@ -53,4 +55,5 @@ export const coursesReducer = createReducer({},{
         state.courseLoding = false;
         state.error = action.payload;
     },
+    
 });

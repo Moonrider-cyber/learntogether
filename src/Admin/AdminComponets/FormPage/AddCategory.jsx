@@ -1,24 +1,20 @@
 import React from "react";
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
+const { addCategory } = require('../../../redux/actions/admin');
+const { useSelector } = require("react-redux");
 
 function AddCategory() {
 
   const [Name, setName] = useState();
   const [Desc, setDesc] = useState();
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { admin } = useSelector((state) => state.admin);
 
   function addUserHandler(e){
     e.preventDefault();
-    
-    const myForm = new FormData();
-
-    myForm.append("name", Name);
-    myForm.append("description", Desc);
- 
-
-    dispatch(createcategory(myForm));
+    dispatch(addCategory(Name, Desc, admin._id));
   }
 
   return (

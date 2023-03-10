@@ -65,7 +65,7 @@ const Sidebar = () => {
         </li>
         
         <li>
-        <Link to="/admin/dashboard/catagory">
+        <Link to="/admin/dashboard/category">
             <i className='' ><TurnedInIcon/></i>
             <span className="links_name">Catagory</span>
           </Link>

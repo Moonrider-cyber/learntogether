@@ -54,7 +54,7 @@ console.log()
                 <span>Categories</span>
                 <i className="fa-solid fa-angle-down"></i>
               </button>
-              <div className="catagory-menu">
+              <div className="category-menu">
                 <ul>
                   <li>
                     <button>
