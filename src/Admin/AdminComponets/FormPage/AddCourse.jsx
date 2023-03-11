@@ -10,6 +10,7 @@ import { FormControl } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCategory } from '../../../redux/actions/courses';
 import { useEffect,useState } from 'react';
+import { addCourse } from '../../../redux/actions/admin';
 
 function AddCourse() {
 
@@ -19,6 +20,7 @@ function AddCourse() {
     dispatch(getAllCategory());
   }, [dispatch])
   
+  const { admin } = useSelector((state) => state.admin);
   const { category } = useSelector((state) => state.courses);
 
   
@@ -83,7 +85,27 @@ function AddCourse() {
     const [Price, setPrice] = useState('');
     const [Categoryform, setCategoryform] = useState('');
 
-    const submitbtnhandler = () => {}
+    const submitbtnhandler = (e) => {
+      e.preventDefault();
+
+      // let createBy = [{ 
+      //   "creatorid":admin._id,
+      //   "name":admin.name
+      // }];
+
+      const formData = new FormData();
+
+
+      formData.append('title', Title);
+      formData.append('description', Desc);
+      formData.append('price', Price);
+      formData.append('catagory', Categoryform);
+      formData.append('file', Img);
+      formData.append ('createBy[creatorid]',admin._id );
+      formData.append ('createBy[name]',admin.name );
+
+      dispatch(addCourse(formData));
+    }
 
   function changeimgHandler(e){
     
@@ -112,7 +134,7 @@ function AddCourse() {
                   </Step>
                 ))}
               </Stepper>
-              <form action="/admin/dashboard/course/addcourse" method="POST" ref={myForm}>
+              <form ref={myForm}>
                   <React.Fragment>
                     {activeStep === 0 && (
                     <Container sx={{pt:7}}>
@@ -127,7 +149,7 @@ function AddCourse() {
                               sx={{width:"50%"}}
                               value={Title ? Title : ""}
                               onChange={(e) => setTitle(e.target.value)}
-                    
+                              helperText="Title should be more than 10 characters"
                               />
                         </Box>
 
@@ -137,37 +159,37 @@ function AddCourse() {
                                   id="outlined-multiline-static"
                                   label="Course Description"
                                   multiline
-                                  rows={3}
+                                  rows={6}
                                   sx={{width:"50%"}}
                                   required
                                   value={Desc ? Desc : ""}
                                   onChange={(e) => setDesc(e.target.value)}
-                    
+                                  helperText="Description should be more than 20 characters"
                                 />
                         </Box>
-                        <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
-                        <FormLabel component="legend" sx={{width:"20%"}}>Course Price </FormLabel>
-                        <FormControl  sx={{width:"50%"}}>
-                              {/* <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel> */}
-                              <TextField
-                                id="outlined-adornment-amount"
-                                // startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                InputProps={{ inputProps: { min: 1 } }}
-                                label="Price"
-                                type={'number'}
-                               required
-                                value={Price ? Price : ""}
-                                onChange={(e) => setPrice(e.target.value)}
-                              />
-                        </FormControl> 
-                        </Box>
+                        
                         
                     </Container>
                     )}
                     {activeStep === 1 && (
                      <>
                         <Container sx={{pt:7}}>
-
+                          <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
+                          <FormLabel component="legend" sx={{width:"20%"}}>Course Price </FormLabel>
+                          <FormControl  sx={{width:"50%"}}>
+                                {/* <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel> */}
+                                <TextField
+                                  id="outlined-adornment-amount"
+                                  // startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                  InputProps={{ inputProps: { min: 1 } }}
+                                  label="Price"
+                                  type={'number'}
+                                 required
+                                  value={Price ? Price : ""}
+                                  onChange={(e) => setPrice(e.target.value)}
+                                />
+                          </FormControl> 
+                          </Box>
                             <Box sx={{ mt: 2, mb: 1, py: 1, width:"100%",display:"flex",justifyContent:"center",alignItems:"center" }}>
                                 <FormLabel component="legend" sx={{width:"20%"}}>Course Catagory</FormLabel>
                                 <Select
@@ -184,7 +206,7 @@ function AddCourse() {
                                       {
                                       categorydata ?
                                       categorydata.map((option,index) => (
-                                        <MenuItem key={index} value={option._id}>
+                                        <MenuItem key={index} value={option.name}>
                                           {option.name} 
                                         </MenuItem>
                                       ))
@@ -212,11 +234,6 @@ function AddCourse() {
                         </Container>
                      </>   
                     )}
-                    {/* {activeStep === 1 && (
-                     <>
-                     
-                     </>
-                    )} */}
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                       <Button
                         color="inherit"
@@ -228,7 +245,7 @@ function AddCourse() {
                       </Button>
                       <Box sx={{ flex: '1 1 auto' }} />
                         { activeStep != steps.length ? (
-                          activeStep === steps.length - 1 ? (
+                          activeStep === steps.length - 1 && Price !== "" && Img !== undefined  ?  (
                             <>
                             <Button onClick={submitbtnhandler} type={"submit"}>
                              Add Course

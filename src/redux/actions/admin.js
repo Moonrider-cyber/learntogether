@@ -152,3 +152,20 @@ export const activeDeactivecategory = (id) => async (dispatch) => {
         dispatch({type:"adcategoryFail",payload:"somthing went wrong"});
     }
 }
+// add course
+export const addCourse = (formdata) => async (dispatch) => {
+    try{
+        dispatch({type:"addCourseRequest"});
+ 
+        const {data} = await axios.post(`${server}/course/new`,
+            formdata,{
+                headers:{
+                    "Content-Type":"multipart/form-data",
+                },withCredentials:true,
+            }
+        );
+        dispatch({type:"addCoursesuccess",payload: "course added successfully"});
+    }catch(error){
+        dispatch({type:"addCourseFail",payload: error.response.data.message });
+    }
+}

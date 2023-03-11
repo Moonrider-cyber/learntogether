@@ -11,5 +11,5 @@ root.render(
     <ReduxProvider store={store}>
     <App />
     </ReduxProvider>
-  </React.StrictMode>
+    </React.StrictMode>
 );

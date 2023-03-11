@@ -24,7 +24,7 @@ export const deleteCourse = (id) => async (dispatch) => {
             `${server}/course/${id}`,{},{
                 withCredentials:true,
         });
-        dispatch({type:"deleteCourseSuccess",payload: "course deleted"});
+        dispatch({type:"deleteCourseSuccess",payload: "course deleted successfully"});
     }catch(error){
         dispatch({type:"deleteCourseFail",payload:"somthing went wrong"});
     }
@@ -56,3 +56,4 @@ export const getAllCategory = () => async (dispatch) => {
         dispatch({type:"getAllCategoryFail"});
     }
 }
+

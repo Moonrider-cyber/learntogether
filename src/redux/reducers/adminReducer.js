@@ -40,6 +40,7 @@ export const adminReducer = createReducer({
     clearMessage:(state)=>{
         state.isadduser=false;
         state.isaddcategory=false;
+        state.isaddcourse = false;
         state.message=null;
     },
     loadAdminRequest:(state)=>{
@@ -140,6 +141,43 @@ export const adminReducer = createReducer({
     },
     adcategoryFail:(state,action)=>{
         state.adminLoading = false;
+        state.error = action.payload;
+    },
+    addCourseRequest:(state)=>{
+        state.adminLoading=true;
+        state.isaddcourse=false;
+    },
+    addCoursesuccess:(state,action)=>{
+        state.adminLoading=false;
+        state.isaddcourse=true;
+        state.message=action.payload;
+    },
+    addCourseFail:(state,action)=>{
+        state.adminLoading = false;
+        state.isaddcourse=false;
+        state.error = action.payload;
+    },
+    deleteCourseRequest:(state)=>{
+        state.courseLoading=true;
+    },
+    deleteCourseSuccess:(state,action)=>{
+        state.courseLoading=false;
+        state.message=action.payload;
+    },
+    deleteCourseFail:(state,action)=>{
+        state.courseLoading = false;
+        state.message=action.payload;
+    },
+    adcourseRequest:(state)=>{
+        state.courseLoading=true;
+        state.message=null;
+    },
+    adcourseSuccess:(state,action)=>{
+        state.courseLoading=false;
+        state.message=action.payload;
+    },
+    adcourseFail:(state,action)=>{
+        state.courseLoading = false;
         state.error = action.payload;
     },
 });

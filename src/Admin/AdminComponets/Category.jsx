@@ -33,7 +33,6 @@ export const Category = (props) => {
       dispatch(getAllCategory());
     }
   }, [message]);
- 
 
   return (
     <div className="home-content">
@@ -50,7 +49,7 @@ export const Category = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
+            <TableCell align='center'>Name</TableCell>
             <TableCell align="center">Description</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
@@ -77,14 +76,14 @@ export const Category = (props) => {
               <TableCell align="center" style={{
                   whiteSpace: "nowrap",
                   textOverflow: "ellipsis",
-                  width: "300px",
+                  // width: "300px",
                   padding:'25px',
                   display: "block",
                   overflow: "hidden"
                 }}
                 >{row.description}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
-              <TableCell align="center">{row.createBy[0].name}</TableCell>
+              <TableCell align="center">{row.createBy[0].name} </TableCell>
               <TableCell align="center"><Button onClick={()=> dispatch(activeDeactivecategory(row._id))}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
               <TableCell align="center"><IconButton aria-label="delete" onClick={() => dispatch(deletecategory(row._id)) }> <DeleteIcon/> </IconButton></TableCell>
               </TableRow>

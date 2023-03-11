@@ -20,7 +20,7 @@ import AddCategory from './AdminComponets/FormPage/AddCategory';
 
 function AdminApp() {
 
-  const { isAdmin,isadduser = false,message,error,isaddcategory = false } = useSelector((state) => state.admin);
+  const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false } = useSelector((state) => state.admin);
  
   const dispatch = useDispatch();
   useEffect(() => {
@@ -62,7 +62,10 @@ function AdminApp() {
           <Route path="/dashboard/users/adduser" element={<AddUser />}></Route>      
           <Route path="/dashboard/admins/addadmin" element={<AddAdmin />}></Route>      
           <Route path="/dashboard/instructors/addinstructor" element={<AddInstructor />}></Route>      
-          <Route path="/dashboard/courses/addcourse" element={<AddCourse />}></Route>      
+        </Route>      
+
+        <Route element={<ProtectedRoute isAdmin={!isaddcourse} redirect={"/admin/dashboard/courses"} />}>  
+          <Route path="/dashboard/courses/addcourse" element={<AddCourse />}></Route>           
         </Route>      
 
         <Route element={<ProtectedRoute isAdmin={!isaddcategory} redirect={"/admin/dashboard/category"} />}>  

@@ -21,8 +21,7 @@ export const Courses = (courses) => {
 
   const dispatch = useDispatch();
  
-  const { message } = useSelector((state) => state.courses);
-  const { admin } = useSelector((state) => state.admin);
+  const { message,admin } = useSelector((state) => state.admin);
 
   useEffect(() => {
     if(message){
@@ -50,7 +49,7 @@ export const Courses = (courses) => {
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
             <TableCell align="center">Title</TableCell>
-            <TableCell align="center">Description</TableCell>
+            {/* <TableCell align="center">Description</TableCell> */}
             <TableCell align="center">Price</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">CreateAt</TableCell>
@@ -75,7 +74,7 @@ export const Courses = (courses) => {
               <TableCell component="th" scope="row" align="center">
                 {row.title}
               </TableCell>
-              <TableCell align="center">{row.description}</TableCell>
+              {/* <TableCell align="center">{row.description}</TableCell> */}
               <TableCell align="center">{row.price}</TableCell>
               <TableCell align="center">{row.catagory}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
@@ -98,7 +97,7 @@ export const Courses = (courses) => {
           <TableRow>
             {/* <TableCell align="center">Cover Photo</TableCell> */}
             <TableCell align="center">Title</TableCell>
-            <TableCell align="center">Description</TableCell>
+            {/* <TableCell align="center">Description</TableCell> */}
             <TableCell align="center">Price</TableCell>
             <TableCell align="center">Catagory</TableCell>
             <TableCell align="center">CreateAt</TableCell>
@@ -121,7 +120,7 @@ export const Courses = (courses) => {
               <TableCell component="th" scope="row" align="center">
                 {row.title}
               </TableCell>
-              <TableCell align="center">{row.description}</TableCell>
+              {/* <TableCell align="center">{row.description}</TableCell> */}
               <TableCell align="center">{row.price}</TableCell>
               <TableCell align="center">{row.catagory}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
