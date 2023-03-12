@@ -9,11 +9,15 @@
 ul{
   padding: 0;
 }
+a{
+  color: rgba(172,182,191,.5);
+  /* color: white; */
+}
 .sidebar{
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #008cff;
+  background: #303956;
   transition: all 0.5s ease;
 }
 .sidebar.active{
@@ -36,6 +40,7 @@ ul{
   font-size: 24px;
   font-weight: 500;
 }
+
 .sidebar .nav-links{
   margin-top: 10px;
 }
@@ -43,6 +48,7 @@ ul{
   position: relative;
   list-style: none;
   height: 50px;
+  color: rgba(172,182,191,.5);
 }
 .sidebar .nav-links li a{
   height: 100%;
@@ -53,35 +59,45 @@ ul{
   transition: all 0.4s ease;
 }
 .sidebar .nav-links li a.active{
-  background: #000000;
+  background: #fff;
 }
-.sidebar .nav-links li a:hover{
-  background: #000000;
+.sidebaractive{
+  color: #fff;
+}
+.sidebar .nav-links li:hover  a .links_name{
+  color: #fff;
+}
+.sidebar .nav-links li:hover i{
+  color: #fff;
 }
 .sidebar .nav-links li i{
   min-width: 60px;
   text-align: center;
   font-size: 18px;
-  color: #fff;
 }
 .sidebar .nav-links li a .links_name{
-  color: #fff;
+  /* color: rgba(172,182,191,.5); */
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
+}
+.sidebar .nav-links  button a {
+  color: #fff;
 }
 .sidebar .nav-links button{
   border: none;
   width: 100%;
   height: 100%;
-  background-color: #008cff;
+  background-color: #303956;
 }
   .sidebar .nav-links .log_out{
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-
+.sidebar button li a{
+  color: rgba(172,182,191,.5);
+}
 
 
 .home-section{
@@ -181,13 +197,13 @@ nav .profile-details img{
 nav .profile-details .admin_name{
   font-size: 15px;
   font-weight: 500;
-  color: #333;
+  color: rgba(172,182,191,.5);
   margin: 0 10px;
   white-space: nowrap;
 }
 nav .profile-details i{
   font-size: 25px;
-  color: #333;
+  color: rgba(172,182,191,.5);
 }
 .home-section .home-content{
   position: relative;
@@ -311,7 +327,7 @@ nav .profile-details i{
 }
 .video-boxes .video-details li a{
   font-size: 18px;
-  color: #333;
+  color: rgba(172,182,191,.5);
   font-size: 400;
   text-decoration: none;
 }
@@ -355,7 +371,7 @@ nav .profile-details i{
   object-fit: cover;
   border-radius: 5px;
   margin-right: 10px;
-  background: #333;
+  background: rgba(172,182,191,.5);
 }
 .video-boxes .top-video li a{
   display: flex;
@@ -366,7 +382,7 @@ nav .profile-details i{
 .view{
   font-size: 17px;
   font-weight: 400;
-  color: #333;
+  color: rgba(172,182,191,.5);
   
 }
 

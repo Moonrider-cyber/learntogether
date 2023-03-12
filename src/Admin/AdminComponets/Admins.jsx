@@ -8,9 +8,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
-import { getAllUsers,deleteUser } from '../../redux/actions/admin';
+import { getAllUsers,deleteUser, activeDeactiveUser } from '../../redux/actions/admin';
 import { useSelector } from 'react-redux';
-import { Button } from '@mui/material';
+import { Button, Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -29,7 +29,10 @@ export const Admins = (props) => {
       dispatch(getAllUsers());
     }
   }, [message]);
- 
+  function adBtnHandler(e){
+    dispatch(activeDeactiveUser(e.target.attributes.dataid.value));
+  }
+
 
   function deleteBtnHandler(e){
     dispatch(deleteUser(e.target.attributes.dataid.value));
@@ -56,7 +59,9 @@ export const Admins = (props) => {
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">Role</TableCell>
+            <TableCell align="center">Status</TableCell>
             <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center">Active/Deactive</TableCell>
             <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
@@ -76,7 +81,12 @@ export const Admins = (props) => {
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
               <TableCell align="center">{row.role}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
+              { row._id === admin._id ? 
+              <TableCell align="center">Your Account</TableCell> :
+              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+              }
               { row._id === admin._id ? 
               <TableCell align="center">Your Account</TableCell> :
               <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>

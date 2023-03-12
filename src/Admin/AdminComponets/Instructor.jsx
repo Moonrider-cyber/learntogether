@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { getAllUsers,deleteUser,activeDeactiveUser } from '../../redux/actions/admin';
 import { useSelector } from 'react-redux';
-import { Button,IconButton } from '@mui/material';
+import { Button,Chip,IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -75,7 +75,7 @@ export const Instructor = (props) => {
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
-              <TableCell align="center">{row.active ? "Active" : "Deactive"}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
               <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
@@ -118,7 +118,7 @@ export const Instructor = (props) => {
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
-              <TableCell align="center">{row.active ? "Active" : "Deactive"}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>

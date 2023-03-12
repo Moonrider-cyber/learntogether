@@ -23,9 +23,6 @@ export const Users = (props) => {
 
   const { message,admin } = useSelector((state) => state.admin);
 
-  function deleteBtnHandler(e){
-    dispatch(deleteUser(e.target.attributes.dataid.value));
-  }
   function adBtnHandler(e){
     dispatch(activeDeactiveUser(e.target.attributes.dataid.value));
   }
@@ -82,10 +79,10 @@ export const Users = (props) => {
               <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
-              <TableCell align="center"><IconButton aria-label="delete" dataid={row._id} onClick={deleteBtnHandler}> <DeleteIcon/> </IconButton></TableCell>
-            </TableRow>
+              <TableCell align="center"><IconButton aria-label="delete" onClick={()=> dispatch(deleteUser(row._id))}> <DeleteIcon/> </IconButton></TableCell>
+            </TableRow> 
             : null
-          ))
+          )) 
           : null 
           : null
         }
@@ -122,7 +119,7 @@ export const Users = (props) => {
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
-              <TableCell align="center">{row.active ? "Active" : "Deactive"}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
             </TableRow>

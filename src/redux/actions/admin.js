@@ -63,14 +63,13 @@ export const getAllUsers = () => async (dispatch) => {
 export const deleteUser = (id) => async (dispatch) => {
     try{
         dispatch({type:"deleteUserRequest"});
- 
         const {data} = await axios.delete(
             `${server}/admin/users/${id}`,{},{
                 withCredentials:true,
         });
         dispatch({type:"deleteUserSuccess",payload: "user deleted"});
     }catch(error){
-        dispatch({type:"deleteUserFail",payload:"somthing went wrong"});
+        dispatch({type:"deleteUserFail",payload:error.response.data.message});
     }
 }
 export const activeDeactiveUser = (id) => async (dispatch) => {
@@ -167,5 +166,31 @@ export const addCourse = (formdata) => async (dispatch) => {
         dispatch({type:"addCoursesuccess",payload: "course added successfully"});
     }catch(error){
         dispatch({type:"addCourseFail",payload: error.response.data.message });
+    }
+}
+// delete course
+export const deleteCourse = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"deleteCourseRequest"});
+        const {data} = await axios.delete(
+            `${server}/course/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"deleteCourseSuccess",payload: "course deleted successfully"});
+    }catch(error){
+        dispatch({type:"deleteCourseFail",payload:error.response.data.message});
+    }
+}
+export const activeDeactiveCourse = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"adcourseRequest"});
+ 
+        const {data} = await axios.post(
+            `${server}/admin/controlcourse/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"adcourseSuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"adcourseFail",payload:"somthing went wrong"});
     }
 }

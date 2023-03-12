@@ -26,6 +26,7 @@ const Sidebar = () => {
               <div className="sidebar">
     <div className="logo-details">
     <i className="fa-solid fa-b"></i>
+    
       <span className="logo_name">Busilearn</span>
     </div>
       <ul className="nav-links">
@@ -71,17 +72,17 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-        <a>
+        <Link to={"/admin/dashboard/"}>
             <i className='' ><CurrencyRupeeIcon/></i>
             <span className="links_name">Payment</span>
-          </a>
+          </Link>
         </li>
-        <li>
+        {/* <li>
         <a>
             <i className='' ><SupportAgentIcon/></i>
             <span className="links_name">Support</span>
           </a>
-        </li>
+        </li> */}
 
         
         <li className="log_out">
