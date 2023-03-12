@@ -17,7 +17,7 @@ import AddAdmin from './AdminComponets/FormPage/AddAdmin';
 import AddInstructor from './AdminComponets/FormPage/AddInstructor';
 import AddCourse from './AdminComponets/FormPage/AddCourse';
 import AddCategory from './AdminComponets/FormPage/AddCategory';
-
+import {EditLecture} from './AdminComponets/FormPage/EditLecture';
 function AdminApp() {
 
   const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false } = useSelector((state) => state.admin);
@@ -77,7 +77,9 @@ function AdminApp() {
           <Route path="/dashboard/instructor" element={<Dashboard instructorpage={true} />}></Route>      
           <Route path="/dashboard/admins" element={<Dashboard adminspage={true} />}></Route>      
           <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>      
-          <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>      
+          <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>   
+          <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   
+             
         </Route>      
       
           

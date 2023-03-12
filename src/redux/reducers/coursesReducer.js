@@ -14,6 +14,17 @@ export const coursesReducer = createReducer({},{
         state.courseLoading = false;
         state.error = action.payload;
     },
+    getAllLecturesRequest:(state)=>{
+        state.courseLoading=true;
+    },
+    getAllLecturesSuccess:(state,action)=>{
+        state.courseLoading=false;
+        state.Lectures=action.payload;
+    },
+    getAllLecturesFail:(state,action)=>{
+        state.courseLoading = false;
+        state.error = action.payload;
+    },
     
     
 

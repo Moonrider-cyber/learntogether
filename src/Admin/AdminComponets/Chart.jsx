@@ -25,7 +25,7 @@ ChartJs.register(
 
 export const LineChart = () => {
   
-    const lables =["ram","shyam","hari","gita","sita","radha"];
+    const lables =["jan","feb","mar"];
     const options = {
         responsive: true,
         plugins: {

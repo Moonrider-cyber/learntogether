@@ -181,6 +181,18 @@ export const deleteCourse = (id) => async (dispatch) => {
         dispatch({type:"deleteCourseFail",payload:error.response.data.message});
     }
 }
+export const deleteLecture = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"deleteLecturesRequest"});
+        const {data} = await axios.delete(
+            `${server}/course/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"deleteLectureSuccess",payload: "Lectures deleted successfully"});
+    }catch(error){
+        dispatch({type:"deleteLecturesFail",payload:error.response.data.message});
+    }
+}
 export const activeDeactiveCourse = (id) => async (dispatch) => {
     try{
         dispatch({type:"adcourseRequest"});

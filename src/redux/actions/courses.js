@@ -15,6 +15,19 @@ export const getAllCourses = () => async (dispatch) => {
         dispatch({type:"getAllCoursesFail"});
     }
 }
+export const getAllLectures = (id) => async (dispatch) => {
+    try{
+        dispatch({type:"getAllLecturesRequest"});
+ 
+        const {data} = await axios.get(
+            `${server}/course/${id}`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"getAllLecturesSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"getAllLecturesFail"});
+    }
+}
 
 
 export const getAllCategory = () => async (dispatch) => {

@@ -85,7 +85,7 @@ export const Courses = (courses) => {
               {/* <TableCell align="center"><Button variant='outlined' >Edit Lecture</Button></TableCell> */}
               <TableCell align="center">
                 <Stack flexDirection={'row'} justifyContent={"center"} >
-              <Button variant='outlined' >Edit Lecture</Button>
+              <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
               <PopupState variant="popover" popupId="demo-popup-popover">
                 {(popupState) => (
                   <div>
@@ -168,6 +168,7 @@ export const Courses = (courses) => {
       : null : null }
     </Box>
         </Box>
+        
     </div>
   )
 }
