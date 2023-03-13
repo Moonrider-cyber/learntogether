@@ -85,10 +85,7 @@ export default function login() {
                 />
               </Grid>
               {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Remember Me."
-                />
+                <Link>Forget password</Link>
               </Grid> */}
             </Grid>
             <Button

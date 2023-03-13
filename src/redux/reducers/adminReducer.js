@@ -41,6 +41,7 @@ export const adminReducer = createReducer({
         state.isadduser=false;
         state.isaddcategory=false;
         state.isaddcourse = false;
+        state.isaddlecture = false;
         state.message=null;
     },
     loadAdminRequest:(state)=>{
@@ -179,5 +180,30 @@ export const adminReducer = createReducer({
     adcourseFail:(state,action)=>{
         state.courseLoading = false;
         state.error = action.payload;
+    },
+    addLectureRequest:(state)=>{
+        state.adminLoading=true;
+        state.isaddlecture=false;
+    },
+    addLecturesuccess:(state,action)=>{
+        state.adminLoading=false;
+        state.isaddlecture=true;
+        state.message=action.payload;
+    },
+    addLectureFail:(state,action)=>{
+        state.adminLoading = false;
+        state.isaddlecture=false;
+        state.error = action.payload;
+    },
+    deleteLectureRequest:(state)=>{
+        state.adminLoading=true;
+    },
+    deleteLectureSuccess:(state,action)=>{
+        state.adminLoading=false;
+        state.message=action.payload;
+    },
+    deleteLectureFail:(state,action)=>{
+        state.adminLoading = false;
+        state.message=action.payload;
     },
 });

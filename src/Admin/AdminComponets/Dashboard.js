@@ -14,8 +14,9 @@ import { Category } from './Category';
 import Sidebar from './Layout/Sidebar';
 import { Admins } from './Admins';
 import { Instructor } from './Instructor';
+import { Payment } from './Payment';
 
-function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructorpage}) {
+function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructorpage,paymentpage}) {
 
   const dispatch = useDispatch();
 
@@ -43,6 +44,7 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
       { categorypage ? <Category category={category} /> : null }
       { adminspage ? <Admins users={users} /> : null }
       { instructorpage ? <Instructor users={users} /> : null }
+      { paymentpage ? <Payment /> : null }
 
       {/* <Home /> */}
         {/* <Routes>

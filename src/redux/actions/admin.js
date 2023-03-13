@@ -181,14 +181,14 @@ export const deleteCourse = (id) => async (dispatch) => {
         dispatch({type:"deleteCourseFail",payload:error.response.data.message});
     }
 }
-export const deleteLecture = (id) => async (dispatch) => {
+export const deleteLecture = (courseid,lectureid) => async (dispatch) => {
     try{
         dispatch({type:"deleteLecturesRequest"});
         const {data} = await axios.delete(
-            `${server}/course/${id}`,{},{
+            `${server}/lecture?courseId=${courseid}&lectureId=${lectureid}`,{},{
                 withCredentials:true,
         });
-        dispatch({type:"deleteLectureSuccess",payload: "Lectures deleted successfully"});
+        dispatch({type:"deleteLectureSuccess",payload: data.message});
     }catch(error){
         dispatch({type:"deleteLecturesFail",payload:error.response.data.message});
     }
@@ -204,5 +204,21 @@ export const activeDeactiveCourse = (id) => async (dispatch) => {
         dispatch({type:"adcourseSuccess",payload: data.message});
     }catch(error){
         dispatch({type:"adcourseFail",payload:"somthing went wrong"});
+    }
+}
+export const addLecture = (formdata,id) => async (dispatch) => {
+    try{
+        dispatch({type:"addLectureRequest"});
+ 
+        const {data} = await axios.post(`${server}/course/${id}`,
+            formdata,{
+                headers:{
+                    "Content-Type":"multipart/form-data",
+                },withCredentials:true,
+            }
+        );
+        dispatch({type:"addLecturesuccess",payload: "Lecture added successfully"});
+    }catch(error){
+        dispatch({type:"addLectureFail",payload: error.response.data.message });
     }
 }

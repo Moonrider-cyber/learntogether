@@ -99,33 +99,44 @@ export const Category = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            {/* <TableCell align="center">Cover Photo</TableCell> */}
-            <TableCell align="center">Title</TableCell>
+            <TableCell align='center'>Name</TableCell>
             <TableCell align="center">Description</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
+            <TableCell align="center">Enable/Disable</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
+          
+
           {
             category ?
+          // category.length > 0 ?
           category.map((row,index) => (
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
             >
-              {/* <TableCell align="center" sx={{width:5}}><img src={row.poster[0].url} 
-                style={{width:100}}
-              /> </TableCell> */}
               <TableCell component="th" scope="row" align="center">
-                {row.title}
+                {row.name}
               </TableCell>
-              <TableCell align="center">{row.description}</TableCell>
+              <TableCell align="center" style={{
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                  // width: "300px",
+                  padding:'25px',
+                  display: "block",
+                  overflow: "hidden"
+                }}
+                >{row.description}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
-              <TableCell align="center">{row.createBy}</TableCell>
-            </TableRow>
+              <TableCell align="center">{row.createBy[0].name} </TableCell>
+              <TableCell align="center"><Button onClick={()=> dispatch(activeDeactivecategory(row._id))}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
+              </TableRow>
           ))
+        // : null
         : null
         }
         </TableBody>

@@ -18,9 +18,10 @@ import AddInstructor from './AdminComponets/FormPage/AddInstructor';
 import AddCourse from './AdminComponets/FormPage/AddCourse';
 import AddCategory from './AdminComponets/FormPage/AddCategory';
 import {EditLecture} from './AdminComponets/FormPage/EditLecture';
+import AddLecture from './AdminComponets/FormPage/AddLecture';
 function AdminApp() {
 
-  const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false } = useSelector((state) => state.admin);
+  const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false, isaddlecture = false } = useSelector((state) => state.admin);
  
   const dispatch = useDispatch();
   useEffect(() => {
@@ -71,6 +72,9 @@ function AdminApp() {
         <Route element={<ProtectedRoute isAdmin={!isaddcategory} redirect={"/admin/dashboard/category"} />}>  
           <Route path="/dashboard/category/addcategory" element={<AddCategory />}></Route>      
         </Route>      
+        <Route element={<ProtectedRoute isAdmin={!isaddlecture} redirect={"/admin/dashboard/courses"} />}>  
+          <Route path="/dashboard/courses/editcourse/addlecture" element={<AddLecture />}></Route>      
+        </Route>      
         
         <Route element={<ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} />}>  
           <Route path="/dashboard/users" element={<Dashboard userspage={true} />}></Route>      
@@ -78,6 +82,7 @@ function AdminApp() {
           <Route path="/dashboard/admins" element={<Dashboard adminspage={true} />}></Route>      
           <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>      
           <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>   
+          <Route path="/dashboard/payment" element={<Dashboard paymentpage={true} />}></Route>   
           <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   
              
         </Route>      

@@ -49,8 +49,8 @@ export const Courses = (courses) => {
       <Table sx={{ minWidth: 650,overflowX:"scroll" }}>
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
-            <TableCell align="center">Title</TableCell>
             {/* <TableCell align="center">Description</TableCell> */}
+            <TableCell align="center">Title</TableCell>
             <TableCell align="center">Price (₹)</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">CreateAt</TableCell>
@@ -123,32 +123,34 @@ export const Courses = (courses) => {
       {/* </Paper> */}
       </TableContainer>
       : admin.role === "sub-admin" ?
+      
       <TableContainer component={Paper} sx={{ mt: 4 }}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+      <Table sx={{ minWidth: 650,overflowX:"scroll" }}>
+        <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
-            {/* <TableCell align="center">Cover Photo</TableCell> */}
             <TableCell align="center">Title</TableCell>
             {/* <TableCell align="center">Description</TableCell> */}
-            <TableCell align="center">Price</TableCell>
-            <TableCell align="center">Catagory</TableCell>
+            <TableCell align="center">Price (₹)</TableCell>
+            <TableCell align="center">Category</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
-            <TableCell align="center">Enable/Disable</TableCell>
+            {/* <TableCell align="center"></TableCell> */}
+            <TableCell align="center">Action</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
+          
+
           {
             courses.courses ?
+          // courses.length > 0 ?
           courses.courses.map((row,index) => (
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
             >
-              {/* <TableCell align="center" sx={{width:5}}><img src={row.poster[0].url} 
-                style={{width:100}}
-              /> </TableCell> */}
               <TableCell component="th" scope="row" align="center">
                 {row.title}
               </TableCell>
@@ -157,13 +159,46 @@ export const Courses = (courses) => {
               <TableCell align="center">{row.catagory}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center">{row.createBy[0].name}</TableCell>
-              <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
-            </TableRow>
+              {/* <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell> */}
+              {/* <TableCell align="center"><IconButton aria-label="delete" onClick={()=> dispatch(deleteCourse(row._id))}> <DeleteIcon/> </IconButton></TableCell> */}
+              {/* <TableCell align="center"><Button variant='outlined' >Edit Lecture</Button></TableCell> */}
+              <TableCell align="center">
+                <Stack flexDirection={'row'} justifyContent={"center"} >
+              <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
+              <PopupState variant="popover" popupId="demo-popup-popover">
+                {(popupState) => (
+                  <div>
+                    <IconButton variant="contained" {...bindTrigger(popupState)}>
+                      <MoreVertIcon />
+                    </IconButton>
+                    <Popover
+                      {...bindPopover(popupState)}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'center',
+                      }}
+                    >
+                      <Stack sx={{ p: 1 }}>
+                        <Button sx={{ p: 1 }} onClick={()=> dispatch(activeDeactiveCourse(row._id))}>{row.active === true ? "Disable" : "Enable"}</Button>
+                      </Stack>
+                    </Popover>
+                  </div>
+                )}
+              </PopupState> 
+              </Stack>
+              </TableCell>
+            </TableRow> 
           ))
+        // : null
         : null
         }
         </TableBody>
       </Table>
+      {/* </Paper> */}
       </TableContainer>
       : null : null }
     </Box>

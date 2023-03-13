@@ -25,7 +25,7 @@ ChartJs.register(
 
 export const LineChart = () => {
   
-    const lables =["jan","feb","mar"];
+    const lables =["jan","feb","mar","apr","may","jun"];
     const options = {
         responsive: true,
         plugins: {

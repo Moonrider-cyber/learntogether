@@ -72,7 +72,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-        <Link to={"/admin/dashboard/"}>
+        <Link to={"/admin/dashboard/payment"}>
             <i className='' ><CurrencyRupeeIcon/></i>
             <span className="links_name">Payment</span>
           </Link>
