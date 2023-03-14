@@ -16,7 +16,7 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { getAllLectures } from '../../../redux/actions/courses'
 import { deleteLecture } from '../../../redux/actions/admin'
-
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 export const EditLecture = () => {
   const {state} = useLocation();
@@ -38,9 +38,9 @@ export const EditLecture = () => {
   
   
   return (
-    <div>
+    <div style={{backgroundColor:"whitesmoke",width:"100vw",height:"100vh"}}>
         <Box>
-            <Typography variant="h3" sx={{ width:"100%",textAlign:"center",fontWeight:"bold",mt: 2, mb: 1, py: 3 }}>Edit Lecture</Typography>
+            <Typography variant="h3" sx={{width:"100%",textAlign:"center",fontWeight:"bold",mt: 2, mb: 1, py: 3,mt:0 }}>Edit Lecture</Typography>
         </Box>
 
         <Container>
@@ -51,6 +51,7 @@ export const EditLecture = () => {
       <Table sx={{ minWidth: 650,overflowX:"scroll" }}>
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
+            <TableCell align="center">Video</TableCell>
             <TableCell align="left">Title</TableCell>
             <TableCell align="right">Action</TableCell>
           </TableRow>
@@ -64,14 +65,17 @@ export const EditLecture = () => {
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-
             >
+              <TableCell component="th" scope="row" align="center" width={100}>
+                <Link to={row.video[0].url} target="_blank" style={{color:"black"}}><PlayCircleIcon/></Link>
+                
+              </TableCell>
               <TableCell component="th" scope="row" align="left">
                 {row.title}
               </TableCell>
               <TableCell align="right">
                 <Stack flexDirection={'row'} justifyContent={"right"} >
-              <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
+              {/* <Link to={{pathname:`/admin/dashboard/courses/editcourse/addlecture` }} editid={row._id}><Button variant='outlined'>Edit Lecture</Button></Link> */}
               <PopupState variant="popover" popupId="demo-popup-popover">
                 {(popupState) => (
                   <div>

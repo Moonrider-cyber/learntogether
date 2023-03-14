@@ -63,11 +63,11 @@ export const logout = () => async (dispatch) => {
     }
 }
 
-export const forgetpwd = (email) => async (dispatch) => {
+export const forgetpwd = (email,user = true) => async (dispatch) => {
     try{
         dispatch({type:"forgetpwdRequest"});
  
-        const {data} = await axios.post(`${server}/forgotpassword`,{email},{
+        const {data} = await axios.post(`${server}/forgotpassword`,{email,user},{
             
             headers:{
                 "Content-Type":"application/json",
@@ -81,7 +81,6 @@ export const forgetpwd = (email) => async (dispatch) => {
 export const resetpwd = (token,pwd) => async (dispatch) => {
     try{
         dispatch({type:"resetpwdRequest"});
- 
         const {data} = await axios.put(`${server}/resetpassword/${token}`,{pwd},{
             
             headers:{

@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 function AddLecture() {
     
     const {state} = useLocation();
-
+    let id = state;
   const [Title, setTitle] = useState();
   const [desc, setdesc] = useState();
   const [password, setPassword] = useState();
@@ -34,7 +34,7 @@ function AddLecture() {
     myForm.append("title", Title);
     myForm.append("desc", desc);
     myForm.append("file", Img);
-    let id = state;
+    
     dispatch(addLecture(myForm,id));
   }
 
@@ -48,7 +48,7 @@ function AddLecture() {
               <div className="forms">
                 <h1 className="forms-heading">ADD LECTURE</h1>
                 <div className="form-inputs">
-                  <i className="fa fa-user"></i>
+                <i className="fa-solid fa-heading"></i>
                   <input type="text" placeholder="Lesson Title"
                     name="title" 
                     value={Title ? Title : ""}
@@ -64,7 +64,7 @@ function AddLecture() {
                     onChange={(e) => setdesc(e.target.value)}
                     required
                   />
-                  <i className="fa fa-envelope"></i>
+                  <i class="fa-solid fa-pen-to-square"></i>
                 </div>
                 
                 

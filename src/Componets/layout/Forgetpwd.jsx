@@ -25,12 +25,12 @@ export default function Forgetpwd() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    disatch(forgetpwd(data.get('email')));
+    disatch(forgetpwd(data.get('email'),false));
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs" sx={{ display:"flex",justifyContent:"center",height:"100vh",width:"100%",flexDirection:"column" }}>
+      <Box component="main" maxWidth="xs" sx={{ display:"flex",justifyContent:"center",height:"100vh",width:"100%",flexDirection:"column" }}>
         <CssBaseline />
         <Box
           sx={{
@@ -46,31 +46,31 @@ export default function Forgetpwd() {
           <Typography component="h1" variant="h5">
             Forget Password
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3,width:"30%" }}>
+            <Grid container spacing={2} sx={{display:"flex",justifyContent:"center"}}>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Enter Email Address"
                   name="email"
                   autoComplete="email"
                 />
               </Grid>
               
-            </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Forget Password
+              sx={{ mt: 3, mb: 2 ,width:"70%" }}
+              >
+              Send Password Reset Link
             </Button>
+              </Grid>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </ThemeProvider>
   );
 }
