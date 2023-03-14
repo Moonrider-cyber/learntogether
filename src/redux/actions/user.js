@@ -62,3 +62,34 @@ export const logout = () => async (dispatch) => {
         dispatch({type:"logoutFail",payload:"logout failed"});
     }
 }
+
+export const forgetpwd = (email) => async (dispatch) => {
+    try{
+        dispatch({type:"forgetpwdRequest"});
+ 
+        const {data} = await axios.post(`${server}/forgotpassword`,{email},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"forgetpwdSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"forgetpwdFail",payload:error.response.data.message});
+    }
+}
+export const resetpwd = (token,pwd) => async (dispatch) => {
+    try{
+        dispatch({type:"resetpwdRequest"});
+ 
+        const {data} = await axios.put(`${server}/resetpassword/${token}`,{pwd},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"resetpwdSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"resetpwdFail",payload:error.response.data.message});
+    }
+}

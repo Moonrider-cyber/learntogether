@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -13,43 +13,28 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
-const { Adminlogin } = require('../../redux/actions/admin');
 import { useNavigate } from 'react-router-dom';
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link to={"https://jainex.me"} style={{color:"rgba(0, 0, 0, 0.6)"}}>
-        Busilearn
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
- 
+import { forgetpwd } from '../../redux/actions/user';
 const theme = createTheme();
 
-export default function login() {
+export default function Forgetpwd() {
 
   const disatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-  
-    disatch(Adminlogin(data.get('email'),data.get('password')));
 
+    disatch(forgetpwd(data.get('email')));
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs" sx={{ display:"flex",justifyContent:"center",height:"100vh",flexDirection:"column" }}>
+      <Container component="main" maxWidth="xs" sx={{ display:"flex",justifyContent:"center",height:"100vh",width:"100%",flexDirection:"column" }}>
         <CssBaseline />
         <Box
           sx={{
+            width: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -59,7 +44,7 @@ export default function login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Admin Login
+            Forget Password
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -73,20 +58,7 @@ export default function login() {
                   autoComplete="email"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Link to={"/admin/forgetpassword"} style={{color:"blue",textDecoration:"underline",fontSize:15}}>Forget password</Link>
-              </Grid>
+              
             </Grid>
             <Button
               type="submit"
@@ -94,11 +66,10 @@ export default function login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Login
+              Forget Password
             </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 1 }} />
       </Container>
     </ThemeProvider>
   );

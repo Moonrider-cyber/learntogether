@@ -69,5 +69,27 @@ export const userReducer = createReducer({
         state.isAuthenticated = false;
         state.error = action.payload;
     },
+    forgetpwdRequest:(state)=>{
+        state.loading=true;
+    },
+    forgetpwdSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload.message;
+    },
+    forgetpwdFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
+    },
+    resetpwdRequest:(state)=>{
+        state.loading=true;
+    },
+    resetpwdSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload.message;
+    },
+    resetpwdFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
+    },
 
 })

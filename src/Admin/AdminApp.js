@@ -19,6 +19,8 @@ import AddCourse from './AdminComponets/FormPage/AddCourse';
 import AddCategory from './AdminComponets/FormPage/AddCategory';
 import {EditLecture} from './AdminComponets/FormPage/EditLecture';
 import AddLecture from './AdminComponets/FormPage/AddLecture';
+import Forgetpwd from '../Componets/layout/Forgetpwd';
+import Resetpwd from '../Componets/layout/Resetpwd';
 function AdminApp() {
 
   const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false, isaddlecture = false } = useSelector((state) => state.admin);
@@ -44,11 +46,16 @@ function AdminApp() {
   <>
   
     <Routes>
-        <Route path="/" element={
+        {/* <Route path="/" element={
         <ProtectedRoute isAdmin={!isAdmin} redirect={"/admin/dashboard"} >
             <Login />
         </ProtectedRoute>
-      }></Route>
+      }></Route> */}
+      <Route element={<ProtectedRoute isAdmin={!isAdmin} redirect={"/admin/dashboard"} />}>  
+          <Route path="/" element={<Login />}></Route>      
+          <Route path="/forgetpassword" element={<Forgetpwd />}></Route>      
+          <Route path="/resetpassword/:token" element={<Resetpwd />}></Route>      
+      </Route>  
     
 
       
@@ -84,7 +91,6 @@ function AdminApp() {
           <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>   
           <Route path="/dashboard/payment" element={<Dashboard paymentpage={true} />}></Route>   
           <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   
-             
         </Route>      
       
           
