@@ -9,10 +9,9 @@
 ul{
   padding: 0;
 }
-a{
+/* a{
   color: rgba(172,182,191,.5);
-  /* color: white; */
-}
+} */
 .sidebar{
   position: fixed;
   height: 100%;

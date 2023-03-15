@@ -1,14 +1,17 @@
 import {
   Avatar,
   Button,
-  Container,
+  Grid,
   Tab,
   Tabs,
   Typography,
 } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, Container } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { ProfileCard } from "./ProfileCard";
+
 
 const Profile_head = () => {
   const { user } = useSelector((state) => state.user);
@@ -22,14 +25,14 @@ const Profile_head = () => {
 
   return (
     <>
-      <Container sx={{ mt: 1 }}>
+      <Container sx={{ mt: 1, pt:15 }}>
         <Typography
           variant="h3"
           sx={{ textAlign: "center", fontWeight: "bold" }}
         >
           Profile
         </Typography>
-        <Box gap={2} mt={7}>
+        <Box gap={2} mt={6}>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Avatar sx={{ width: 150, height: 150 }} src={user.avatar.url} />
           </Box>
@@ -50,17 +53,27 @@ const Profile_head = () => {
             <Typography variant="body1" sx={{ textAlign: "center", mt: 1 }}>
               {user.email}
             </Typography>
-            <Button variant="outlined" sx={{ width: 150, mt: 2 }}>
+            <Link to={"/profile/editprofile"} state={user._id}><Button variant="outlined" sx={{ width: 150, mt: 2 }}>
               Edit Profile
-            </Button>
+            </Button></Link>
           </Box>
           <Box sx={{ width: "100%", py: 4 }}>
             <Tabs value={value} onChange={handleChange} centered>
-              <Tab label="Item One" />
-              <Tab label="Item Two" />
-              <Tab label="Item Three" />
+              <Tab label="My courses" />
+              {/* <Tab label="Item Two" />
+              <Tab label="Item Three" /> */}
             </Tabs>
-          </Box>
+            </Box>
+            <Grid sx={{ flexGrow: 1 }} container spacing={2}>
+              <Grid item xs={12}>
+              <Grid container justifyContent="center" gap={4}>
+                <ProfileCard/>
+                <ProfileCard/>
+                <ProfileCard/>
+              </Grid>
+              </Grid>
+            </Grid>
+
         </Box>
       </Container>
     </>

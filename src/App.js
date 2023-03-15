@@ -13,6 +13,7 @@ import {ProtectedRoute} from "protected-route-react"
 import AdminApp from "./Admin/AdminApp";
 import { Profile } from "./Pages/Profile/Profile";
 import Loader from "./Componets/layout/Loader/Loader";
+import EditProfile from "./Componets/ProfileCom/EditProfile";
 
 function App() {
 
@@ -60,6 +61,11 @@ function App() {
           <Route path="/profile" element={
             <ProtectedRoute isAuthenticated={isAuthenticated} redirect="/">
             <Profile user={user} />  
+          </ProtectedRoute>
+          }></Route>
+          <Route path="/profile/editprofile" element={
+            <ProtectedRoute isAuthenticated={isAuthenticated} redirect="/">
+            <EditProfile />  
           </ProtectedRoute>
           }></Route>
           <Route path="/admin/*" element={<AdminApp/>}></Route>
