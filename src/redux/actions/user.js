@@ -92,3 +92,18 @@ export const resetpwd = (token,pwd) => async (dispatch) => {
         dispatch({type:"resetpwdFail",payload:error.response.data.message});
     }
 }
+export const updatename = (newname) => async (dispatch) => {
+    
+    try{
+        dispatch({type:"updateprofileRequest"});
+        const {data} = await axios.put(`${server}/updateprofile`,{"name":newname},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"updateprofileSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"updateprofileFail",payload:error.response.data.message});
+    }
+}

@@ -2,30 +2,54 @@ import {
   Avatar,
   Button,
   Grid,
+  IconButton,
   Tab,
   Tabs,
+  TextField,
   Typography,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ProfileCard } from "./ProfileCard";
-
+import EditIcon from '@mui/icons-material/Edit';
+import { useDispatch } from "react-redux";
+import { loadUser, updatename } from "../../redux/actions/user";
 
 const Profile_head = () => {
-  const { user } = useSelector((state) => state.user);
+  const { user,message } = useSelector((state) => state.user);
 
   // Tab
   const [value, setValue] = React.useState(0);
+  const [Editname, setEditname] = React.useState(false);
+  const [name, setname] = React.useState();
+  
+
+  const dispatch = useDispatch();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  
+  function editnamehandler(){
+    setEditname(true);
+  }
+  function savebtnhandler(){
+    dispatch(updatename(name));
+    setEditname(false);
+  }
+
+  React.useEffect(() => { 
+    if(message){
+      dispatch(loadUser());
+    }
+  }, [dispatch,message]);
 
   return (
     <>
       <Container sx={{ mt: 1, pt:15 }}>
+        <Box>
         <Typography
           variant="h3"
           sx={{ textAlign: "center", fontWeight: "bold" }}
@@ -34,7 +58,7 @@ const Profile_head = () => {
         </Typography>
         <Box gap={2} mt={6}>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Avatar sx={{ width: 150, height: 150 }} src={user.avatar.url} />
+            <IconButton><Avatar sx={{ width: 150, height: 150 }} src={user.avatar.url} /></IconButton>
           </Box>
           <Box
             sx={{
@@ -44,19 +68,35 @@ const Profile_head = () => {
               alignItems: "center",
             }}
           >
+            { Editname ? 
+              <Box sx={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"Center"}}>
+                <TextField id="outlined-basic"
+                value={ name ? name : ""}
+                onChange={(e)=>setname(e.target.value)}
+                placeholder="Enter Name" variant="standard" sx={{mt:3,textAlign:"center"}} />
+                <Button variant="outlined" sx={{ width: 150, mt: 2 }} onClick={savebtnhandler}>
+              Save Name
+            </Button>
+              </Box>
+              :
             <Typography
               variant="h5"
-              sx={{ textAlign: "center", fontWeight: "bold", mt: 3 }}
-            >
-              {user.name}
+              sx={{ textAlign: "center", fontWeight: "bold", mt: 3 }}>
+           {user.name} <IconButton onClick={editnamehandler}><EditIcon/></IconButton>
             </Typography>
+
+            }
+            
+
             <Typography variant="body1" sx={{ textAlign: "center", mt: 1 }}>
-              {user.email}
+              {user.email}  
             </Typography>
-            <Link to={"/profile/editprofile"} state={user._id}><Button variant="outlined" sx={{ width: 150, mt: 2 }}>
+            {/* <Link to={"/profile/editprofile"} state={user._id}>
+              <Button variant="outlined" sx={{ width: 150, mt: 2 }}>
               Edit Profile
-            </Button></Link>
+            </Button></Link> */}
           </Box>
+        </Box>
           <Box sx={{ width: "100%", py: 4 }}>
             <Tabs value={value} onChange={handleChange} centered>
               <Tab label="My courses" />

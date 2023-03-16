@@ -91,5 +91,16 @@ export const userReducer = createReducer({
         state.loading = false;
         state.error = action.payload;
     },
+    updateprofileRequest:(state)=>{
+        state.loading=true;
+    },
+    updateprofileSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload.message;
+    },
+    updateprofileFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
+    },
 
 })
