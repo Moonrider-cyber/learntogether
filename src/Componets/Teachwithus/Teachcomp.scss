@@ -28,10 +28,10 @@
             width: 100%;
             background-color: #1d1d1d;
             color: white;
-            padding: .5rem 1.5rem;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: .7rem 1.5rem;
+            // border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 900;
             margin-top: .5rem;
             border: none;
             cursor: pointer;
@@ -41,4 +41,80 @@
             }
         }
     }
+}
+.why-teach{
+    padding-top: 70px;
+    text-align: center;
+    .why-teach-heading{
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        h1{
+            font-weight: 600;
+        }
+    }
+    .why-teach-content{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+        place-items: center;
+        .why-teach-content__item{
+            width: 80%;
+            padding-top: 20px;
+            .why-teach-content__item__img{
+                width: 100%;
+                img{
+                    width: 25%;
+                }
+            }
+            .why-teach-content__item__text{
+            
+                h3{
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    margin-bottom: .5rem;
+                    margin-top: .9rem;
+                }
+                p{
+                    font-size: .9rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+.how-start{
+    .how-start-heading{
+        text-align: center;
+        margin-top: 70px;
+        margin-bottom: 40px;
+        h1{
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+    }
+    .how-start-content{
+        display: flex;
+        margin: 2% 10%;
+        .how-start-content-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 40px;
+            p{
+                width: 100%;
+                font-size: 1.1rem;
+                // font-weight: 400;
+                line-height: 1.5;
+                padding: 0 40px;
+            }
+            h6{
+                padding: 0 40px;
+                font-size: 1.2rem;
+                font-weight: 800;
+                margin-top: .3rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+        
 }
