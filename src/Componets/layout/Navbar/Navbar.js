@@ -10,7 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import { Box, Divider, Button, Tooltip, IconButton, MenuItem, Menu } from "@mui/material";
 
 
-function Navbar() {
+function Navbar({whitenav = true}) {
   function menuclick() {
     const body = document.querySelector("body");
     const navbar = document.querySelector(".navbar");
@@ -47,12 +47,18 @@ console.log()
         <header className="navbar resnavbarclose">
           <section className="navbar-right">
             <div className="logo">
-              <h1>Busilearn</h1>
+              { whitenav ? (<h1>Busilearn</h1>) : (<h1 style={{color:"black"}}>Busilearn</h1>) }
+              
             </div>
             <div className="nav-menu-wapper">
               <button type="button" className="nav-menu-title">
+                { whitenav ? (<>
                 <span>Categories</span>
-                <i className="fa-solid fa-angle-down"></i>
+                <i className="fa-solid fa-angle-down"></i></>) : (
+                  <>
+                <span style={{color:"black"}}>Categories</span>
+                <i className="fa-solid fa-angle-down" style={{color:"black"}}></i></>
+                ) }
               </button>
               <div className="category-menu">
                 <ul>
@@ -98,18 +104,25 @@ console.log()
             <div className="nav-links">
               <ul>
                 <li>
-                  <Link to="/teachwithus">Teach with us</Link>
+                  { whitenav ? (
+                      <Link to="/teachwithus">Teach with us</Link>
+                  ) : (
+                    <Link to="/teachwithus" style={{color:"black"}}>Teach with us</Link>
+                  ) }
                 </li>
                 <li>
+                  { whitenav ? (
                   <i className="fa-solid fa-cart-shopping"></i>
-                </li>
+                  ) : (
+                  <i className="fa-solid fa-cart-shopping" style={{color:"black"}}></i>
+                  ) }
+                  </li>
                 <li>
                   
                   {
                     isAuthenticated ? 
                     <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                       <div className="nav-profile">
-
 
                     <Tooltip title="Profile"> 
                       <IconButton
@@ -184,7 +197,11 @@ console.log()
                       </Box>
                     : 
                     <Link to="/signup">
+                      { whitenav ? (
                         <button className="signupbtn">Sign Up</button>
+                      ) : (
+                        <button className="signupbtn signupbtnwhite">Sign Up</button>
+                      )}
                       </Link>
                 } 
 

@@ -187,8 +187,16 @@ nav {
           font-weight: 700;
           border: 2px black solid;
         }
+
         .signupbtn:hover {
           background-color: $dark;
+        }
+        .signupbtnwhite{
+          color: white;
+          background-color: #3d3d3d;
+        }
+        .signupbtnwhite:hover{
+          background-color: black;
         }
       }
     }

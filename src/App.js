@@ -14,6 +14,7 @@ import AdminApp from "./Admin/AdminApp";
 import { Profile } from "./Pages/Profile/Profile";
 import Loader from "./Componets/layout/Loader/Loader";
 import EditProfile from "./Componets/ProfileCom/EditProfile";
+import Teachwithus from "./Pages/Teachwithus/Techwithus";
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
             <EditProfile />  
           </ProtectedRoute>
           }></Route>
+          <Route path="/teachwithus" element={<Teachwithus isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/admin/*" element={<AdminApp/>}></Route>
         </Routes>
         <Toaster />

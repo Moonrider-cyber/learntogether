@@ -1,0 +1,44 @@
+.billboard{
+    .billboard__image{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .billboard__content{
+        position: absolute;
+        height: 70%;
+        width: 21%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left: 15%;
+        .billboard__title{
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: .4rem;
+        }
+        .billboard__text{
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .billboard__btn{
+            width: 100%;
+            background-color: #1d1d1d;
+            color: white;
+            padding: .5rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: .5rem;
+            border: none;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            &:hover{
+                background-color: #000;
+            }
+        }
+    }
+}
