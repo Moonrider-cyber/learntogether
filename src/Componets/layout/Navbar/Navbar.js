@@ -213,8 +213,17 @@ console.log()
               </ul>
             </div>
             <div className="res-nav-btn" onClick={menuclick}>
-              <i className="fa-solid fa-bars" id="nav-bars"></i>
-              <i className="fa-solid fa-xmark" id="nav-xmark"></i>
+              {whitenav ? (
+                <i className="fa-solid fa-bars" id="nav-bars"></i>
+              ) : (
+                <i className="fa-solid fa-bars" id="nav-bars" style={{color:"black"}}></i>
+              )}
+              {whitenav ? (
+                <i className="fa-solid fa-xmark" id="nav-xmark"></i>
+              ) : (
+                <i className="fa-solid fa-xmark" id="nav-xmark" style={{color:"black"}}></i>
+              )}
+              
             </div>
           </section>
         </header>

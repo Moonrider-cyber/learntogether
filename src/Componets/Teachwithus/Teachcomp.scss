@@ -4,6 +4,9 @@
         img{
             width: 100%;
         }
+        .billboard-img-v3{
+            display: none;
+        }
     }
     .billboard__content{
         position: absolute;
@@ -117,4 +120,122 @@
         }
     }
         
+}
+@media screen and (max-width: 1000px){
+    .billboard .billboard__content{
+        height: auto;
+        width: 30%;
+        left: 5%;
+        margin-top: 7%;
+        align-items: flex-start;
+        .billboard__title{
+            font-size: 1.5rem;
+        }
+        .billboard__text{
+            font-size: .9rem;
+        }
+        .billboard__btn{
+            width: 60%;
+            padding: .5rem 1rem;
+            font-size: .8rem;
+        }
+    }
+    .how-start{
+        .how-start-heading{
+            margin: 30px 0;
+            h1{
+                font-size: 2.5rem;
+            }
+        }
+        .how-start-tab{
+            margin: 0;
+            font-size: 14px;
+        }
+        .how-start-content{
+            margin: 30px 0;
+            .how-start-content-text{
+                width: 100%;
+                margin-left: 0;
+                p{
+                    padding: 0;
+                }
+                h6{
+                    padding: 0;
+                }
+            }
+            .how-start-content-img{
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+            
+    }
+}
+@media screen and (max-width: 700px){
+    .billboard {
+        display: flex;
+        flex-direction: column-reverse;
+        .billboard__image{
+            .billboard-img-v3{
+                display: block;
+            }
+            .billboard-img-v4{
+                display: none;
+            }
+        }
+        .billboard__content{
+        position: relative;
+        width: 100%;
+        left: 2%;
+        margin-top: 7%;
+        align-items: center;
+            .billboard__title{
+                font-size: 1.5rem;
+            }
+            .billboard__text{
+                text-align: center;
+                font-size: .9rem;
+            }
+            .billboard__btn{
+                width: 60%;
+                padding: .5rem 1rem;
+                font-size: .8rem;
+            }
+        }
+    }
+    
+    .how-start{
+        .how-start-heading{
+            margin: 30px 0;
+            h1{
+                font-size: 2rem;
+            }
+        }
+        .how-start-tab{
+            margin: 0;
+            font-size: 12px;
+        }
+        .how-start-content{
+            flex-direction: column;
+            margin: 30px 0;
+            .how-start-content-text{
+                margin-left: 0;
+                p{
+                    padding: 0;
+                }
+                h6{
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .why-teach{
+        .why-teach-content{
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1rem;
+            
+        }
+    }
 }

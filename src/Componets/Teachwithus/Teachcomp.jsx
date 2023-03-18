@@ -1,5 +1,6 @@
 import React from 'react'
 const billboardimg = require('./asset/billboard-desktop-v4.jpg')
+const billboardimgv3 = require('./asset/billboard-mobile-v3.jpg')
 const whyteachimg1 = require('./asset/why-teach-img1.jpg')
 const whyteachimg2 = require('./asset/why-teach-img2.jpg')
 const whyteachimg3 = require('./asset/why-teach-img3.jpg')
@@ -30,7 +31,8 @@ export const Teachcomp = () => {
                 <button className='billboard__btn'>Get Started</button>
           </div>
           <div className="billboard__image">
-            <img src={billboardimg} alt="billboard" />
+            <img src={billboardimg} alt="billboard" className='billboard-img-v4' />
+            <img src={billboardimgv3} alt="billboard" className='billboard-img-v3' />
           </div>
             
         </div>
@@ -74,9 +76,9 @@ export const Teachcomp = () => {
           </div>
          <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
             <Tabs value={value} onChange={handleChange} centered>
-              <Tab label="Plan your curriculum" sx={{fontSize:"1rem",mx:4,fontWeight:800}} />
-              <Tab label="Record your video" sx={{fontSize:"1rem",mx:4,fontWeight:800}} />
-              <Tab label="Launch your course"sx={{fontSize:"1rem",mx:4,fontWeight:800}} />
+              <Tab className='how-start-tab' label="Plan your curriculum" sx={{fontSize:"1rem",mx:4,fontWeight:800}} />
+              <Tab className='how-start-tab' label="Record your video" sx={{fontSize:"1rem",mx:4,fontWeight:800}} />
+              <Tab className='how-start-tab' label="Launch your course"sx={{fontSize:"1rem",mx:4,fontWeight:800}} />
             </Tabs>
             {value === 0 && 
               <div className='how-start-content'>
