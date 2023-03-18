@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {loading ? <Loader/> : null}
+        {/* {loading ? <Loader/> : null} */}
         {courseLoading ? <Loader/> : null}
         {adminLoading ? <Loader/> : null}
         <Routes>
