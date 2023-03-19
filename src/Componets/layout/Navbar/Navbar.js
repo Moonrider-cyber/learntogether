@@ -51,7 +51,7 @@ console.log()
 
           <section className="navbar-right">
             <div className="logo">
-              { whitenav ? (<h1>Busilearn</h1>) : (<h1 style={{color:"black"}}>Busilearn</h1>) }
+              <Link to={"/"}>{ whitenav ? (<h1>Busilearn</h1>) : (<h1 style={{color:"black"}}>Busilearn</h1>) }</Link>
               
             </div>
             <div className="nav-menu-wapper">

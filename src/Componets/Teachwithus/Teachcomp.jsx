@@ -12,7 +12,7 @@ import './Teachcomp.scss'
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
+import { Link } from 'react-router-dom';
 
 export const Teachcomp = () => {
 
@@ -28,7 +28,7 @@ export const Teachcomp = () => {
           <div className="billboard__content">
                 <h1 className="billboard__title">Come teach with us</h1>
                 <p className="billboard__text">Become an instructor and change lives — including your own</p>
-                <button className='billboard__btn'>Get Started</button>
+                <Link to={"/instructor"}><button className='billboard__btn'>Get Started</button></Link>
           </div>
           <div className="billboard__image">
             <img src={billboardimg} alt="billboard" className='billboard-img-v4' />

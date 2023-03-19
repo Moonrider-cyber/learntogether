@@ -11,6 +11,7 @@ import {useSelector} from "react-redux";
 import { loadUser } from "./redux/actions/user";
 import {ProtectedRoute} from "protected-route-react"
 import AdminApp from "./Admin/AdminApp";
+import InstructorApp from "./Instructor/InstructorApp";
 import { Profile } from "./Pages/Profile/Profile";
 import Loader from "./Componets/layout/Loader/Loader";
 import EditProfile from "./Componets/ProfileCom/EditProfile";
@@ -71,6 +72,7 @@ function App() {
           }></Route>
           <Route path="/teachwithus" element={<Teachwithus isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/admin/*" element={<AdminApp/>}></Route>
+          <Route path="/instructor/*" element={<InstructorApp/>}></Route>
         </Routes>
         <Toaster />
       </BrowserRouter>

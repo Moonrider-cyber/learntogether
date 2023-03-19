@@ -10,7 +10,7 @@
     }
     .billboard__content{
         position: absolute;
-        height: 70%;
+        height: 60%;
         width: 21%;
         display: flex;
         flex-direction: column;
@@ -26,6 +26,9 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1rem;
+        }
+        a{
+            width: 100%;
         }
         .billboard__btn{
             width: 100%;
@@ -118,8 +121,14 @@
                 margin-bottom: 1rem;
             }
         }
+    }       
+}
+@media screen and (max-width: 1300px){
+    .billboard .billboard__content{
+        height: 50%;
+        width: 34%;
+        left: 5%;
     }
-        
 }
 @media screen and (max-width: 1000px){
     .billboard .billboard__content{

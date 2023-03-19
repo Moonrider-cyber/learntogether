@@ -1,0 +1,21 @@
+.forms {
+  margin-top: 50px;
+}
+
+.section .container .right-side .forms input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  background-color: #040387;
+  border-radius: 5px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.section .container .right-side .forms input[type="submit"]:hover {
+  background-color: black;
+}
