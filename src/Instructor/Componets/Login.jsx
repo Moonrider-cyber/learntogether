@@ -1,78 +1,71 @@
 import React from "react";
 import "./Logincom.scss";
-import { Link } from "react-router-dom";
-// const loginimg = require("../asset/loginimg.jpg");
-const { login } = require("../../redux/actions/user");
-const { useDispatch } = require("react-redux");
-const { useState } = require("react");
+const loginimg = require("../asset/bg_1.jpg");
 
 function Login() {
   
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
-  const disatch = useDispatch();
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    disatch(login(email,password));
-  } 
-
   return (
-    <div>
-     
-      <div className="section">
-        <div className="container">
-          <form className="form" onSubmit={submitHandler} method="post" >
-            <div className="right-side">
-              <div className="forms">
-                <h1 className="forms-heading">Instructor Login</h1>
-                <div className="form-inputs">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    autoComplete="chrome-off"
-                    name="email"
-                    value={ email ? email : ""}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <i className="fa fa-envelope"></i>
-                </div>
-                <div className="form-inputs">
-                  <input
-                    className="password-input"
-                    autoComplete="chrome-off"
-                    type="password"
-                    placeholder="Password"
-                    name="pwd"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={ password ? password : ""}
-                    required
-                  />
-                  <i className="fa fa-eye" id="password_eye"></i>
-                </div>
+    <>
+      <div class="i-login-container">
+        
+        <div class="bg order-1 order-md-2">
+          {/* <img src={loginimg} /> */}
+          </div>
+        <div class="contents order-2 order-md-1">
 
-                <div className="login-button">
-                  <input type={"submit"} value="login" />
+          <div class="container i-login-form">
+            <div class="row align-items-center justify-content-center i-login-content">
+              <div class="col-md-7">
+                <div class="mb-4">
+                  <h3>Sign In</h3>
                 </div>
+                <form>
+                  <div class="form-group first">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username"/>
 
-                <div className="form-acc">
-                  <p>Dont have account?</p>
-                  <Link to="/signup">Signup</Link>
-                </div>
+                  </div>
+                  <div class="form-group last mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password"/>
+
+                  </div>
+
+                  {/* <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
+                  </div> */}
+
+                  <button class="btn btn-block btn-primary">Login</button>
+
+                  {/* <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+
+                  <div class="social-login">
+                    <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                      <span class="icon-facebook mr-3"></span> Login with Facebook
+                    </a>
+                    <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
+                      <span class="icon-twitter mr-3"></span> Login with  Twitter
+                    </a>
+                    <a href="#" class="google btn d-flex justify-content-center align-items-center">
+                      <span class="icon-google mr-3"></span> Login with  Google
+                    </a>
+                  </div> */}
+                </form>
               </div>
             </div>
-            {/* <div className="left-side">
-              <div className="content">
-                <img src={loginimg} width="300" />
-              </div>
-              
-            </div> */}
-          </form>
+          </div>
         </div>
+
+
       </div>
-    </div>
+    
+    
+
+    </>
   );
 }
 
