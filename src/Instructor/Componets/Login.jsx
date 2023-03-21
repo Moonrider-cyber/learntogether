@@ -1,70 +1,76 @@
 import React from "react";
 import "./Logincom.scss";
-const loginimg = require("../asset/bg_1.jpg");
+import TextField from "@mui/material/TextField";
+import { Box, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Instructorlogin } from "../../redux/actions/instructor";
 
 function Login() {
-  
+  const disatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    
+    disatch(Instructorlogin(data.get('email'),data.get('password')));
+  };
+
   return (
     <>
-      <div class="i-login-container">
-        
-        <div class="bg order-1 order-md-2">
-          {/* <img src={loginimg} /> */}
-          </div>
-        <div class="contents order-2 order-md-1">
-
-          <div class="container i-login-form">
-            <div class="row align-items-center justify-content-center i-login-content">
-              <div class="col-md-7">
-                <div class="mb-4">
-                  <h3>Sign In</h3>
+      <div className="i-login-container">
+        <div className="bg order-1 order-md-2"></div>
+        <div className="contents order-2 order-md-1">
+          <div className="container i-login-form">
+            <div className="row align-items-center justify-content-center i-login-content">
+              <div className="col-md-7">
+                <div className="mb-4">
+                  <h3>LOGIN</h3>
                 </div>
-                <form>
-                  <div class="form-group first">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username"/>
-
+                <Box component="form" noValidate onSubmit={handleSubmit}>
+                  <div className="form-group first">
+                    <TextField
+                      id="email"
+                      name="email"
+                      label="Enter Your Email"
+                      variant="standard"
+                      type={"email"}
+                      fullWidth
+                    />
                   </div>
-                  <div class="form-group last mb-3">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password"/>
-
+                  <div
+                    className="form-group last mb-3"
+                    style={{ paddingTop: "15px" }}
+                  >
+                    <TextField
+                      id="password"
+                      name="password"
+                      label="Enter Your Password"
+                      variant="standard"
+                      type={"password"}
+                      fullWidth
+                    />
                   </div>
 
-                  {/* <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                      <input type="checkbox" checked="checked"/>
-                      <div class="control__indicator"></div>
-                    </label>
-                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
-                  </div> */}
-
-                  <button class="btn btn-block btn-primary">Login</button>
-
-                  {/* <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
-
-                  <div class="social-login">
-                    <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
-                      <span class="icon-facebook mr-3"></span> Login with Facebook
-                    </a>
-                    <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
-                      <span class="icon-twitter mr-3"></span> Login with  Twitter
-                    </a>
-                    <a href="#" class="google btn d-flex justify-content-center align-items-center">
-                      <span class="icon-google mr-3"></span> Login with  Google
-                    </a>
-                  </div> */}
-                </form>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                    fullWidth
+                    sx={{ mt: 2 }}
+                  >
+                    Login
+                  </Button>
+                  <Typography variant="body2" sx={{ mt: 2 }}>
+                    Don't have an account?{" "}
+                    <Link to={"/instructor/signup"}>Sign Up</Link>
+                  </Typography>
+                </Box>
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
-    
-    
-
     </>
   );
 }

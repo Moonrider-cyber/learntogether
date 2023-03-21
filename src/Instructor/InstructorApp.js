@@ -4,37 +4,42 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import { ProtectedRoute } from './InstructorProtectedRoute/ProtectedRoute';
 import Login from './Componets/Login';
+import Signup from './Componets/Signup';
 
-function AdminApp() {
+function InstructorApp() {
 
-//   const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false, isaddlecture = false } = useSelector((state) => state.admin);
+  const { isinstructor,message,error} = useSelector((state) => state.Instructor);
  
-//   const dispatch = useDispatch();
-//   useEffect(() => {
-//     if(error){
-//       toast.error(error);
-//       dispatch({type:'clearError'})
-//     }
-//     if(message){
-//       toast.success(message);
-//       dispatch({type:'clearMessage'})
-//     }
-//   }, [dispatch,error,message]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(error){
+      toast.error(error);
+      dispatch({type:'clearError'})
+    }
+    if(message){
+      toast.success(message);
+      dispatch({type:'clearMessage'})
+    }
+  }, [dispatch,error,message]);
   
-   // load user when app starts
-//    useEffect(() => {
-//     dispatch(loadAdmin())  
-//   }, [dispatch]);
-  const instructor = false;
+  //  load user when app starts
+  //  useEffect(() => {
+  //   dispatch(loadAdmin())  
+  // }, [dispatch]);
   return (
   <>
     <Routes>
         <Route path="/" element={
-        <ProtectedRoute isInstructor={!instructor} redirect={"/instructor/dashboard"} >
+        <ProtectedRoute isInstructor={!isinstructor} redirect={"/instructor/dashboard"} >
             <Login />
+        </ProtectedRoute>
+      }></Route>
+        <Route path="/signup" element={
+        <ProtectedRoute isInstructor={!isinstructor} redirect={"/instructor/dashboard"} >
+            <Signup />
         </ProtectedRoute>
       }></Route>
         
@@ -55,4 +60,4 @@ function AdminApp() {
   );
 }
 
-export default AdminApp;
+export default InstructorApp;
