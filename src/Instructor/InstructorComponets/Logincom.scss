@@ -3,20 +3,6 @@ $font-family-sans-serif-2: 'Roboto', sans-serif;
 $font-family-serif: 'Source Serif Pro', serif;
 $font-family-sans-serif: 'Roboto', sans-serif;
 
-p {
-	color: darken(#ccc, 10%);
-	font-weight: 300;
-}
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: $font-family-sans-serif;
-}
-a {
-	transition: .3s all ease;
-	&:hover {
-		text-decoration: none!important;
-	}
-}
 .content {
 	padding: 7rem 0;
 }
@@ -49,6 +35,21 @@ a {
 	  font-weight: 400;
     }
   }
+  
+p {
+	color: darken(#ccc, 10%);
+	font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $font-family-sans-serif;
+}
+a {
+	transition: .3s all ease;
+	&:hover {
+		text-decoration: none!important;
+	}
+}
 }
 @media only screen and (max-width: 768px) {
   .i-login-container{

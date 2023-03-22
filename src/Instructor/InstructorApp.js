@@ -6,8 +6,19 @@ import {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { ProtectedRoute } from './InstructorProtectedRoute/ProtectedRoute';
-import Login from './Componets/Login';
-import Signup from './Componets/Signup';
+import { loadInstructor } from '../redux/actions/instructor';
+
+
+// project imports
+import Signup from './InstructorComponets/Signup';
+import Login from './InstructorComponets/Login';
+import Dashboard from './InstructorComponets/Dashboard';
+import  AddUser from './InstructorComponets/FormPage/AddUser';
+import AddAdmin from './InstructorComponets/FormPage/AddAdmin';
+import AddCourse from './InstructorComponets/FormPage/AddCourse';
+import AddCategory from './InstructorComponets/FormPage/AddCategory';
+import {EditLecture} from './InstructorComponets/FormPage/EditLecture';
+import AddLecture from './InstructorComponets/FormPage/AddLecture';
 
 function InstructorApp() {
 
@@ -26,9 +37,9 @@ function InstructorApp() {
   }, [dispatch,error,message]);
   
   //  load user when app starts
-  //  useEffect(() => {
-  //   dispatch(loadAdmin())  
-  // }, [dispatch]);
+   useEffect(() => {
+    dispatch(loadInstructor())  
+  }, [dispatch]);
   return (
   <>
     <Routes>
@@ -43,16 +54,23 @@ function InstructorApp() {
         </ProtectedRoute>
       }></Route>
         
-        {/* <Route element={<ProtectedRoute isAdmin={isAdmin} redirect={"/admin"} />}>  
+      
+        <Route path="/dashboard" element={
+          <ProtectedRoute isInstructor={isinstructor} redirect={"/instructor"} >
+          <Dashboard home={true} />
+          </ProtectedRoute>
+        }></Route>      
+
+
+        <Route element={<ProtectedRoute isInstructor={isinstructor} redirect={"/instructor"} />}>
           <Route path="/dashboard/users" element={<Dashboard userspage={true} />}></Route>      
-          <Route path="/dashboard/instructor" element={<Dashboard instructorpage={true} />}></Route>      
           <Route path="/dashboard/admins" element={<Dashboard adminspage={true} />}></Route>      
           <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>      
           <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>   
           <Route path="/dashboard/payment" element={<Dashboard paymentpage={true} />}></Route>   
           <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   
         </Route>      
-       */}
+      
           
     </Routes>
 

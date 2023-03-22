@@ -1,19 +1,15 @@
 import React from "react";
-import "./Signupcom.scss";
-import { Link } from "react-router-dom";
-const loginimg = require("../Login/Asset/loginbg.png");
-const { signup } = require("../../redux/actions/user");
+import { addWithRole } from "../../../redux/actions/admin";
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
 
-function Signupcom() {
+function AddUser() {
 
   const [Name, setName] = useState();
   const [Email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [ImgPrev, setImgPrev] = useState();
   const [Img , setImg] = useState();
-
 
   function changeimgHandler(e){
     
@@ -27,68 +23,28 @@ function Signupcom() {
   } 
     const dispatch = useDispatch();
 
-  function submitHandler(e){
+  function addUserHandler(e){
     e.preventDefault();
     
     const myForm = new FormData();
+
     myForm.append("name", Name);
     myForm.append("email", Email);
     myForm.append("password", password);
     myForm.append("avatar", Img);
 
-    dispatch(signup(myForm));
+    dispatch(addWithRole(myForm));
   }
 
   return (
     <div> 
       <div className="section">
         <div className="container">
-          <form className="form" onSubmit={submitHandler} >
-            <div className="left-side">
-              <div className="content">
-                <h1>BUSILEARN</h1>
-                <h5>Learn with confidence</h5>
-                <img src={loginimg} width="300" />
-              </div>
-              <div className="social">
-                <ul className="social-icons">
-                  <li>
-                    <Link to="/">
-                      <i className="fa-brands fa-facebook-f"></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/">
-                      <i className="fa-brands fa-twitter"></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/">
-                      <i className="fa-brands fa-linkedin-in"></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/">
-                      <i className="fa-brands fa-instagram"></i>
-                    </Link>
-                  </li>
-                </ul>
-                <ul className="terms">
-                  <li>
-                    <Link to="/">Terms</Link>
-                  </li>
-                  <li>
-                    <span className="dots"></span>
-                  </li>
-                  <li>
-                    <Link to="/">Services</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <form className="form" onSubmit={addUserHandler} >
+            
             <div className="right-side">
               <div className="forms">
-                <h1 className="forms-heading">Sign Up</h1>
+                <h1 className="forms-heading">ADD USER</h1>
                 <div className="form-inputs">
                   <i className="fa fa-user"></i>
                   <input type="text" placeholder="User name"
@@ -135,16 +91,8 @@ function Signupcom() {
                 </div>
                 
                 <div className="sign-button">
-                  <button type="submit">Sign up</button>
+                  <button type="submit">ADD USER</button>
                 </div>
-
-                <div className="form-acc">
-                  <p>Already have account?</p>
-                  <Link to="/login">Login</Link>
-                </div>
-                {/* <div className="othersign">
-                  <button>Continue with Google</button>
-                </div> */}
               </div>
             </div>
           </form>
@@ -154,4 +102,4 @@ function Signupcom() {
   );
 }
 
-export default Signupcom;
+export default AddUser;

@@ -38,4 +38,17 @@ export const instructorReducer = createReducer({
         state.isinstructor = false;
         state.error = action.payload;
     },
+    loadInstructorRequest:(state)=>{
+        state.instructorLoading=true;
+    },
+    loadInstructorSuccess:(state,action)=>{
+        state.instructorLoading=false;
+        state.isinstructor=true;
+        state.instructor=action.payload;
+    },
+    loadInstructorFail:(state,action)=>{
+        state.instructorLoading = false;
+        state.isinstructor = false;
+        state.error = action.payload;
+    },
 });

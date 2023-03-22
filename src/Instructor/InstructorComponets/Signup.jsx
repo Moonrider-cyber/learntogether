@@ -24,12 +24,13 @@ function Signup() {
     e.preventDefault();
     
     const data = new FormData(e.currentTarget);
+    const formdata = new FormData();
+
+    formdata.append("name", data.get('name'));
+    formdata.append("email", data.get('email'));
+    formdata.append("password", data.get('password'));
+    formdata.append("avatar", data.get('avatar'));
     
-    data.append("name", data.get('name'));
-    data.append("email", data.get('email'));
-    data.append("password", data.get('password'));
-    data.append("avatar", data.get('avatar'));
-    // data.append("role","instructor");
     disatch(Instructorsignup(data));
   }
   return (
@@ -104,7 +105,7 @@ function Signup() {
                   </Button>
                   <Typography variant="body2" sx={{ mt: 2 }}>
                     Already have an account?{" "}
-                    <Link to={"/instructor/login"}>Login</Link>
+                    <Link to={"/instructor"}>Login</Link>
                   </Typography>
                 </Box>
               </div>
