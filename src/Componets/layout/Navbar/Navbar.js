@@ -39,13 +39,20 @@ function Navbar({whitenav = true}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  let shadowstyle;
+  
+  if(!whitenav){ 
+    shadowstyle = {
+      boxShadow: "0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08)",
+    }
+  }
 
-console.log()
+
   return (
     <div>
       {/* { whitenav ? ( */}
       
-        <nav>
+        <nav style={shadowstyle}>
         <header className={"navbar resnavbarclose "+ (whitenav ? null : 'nav-box-shadow')}>
           {/* { whitenav ? (<></>) : (<div style={{backgroundColor:"white",boxShadow:"0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08)"}}></div>) } */}
 
