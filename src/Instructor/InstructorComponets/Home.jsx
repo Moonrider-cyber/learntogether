@@ -37,14 +37,7 @@ export const Home = () => {
           </div>
           <i className=''></i>
         </div>
-        <div className="box">
-          <AssignmentIndIcon sx={{fontSize:70 , mr:4,ml:0}} />
-          <div className="right-side">
-            <div className="box-topic">Total Instructor</div>
-            <div className="number">{usercount ? inscount : 0}</div>
-          </div>
-          <i className='' ></i>
-        </div>
+        
         <div className="box">
         <SchoolIcon sx={{fontSize:70 , mr:4,ml:0}} />            
 

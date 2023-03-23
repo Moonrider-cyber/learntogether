@@ -42,23 +42,11 @@ const Sidebar = () => {
         <li>
           <Link to="/instructor/dashboard/users">
             <i><PeopleIcon/></i>
-            <span className="links_name">Users</span>
+            <span className="links_name">Students</span>
           </Link>
         </li>
         
-        {/* <li>
-          <Link to="/instructor/dashboard/instructor">
-            <i><AssignmentIndIcon/></i>
-            <span className="links_name">Instructor</span>
-          </Link>
-        </li> */}
-        <li>
-          <Link to="/instructor/dashboard/admins">
-            <i><AdminPanelSettingsIcon/></i>
-            <span className="links_name">Admins</span>
-          </Link>
-        </li>
-
+        
         <li>
         <Link to="/instructor/dashboard/courses">
             <i className='' ><SchoolIcon/></i>
@@ -66,12 +54,6 @@ const Sidebar = () => {
           </Link>
         </li>
         
-        <li>
-        <Link to="/instructor/dashboard/category">
-            <i className='' ><TurnedInIcon/></i>
-            <span className="links_name">Catagory</span>
-          </Link>
-        </li>
         <li>
         <Link to={"/instructor/dashboard/payment"}>
             <i className='' ><CurrencyRupeeIcon/></i>

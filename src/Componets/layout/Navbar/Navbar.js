@@ -114,12 +114,13 @@ console.log()
                     <Link to="/teachwithus" style={{color:"black"}}>Teach with us</Link>
                   ) }
                 </li>
-                <li>
+                <li><Link to={"/cart"}>
                   { whitenav ? (
                   <i className="fa-solid fa-cart-shopping"></i>
                   ) : (
                   <i className="fa-solid fa-cart-shopping" style={{color:"black"}}></i>
                   ) }
+                  </Link>
                   </li>
                 <li>
                   

@@ -16,6 +16,7 @@ import { Profile } from "./Pages/Profile/Profile";
 import Loader from "./Componets/layout/Loader/Loader";
 import EditProfile from "./Componets/ProfileCom/EditProfile";
 import Teachwithus from "./Pages/Teachwithus/Techwithus";
+import { Cart } from "./Pages/Cartpage/Cart";
 
 function App() {
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/teachwithus" element={<Teachwithus isAuthenticated={isAuthenticated} user={user} />}></Route>
           <Route path="/admin/*" element={<AdminApp/>}></Route>
           <Route path="/instructor/*" element={<InstructorApp/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
         </Routes>
         <Toaster />
       </BrowserRouter>

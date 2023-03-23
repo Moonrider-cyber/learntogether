@@ -9,9 +9,7 @@
 ul{
   padding: 0;
 }
-/* a{
-  color: rgba(172,182,191,.5);
-} */
+
 .sidebar{
   position: fixed;
   height: 100%;
@@ -73,9 +71,13 @@ ul{
   min-width: 60px;
   text-align: center;
   font-size: 18px;
+  color: white;
 }
 .sidebar .nav-links li a .links_name{
   /* color: rgba(172,182,191,.5); */
+  
+  color: rgba(172,182,191,.5);
+  
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;

@@ -61,6 +61,7 @@ function Signup() {
                       id="email"
                       label="Enter Your Email"
                       variant="standard"
+                      type={"email"}
                       fullWidth
                       name="email"
                     />
@@ -73,6 +74,7 @@ function Signup() {
                       id="password"
                       label="Enter Your Password"
                       variant="standard"
+                      type="password"
                       name="password"
                       fullWidth
                     />

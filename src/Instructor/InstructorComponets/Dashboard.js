@@ -10,12 +10,10 @@ import { Home } from './Home';
 import { Navbar } from './Layout/Navbar';
 import { Users } from './Users';
 import { Courses } from './Courses';
-import { Category } from './Category';
 import Sidebar from './Layout/Sidebar';
-import { Admins } from './Admins';
 import { Payment } from './Payment';
 
-function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructorpage,paymentpage}) {
+function Dashboard({home,userspage,coursespage,instructorpage,paymentpage}) {
 
   const dispatch = useDispatch();
 
@@ -40,8 +38,6 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
       { home ? <Home /> : null}
       { userspage ? <Users users={users} /> : null }
       { coursespage ? <Courses courses={courses} /> : null }
-      { categorypage ? <Category category={category} /> : null }
-      { adminspage ? <Admins users={users} /> : null }
       { instructorpage ? <Instructor users={users} /> : null }
       { paymentpage ? <Payment /> : null }
 

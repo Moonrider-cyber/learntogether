@@ -1,0 +1,134 @@
+.section-pagetop{
+    h2{
+        font-size: 40px;
+        font-weight: 600;
+    }
+    padding: 20px 0;
+}
+// .section-content{
+//     table{
+//         .itemside{
+//             width: 50%;
+//             img{
+//                 width: 100%;
+//                 height: 100%;
+//             }
+//         }
+//     }
+// }
+
+.cart-courses{
+    .card{
+        border: none;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        align-items: center;
+        .card-img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            img{
+                width: 70%;
+                height: 90%;
+            }
+        }
+        .card-desc{
+            grid-column: 2 / 4;
+            .cart-desc-title{
+                h6{
+                    font-weight: 700;
+                    font-size: 15px;
+                }
+            }
+            .card-desc-author{
+                p{
+                    font-size:  14px;
+                    color: rgb(84, 84, 84);
+                    margin: 5px 0;
+                }
+            }
+            .card-desc-rating{
+                display: flex;
+                gap: 3px;
+                align-items: center;
+                font-size: 14px;
+                  i{
+                    color: rgb(209, 178, 2);
+                  }
+                  p{
+                    margin: 0;
+                    color: red;
+                  }
+                  :last-child{
+                    color: rgb(94, 94, 94);
+                  }
+                }
+        }
+        .card-action{
+            display: flex;
+            flex-direction: column;
+            .card-action-btn{
+                text-align: right;
+                button{
+                    margin: 5px 0;
+                    background-color: white;
+                    border: none;
+                    color: blue;
+                    padding-right: 30px;
+                    font-size: 15px;
+                }
+            }
+        }
+        .card-price{
+            text-align: center;
+            p{
+                font-weight: 600;
+                font-size: 17px;
+                color: black;
+            }
+        }
+    }
+}
+
+.cart-aside{
+    .cart-total-title{
+        h5{
+            font-weight: 800;
+            font-size: 16px;
+            color: rgb(117, 117, 117);
+        }   
+    }
+    .cart-total-price{
+        p{
+            font-weight: 600;
+            font-size: 30px;
+        }
+    }
+    .cart-total-btn{
+        button{
+            background-color: #a435f0;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 90%;
+        }
+        button:hover{
+            background-color: #a435f0;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 90%;
+            transition: .5s ease;
+            &:hover{
+                background-color: blue;
+                
+            }
+        }
+    }
+}
