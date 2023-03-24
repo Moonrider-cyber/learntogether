@@ -1,7 +1,7 @@
 import Navbar from "../../Componets/layout/Navbar/Navbar";
 import Banner from "../../Componets/Herosection/Hero-section";
 import Courselist from "../../Componets/Courselist/Courselist";
-import Teachwithus from "../../Componets/layout/Banner-Teachwithus/Teachwithus";
+import BannerTeachwithus from "../../Componets/layout/Banner-Teachwithus/BannerTeachwithus";
 import Footer from "../../Componets/layout/Footer/footer";
 
 
@@ -12,7 +12,7 @@ function Homepage(isAuthenticated,user) {
       <Navbar isAuthenticated={isAuthenticated} user={user} />
       <Banner />
       <Courselist />
-      <Teachwithus />
+      <BannerTeachwithus onlytext={true} />
       <Footer />
     </div>
   );

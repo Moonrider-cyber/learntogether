@@ -52,7 +52,7 @@ function Signup() {
                       variant="standard"
                       fullWidth
                       name="name"
-                    />
+                    /> 
                   </div>
                   <div className="form-group first" 
                     style={{ paddingTop: "15px" }}
@@ -87,6 +87,7 @@ function Signup() {
                       <Button variant="outlined" component="label">
                         Upload Profile Picture
                         <input type="file" hidden name="avatar"
+                        accept="image/jpg, image/png, image/jpeg"
                           onChange={onChangePicture}
                         />
                       </Button>

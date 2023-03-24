@@ -15,7 +15,7 @@ $lightfont: "Ubuntu", sans-serif;
   }
   .courses-cards{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(5,1fr);
     margin: 10px 0;
   }
 }
@@ -50,16 +50,19 @@ $lightfont: "Ubuntu", sans-serif;
   }
 }
 
+a{
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 
 // Single course card
 .courseCard{
   margin-top: 30px;
   width: 100%;
     .c-card{
-      background-color: rgb(239, 239, 239);
+      // background-color: rgb(226 255 255);
       display: flex;
       flex-direction: column;
-      border-radius: 10px;
+      // border-radius: 10px;
       transition: .4s ease-in-out;
       cursor: pointer;
         .c-card-img{
@@ -67,19 +70,19 @@ $lightfont: "Ubuntu", sans-serif;
           height: 100%;
           img{
             transition: .4s ease all;
-              border-top-right-radius: 10px;
-              border-top-left-radius: 10px;
+              // border-top-right-radius: 10px;
+              // border-top-left-radius: 10px;
               width: 100%;
               height: 100%;
               object-fit: cover;
             }
         }
         .c-card-details{
-          padding: 19px 19px;
+          padding: 19px 12px;
           .c-card-title{
             padding: 3px 0;
             h5{
-              font-size: 18px;
+              font-size: 15px;
               margin: 0;
             }
           }
@@ -91,16 +94,18 @@ $lightfont: "Ubuntu", sans-serif;
             color: rgb(94, 94, 94);
           }
           .c-card-rating{
-            padding: 3px 0;
+            padding: 1px 0;
             display: flex;
             gap: 3px;
             align-items: center;
             font-weight: 400;
+            font-size: 11px;
               i{
                 color: rgb(209, 178, 2);
               }
               p{
                 margin: 0;
+                font-size: 15px;
                 color: red;
               }
               :last-child{
@@ -108,19 +113,20 @@ $lightfont: "Ubuntu", sans-serif;
               }
           }
           .c-card-price{
-            padding: 3px 0;
+            padding: 0px 0;
             display: flex;
             gap: 3px;
-            span{ font-size: 18px; }
+            span{ font-size: 16px; }
             p{
               font-size: 18px;
               color: black;
+              margin: 0;
             }
           }
         } 
     }
     .c-card:hover{
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.459);
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.159);
       .c-card-img{
         img{
           transform: scale(1.01);
