@@ -1,8 +1,8 @@
 import React from "react";
 import "./index.css";
-import Homepage from "./Pages/Homepage/Homepage";
-import Signup from "./Pages/Signup/Signup";
-import Login from "./Pages/Login/Login";
+import Homepage from "./Pages/Homepage";
+import Signup from "./Pages/Signup";
+import Login from "./Pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import toast,{Toaster} from "react-hot-toast";
 import { useDispatch } from "react-redux";
@@ -12,11 +12,12 @@ import { loadUser } from "./redux/actions/user";
 import {ProtectedRoute} from "protected-route-react"
 import AdminApp from "./Admin/AdminApp";
 import InstructorApp from "./Instructor/InstructorApp";
-import { Profile } from "./Pages/Profile/Profile";
+import { Profile } from "./Pages/Profile";
 import Loader from "./Componets/layout/Loader/Loader";
 import EditProfile from "./Componets/ProfileCom/EditProfile";
-import Teachwithus from "./Pages/Teachwithus/Techwithus";
-import { Cart } from "./Pages/Cartpage/Cart";
+import Teachwithus from "./Pages/Techwithus";
+import { Cart } from "./Pages/Cart";
+import  {Singlecourse}  from "./Pages/Singlecourse";
 
 function App() {
 
@@ -75,6 +76,7 @@ function App() {
           <Route path="/admin/*" element={<AdminApp/>}></Route>
           <Route path="/instructor/*" element={<InstructorApp/>}></Route>
           <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="/course" element={<Singlecourse/>}></Route>
         </Routes>
         <Toaster />
       </BrowserRouter>

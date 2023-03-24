@@ -8,7 +8,7 @@ const CourseCard = ({courseimg}) => {
     <>
         <div className="container courseCard">
             <div className='c-card'>
-                <Link to='/'>
+                <Link to='/course/32'>
                 <div className='c-card-img'>
                     <img src={courseimg ? courseimg : img }/>
                 </div>
