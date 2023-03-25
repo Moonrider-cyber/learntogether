@@ -9,11 +9,24 @@ $lightfont: "Ubuntu", sans-serif;
 nav {
   position: absolute;
   width: 100%;
+  z-index: 999;
 }
-// .nav-box-shadow{
-//   background-color:"white";
-//   box-shadow:"0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08)";
-// }
+.backskicky nav{
+  background-color: #1c1d1f;
+}
+.skicky nav{
+  position: fixed;
+  backdrop-filter: saturate(100%) blur(9px);
+  animation: navanimation .7s ease-in-out;
+}
+@keyframes navanimation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
 .navbar {
   position: relative;
   width: 100%;

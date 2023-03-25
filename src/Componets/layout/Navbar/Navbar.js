@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useSelector } from "react-redux";
@@ -25,6 +25,7 @@ function Navbar({whitenav = true}) {
 
   const { isAuthenticated,user } = useSelector((state) => state.user);
 
+  
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
@@ -47,6 +48,21 @@ function Navbar({whitenav = true}) {
     }
   }
 
+  let isAdded = false;
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    var header = document.querySelector("body");
+
+    if (scrollPosition > 600 && !isAdded) {
+          header.classList.add("skicky");     
+          whitenav ? header.classList.add("backskicky") : null     
+          isAdded = true;
+        } else if (scrollPosition <= 300 && isAdded) {
+          header.classList.remove("skicky");
+          whitenav ? header.classList.remove("backskicky") : null     
+      isAdded = false;
+    }
+  });
 
   return (
     <div>

@@ -3,6 +3,20 @@ import './SingleCourse.scss'
 const testimg1 = require('../../asset/test3.jpg')
 
 export function SingleCourseComp () {
+
+  let isAdded = false;
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    var cardheader = document.querySelector(".course_landing");
+
+    if (scrollPosition > 300 && !isAdded) {
+          cardheader.classList.add("skicky");
+      isAdded = true;
+    } else if (scrollPosition <= 300 && isAdded) {
+      cardheader.classList.remove("skicky");
+      isAdded = false;
+    }
+  });
   return (
     <>
       <div style={{paddingTop:70}}>

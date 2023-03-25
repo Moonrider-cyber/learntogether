@@ -167,3 +167,31 @@
         }
     }
 }
+.skicky{
+    .course_landing_bg .top-container .course_landing_card{
+        // transition: 5s ease;
+        position: fixed;
+        top: 0.9rem;
+        opacity: 0;
+        animation: sidebar-container--fade-in 250ms linear 250ms forwards;
+    }
+    @keyframes sidebar-container--fade-in {
+        0% {
+            opacity: 0
+        }
+        10% {
+            opacity: 0
+        }
+        50% {
+            opacity: 0.5
+        }
+        80% {
+            opacity: 0.5
+        }
+    
+        100% {
+            opacity: 1
+        }
+    }
+    
+}
