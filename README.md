@@ -1,18 +1,16 @@
 # <h1>E-Learning Platform for the Business Category</h1>
 
-E-Learning Platform (under construction): <a href="https://busilearn.vercel.app/">Live E-Learning</a>
 
-<h3>🤝 collaboration welcome</h3>
+Welcome to our e-learning platform! Our platform is designed to help you learn the skills and knowledge you need to succeed in the business world. We offer a wide range of business-related courses, both from our own library and from instructors who have uploaded their own content.
+
 
 <h3>📝 Description:</h3>
 
-The e-learning platform is a web-based application that allows users to access courses and learning materials related to starting and growing a business. The platform also allows instructors to upload and share their own business-related courses. The goal of the platform is to provide a convenient and effective way for users to learn the skills and knowledge they need to succeed in the business world, such as marketing, financial management, and leadership.
+Our web-based application allows users to access courses and learning materials related to starting and growing a business. The platform also allows instructors to upload and share their own business-related courses. Our goal is to provide a convenient and effective way for users to learn the skills and knowledge they need to succeed in the business world, such as marketing, financial management, and leadership.
 
 <h3>💡 Features:</h3>
 
 - Wide range of business-related courses, both from the platform's own library and from instructors who have uploaded their own content
-- Interactive quizzes and assessments to test knowledge and retention
-- Social learning tools, such as forums or chat rooms, to allow users to connect with their peers and collaborate on coursework
 - Customized learning plans, tailored to the needs and goals of each user
 - Dashboard for users to track their progress and access their course materials
 - Course creation and management system for instructors to upload and share their own courses
