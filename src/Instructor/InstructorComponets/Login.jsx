@@ -25,7 +25,7 @@ function Login() {
             <div className="row align-items-center justify-content-center i-login-content">
               <div className="col-md-7">
                 <div className="mb-4">
-                  <h3>LOGIN</h3>
+                  <h3>INSTRUCTOR LOGIN</h3>
                 </div>
                 <Box component="form" noValidate onSubmit={handleSubmit}>
                   <div className="form-group first">

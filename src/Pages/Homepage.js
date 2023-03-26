@@ -9,7 +9,7 @@ function Homepage(isAuthenticated,user) {
 
   return (
     <div>
-      <Navbar isAuthenticated={isAuthenticated} user={user} />
+      <Navbar whitenav={true} isAuthenticated={isAuthenticated} user={user} />
       <Banner />
       <Courselist />
       <BannerTeachwithus onlytext={false} />

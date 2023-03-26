@@ -84,6 +84,12 @@ a{
             h5{
               font-size: 15px;
               margin: 0;
+              display: ellipsis;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              width:211px;
+
             }
           }
           .c-card-instructor p{

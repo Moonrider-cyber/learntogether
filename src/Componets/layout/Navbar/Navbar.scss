@@ -11,9 +11,29 @@ nav {
   width: 100%;
   z-index: 999;
 }
-.backskicky nav{
-  background-color: #1c1d1f;
+.backskicky {
+  .navbar .navbar-right .logo h1{
+    color: black;
+  }
+  .navbar .navbar-right .nav-menu-wapper .nav-menu-title span{
+    color: black;
+  }
+  .navbar .navbar-right .nav-menu-wapper .nav-menu-title i{
+    color: black;
+  }
+  .navbar .navbar-left .nav-links ul li a{
+    color: black;
+  }
+  .navbar .navbar-left .nav-links ul li i{
+    color: black;
+  }
+  .navbar .navbar-left .nav-links ul .signupbtn{
+    background-color: #3d3d3d;
+    color: white;
+  }
 }
+
+
 .skicky nav{
   position: fixed;
   backdrop-filter: saturate(100%) blur(9px);

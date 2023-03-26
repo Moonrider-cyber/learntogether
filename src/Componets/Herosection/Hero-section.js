@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Navigate } from "react-router-dom";
 import "./Hero-section.scss";
 const vid = require("./asset/hero section.mp4");
 
@@ -19,7 +20,7 @@ function Banner() {
             </p>
           </div>
           <div className="hero-text-btn">
-            <button>Join for Free</button>
+            <Link to={"/signup"}><button>Join for Free</button></Link>
           </div>
         </div>
       </div>

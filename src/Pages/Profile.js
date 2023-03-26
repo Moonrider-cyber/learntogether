@@ -6,7 +6,7 @@ import Footer from "../Componets/layout/Footer/footer";
 export const Profile = (user) => {
   return (
     <>
-      <Navbar />
+      <Navbar whitenav={true} />
 
       <Profile_head user={user} />
 

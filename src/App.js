@@ -18,6 +18,7 @@ import EditProfile from "./Componets/ProfileCom/EditProfile";
 import Teachwithus from "./Pages/Techwithus";
 import { Cart } from "./Pages/Cart";
 import  {Singlecourse}  from "./Pages/Singlecourse";
+import { getAllCourses } from "./redux/actions/courses";
 
 function App() {
 
@@ -41,6 +42,10 @@ function App() {
   // load user when app starts
   useEffect(() => {
     dispatch(loadUser())  
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllCourses())  
   }, [dispatch]);
   
   return (
@@ -76,7 +81,7 @@ function App() {
           <Route path="/admin/*" element={<AdminApp/>}></Route>
           <Route path="/instructor/*" element={<InstructorApp/>}></Route>
           <Route path="/cart" element={<Cart/>}></Route>
-          <Route path="/course" element={<Singlecourse/>}></Route>
+          <Route path="/course/:id" element={<Singlecourse/>}></Route>
         </Routes>
         <Toaster />
       </BrowserRouter>

@@ -64,7 +64,7 @@ function AddLecture() {
                     onChange={(e) => setdesc(e.target.value)}
                     required
                   />
-                  <i class="fa-solid fa-pen-to-square"></i>
+                  <i className="fa-solid fa-pen-to-square"></i>
                 </div>
                 
                 

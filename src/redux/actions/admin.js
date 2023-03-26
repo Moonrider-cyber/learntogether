@@ -134,7 +134,7 @@ export const deletecategory = (id) => async (dispatch) => {
         });
         dispatch({type:"deletecategorySuccess",payload: "category deleted"});
     }catch(error){
-        dispatch({type:"deletecategoryFail",payload:"somthing went wrong"});
+        dispatch({type:"deletecategoryFail",payload:error.response.data.message});
     }
 }
 

@@ -39,7 +39,7 @@ function BannerTeachwithus({onlytext=false}) {
               Udemy. We provide the tools and skills to teach what you love.
             </div>
             <div className="context-btn">
-              <button>Start teaching today</button>
+            <Link to={"/instructor"}> <button>Start teaching today</button></Link>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ function BannerTeachwithus({onlytext=false}) {
               Busilearn catalog.
             </div>
             <div className="join-context-btn">
-              <button>Join for Free</button>
+              <Link to={"/signup"}><button>Join for Free</button></Link>
             </div>
           </div>
           <div className="join-us-img">

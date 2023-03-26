@@ -48,21 +48,26 @@ function Navbar({whitenav = true}) {
     }
   }
 
-  let isAdded = false;
-  window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;
-    var header = document.querySelector("body");
-
-    if (scrollPosition > 600 && !isAdded) {
-          header.classList.add("skicky");     
-          whitenav ? header.classList.add("backskicky") : null     
-          isAdded = true;
-        } else if (scrollPosition <= 300 && isAdded) {
-          header.classList.remove("skicky");
-          whitenav ? header.classList.remove("backskicky") : null     
-      isAdded = false;
-    }
-  });
+  // let isAdded = false;
+  // window.addEventListener('scroll', function() {
+  //   const scrollPosition = window.scrollY;
+  //   var header = document.querySelector("body");
+  //   if(header){
+  //     if (scrollPosition > 600 && !isAdded) {
+  //           header.classList.add("skicky");         
+  //           isAdded = true;
+  //           if(whitenav){
+  //             header.classList.add("backskicky");
+  //           }
+  //         } else if (scrollPosition <= 300 && isAdded) {
+  //           header.classList.remove("skicky");
+  //           isAdded = false;
+  //           if(whitenav){
+  //             header.classList.remove("backskicky");
+  //           }
+  //         }
+  //   }
+  // });
 
   return (
     <div>
