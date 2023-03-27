@@ -113,4 +113,16 @@ export const userReducer = createReducer({
         state.loading = false;
         state.error = action.payload;
     },
+    removefromcartRequest:(state)=>{
+        state.loading=true;
+    },
+    removefromcartSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload;
+    },
+    removefromcartFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
+    },
+
 })

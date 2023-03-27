@@ -1,12 +1,24 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { loadUser, removefromcart } from '../../redux/actions/user';
 import './cart.scss'
 const testimg1 = require('../../asset/test1.jpg')
 const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
+import { useDispatch } from 'react-redux';
 
 function Cartcomp() {
 
-    const { isAuthenticated,user } = useSelector((state) => state.user);
+    let { isAuthenticated,user } = useSelector((state) => state.user);
+    const { courses } = useSelector((state) => state.courses);
+    
+    if(user && user.cart.length === 0){
+        isAuthenticated = false
+    }
+    const dispatch = useDispatch()
+    React.useEffect(() => {
+        dispatch(loadUser())
+    }, [dispatch])
 
     
     return (
@@ -19,6 +31,7 @@ function Cartcomp() {
           </section>
           
           {isAuthenticated ? (
+
           <section className="section-content padding-y">
             <div className="container">
 
@@ -26,10 +39,11 @@ function Cartcomp() {
           
                 <main className="col-md-8 cart-courses">
                     <div className='total-course'>
-                        <h6>{"3"} Courses in Cart</h6>
+                        <h6>{user && user.cart.length} Courses in Cart</h6>
                     </div>
                     
                     {user ? user.cart.map((course,index) => (
+
                         <>
                             <hr/>
                     <div className="card" key={index}>
@@ -51,7 +65,7 @@ function Cartcomp() {
                         </div>
                         <div className='card-action'>
                             <div className='card-action-btn'>
-                            <button>Remove</button>
+                            <button onClick={()=> dispatch(removefromcart(user.cart[index].course))}>Remove</button>
                             <button>Move To Wishlist</button>
                             </div>
                         </div>
@@ -91,7 +105,7 @@ function Cartcomp() {
                     <p>Your cart is empty. Keep shopping to find a course!</p>
                 </div>
                 <div className='empty_cart_btn'>
-                    <button>Keep Shopping</button>
+                    <Link to={"/"}><button>Keep Shopping</button></Link>
                 </div>
             </div>
          )}

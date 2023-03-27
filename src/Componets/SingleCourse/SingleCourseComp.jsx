@@ -1,7 +1,6 @@
 import React from 'react'
 import './SingleCourse.scss'
-const testimg1 = require('../../asset/test3.jpg')
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllCourses } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
@@ -10,9 +9,11 @@ import { addtocart } from '../../redux/actions/user';
 
 export function SingleCourseComp () {
 
+  
   const id = useParams().id;
 
   const {courses} = useSelector(state => state.courses);
+  const { isAuthenticated } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,7 +21,9 @@ export function SingleCourseComp () {
   }, [dispatch])
 
   function addcartbtnhandler() {
-    dispatch(addtocart(id));
+    if(isAuthenticated){
+      dispatch(addtocart(id));
+    }
   }
   
 

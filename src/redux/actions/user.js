@@ -120,7 +120,21 @@ export const addtocart = (courseid) => async (dispatch) => {
         });
         dispatch({type:"addtocartSuccess",payload: data.message});
     }catch(error){
-        dispatch({type:"addtocartFail",payload:error.response.data.message});
-        
+        dispatch({type:"addtocartFail",payload:error.response.data.message});   
+    }
+}
+// remove from cart
+export const removefromcart = (courseid) => async (dispatch) => {
+    try{
+        dispatch({type:"removefromcartRequest"});
+        const {data} = await axios.post(`${server}/removefromcart`,{courseid},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"removefromcartSuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"removefromcartFail",payload:error.response.data.message});   
     }
 }
