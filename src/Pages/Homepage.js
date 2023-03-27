@@ -5,11 +5,11 @@ import BannerTeachwithus from "../Componets/layout/Banner-Teachwithus/BannerTeac
 import Footer from "../Componets/layout/Footer/footer";
 
 
-function Homepage(isAuthenticated,user) {
+function Homepage() {
 
   return (
     <div>
-      <Navbar whitenav={true} isAuthenticated={isAuthenticated} user={user} />
+      <Navbar whitenav={true} />
       <Banner />
       <Courselist />
       <BannerTeachwithus onlytext={false} />

@@ -107,3 +107,20 @@ export const updatename = (newname) => async (dispatch) => {
         dispatch({type:"updateprofileFail",payload:error.response.data.message});
     }
 }
+
+// add to cart
+export const addtocart = (courseid) => async (dispatch) => {
+    try{
+        dispatch({type:"addtocartRequest"});
+        const {data} = await axios.post(`${server}/addtocart`,{courseid},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"addtocartSuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"addtocartFail",payload:error.response.data.message});
+        
+    }
+}

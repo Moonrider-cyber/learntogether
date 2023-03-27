@@ -102,5 +102,15 @@ export const userReducer = createReducer({
         state.loading = false;
         state.error = action.payload;
     },
-
+    addtocartRequest:(state)=>{
+        state.loading=true;
+    },
+    addtocartSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload;
+    },
+    addtocartFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
+    },
 })

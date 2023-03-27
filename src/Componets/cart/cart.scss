@@ -132,3 +132,36 @@
         }
     }
 }
+
+.empty_cart{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(226, 226, 226);
+    margin: 1% 15%;
+    padding: 50px;
+    .empty_cart_text{
+        p{
+            font-size: 15px;
+            color: rgb(117, 117, 117);
+        }
+    }
+    .empty_cart_btn{
+        button{
+            background-color: #a435f0;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: .5s ease;
+            &:hover{
+                background-color: blue;
+                
+            }
+        }
+    }
+}

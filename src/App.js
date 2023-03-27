@@ -9,12 +9,11 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {useSelector} from "react-redux";
 import { loadUser } from "./redux/actions/user";
-import {ProtectedRoute} from "protected-route-react"
+import {ProtectedRoute} from "./Componets/ProtectedRoute/ProtectedRoute"
 import AdminApp from "./Admin/AdminApp";
 import InstructorApp from "./Instructor/InstructorApp";
 import { Profile } from "./Pages/Profile";
 import Loader from "./Componets/layout/Loader/Loader";
-import EditProfile from "./Componets/ProfileCom/EditProfile";
 import Teachwithus from "./Pages/Techwithus";
 import { Cart } from "./Pages/Cart";
 import  {Singlecourse}  from "./Pages/Singlecourse";
@@ -22,7 +21,7 @@ import { getAllCourses } from "./redux/actions/courses";
 
 function App() {
 
-  const { isAuthenticated = true,user,message,error,loading} = useSelector((state) => state.user);
+  const { isAuthenticated = true,message,error,loading} = useSelector((state) => state.user);
   const { adminLoading } = useSelector((state) => state.admin);
   const { courseLoading } = useSelector((state) => state.courses);
   const dispatch = useDispatch();
@@ -54,34 +53,31 @@ function App() {
         {/* {loading ? <Loader/> : null} */}
         {courseLoading ? <Loader/> : null}
         {adminLoading ? <Loader/> : null}
+
+
         <Routes>
-          <Route path="/" element={<Homepage isAuthenticated={isAuthenticated} user={user} />}></Route>
-          <Route path="/signup" element={
-            <ProtectedRoute isAuthenticated={!isAuthenticated} redirect="/">
-              <Signup />
-          </ProtectedRoute>
+          <Route path="/" element={<Homepage />}></Route>
+        
+          <Route element={<ProtectedRoute isAuthenticated={!isAuthenticated} redirect={"/"} />}>  
+            <Route path="/login" element={<Login />}></Route>      
+            <Route path="/signup" element={<Signup />}></Route>      
+          </Route>   
+
+          <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} redirect={"/"} />}>  
+            <Route path="/profile" element={<Profile />}></Route>        
+          </Route>   
           
-          }></Route>
-          <Route path="/login" element={
-            <ProtectedRoute isAuthenticated={!isAuthenticated} redirect="/">
-            <Login />  
-          </ProtectedRoute>
-          }></Route>
-          <Route path="/profile" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated} redirect="/">
-            <Profile user={user} />  
-          </ProtectedRoute>
-          }></Route>
-          <Route path="/profile/editprofile" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated} redirect="/">
-            <EditProfile />  
-          </ProtectedRoute>
-          }></Route>
-          <Route path="/teachwithus" element={<Teachwithus isAuthenticated={isAuthenticated} user={user} />}></Route>
-          <Route path="/admin/*" element={<AdminApp/>}></Route>
-          <Route path="/instructor/*" element={<InstructorApp/>}></Route>
           <Route path="/cart" element={<Cart/>}></Route>
           <Route path="/course/:id" element={<Singlecourse/>}></Route>
+          <Route path="/teachwithus" element={<Teachwithus />}></Route>
+          
+
+           {/* Admin Routes */}
+          <Route path="/admin/*" element={<AdminApp/>}></Route>
+          {/* Instructor Routes */}
+          <Route path="/instructor/*" element={<InstructorApp/>}></Route>
+        
+        
         </Routes>
         <Toaster />
       </BrowserRouter>

@@ -4,11 +4,11 @@ import {Teachcomp} from "../Componets/Teachwithus/Teachcomp";
 import BannerTeachwithus from "../Componets/layout/Banner-Teachwithus/BannerTeachwithus";
 
 
-function Teachwithus(isAuthenticated,user) {
+function Teachwithus() {
 
   return (
     <>
-      <Navbar isAuthenticated={isAuthenticated} user={user} whitenav={false} />
+      <Navbar whitenav={false} />
       <Teachcomp/>
       <BannerTeachwithus onlytext={true}/>
       <Footer />
