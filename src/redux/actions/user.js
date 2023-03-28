@@ -126,8 +126,9 @@ export const addtocart = (courseid) => async (dispatch) => {
 // remove from cart
 export const removefromcart = (courseid) => async (dispatch) => {
     try{
+        
         dispatch({type:"removefromcartRequest"});
-        const {data} = await axios.post(`${server}/removefromcart`,{courseid},{
+        const {data} = await axios.delete(`${server}/removefromcart`,{courseid},{
             
             headers:{
                 "Content-Type":"application/json",
@@ -136,5 +137,20 @@ export const removefromcart = (courseid) => async (dispatch) => {
         dispatch({type:"removefromcartSuccess",payload: data.message});
     }catch(error){
         dispatch({type:"removefromcartFail",payload:error.response.data.message});   
+    }
+}
+// get cart courses
+export const getcartcourses = () => async (dispatch) => {
+    try{
+        dispatch({type:"getcartcoursesRequest"});
+        const {data} = await axios.post(`${server}/getcartcourses`,{},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"getcartcoursesSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"getcartcoursesFail",payload:error.response.data.message});   
     }
 }

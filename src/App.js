@@ -41,10 +41,8 @@ function App() {
   // load user when app starts
   useEffect(() => {
     dispatch(loadUser())  
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getAllCourses())  
+
   }, [dispatch]);
   
   return (

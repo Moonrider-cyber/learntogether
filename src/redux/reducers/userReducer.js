@@ -124,5 +124,18 @@ export const userReducer = createReducer({
         state.loading = false;
         state.error = action.payload;
     },
+    getcartcoursesRequest:(state)=>{
+        state.loading=true;
+    },
+    getcartcoursesSuccess:(state,action)=>{
+        state.loading=false;
+        state.cartcourses=action.payload;
+    },
+    getcartcoursesFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
+    },
+    
+
 
 })

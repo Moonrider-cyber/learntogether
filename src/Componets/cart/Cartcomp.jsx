@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loadUser, removefromcart } from '../../redux/actions/user';
+import { getcartcourses, loadUser, removefromcart } from '../../redux/actions/user';
 import './cart.scss'
 const testimg1 = require('../../asset/test1.jpg')
 const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 
 function Cartcomp() {
 
-    let { isAuthenticated,user } = useSelector((state) => state.user);
+    let { isAuthenticated,user,cartcourses } = useSelector((state) => state.user);
     const { courses } = useSelector((state) => state.courses);
     
     if(user && user.cart.length === 0){
@@ -17,10 +17,11 @@ function Cartcomp() {
     }
     const dispatch = useDispatch()
     React.useEffect(() => {
-        dispatch(loadUser())
+        // dispatch(loadUser())
+        dispatch(getcartcourses())
     }, [dispatch])
 
-    
+    // console.log(cartcourses.cartcourses)
     return (
       <>
           
@@ -42,20 +43,20 @@ function Cartcomp() {
                         <h6>{user && user.cart.length} Courses in Cart</h6>
                     </div>
                     
-                    {user ? user.cart.map((course,index) => (
+                    {cartcourses ? cartcourses.cartcourses.map((data,index) => (
 
-                        <>
+                        <div key={index}>
                             <hr/>
-                    <div className="card" key={index}>
+                    <div className="card" >
                         <div className='card-img'>
-                            <img src={testimg1}/>
+                            <img src={data.poster[0].url}/>
                         </div>
                         <div className='card-desc'>
                             <div className='cart-desc-title'>
-                                <h6>{user.cart[index].course}</h6>
+                                <h6>{data.title}</h6>
                             </div>
                             <div className='card-desc-author'>
-                                <p>by{"John Doe"}</p>
+                                <p>by {data.createBy[0].name}</p>
                             </div>
                             <div className='card-desc-rating'>
                             <i className="fa-solid fa-star"></i>
@@ -65,15 +66,15 @@ function Cartcomp() {
                         </div>
                         <div className='card-action'>
                             <div className='card-action-btn'>
-                            <button onClick={()=> dispatch(removefromcart(user.cart[index].course))}>Remove</button>
+                            <button onClick={()=> dispatch(removefromcart(data._id))}>Remove</button>
                             <button>Move To Wishlist</button>
                             </div>
                         </div>
                         <div className='card-price'>
-                            <p>{"₹1156.00"}</p>
+                            <p>₹{data.price}</p>
                         </div>
                     </div>
-                        </>
+                        </div>
                     )) : null}                    
                     
                 </main>
