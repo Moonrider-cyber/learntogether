@@ -3,25 +3,29 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getcartcourses, loadUser, removefromcart } from '../../redux/actions/user';
 import './cart.scss'
-const testimg1 = require('../../asset/test1.jpg')
 const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
 import { useDispatch } from 'react-redux';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
+const initialOptions = {
+    "client-id": "AU6k-Nkmq0XiGTKW9QYG12DD2JYnhg3PbvZtgXOGF4sMapEGoeHfR9McLLzoQ__f7062Pgz0wicDjvqD",
+    currency: "USD",
+    intent: "capture",
+    "data-client-token": "abc123xyz==",
+};
 
 function Cartcomp() {
 
     let { isAuthenticated,user,cartcourses } = useSelector((state) => state.user);
-    const { courses } = useSelector((state) => state.courses);
     
     if(user && user.cart.length === 0){
         isAuthenticated = false
     }
     const dispatch = useDispatch()
     React.useEffect(() => {
-        // dispatch(loadUser())
         dispatch(getcartcourses())
     }, [dispatch])
 
-    // console.log(cartcourses.cartcourses)
     return (
       <>
           
@@ -88,7 +92,10 @@ function Cartcomp() {
                         <p>₹1156.00</p>
                     </div>
                     <div className='cart-total-btn'>
-                        <button>Checkout</button>
+                        {/* <button>Checkout</button> */}
+                        <PayPalScriptProvider options={{ "client-id": "test" }}>
+            <PayPalButtons style={{ layout: "horizontal" }} />
+        </PayPalScriptProvider>
                     </div>
 
                 </aside>

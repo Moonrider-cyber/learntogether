@@ -199,11 +199,23 @@ nav {
             font-weight: 400;
             text-decoration: none;
             color: $white;
+            position: relative;
+            .cart-num{
+              position: absolute;
+              top: -11px;
+              right: -8px;
+              background-color: rgb(239, 81, 81);
+              color: white;
+              font-size: 12px;
+              padding: 0px 5px;
+              border-radius: 50%;
+            }
           }
           a:hover {
             color: violet;
             transition: 0.3s;
           }
+          
           i {
             font-size: 17px;
             color: white;

@@ -25,7 +25,6 @@ function Navbar({whitenav = true}) {
 
   const { isAuthenticated,user } = useSelector((state) => state.user);
 
-  
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
@@ -144,9 +143,13 @@ function Navbar({whitenav = true}) {
                 </li>
                 <li><Link to={"/cart"}>
                   { whitenav ? (
-                  <i className="fa-solid fa-cart-shopping"></i>
-                  ) : (
+                  <>
+                    <span className="cart-num">{user && user.cart.length}</span>
+                    <i className="fa-solid fa-cart-shopping"></i>
+                  </>) : (<>
+                    <span className="cart-num">{user && user.cart.length}</span>
                   <i className="fa-solid fa-cart-shopping" style={{color:"black"}}></i>
+                  </>
                   ) }
                   </Link>
                   </li>

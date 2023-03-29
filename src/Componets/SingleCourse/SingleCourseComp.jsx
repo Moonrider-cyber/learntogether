@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getAllCourses } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { addtocart } from '../../redux/actions/user';
+import { addtocart, loadUser } from '../../redux/actions/user';
 
 export function SingleCourseComp () {
 
@@ -17,7 +17,7 @@ export function SingleCourseComp () {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCourses);
+    dispatch(loadUser());
   }, [dispatch])
 
   function addcartbtnhandler() {

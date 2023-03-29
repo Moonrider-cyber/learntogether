@@ -126,7 +126,6 @@ export const addtocart = (courseid) => async (dispatch) => {
 // remove from cart
 export const removefromcart = (courseid) => async (dispatch) => {
     try{
-        
         dispatch({type:"removefromcartRequest"});
         const {data} = await axios.delete(`${server}/removefromcart`,{courseid},{
             
