@@ -5,16 +5,10 @@ import { getcartcourses, loadUser, removefromcart } from '../../redux/actions/us
 import './cart.scss'
 const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
 import { useDispatch } from 'react-redux';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-
-const initialOptions = {
-    "client-id": "AU6k-Nkmq0XiGTKW9QYG12DD2JYnhg3PbvZtgXOGF4sMapEGoeHfR9McLLzoQ__f7062Pgz0wicDjvqD",
-    currency: "USD",
-    intent: "capture",
-    "data-client-token": "abc123xyz==",
-};
+import { PayPalPayment } from './PayPalPayment';
 
 function Cartcomp() {
+   
 
     let { isAuthenticated,user,cartcourses } = useSelector((state) => state.user);
     
@@ -25,6 +19,11 @@ function Cartcomp() {
     React.useEffect(() => {
         dispatch(getcartcourses())
     }, [dispatch])
+
+    const totalprice = cartcourses && cartcourses.cartcourses.reduce((acc,curr) => {
+        return acc + curr.price
+    },0)
+    
 
     return (
       <>
@@ -89,13 +88,11 @@ function Cartcomp() {
                         <h5>Total:</h5>
                     </div>
                     <div className='cart-total-price'>
-                        <p>₹1156.00</p>
+                        <p>₹{totalprice}</p>
                     </div>
                     <div className='cart-total-btn'>
                         {/* <button>Checkout</button> */}
-                        <PayPalScriptProvider options={{ "client-id": "test" }}>
-            <PayPalButtons style={{ layout: "horizontal" }} />
-        </PayPalScriptProvider>
+                        <PayPalPayment totalprice={totalprice} />
                     </div>
 
                 </aside>
