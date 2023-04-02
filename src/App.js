@@ -18,6 +18,7 @@ import Teachwithus from "./Pages/Techwithus";
 import { Cart } from "./Pages/Cart";
 import  {Singlecourse}  from "./Pages/Singlecourse";
 import { getAllCourses } from "./redux/actions/courses";
+import ScrollToTop  from "./Componets/ScrollToTop";
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <ScrollToTop />
         {/* {loading ? <Loader/> : null} */}
         {courseLoading ? <Loader/> : null}
         {adminLoading ? <Loader/> : null}
