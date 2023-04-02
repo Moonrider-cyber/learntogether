@@ -22,17 +22,19 @@ import { getAllCourses } from "./redux/actions/courses";
 function App() {
 
   const { isAuthenticated = true,message,error,loading} = useSelector((state) => state.user);
+  // const { msg } = useSelector((state) => state.payment);
   const { adminLoading } = useSelector((state) => state.admin);
+  const { paymentmessage } = useSelector((state) => state.Payment);
   const { courseLoading } = useSelector((state) => state.courses);
   const dispatch = useDispatch();
-
+// console.log("msg",message)
   // show toast when error or message is updated
   useEffect(() => {
     if(error){
       toast.error(error);
       dispatch({type:'clearError'})
     }
-    if(message){
+    if(message || paymentmessage){
       toast.success(message);
       dispatch({type:'clearMessage'})
     }

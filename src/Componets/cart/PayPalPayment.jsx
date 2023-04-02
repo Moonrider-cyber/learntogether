@@ -1,9 +1,9 @@
 import React from 'react'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { Payment } from '../../redux/actions/Payment';
 
 export const PayPalPayment = (props) => {
-  
   
   const initialOptions = {
     "client-id": "AeJLeqQQ604DG8FUwAjN_A6A5Tb2j1zj9fyryixR3QI-9UmJ1yV2Fpj0fFy1lcWnuFuD3ugs3DDWkTtO",
@@ -11,6 +11,9 @@ export const PayPalPayment = (props) => {
     intent: "capture",
     // "data-client-token": "abc123xyz==",
 };
+
+const dispatch = useDispatch();
+
 let { user } = useSelector((state) => state.user);
 
   return (
@@ -30,8 +33,7 @@ let { user } = useSelector((state) => state.user);
                 }}
                 onApprove={(data, actions) => {
                     return actions.order.capture().then((details) => {
-                        // const name = details.payer.name.given_name;
-                        console.log(details, "details")
+                        dispatch(Payment(details.id,props.totalprice));
                     });
                 }}
                 // onCancel={(data) => {

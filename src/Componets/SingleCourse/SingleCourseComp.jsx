@@ -16,9 +16,9 @@ export function SingleCourseComp () {
   const { isAuthenticated } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(loadUser());
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(loadUser());
+  // }, [dispatch])
 
   function addcartbtnhandler() {
     if(isAuthenticated){

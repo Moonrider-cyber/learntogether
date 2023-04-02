@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { getcartcourses, loadUser, removefromcart } from '../../redux/actions/user';
 import './cart.scss'
 const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
@@ -11,18 +11,23 @@ function Cartcomp() {
    
 
     let { isAuthenticated,user,cartcourses } = useSelector((state) => state.user);
+    let { isPaid } = useSelector((state) => state.Payment);
     
-    if(user && user.cart.length === 0){
-        isAuthenticated = false
-    }
+    
     const dispatch = useDispatch()
     React.useEffect(() => {
+        dispatch(loadUser())
         dispatch(getcartcourses())
-    }, [dispatch])
+        if(user && user.cart.length === 0){
+            isAuthenticated = false
+        }    
+    }, [dispatch,isPaid])
+    
 
     const totalprice = cartcourses && cartcourses.cartcourses.reduce((acc,curr) => {
         return acc + curr.price
     },0)
+
     
 
     return (
@@ -34,7 +39,7 @@ function Cartcomp() {
             </div> 
           </section>
           
-          {isAuthenticated ? (
+          {isAuthenticated && user.cart.length > 0 ? (
 
           <section className="section-content padding-y">
             <div className="container">

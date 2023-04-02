@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { logout } from "../../../redux/actions/user";
+import { loadUser, logout } from "../../../redux/actions/user";
 const testimg = require("./asset/avatar.png");
 
 import Avatar from '@mui/material/Avatar';
@@ -30,6 +30,10 @@ function Navbar({whitenav = true}) {
   const logoutHandler = () => {
     dispatch(logout());
   }
+
+  // useEffect(() => {
+  //   dispatch(loadUser());
+  // }, [dispatch]);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
