@@ -19,6 +19,7 @@ import { Cart } from "./Pages/Cart";
 import  {Singlecourse}  from "./Pages/Singlecourse";
 import { getAllCourses } from "./redux/actions/courses";
 import ScrollToTop  from "./Componets/ScrollToTop";
+import AllCourses from "./Pages/AllCourses";
 
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
           </Route>   
           
           <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="/courses" element={<AllCourses/>}></Route>
           <Route path="/course/:id" element={<Singlecourse/>}></Route>
           <Route path="/teachwithus" element={<Teachwithus />}></Route>
           
