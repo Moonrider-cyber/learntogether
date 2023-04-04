@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import "./Navbar.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -27,11 +27,11 @@ function Navbar({whitenav = true}) {
   const { category } = useSelector((state) => state.courses);
 
   const dispatch = useDispatch();
-
   const logoutHandler = () => {
     dispatch(logout());
   }
 
+  const [search, setSearch] = React.useState(null);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -47,6 +47,12 @@ function Navbar({whitenav = true}) {
     shadowstyle = {
       boxShadow: "0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08)",
     }
+  }
+  const navigate = useNavigate();
+  function searchhandler(e){
+    e.preventDefault();
+    navigate("/courses/"+search, { state: { search: search } });
+    
   }
 
   // let isAdded = false;
@@ -91,7 +97,7 @@ function Navbar({whitenav = true}) {
                   <>
                 <span style={{color:"black"}}>Categories</span>
                 <i className="fa-solid fa-angle-down" style={{color:"black"}}></i></>
-                ) }
+                ) } 
               </button>
               <div className="category-menu">
                 <ul>
@@ -112,7 +118,13 @@ function Navbar({whitenav = true}) {
             </div>
             <div className="nav-search">
               <i className="fa-solid fa-magnifying-glass"></i>
-              <input type={"text"} placeholder="Search for anyting" />
+                  <form onSubmit={searchhandler}>
+                    <input type={"text"}
+                        placeholder="Search for anyting"
+                        value={search ? search : ""}
+                        onChange={(e)=> setSearch(e.target.value) }
+                         />
+               </form>
             </div>
           </section>
           <section className="navbar-left">

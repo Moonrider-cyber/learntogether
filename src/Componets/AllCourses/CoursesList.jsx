@@ -14,11 +14,9 @@ export const CoursesList = ({data}) => {
                 <div className="bg-image hover-zoom ripple rounded ripple-surface">
                   <img src={data && data.poster[0].url}
                     className="w-100" />
-                  <a href="#">
-                    <div className="hover-overlay">
+                  <div className="hover-overlay">
                       <div className="mask" style={{backgroundColor: "rgba(253, 253, 253, 0.15)"}}></div>
                     </div>
-                  </a>
                 </div>
               </div>
               <div className="col-md-9 col-lg-9 col-xl-7">

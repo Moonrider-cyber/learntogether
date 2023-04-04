@@ -15,13 +15,19 @@ export const getAllCourses = () => async (dispatch) => {
         dispatch({type:"getAllCoursesFail"});
     }
 }
-export const getFilterCourses = (category) => async (dispatch) => {
+export const getFilterCourses = (category,search) => async (dispatch) => {
     try{
         dispatch({type:"getFilterCoursesRequest"});
-
         if(category){
             const {data} = await axios.get(
                 `${server}/course?catagory=${category}`,{},{
+                    withCredentials:true,
+                });
+                dispatch({type:"getFilterCoursesSuccess",payload: data});
+        }
+        else if(search){
+            const {data} = await axios.get(
+                `${server}/course?keyword=${search}`,{},{
                     withCredentials:true,
                 });
                 dispatch({type:"getFilterCoursesSuccess",payload: data});
