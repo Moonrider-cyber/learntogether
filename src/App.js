@@ -17,7 +17,7 @@ import Loader from "./Componets/layout/Loader/Loader";
 import Teachwithus from "./Pages/Techwithus";
 import { Cart } from "./Pages/Cart";
 import  {Singlecourse}  from "./Pages/Singlecourse";
-import { getAllCourses } from "./redux/actions/courses";
+import { getAllCategory, getAllCourses } from "./redux/actions/courses";
 import ScrollToTop  from "./Componets/ScrollToTop";
 import AllCourses from "./Pages/AllCourses";
 
@@ -46,6 +46,7 @@ function App() {
   useEffect(() => {
     dispatch(loadUser())  
     dispatch(getAllCourses())  
+    dispatch(getAllCategory())
 
   }, [dispatch]);
   
@@ -72,6 +73,7 @@ function App() {
           
           <Route path="/cart" element={<Cart/>}></Route>
           <Route path="/courses" element={<AllCourses/>}></Route>
+          <Route path="/courses/:category" element={<AllCourses fillter={true} />}></Route>
           <Route path="/course/:id" element={<Singlecourse/>}></Route>
           <Route path="/teachwithus" element={<Teachwithus />}></Route>
           

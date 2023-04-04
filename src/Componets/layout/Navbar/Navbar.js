@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { loadUser, logout } from "../../../redux/actions/user";
+import {  logout } from "../../../redux/actions/user";
 const testimg = require("./asset/avatar.png");
 
 import Avatar from '@mui/material/Avatar';
@@ -24,6 +24,7 @@ function Navbar({whitenav = true}) {
   }
 
   const { isAuthenticated,user } = useSelector((state) => state.user);
+  const { category } = useSelector((state) => state.courses);
 
   const dispatch = useDispatch();
 
@@ -31,9 +32,6 @@ function Navbar({whitenav = true}) {
     dispatch(logout());
   }
 
-  // useEffect(() => {
-  //   dispatch(loadUser());
-  // }, [dispatch]);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -97,36 +95,18 @@ function Navbar({whitenav = true}) {
               </button>
               <div className="category-menu">
                 <ul>
-                  <li>
-                    <button>
-                      <span>Entrepreneurship</span>
-                      <i className="fa-solid fa-angle-right"></i>
-                    </button>
+                  { category && category.map((cat,index) => (
+                    <li key={index}>
+                    <Link to={"/courses/" + category[index].name}>
+                      <button>
+                        <span>{category && category[index].name} </span>
+                        <i className="fa-solid fa-angle-right"></i>
+                      </button>
+                    </Link>
                   </li>
-                  <li>
-                    <button>
-                      <span>Communication</span>
-                      <i className="fa-solid fa-angle-right"></i>
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      <span>Sales</span>
-                      <i className="fa-solid fa-angle-right"></i>
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      <span>Project Management</span>
-                      <i className="fa-solid fa-angle-right"></i>
-                    </button>
-                  </li>
-                  <li>
-                    <button>
-                      <span>E-Commerce</span>
-                      <i className="fa-solid fa-angle-right"></i>
-                    </button>
-                  </li>
+                  )) }
+                  
+                  
                 </ul>
               </div>
             </div>

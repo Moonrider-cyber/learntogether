@@ -14,6 +14,20 @@ export const coursesReducer = createReducer({},{
         state.courseLoading = false;
         state.error = action.payload;
     },
+    getFilterCoursesRequest:(state)=>{
+        state.courseLoading=true;
+    },
+    getFilterCoursesSuccess:(state,action)=>{
+        state.courseLoading=false;
+        state.filtercourses=action.payload.courses;
+    },
+    getFilterCoursesFail:(state,action)=>{
+        state.courseLoading = false;
+        state.error = action.payload;
+    },
+
+
+
     getAllLecturesRequest:(state)=>{
         state.courseLoading=true;
     },

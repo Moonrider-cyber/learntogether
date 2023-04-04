@@ -15,6 +15,22 @@ export const getAllCourses = () => async (dispatch) => {
         dispatch({type:"getAllCoursesFail"});
     }
 }
+export const getFilterCourses = (category) => async (dispatch) => {
+    try{
+        dispatch({type:"getFilterCoursesRequest"});
+
+        if(category){
+            const {data} = await axios.get(
+                `${server}/course?catagory=${category}`,{},{
+                    withCredentials:true,
+                });
+                dispatch({type:"getFilterCoursesSuccess",payload: data});
+        }
+        // console.log("Data",data);
+    }catch(error){
+        dispatch({type:"getFilterCoursesFail"});
+    }
+}
 export const getAllLectures = (id) => async (dispatch) => {
     try{
         dispatch({type:"getAllLecturesRequest"});

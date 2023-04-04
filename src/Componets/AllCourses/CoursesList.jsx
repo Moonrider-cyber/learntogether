@@ -1,10 +1,11 @@
 import React from 'react'
-const testimg = require('../../asset/test1.jpg')
+import { Link } from 'react-router-dom'
 
 export const CoursesList = ({data}) => {
   return (
     <>
-        <div className="row justify-content-center mb-3">
+      <Link to={"/course/"+ data._id}>
+      <div className="row justify-content-center mb-3">
       <div className="col-md-12 col-xl-10">
         <div className="card shadow-0 border rounded-3">
           <div className="card-body">
@@ -56,6 +57,7 @@ export const CoursesList = ({data}) => {
         </div>
       </div>
     </div>
+    </Link>
     </>
   )
 }

@@ -23,15 +23,6 @@ function Courselist() {
         <CourseCard key={index} id={course._id} title={course.title} price={course.price} author={course.createBy[0].name} courseimg={course.poster[0].url}  />
         
       ))}
-{/*       
-      <CourseCard courseimg={img3}  />
-      <CourseCard courseimg={img1} />
-      <CourseCard courseimg={img} />
-      <CourseCard courseimg={img2} />
-      <CourseCard courseimg={img1} />
-      <CourseCard courseimg={img2} />
-      <CourseCard courseimg={img3} />
-      <CourseCard courseimg={img1} /> */}
       </div>
     </div>
   );
