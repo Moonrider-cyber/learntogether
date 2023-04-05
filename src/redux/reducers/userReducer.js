@@ -135,7 +135,17 @@ export const userReducer = createReducer({
         state.loading = false;
         state.error = action.payload;
     },
-    
+    checkenrolledRequest:(state)=>{
+        state.loading=true;
+    },
+    checkenrolledSuccess:(state,action)=>{
+        state.loading=false;
+        state.isenroll=true;
+    },
+    checkenrolledFail:(state,action)=>{
+        state.loading = false;
+        state.isenroll=false;
+    },
 
 
 })

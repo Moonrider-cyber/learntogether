@@ -153,3 +153,18 @@ export const getcartcourses = () => async (dispatch) => {
         dispatch({type:"getcartcoursesFail",payload:error.response.data.message});   
     }
 }
+//  check already enrolled
+export const checkenrolled = (courseid) => async (dispatch) => {
+    try{
+        dispatch({type:"checkenrolledRequest"});
+        const {data} = await axios.post(`${server}/checkenroll`,{courseid},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"checkenrolledSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"checkenrolledFail",payload:error.response.data.message});   
+    }
+}

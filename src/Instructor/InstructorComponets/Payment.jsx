@@ -83,7 +83,7 @@ export const Payment = (courses) => {
                 {/* {row.catagory} */}999
                 </TableCell>
               <TableCell align="center">
-                {/* {row.createAt} */}12/12/2021
+                {/* {row.createAt.substring(0, 10) */}12/12/2021
                 </TableCell>
               
             </TableRow> 

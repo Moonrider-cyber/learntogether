@@ -82,7 +82,7 @@ export const Category = (props) => {
                   overflow: "hidden"
                 }}
                 >{row.description}</TableCell>
-              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name} </TableCell>
               <TableCell align="center"><Button onClick={()=> dispatch(activeDeactivecategory(row._id))}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
               <TableCell align="center"><IconButton aria-label="delete" onClick={() => dispatch(deletecategory(row._id)) }> <DeleteIcon/> </IconButton></TableCell>

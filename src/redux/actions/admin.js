@@ -60,7 +60,7 @@ export const getAllUsers = () => async (dispatch) => {
     }
 }
 
-export const getpayment = () => async (dispatch) => {
+export const getAllPayments = () => async (dispatch) => {
     try{
         dispatch({type:"getAllPaymentRequest"});
         const {data} = await axios.post(

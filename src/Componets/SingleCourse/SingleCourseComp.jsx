@@ -1,11 +1,11 @@
 import React from 'react'
 import './SingleCourse.scss'
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllCourses } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { addtocart, loadUser } from '../../redux/actions/user';
+import { addtocart, checkenrolled, loadUser } from '../../redux/actions/user';
 
 export function SingleCourseComp () {
 
@@ -13,12 +13,12 @@ export function SingleCourseComp () {
   const id = useParams().id;
 
   const {courses} = useSelector(state => state.courses);
-  const { isAuthenticated } = useSelector(state => state.user);
+  const { isAuthenticated,isenroll } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(loadUser());
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(checkenrolled(id))  
+  }, [dispatch])
 
   function addcartbtnhandler() {
     if(isAuthenticated){
@@ -81,7 +81,11 @@ export function SingleCourseComp () {
                 <p>₹ {course && course.price}</p>
               </div>
               <div className='course_landing_card_btn'>
-                <button className='add_cart' onClick={addcartbtnhandler} >Add To Cart</button>
+                {
+                  isenroll ? (<Link to={"/profile"}><button className='add_cart'>Explore</button></Link>) : 
+                  <button className='add_cart' onClick={addcartbtnhandler} >Add To Cart</button>
+
+                }
                 <button className='wishlist'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="butt" strokeLinejoin="bevel"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
               </div>
               <div className='course_landing_card_moneyreturn'>

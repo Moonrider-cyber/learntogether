@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
-import { getAllUsers } from '../../redux/actions/admin';
+import { getAllPayments, getAllUsers } from '../../redux/actions/admin';
 import { getAllCategory, getAllCourses } from '../../redux/actions/courses';
 import { useSelector } from 'react-redux';
 
@@ -24,9 +24,10 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
     dispatch(getAllUsers());
     dispatch(getAllCourses());
     dispatch(getAllCategory());
+    dispatch(getAllPayments());
   }, [dispatch])
   
-  const { users,admin } = useSelector((state) => state.admin);
+  const { users,admin,payments } = useSelector((state) => state.admin);
   const { courses,category } = useSelector((state) => state.courses);
 
 
@@ -44,7 +45,7 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
       { categorypage ? <Category category={category} /> : null }
       { adminspage ? <Admins users={users} /> : null }
       { instructorpage ? <Instructor users={users} /> : null }
-      { paymentpage ? <Payment /> : null }
+      { paymentpage ? <Payment payments={payments} /> : null }
 
       {/* <Home /> */}
         {/* <Routes>

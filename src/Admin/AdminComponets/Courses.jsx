@@ -78,7 +78,7 @@ export const Courses = (courses) => {
               {/* <TableCell align="center">{row.description}</TableCell> */}
               <TableCell align="center">{row.price}</TableCell>
               <TableCell align="center">{row.catagory}</TableCell>
-              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name}</TableCell>
               {/* <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell> */}
               {/* <TableCell align="center"><IconButton aria-label="delete" onClick={()=> dispatch(deleteCourse(row._id))}> <DeleteIcon/> </IconButton></TableCell> */}
@@ -157,7 +157,7 @@ export const Courses = (courses) => {
               {/* <TableCell align="center">{row.description}</TableCell> */}
               <TableCell align="center">{row.price}</TableCell>
               <TableCell align="center">{row.catagory}</TableCell>
-              <TableCell align="center">{row.createAt}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name}</TableCell>
               {/* <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell> */}
               {/* <TableCell align="center"><IconButton aria-label="delete" onClick={()=> dispatch(deleteCourse(row._id))}> <DeleteIcon/> </IconButton></TableCell> */}
