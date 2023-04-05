@@ -81,6 +81,7 @@ export function SingleCourseComp () {
                 <p>₹ {course && course.price}</p>
               </div>
               <div className='course_landing_card_btn'>
+                
                 {
                   isenroll ? (<Link to={"/profile"}><button className='add_cart'>Explore</button></Link>) : 
                   <button className='add_cart' onClick={addcartbtnhandler} >Add To Cart</button>

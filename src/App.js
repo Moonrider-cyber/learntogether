@@ -8,7 +8,7 @@ import toast,{Toaster} from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {useSelector} from "react-redux";
-import { loadUser } from "./redux/actions/user";
+import { enrollcourse, loadUser } from "./redux/actions/user";
 import {ProtectedRoute} from "./Componets/ProtectedRoute/ProtectedRoute"
 import AdminApp from "./Admin/AdminApp";
 import InstructorApp from "./Instructor/InstructorApp";
@@ -20,6 +20,7 @@ import  {Singlecourse}  from "./Pages/Singlecourse";
 import { getAllCategory, getAllCourses } from "./redux/actions/courses";
 import ScrollToTop  from "./Componets/ScrollToTop";
 import AllCourses from "./Pages/AllCourses";
+import { Lecture } from "./Pages/Lecture";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
   // load user when app starts
   useEffect(() => {
     dispatch(loadUser())  
+    dispatch(enrollcourse())
     dispatch(getAllCourses())  
     dispatch(getAllCategory())
 
@@ -75,6 +77,7 @@ function App() {
           <Route path="/courses" element={<AllCourses/>}></Route>
           <Route path="/courses/:category" element={<AllCourses fillter={true} />}></Route>
           <Route path="/course/:id" element={<Singlecourse/>}></Route>
+          <Route path="/profile/lecture" element={<Lecture/>}></Route>
           <Route path="/teachwithus" element={<Teachwithus />}></Route>
           
 

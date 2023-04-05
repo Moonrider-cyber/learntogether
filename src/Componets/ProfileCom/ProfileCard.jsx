@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 const img = require('../Courselist/asset/musk.jpg');
 import {Typography} from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const ProfileCard = () => {
+export const ProfileCard = ({course}) => {
+
   return (
     <>
         <Card sx={{ maxWidth: 345 }} elevation={3} >
@@ -14,15 +16,14 @@ export const ProfileCard = () => {
                 <CardMedia
                   component="img"
                   height="140"
-                  image={img}
+                  image={course && course.poster[0].url}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Musk
+                    {course && course.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    {course && course.description}
                   </Typography>
                 </CardContent>
               </CardActionArea>

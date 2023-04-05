@@ -168,3 +168,18 @@ export const checkenrolled = (courseid) => async (dispatch) => {
         dispatch({type:"checkenrolledFail",payload:error.response.data.message});   
     }
 }
+//  enroll courses
+export const enrollcourse = () => async (dispatch) => {
+    try{
+        dispatch({type:"enrollcourseRequest"});
+        const {data} = await axios.post(`${server}/enrollcourse`,{},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"enrollcourseSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"enrollcourseFail",payload:error.response.data.message});   
+    }
+}

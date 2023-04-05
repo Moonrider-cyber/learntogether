@@ -8,11 +8,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-
+import React from "react";
 import { Box, Container } from "@mui/system";
-import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { ProfileCard } from "./ProfileCard";
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
@@ -46,6 +44,10 @@ const Profile_head = () => {
       dispatch(loadUser());
     }
   }, [dispatch,message]);
+
+  const {enrollcourses} = useSelector(state => state.user)
+  
+  
 
   return (
     <>
@@ -108,9 +110,10 @@ const Profile_head = () => {
             <Grid sx={{ flexGrow: 1 }} container spacing={2}>
               <Grid item xs={12}>
               <Grid container justifyContent="center" gap={4}>
-                <ProfileCard/>
-                <ProfileCard/>
-                <ProfileCard/>
+                {enrollcourses && enrollcourses.map((course,key) => (
+                  <ProfileCard key={key} course={course} />
+                ))}
+                
               </Grid>
               </Grid>
             </Grid>

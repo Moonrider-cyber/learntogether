@@ -140,11 +140,23 @@ export const userReducer = createReducer({
     },
     checkenrolledSuccess:(state,action)=>{
         state.loading=false;
-        state.isenroll=true;
+        state.isenroll=false;
     },
     checkenrolledFail:(state,action)=>{
         state.loading = false;
-        state.isenroll=false;
+        state.isenroll=true;
+    },
+    enrollcourseRequest:(state)=>{
+        state.loading=true;
+    },
+    enrollcourseSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload.message;
+        state.enrollcourses = action.payload.enrollcourses;
+    },
+    enrollcourseFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload;
     },
 
 
