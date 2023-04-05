@@ -19,6 +19,7 @@ import { IconButton } from '@mui/material';
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { getAllPayments } from '../../../../backend/controllers/paymentControllers';
 
 export const Payment = (courses) => {
 
@@ -28,7 +29,7 @@ export const Payment = (courses) => {
 
   useEffect(() => {
     if(message){
-      dispatch(getAllCourses());
+      dispatch(getAllPayments());
     }
   }, [message]);
   

@@ -206,4 +206,15 @@ export const adminReducer = createReducer({
         state.adminLoading = false;
         state.message=action.payload;
     },
+    getAllPaymentRequest:(state)=>{
+        state.adminLoading=true;
+    },
+    getAllPaymentSuccess:(state,action)=>{
+        state.adminLoading=false;
+        state.payments=action.payload;
+    }  ,
+    getAllPaymentFail:(state,action)=>{
+        state.adminLoading = false;
+        state.error = action.payload;
+    },
 });

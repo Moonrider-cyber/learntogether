@@ -60,6 +60,19 @@ export const getAllUsers = () => async (dispatch) => {
     }
 }
 
+export const getpayment = () => async (dispatch) => {
+    try{
+        dispatch({type:"getAllPaymentRequest"});
+        const {data} = await axios.post(
+            `${server}/admin/payments`,{},{
+                withCredentials:true,
+        });
+        dispatch({type:"getAllPaymentSuccess",payload: data.payments});
+    }catch(error){
+        dispatch({type:"getAllPaymentFail"});
+    }
+}
+
 export const deleteUser = (id) => async (dispatch) => {
     try{
         dispatch({type:"deleteUserRequest"});
