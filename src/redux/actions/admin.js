@@ -235,3 +235,17 @@ export const addLecture = (formdata,id) => async (dispatch) => {
         dispatch({type:"addLectureFail",payload: error.response.data.message });
     }
 }
+export const getAllCoursesadmin = () => async (dispatch) => {
+    try{
+        dispatch({type:"getAllCoursesRequest"});
+ 
+        const {data} = await axios.get(
+            `${server}/admin/course`,{},{
+                withCredentials:true,
+        });
+        // console.log("Data",data);
+        dispatch({type:"getAllCoursesSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"getAllCoursesFail"});
+    }
+}

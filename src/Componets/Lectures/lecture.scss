@@ -8,7 +8,7 @@ padding-top: 100px;
     .lectures_items{
         width: 100%;
         display: grid;
-        grid-template-columns: 70% 30%;
+        grid-template-columns: 60% 40%;
             .lectures_video{
                 width: 100%;
                 height: 100%;
@@ -16,9 +16,12 @@ padding-top: 100px;
                 video{
                     width: 100%;
                 }
+                h4{
+                    margin-top: 30px;
+                }
             }
             .lectures_list{
-                margin: 0 30px;
+                margin-left: 40px;
                 h4{
                     font-size: 1.5rem;
                     font-weight: 600;
@@ -38,7 +41,7 @@ padding-top: 100px;
                             text-align: left;
                             padding: 15px 15px;
                             transition: .3s ease;
-                            background-color: #faeded;
+                            // background-color: #faeded;
                             &:hover{
                                 background-color: #767575;
                                 color: white;
@@ -49,4 +52,8 @@ padding-top: 100px;
             }
             
     }
+}
+.back{
+    position: absolute;
+    padding: 40px;
 }

@@ -15,6 +15,7 @@ import { ProfileCard } from "./ProfileCard";
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
 import { loadUser, updatename } from "../../redux/actions/user";
+import { enrollcourse } from "../../redux/actions/user";
 
 const Profile_head = () => {
   const { user,message } = useSelector((state) => state.user);
@@ -43,6 +44,7 @@ const Profile_head = () => {
     if(message){
       dispatch(loadUser());
     }
+    dispatch(enrollcourse())
   }, [dispatch,message]);
 
   const {enrollcourses} = useSelector(state => state.user)

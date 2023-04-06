@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
-import { getAllPayments, getAllUsers } from '../../redux/actions/admin';
-import { getAllCategory, getAllCourses } from '../../redux/actions/courses';
+import { getAllCoursesadmin, getAllPayments, getAllUsers } from '../../redux/actions/admin';
+import { getAllCategory } from '../../redux/actions/courses';
 import { useSelector } from 'react-redux';
 
 import "../App.css";
@@ -22,7 +22,7 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
 
   useEffect(() => {
     dispatch(getAllUsers());
-    dispatch(getAllCourses());
+    dispatch(getAllCoursesadmin());
     dispatch(getAllCategory());
     dispatch(getAllPayments());
   }, [dispatch])

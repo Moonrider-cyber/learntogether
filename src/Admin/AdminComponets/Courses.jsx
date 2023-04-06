@@ -6,12 +6,11 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button, Stack, TableContainer } from '@mui/material';
+import { Button, Chip, Stack, TableContainer } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteCourse ,activeDeactiveCourse } from '../../redux/actions/admin';
-import { getAllCourses } from '../../redux/actions/courses';
+import { deleteCourse ,activeDeactiveCourse, getAllCoursesadmin } from '../../redux/actions/admin';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { IconButton } from '@mui/material';
@@ -28,7 +27,7 @@ export const Courses = (courses) => {
 
   useEffect(() => {
     if(message){
-      dispatch(getAllCourses());
+      dispatch(getAllCoursesadmin(true));
     }
   }, [message]);
   
@@ -53,6 +52,7 @@ export const Courses = (courses) => {
             <TableCell align="center">Title</TableCell>
             <TableCell align="center">Price (₹)</TableCell>
             <TableCell align="center">Category</TableCell>
+            <TableCell align="center">Status</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
             {/* <TableCell align="center"></TableCell> */}
@@ -78,6 +78,7 @@ export const Courses = (courses) => {
               {/* <TableCell align="center">{row.description}</TableCell> */}
               <TableCell align="center">{row.price}</TableCell>
               <TableCell align="center">{row.catagory}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name}</TableCell>
               {/* <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell> */}
