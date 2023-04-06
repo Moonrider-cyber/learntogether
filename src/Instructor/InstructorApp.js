@@ -37,6 +37,7 @@ function InstructorApp() {
    useEffect(() => {
     dispatch(loadInstructor())  
   }, [dispatch]);
+  
   return (
   <>
     <Routes>

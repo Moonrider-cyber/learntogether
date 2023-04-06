@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import { useDispatch} from 'react-redux';
-import { getAllUsers } from '../../redux/actions/admin';
-import { getAllCategory, getAllCourses } from '../../redux/actions/courses';
+import { useDispatch} from 'react-redux'; 
 import { useSelector } from 'react-redux';
 
 import "../App.css";
@@ -12,18 +10,17 @@ import { Users } from './Users';
 import { Courses } from './Courses';
 import Sidebar from './Layout/Sidebar';
 import { Payment } from './Payment';
+import { getAllCoursesins } from '../../redux/actions/instructor';
 
 function Dashboard({home,userspage,coursespage,instructorpage,paymentpage}) {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllUsers());
-    dispatch(getAllCourses());
-    dispatch(getAllCategory());
+    dispatch(getAllCoursesins());
   }, [dispatch])
   
-  const { users,admin } = useSelector((state) => state.admin);
+  const { instructor } = useSelector((state) => state.Instructor);
   const { courses,category } = useSelector((state) => state.courses);
 
 
@@ -33,12 +30,11 @@ function Dashboard({home,userspage,coursespage,instructorpage,paymentpage}) {
       <Sidebar/>
       <section className="home-section">
         
-        <Navbar admin={admin} />
+        <Navbar instructor={instructor} />
 
       { home ? <Home /> : null}
-      { userspage ? <Users users={users} /> : null }
+      {/* { userspage ? <Users users={users} /> : null } */}
       { coursespage ? <Courses courses={courses} /> : null }
-      { instructorpage ? <Instructor users={users} /> : null }
       { paymentpage ? <Payment /> : null }
 
       {/* <Home /> */}

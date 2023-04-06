@@ -62,3 +62,17 @@ export const loadInstructor = () => async (dispatch) => {
         dispatch({type:"loadInstructorFail"});
     }
 }
+export const getAllCoursesins = () => async (dispatch) => {
+    try{
+        dispatch({type:"getAllCoursesRequest"});
+ 
+        const {data} = await axios.get(
+            `${server}/instructor/course`,{
+                withCredentials:true,
+        });
+        // console.log("Data",data);
+        dispatch({type:"getAllCoursesSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"getAllCoursesFail"});
+    }
+}

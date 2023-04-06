@@ -39,12 +39,12 @@ const Sidebar = () => {
           </Link>
         </li>
 
-        <li>
+        {/* <li>
           <Link to="/instructor/dashboard/users">
             <i><PeopleIcon/></i>
             <span className="links_name">Students</span>
           </Link>
-        </li>
+        </li> */}
         
         
         <li>

@@ -113,7 +113,8 @@ const Profile_head = () => {
               <Grid item xs={12}>
               <Grid container justifyContent="center" gap={4}>
                 {enrollcourses && enrollcourses.map((course,key) => (
-                  <ProfileCard key={key} course={course} />
+                  course ? <ProfileCard key={key} course={course} /> : null
+                  // <ProfileCard key={key} course={course} />
                 ))}
                 
               </Grid>

@@ -3,7 +3,7 @@ import React from 'react'
 import '../../App.css';
 
 
-export const Navbar = ({admin}) => {
+export const Navbar = ({instructor}) => {
   return (
     <div>
       <nav>
@@ -12,8 +12,7 @@ export const Navbar = ({admin}) => {
           <span className="dashboard">Dashboard</span>
         </div>
         <div className="profile-details">
-      <Avatar src={admin ? admin.avatar.url : null}/>
-          {/* <span className="admin_name">{admin ? admin.name : "Admin"}</span> */}
+      <Avatar src={instructor ? instructor.avatar.url : null}/>
         </div>
       </nav>
 
