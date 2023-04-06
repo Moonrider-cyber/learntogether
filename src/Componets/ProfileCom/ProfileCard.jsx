@@ -6,11 +6,13 @@ import { CardActionArea } from '@mui/material';
 const img = require('../Courselist/asset/musk.jpg');
 import {Typography} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const ProfileCard = ({course}) => {
 
   return (
     <>
+      <Link to={"/profile/lecture/" + course._id}>
         <Card sx={{ maxWidth: 345 }} elevation={3} >
               <CardActionArea>
                 <CardMedia
@@ -28,6 +30,7 @@ export const ProfileCard = ({course}) => {
                 </CardContent>
               </CardActionArea>
             </Card>
+      </Link>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useSelector,useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Payment } from '../../redux/actions/Payment';
 
 export const PayPalPayment = (props) => {
@@ -13,8 +13,6 @@ export const PayPalPayment = (props) => {
 };
 
 const dispatch = useDispatch();
-
-let { user } = useSelector((state) => state.user);
 
   return (
     <>

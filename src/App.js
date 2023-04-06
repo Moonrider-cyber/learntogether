@@ -77,7 +77,7 @@ function App() {
           <Route path="/courses" element={<AllCourses/>}></Route>
           <Route path="/courses/:category" element={<AllCourses fillter={true} />}></Route>
           <Route path="/course/:id" element={<Singlecourse/>}></Route>
-          <Route path="/profile/lecture" element={<Lecture/>}></Route>
+          <Route path="/profile/lecture/:courseid" element={<Lecture/>}></Route>
           <Route path="/teachwithus" element={<Teachwithus />}></Route>
           
 

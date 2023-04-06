@@ -37,6 +37,7 @@ export const getFilterCourses = (category,search) => async (dispatch) => {
         dispatch({type:"getFilterCoursesFail"});
     }
 }
+
 export const getAllLectures = (id) => async (dispatch) => {
     try{
         dispatch({type:"getAllLecturesRequest"});
