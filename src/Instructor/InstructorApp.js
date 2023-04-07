@@ -13,13 +13,13 @@ import { loadInstructor } from '../redux/actions/instructor';
 import Signup from './InstructorComponets/Signup';
 import Login from './InstructorComponets/Login';
 import Dashboard from './InstructorComponets/Dashboard';
-import AddCourse from './InstructorComponets/FormPage/AddCourse';
+import Addcourse from './InstructorComponets/FormPage/AddCourse';
 import {EditLecture} from './InstructorComponets/FormPage/EditLecture';
 import AddLecture from './InstructorComponets/FormPage/AddLecture';
 
 function InstructorApp() {
 
-  const { isinstructor,message,error} = useSelector((state) => state.Instructor);
+  const { isinstructor,message,error,isaddcourse,isaddlecture } = useSelector((state) => state.Instructor);
  
   const dispatch = useDispatch();
   useEffect(() => {
@@ -68,6 +68,15 @@ function InstructorApp() {
         </Route>      
       
           
+          
+        <Route element={<ProtectedRoute isInstructor={!isaddcourse} redirect={"/instructor/dashboard/courses"} />}>  
+          <Route path="/dashboard/courses/addcourse" element={<Addcourse/>}></Route>           
+        </Route>      
+          
+          <Route element={<ProtectedRoute isInstructor={!isaddlecture} redirect={"/instructor/dashboard/courses"} />}>  
+          <Route path="/dashboard/courses/editcourse/addlecture" element={<AddLecture />}></Route>      
+        </Route>  
+
     </Routes>
 
   </>

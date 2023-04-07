@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCategory } from '../../../redux/actions/courses';
 import { useEffect,useState } from 'react';
 import { addCourse } from '../../../redux/actions/admin';
-
+ 
 function AddCourse() {
 
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ function AddCourse() {
     dispatch(getAllCategory());
   }, [dispatch])
   
-  const { admin } = useSelector((state) => state.admin);
+  const { instructor } = useSelector((state) => state.Instructor);
   const { category } = useSelector((state) => state.courses);
 
   
@@ -88,11 +88,6 @@ function AddCourse() {
     const submitbtnhandler = (e) => {
       e.preventDefault();
 
-      // let createBy = [{ 
-      //   "creatorid":admin._id,
-      //   "name":admin.name
-      // }];
-
       const formData = new FormData();
 
 
@@ -101,8 +96,8 @@ function AddCourse() {
       formData.append('price', Price);
       formData.append('catagory', Categoryform);
       formData.append('file', Img);
-      formData.append ('createBy[creatorid]',admin._id );
-      formData.append ('createBy[name]',admin.name );
+      formData.append ('createBy[creatorid]',instructor._id );
+      formData.append ('createBy[name]',instructor.name );
 
       dispatch(addCourse(formData));
     }

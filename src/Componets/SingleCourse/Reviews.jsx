@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const  Reviews = () => {
+export const  Reviews = ({lecturespage}) => {
   // let rateBox = Array.from(document.querySelectorAll(".rate-box"));
   // let globalValue = document.querySelector(".global-value");
   // let two = document.querySelector(".two");
@@ -71,47 +71,92 @@ export const  Reviews = () => {
 
   return (
     <>
-         <div class="container course_review_box">
+    {lecturespage ? 
+         <div className="container course_review_box">
          
-         <div class="global">
-        <span class="global-value">0.0</span>
-        <div class="rating-icons">
-          <span class="one"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-          <span class="two"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+         <div className="global">
+        <span className="global-value">0.0</span>
+        <div className="rating-icons">
+          <span className="one"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>
+          <span className="two"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>
         </div>
-        <span class="total-reviews">0</span>
+        <span className="total-reviews">0</span>
       </div>
-      <div class="chart">
-        <div class="rate-box">
-          <span class="value">5</span>
-          <div class="progress-bar">
-            <span class="progress"></span>
+      <div className="chart">
+        <div className="rate-box">
+          <span className="value">5</span>
+          <div className="progress-bar">
+            <span className="progress"></span>
           </div>
-          <span class="count">0</span>
+          <span className="count">0</span>
         </div>
-        <div class="rate-box">
-          <span class="value">4</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
+        <div className="rate-box">
+          <span className="value">4</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
         </div>
-        <div class="rate-box">
-          <span class="value">3</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
+        <div className="rate-box">
+          <span className="value">3</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
         </div>
-        <div class="rate-box">
-          <span class="value">2</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
+        <div className="rate-box">
+          <span className="value">2</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
         </div>
-        <div class="rate-box">
-          <span class="value">1</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
+        <div className="rate-box">
+          <span className="value">1</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
         </div>
       </div>
       
-    </div>
+        </div>
+    :
+     
+         <div className="container course_review_box">
+         
+         <div className="global">
+        <span className="global-value">0.0</span>
+        <div className="rating-icons">
+          <span className="one"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>
+          <span className="two"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></span>
+        </div>
+        <span className="total-reviews">0</span>
+      </div>
+      <div className="chart">
+        <div className="rate-box">
+          <span className="value">5</span>
+          <div className="progress-bar">
+            <span className="progress"></span>
+          </div>
+          <span className="count">0</span>
+        </div>
+        <div className="rate-box">
+          <span className="value">4</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
+        </div>
+        <div className="rate-box">
+          <span className="value">3</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
+        </div>
+        <div className="rate-box">
+          <span className="value">2</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
+        </div>
+        <div className="rate-box">
+          <span className="value">1</span>
+          <div className="progress-bar"><span className="progress"></span></div>
+          <span className="count">0</span>
+        </div>
+      </div>
+      
+        </div>
+}
     </>
   )
 }

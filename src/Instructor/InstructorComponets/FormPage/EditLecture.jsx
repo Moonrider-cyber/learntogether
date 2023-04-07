@@ -24,7 +24,7 @@ export const EditLecture = () => {
   let id = state;
   const dispatch = useDispatch();
   const { Lectures } = useSelector((state) => state.courses);
-  const { message } = useSelector((state) => state.admin);
+  const { message } = useSelector((state) => state.Instructor);
 
   useEffect(() => {
       dispatch(getAllLectures(state));
@@ -45,7 +45,7 @@ export const EditLecture = () => {
 
         <Container>
         <Box sx={{display:"flex",justifyContent:"right"}}>
-        <Link to={"/admin/dashboard/courses/editcourse/addlecture"} state={id}><Button variant="contained" sx={{mY:5}} >Add Lectures</Button></Link>
+        <Link to={"/instructor/dashboard/courses/editcourse/addlecture"} state={id}><Button variant="contained" sx={{mY:5}} >Add Lectures</Button></Link>
         </Box>
       <TableContainer component={Paper} sx={{ mt: 4 }}>
       <Table sx={{ minWidth: 650,overflowX:"scroll" }}>

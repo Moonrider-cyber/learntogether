@@ -6,24 +6,22 @@ import { useSelector } from 'react-redux';
 import "../App.css";
 import { Home } from './Home';
 import { Navbar } from './Layout/Navbar';
-import { Users } from './Users';
 import { Courses } from './Courses';
 import Sidebar from './Layout/Sidebar';
 import { Payment } from './Payment';
-import { getAllCoursesins } from '../../redux/actions/instructor';
+import { getAllCoursesins, getInstructorPayment } from '../../redux/actions/instructor';
 
-function Dashboard({home,userspage,coursespage,instructorpage,paymentpage}) {
+function Dashboard({home,coursespage,paymentpage}) {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllCoursesins());
+    dispatch(getInstructorPayment());
   }, [dispatch])
   
   const { instructor } = useSelector((state) => state.Instructor);
-  const { courses,category } = useSelector((state) => state.courses);
-
-
+  const { courses } = useSelector((state) => state.courses);
 
   return (
     <>
@@ -33,15 +31,9 @@ function Dashboard({home,userspage,coursespage,instructorpage,paymentpage}) {
         <Navbar instructor={instructor} />
 
       { home ? <Home /> : null}
-      {/* { userspage ? <Users users={users} /> : null } */}
       { coursespage ? <Courses courses={courses} /> : null }
-      { paymentpage ? <Payment /> : null }
+      { paymentpage ? <Payment  /> : null }
 
-      {/* <Home /> */}
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/users" element={<Users /> } />
-        </Routes> */}
       </section>
     </>
   );

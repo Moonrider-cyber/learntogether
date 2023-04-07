@@ -10,7 +10,7 @@ import { Button, Stack, TableContainer } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {  activeDeactiveCourse } from '../../redux/actions/admin';
+import {  activeDeactiveCourse, deleteCourse } from '../../redux/actions/admin';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { IconButton } from '@mui/material';
@@ -38,7 +38,7 @@ export const Courses = (courses) => {
       <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Courses</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
         {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
-        <Link to={"/admin/dashboard/courses/addcourse"}><Button variant="contained" sx={{mY:5}} >Add Courses</Button></Link>
+        <Link to={"/instructor/dashboard/courses/addcourse"}><Button variant="contained" sx={{mY:5}} >Add Courses</Button></Link>
         </Box>
 
         
@@ -81,7 +81,7 @@ export const Courses = (courses) => {
               {/* <TableCell align="center"><Button variant='outlined' >Edit Lecture</Button></TableCell> */}
               <TableCell align="center">
                 <Stack flexDirection={'row'} justifyContent={"center"} >
-              <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
+              <Link to={{pathname:`/instructor/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
               <PopupState variant="popover" popupId="demo-popup-popover">
                 {(popupState) => (
                   <div>
@@ -101,6 +101,7 @@ export const Courses = (courses) => {
                     >
                       <Stack sx={{ p: 1 }}>
                         <Button sx={{ p: 1 }} onClick={()=> dispatch(activeDeactiveCourse(row._id))}>{row.active === true ? "Disable" : "Enable"}</Button>
+                        <Button sx={{ p: 1 }} onClick={()=> dispatch(deleteCourse(row._id))}>Delete</Button>
                       </Stack>
                     </Popover>
                   </div>

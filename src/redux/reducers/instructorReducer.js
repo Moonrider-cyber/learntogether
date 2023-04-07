@@ -21,9 +21,10 @@ export const instructorReducer = createReducer({
         state.error=null;
     },
     clearMessage:(state)=>{
+        state.isaddcourse = false;
+        state.isaddlecture = false;
         state.message=null;
     },
-    
     InssignupRequest:(state)=>{
         state.loading=true;
     },
@@ -50,5 +51,56 @@ export const instructorReducer = createReducer({
         state.instructorLoading = false;
         state.isinstructor = false;
         state.error = action.payload;
+    },
+    addCourseRequest:(state)=>{
+        state.instructorLoading=true;
+        state.isaddcourse=false;
+    },
+    addCoursesuccess:(state,action)=>{
+        state.instructorLoading=false;
+        state.isaddcourse=true;
+        state.message=action.payload;
+    },
+    addCourseFail:(state,action)=>{
+        state.instructorLoading = false;
+        state.isaddcourse=false;
+        state.error = action.payload;
+    },
+    getInstructorPaymentRequest:(state)=>{
+        state.instructorLoading=true;
+    },
+    getInstructorPaymentSuccess:(state,action)=>{
+        state.instructorLoading=false;
+        state.instructorPayment=action.payload.payments;
+    },
+    getInstructorPaymentFail:(state,action)=>{
+        state.instructorLoading = false;
+        state.error = action.payload;
+    },
+    addLectureRequest:(state)=>{
+        state.instructorLoading=true;
+        state.isaddlecture=false;
+    },
+    addLecturesuccess:(state,action)=>{
+        state.instructorLoading=false;
+        state.isaddlecture=true;
+        state.message=action.payload;
+    },
+    addLectureFail:(state,action)=>{
+        state.instructorLoading = false;
+        state.isaddlecture=false;
+        state.error = action.payload;
+    },
+    InstructorlogoutRequest:(state)=>{
+        state.instructorLoading=true;
+    },
+    InstructorlogoutSuccess:(state,action)=>{
+        state.instructorLoading=false;
+        state.isinstructor=false;
+        state.message=action.payload.message;
+    },
+    InstructorlogoutFail:(state,action)=>{
+        state.instructorLoading = false;
+        state.isinstructor = true;
     },
 });

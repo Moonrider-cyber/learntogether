@@ -4,7 +4,7 @@ import './lecture.scss'
 import { getAllLectures } from '../../redux/actions/courses'
 import { useParams,useNavigate, Link } from 'react-router-dom'
 import { checkenrolled } from '../../redux/actions/user'
-const testvid = require('../../asset/video.mp4')
+import { Reviews } from '../SingleCourse/Reviews'
 
 export const Lecturecomp = () => {
   
@@ -12,14 +12,16 @@ export const Lecturecomp = () => {
   const dispatch = useDispatch()
   
   const navigate = useNavigate();
-  const {isenroll} = useSelector(state => state.user)
+  let {isenroll} = useSelector(state => state.user)
+  // isenroll = isenroll ? isenroll : true;
   useEffect(() => {
     dispatch(checkenrolled(courseid))
     dispatch(getAllLectures(courseid))
-    if(!isenroll){
-      navigate("/");
-    }
+    
   }, [dispatch])
+  if(!isenroll){
+    navigate("/");
+  }
   
   let {Lectures} = useSelector(state => state.courses)
   
@@ -43,18 +45,29 @@ export const Lecturecomp = () => {
                 ></video>
                 <h4>Description</h4>
                 <p>{curlecture && curlecture.desc} </p>
+                <div className='lecture_reviews'>
+                  <h4>Reviews</h4>
+                  <Reviews lecturespage={true} />
+                </div>
+
               </div>
               <div className='lectures_list'>
                 <h4>Lectures - {Lectures && Lectures.lectures.length}</h4>
                 <ul>
                   { Lectures && Lectures.lectures.map((lecture,key) => (
                     <li key={lecture._id}>
+                      {curlecture && curlecture._id === lecture._id ?
+                       <button onClick={() => setCurlecture(lecture)} className='lecture_active'>{lecture.title}</button>
+                      :
                       <button onClick={() => setCurlecture(lecture)}>{lecture.title}</button>
+                      }
                     </li>
                   ))}
                 </ul>
             </div>
+                
           </div>
+          
         </div>
     </>
   )

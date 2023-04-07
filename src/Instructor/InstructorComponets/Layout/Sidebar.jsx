@@ -1,26 +1,17 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
-import { Adminlogout } from '../../../redux/actions/admin';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import PeopleIcon from '@mui/icons-material/People';
 import SchoolIcon from '@mui/icons-material/School';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LogoutIcon from '@mui/icons-material/Logout';
-import TurnedInIcon from '@mui/icons-material/TurnedIn';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import { Instructorlogout } from "../../../redux/actions/instructor";
 
 const Sidebar = () => {
   
   const dispatch = useDispatch();
-  
   function logoutHandler(){
     dispatch(Instructorlogout());
-
-    <Navigate to={"/instructor"}/>
   }
   return (
     <>
@@ -39,14 +30,6 @@ const Sidebar = () => {
           </Link>
         </li>
 
-        {/* <li>
-          <Link to="/instructor/dashboard/users">
-            <i><PeopleIcon/></i>
-            <span className="links_name">Students</span>
-          </Link>
-        </li> */}
-        
-        
         <li>
         <Link to="/instructor/dashboard/courses">
             <i className='' ><SchoolIcon/></i>
@@ -60,19 +43,13 @@ const Sidebar = () => {
             <span className="links_name">Payment</span>
           </Link>
         </li>
-        {/* <li>
-        <a>
-            <i className='' ><SupportAgentIcon/></i>
-            <span className="links_name">Support</span>
-          </a>
-        </li> */}
 
         
         <li className="log_out">
           
           <button onClick={logoutHandler}>
             <a>
-                <i className=''><LogoutIcon/></i>
+                <i><LogoutIcon/></i>
                 <span className="links_name">Log out</span>
             </a>
           </button>

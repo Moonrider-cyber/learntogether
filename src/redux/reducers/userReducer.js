@@ -137,6 +137,7 @@ export const userReducer = createReducer({
     },
     checkenrolledRequest:(state)=>{
         state.loading=true;
+        state.isenroll=true;
     },
     checkenrolledSuccess:(state,action)=>{
         state.loading=false;

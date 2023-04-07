@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Box } from "@mui/system";
 import { useDispatch } from "react-redux";
 import { Instructorsignup } from "../../redux/actions/instructor";
+import NavOnlyLogo from "../../Componets/layout/Navbar/NavOnlyLogo";
 
 function Signup() {
 
@@ -35,6 +36,7 @@ function Signup() {
   }
   return (
     <>
+      <NavOnlyLogo/>
       <div className="i-login-container">
         <div className="bg order-2 order-md-1"></div>
         <div className="contents order-1 order-md-2">

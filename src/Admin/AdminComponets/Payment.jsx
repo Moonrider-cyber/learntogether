@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+
 export const Payment = (props) => {
 
   let payments = props.payments ? props.payments : [];
@@ -30,7 +31,6 @@ export const Payment = (props) => {
             <TableCell align="center">Learner Name</TableCell>
             <TableCell align="center">paidAmount</TableCell>
             <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">Enable/Disable</TableCell>
 
           </TableRow>
         </TableHead>
@@ -53,6 +53,7 @@ export const Payment = (props) => {
               </TableCell>
               <TableCell align="center">${row.paidAmount}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
+              {/* <TableCell align="center">{row.course}</TableCell> */}
               </TableRow>
           ))
          

@@ -39,9 +39,9 @@ export const Instructorlogout = () => async (dispatch) => {
         dispatch({type:"InstructorlogoutRequest"});
  
         const {data} = await axios.post(
-            `${server}/Instructor/logout`,{},{
+            `${server}/instructor/logout`,{},{
                 withCredentials:true,
-        }).catch((err)=>console.log(err));
+        });
         
         dispatch({type:"InstructorlogoutSuccess",payload:data});
     }catch(error){
@@ -74,5 +74,20 @@ export const getAllCoursesins = () => async (dispatch) => {
         dispatch({type:"getAllCoursesSuccess",payload: data});
     }catch(error){
         dispatch({type:"getAllCoursesFail"});
+    }
+}
+// get instructor payment
+export const getInstructorPayment = () => async (dispatch) => {
+    try{
+        dispatch({type:"getInstructorPaymentRequest"});
+        
+        const {data} = await axios.get(
+            `${server}/instructor/payments`,{
+                withCredentials:true,
+        });
+        // console.log("Data",data);
+        dispatch({type:"getInstructorPaymentSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"getInstructorPaymentFail"});
     }
 }

@@ -5,6 +5,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Instructorlogin } from "../../redux/actions/instructor";
+import NavOnlyLogo from "../../Componets/layout/Navbar/NavOnlyLogo";
 
 function Login() {
   const disatch = useDispatch();
@@ -13,11 +14,13 @@ function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     
-    disatch(Instructorlogin(data.get('email'),data.get('password')));
+    disatch(Instructorlogin(data.get('insemail'),data.get('inspassword')));
   };
 
   return (
     <>
+      <NavOnlyLogo/>
+
       <div className="i-login-container">
         <div className="bg order-1 order-md-2"></div>
         <div className="contents order-2 order-md-1">
@@ -30,8 +33,8 @@ function Login() {
                 <Box component="form" noValidate onSubmit={handleSubmit}>
                   <div className="form-group first">
                     <TextField
-                      id="email"
-                      name="email"
+                      id="insemail"
+                      name="insemail"
                       label="Enter Your Email"
                       variant="standard"
                       type={"email"}
@@ -43,8 +46,8 @@ function Login() {
                     style={{ paddingTop: "15px" }}
                   >
                     <TextField
-                      id="password"
-                      name="password"
+                      id="inspassword"
+                      name="inspassword"
                       label="Enter Your Password"
                       variant="standard"
                       type={"password"}
