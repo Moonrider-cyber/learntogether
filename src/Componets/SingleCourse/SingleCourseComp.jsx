@@ -6,6 +6,7 @@ import { getAllCourses } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addtocart, checkenrolled, loadUser } from '../../redux/actions/user';
+import { Reviews } from './Reviews';
 
 export function SingleCourseComp () {
 
@@ -135,7 +136,12 @@ export function SingleCourseComp () {
               <p>{course && course.description}</p>
             </div>
           </div>
-
+              <div className='container course_reviews'>
+            <div className='course_review_title'>
+              <h6>Student feedback</h6>
+            </div>
+                <Reviews/>
+              </div>
         </div>
 
       </div>
