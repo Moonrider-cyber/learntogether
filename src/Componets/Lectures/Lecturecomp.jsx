@@ -4,7 +4,7 @@ import './lecture.scss'
 import { getAllLectures } from '../../redux/actions/courses'
 import { useParams,useNavigate, Link } from 'react-router-dom'
 import { checkenrolled } from '../../redux/actions/user'
-import { Reviews } from '../SingleCourse/Reviews'
+import { Reviews, Showreview } from '../SingleCourse/Reviews'
 
 export const Lecturecomp = () => {
   
@@ -48,6 +48,8 @@ export const Lecturecomp = () => {
                 <div className='lecture_reviews'>
                   <h4>Reviews</h4>
                   <Reviews lecturespage={true} />
+
+                  <Showreview/>
                 </div>
 
               </div>

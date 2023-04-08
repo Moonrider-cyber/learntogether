@@ -10,7 +10,7 @@ import { PayPalPayment } from './PayPalPayment';
 function Cartcomp() {
    
 
-    let { isAuthenticated,user,cartcourses } = useSelector((state) => state.user);
+    let { isAuthenticated,user,cartcourses,message } = useSelector((state) => state.user);
     let { isPaid } = useSelector((state) => state.Payment);
     
     
@@ -21,7 +21,7 @@ function Cartcomp() {
         if(user && user.cart.length === 0){
             isAuthenticated = false
         }    
-    }, [dispatch,isPaid])
+    }, [dispatch,isPaid,message])
     
 
     const totalprice = cartcourses && cartcourses.cartcourses.reduce((acc,curr) => {
@@ -75,7 +75,7 @@ function Cartcomp() {
                         <div className='card-action'>
                             <div className='card-action-btn'>
                             <button onClick={()=> dispatch(removefromcart(data._id))}>Remove</button>
-                            <button>Move To Wishlist</button>
+                            {/* <button>Move To Wishlist</button> */}
                             </div>
                         </div>
                         <div className='card-price'>

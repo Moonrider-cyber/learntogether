@@ -54,6 +54,16 @@ export const coursesReducer = createReducer({},{
         state.courseLoading = false;
         state.error = action.payload;
     },
+    getAllReviewRequest:(state)=>{
+        state.courseLoading=true;
+    },
+    getAllReviewSuccess:(state,action)=>{
+        state.courseLoading=false;
+        state.reviews=action.payload;
+    },
+    getAllReviewFail:(state,action)=>{
+        state.courseLoading = false;
+    },
 
     
     

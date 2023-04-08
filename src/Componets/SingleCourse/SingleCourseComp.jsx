@@ -1,12 +1,14 @@
 import React from 'react'
 import './SingleCourse.scss'
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllCourses } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addtocart, checkenrolled, loadUser } from '../../redux/actions/user';
 import { Reviews } from './Reviews';
+import toast from "react-hot-toast";
+
 
 export function SingleCourseComp () {
 
@@ -15,7 +17,9 @@ export function SingleCourseComp () {
 
   const {courses} = useSelector(state => state.courses);
   const { isAuthenticated,isenroll } = useSelector(state => state.user);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(checkenrolled(id))  
@@ -24,6 +28,10 @@ export function SingleCourseComp () {
   function addcartbtnhandler() {
     if(isAuthenticated){
       dispatch(addtocart(id));
+    }
+    else{
+      toast.error("Please Login First");
+      navigate('/login')
     }
   }
   
@@ -88,7 +96,7 @@ export function SingleCourseComp () {
                   <button className='add_cart' onClick={addcartbtnhandler} >Add To Cart</button>
 
                 }
-                <button className='wishlist'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="butt" strokeLinejoin="bevel"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+                {/* <button className='wishlist'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="butt" strokeLinejoin="bevel"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button> */}
               </div>
               <div className='course_landing_card_moneyreturn'>
                 <p>30-Day Money-Back Guarantee</p>
@@ -109,19 +117,19 @@ export function SingleCourseComp () {
                 <ul>
                   <li className='course_landing_body_card_item'>
                     <i className="fa-solid fa-check"></i>
-                    <p>Learn how to build big full stack app from scratch</p>
+                    <p>Spend more time developing plans and ideas for the future</p>
                   </li>
                   <li className='course_landing_body_card_item'>
                     <i className="fa-solid fa-check"></i>
-                    <p>Learn how to implement React Hooks, Async/Await, React Router 6, Axios</p>
+                    <p>Feel confident enough to involve employees in decision making and planning</p>
                   </li>
                   <li className='course_landing_body_card_item'>
                     <i className="fa-solid fa-check"></i>
-                    <p>Learn how to implement React Hooks, Async/Await, React Router 6, Axios</p>
+                    <p>Discover how to be more agile and fit for today’s fast changing environment</p>
                   </li>
                   <li className='course_landing_body_card_item'>
                     <i className="fa-solid fa-check"></i>
-                    <p>Learn how to implement React Hooks, Async/Await, React Router 6, Axios</p>
+                    <p>Delegate effectively to empower their team</p>
                   </li>
                 </ul>
               </div>

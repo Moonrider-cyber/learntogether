@@ -127,12 +127,15 @@ export const addtocart = (courseid) => async (dispatch) => {
 export const removefromcart = (courseid) => async (dispatch) => {
     try{
         dispatch({type:"removefromcartRequest"});
-        const {data} = await axios.delete(`${server}/removefromcart`,{courseid},{
-            
-            headers:{
-                "Content-Type":"application/json",
-            },withCredentials:true,
-        });
+        const {data} = await axios.delete(`${server}/removefromcart`,
+        {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+            data: { courseid }, // include courseid in the request payload
+          }
+        );
         dispatch({type:"removefromcartSuccess",payload: data.message});
     }catch(error){
         dispatch({type:"removefromcartFail",payload:error.response.data.message});   
@@ -181,5 +184,20 @@ export const enrollcourse = () => async (dispatch) => {
         dispatch({type:"enrollcourseSuccess",payload: data});
     }catch(error){
         dispatch({type:"enrollcourseFail",payload:error.response.data.message});   
+    }
+}
+// create review
+export const createreview = (rating,comment,courseid) => async (dispatch) => {
+    try{
+        dispatch({type:"createreviewRequest"});
+        const {data} = await axios.post(`${server}/createreview`,{rating,comment,courseid},{
+            
+            headers:{
+                "Content-Type":"application/json",
+            },withCredentials:true,
+        });
+        dispatch({type:"createreviewSuccess",payload: data});
+    }catch(error){
+        dispatch({type:"createreviewFail",payload:error.response.data});   
     }
 }

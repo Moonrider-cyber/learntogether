@@ -159,6 +159,16 @@ export const userReducer = createReducer({
         state.loading = false;
         state.error = action.payload;
     },
-
+    createreviewRequest:(state)=>{
+        state.loading=true;
+    },
+    createreviewSuccess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload.message;
+    },
+    createreviewFail:(state,action)=>{
+        state.loading = false;
+        state.error = action.payload.message;
+    },
 
 })
