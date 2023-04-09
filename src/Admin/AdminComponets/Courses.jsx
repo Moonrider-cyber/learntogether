@@ -50,7 +50,7 @@ export const Courses = (courses) => {
           <TableRow>
             {/* <TableCell align="center">Description</TableCell> */}
             <TableCell align="center">Title</TableCell>
-            <TableCell align="center">Price (₹)</TableCell>
+            <TableCell align="center">Price ($)</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">Status</TableCell>
             <TableCell align="center">CreateAt</TableCell>
@@ -131,7 +131,7 @@ export const Courses = (courses) => {
           <TableRow>
             <TableCell align="center">Title</TableCell>
             {/* <TableCell align="center">Description</TableCell> */}
-            <TableCell align="center">Price (₹)</TableCell>
+            <TableCell align="center">Price ($)</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>

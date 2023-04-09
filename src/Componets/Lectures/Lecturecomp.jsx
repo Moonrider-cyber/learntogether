@@ -12,13 +12,14 @@ export const Lecturecomp = () => {
   const dispatch = useDispatch()
   
   const navigate = useNavigate();
-  let {isenroll} = useSelector(state => state.user)
+  let {isenroll,message} = useSelector(state => state.user)
   // isenroll = isenroll ? isenroll : true;
   useEffect(() => {
     dispatch(checkenrolled(courseid))
     dispatch(getAllLectures(courseid))
     
-  }, [dispatch])
+  }, [dispatch,message])
+
   if(!isenroll){
     navigate("/");
   }

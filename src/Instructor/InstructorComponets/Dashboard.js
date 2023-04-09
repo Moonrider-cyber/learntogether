@@ -21,7 +21,6 @@ function Dashboard({home,coursespage,paymentpage}) {
   }, [dispatch])
   
   const { instructor } = useSelector((state) => state.Instructor);
-  const { courses } = useSelector((state) => state.courses);
 
   return (
     <>
@@ -31,8 +30,8 @@ function Dashboard({home,coursespage,paymentpage}) {
         <Navbar instructor={instructor} />
 
       { home ? <Home /> : null}
-      { coursespage ? <Courses courses={courses} /> : null }
-      { paymentpage ? <Payment  /> : null }
+      { coursespage ? <Courses /> : null }
+      { paymentpage ? <Payment /> : null }
 
       </section>
     </>

@@ -20,7 +20,7 @@ function Courselist() {
 
       {courses && courses.map((course,index) => (
         
-        <CourseCard key={index} id={course._id} title={course.title} price={course.price} author={course.createBy[0].name} courseimg={course.poster[0].url}  />
+        <CourseCard key={index} id={course._id} title={course.title} price={course.price} rating={course.rating}  author={course.createBy[0].name} courseimg={course.poster[0].url}  />
         
       ))}
       </div>

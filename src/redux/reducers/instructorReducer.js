@@ -71,7 +71,7 @@ export const instructorReducer = createReducer({
     },
     getInstructorPaymentSuccess:(state,action)=>{
         state.instructorLoading=false;
-        state.instructorPayment=action.payload.payments;
+        state.mypayments=action.payload.mypayments;
     },
     getInstructorPaymentFail:(state,action)=>{
         state.instructorLoading = false;

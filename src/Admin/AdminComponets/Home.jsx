@@ -9,7 +9,7 @@ import { Box } from '@mui/system';
 
 export const Home = () => {
   
-  const { users } = useSelector((state) => state.admin);
+  const { users,payments } = useSelector((state) => state.admin);
   const { courses } = useSelector((state) => state.courses);
 
   let usercount = 0;
@@ -25,6 +25,8 @@ export const Home = () => {
       }
     }
   }
+  let totalpayment =0;
+  payments && payments.map((payment) => totalpayment +=payment.paidAmount);
   return (
     <div className="home-content">
            <div className="overview-boxes">
@@ -60,8 +62,8 @@ export const Home = () => {
         <CurrencyRupeeIcon sx={{fontSize:70 , mr:4,ml:0}} />            
 
           <div className="right-side">
-            <div className="box-topic">Subscription</div>
-            <div className="number">0</div>
+            <div className="box-topic">Total Payments</div>
+            <div className="number">{totalpayment}</div>
             
           </div>
         </div>

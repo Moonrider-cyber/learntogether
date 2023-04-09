@@ -2,11 +2,11 @@ import React from 'react'
 import './SingleCourse.scss'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getAllCourses } from '../../redux/actions/courses';
+import { getAllCourses, getAllReview } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addtocart, checkenrolled, loadUser } from '../../redux/actions/user';
-import { Reviews } from './Reviews';
+import { Reviews, Showreview } from './Reviews';
 import toast from "react-hot-toast";
 
 
@@ -35,7 +35,6 @@ export function SingleCourseComp () {
     }
   }
   
-
   const course = courses && courses.find(course => course._id === id);
 
   let isAdded = false;
@@ -87,7 +86,7 @@ export function SingleCourseComp () {
                 <img src={course && course.poster[0].url}/>
               </div>
               <div className='course_landing_card_price'>
-                <p>₹ {course && course.price}</p>
+                <p>$ {course && course.price}</p>
               </div>
               <div className='course_landing_card_btn'>
                 
@@ -148,7 +147,7 @@ export function SingleCourseComp () {
             <div className='course_review_title'>
               <h6>Student feedback</h6>
             </div>
-                <Reviews/>
+                <Showreview singlecourse={true} />
               </div>
         </div>
 

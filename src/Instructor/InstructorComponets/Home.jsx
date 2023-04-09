@@ -1,8 +1,7 @@
 import React from 'react'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SchoolIcon from '@mui/icons-material/School';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useSelector } from 'react-redux';
 import { LineChart,DoughutChart } from './Chart';
 import { Box } from '@mui/system';
@@ -11,17 +10,17 @@ export const Home = () => {
   
   const { users } = useSelector((state) => state.admin);
   const { courses } = useSelector((state) => state.courses);
+  const { mypayments } = useSelector((state) => state.Instructor);
+
+  let totalpayment = 0;
+  mypayments && mypayments.map((payment) => totalpayment +=payment.paidAmount);
 
   let usercount = 0;
-  let inscount = 0;
   let coursecount = courses ? courses.length : 0;
   if(users){
     for (let i = 0; i < users.length; i++) {
       if(users[i].role === "user"){
         usercount++;
-      }
-      if(users[i].role === "instructor"){
-        inscount++;
       }
     }
   }
@@ -50,11 +49,11 @@ export const Home = () => {
         </div>
 
         <div className="box">
-        <CurrencyRupeeIcon sx={{fontSize:70 , mr:4,ml:0}} />            
+        <AttachMoneyIcon sx={{fontSize:70 , mr:4,ml:0}} />            
 
           <div className="right-side">
-            <div className="box-topic">Subscription</div>
-            <div className="number">0</div>
+            <div className="box-topic">Total Payments</div>
+            <div className="number">{totalpayment}</div>
             
           </div>
         </div>

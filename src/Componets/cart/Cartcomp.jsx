@@ -79,7 +79,7 @@ function Cartcomp() {
                             </div>
                         </div>
                         <div className='card-price'>
-                            <p>₹{data.price}</p>
+                            <p>${data.price}</p>
                         </div>
                     </div>
                         </div>

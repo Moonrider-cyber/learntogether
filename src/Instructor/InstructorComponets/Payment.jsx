@@ -7,11 +7,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
-export const Payment = (props) => {
+import { useSelector } from 'react-redux';
 
-  let payments = props.payments ? props.payments : [];
-  // const { payments } = useSelector((state) => state.admin);
-  return (
+export const Payment = () => {
+
+  const { mypayments } = useSelector((state) => state.Instructor);
+
+
+return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
       <Box sx={{ width: '100%' }}>
@@ -27,6 +30,7 @@ export const Payment = (props) => {
           <TableRow>
             <TableCell align='center'>PaymentID</TableCell>
             <TableCell align="center">Learner Name</TableCell>
+            <TableCell align="center">Courses</TableCell>
             <TableCell align="center">paidAmount</TableCell>
             <TableCell align="center">CreateAt</TableCell>
 
@@ -35,9 +39,9 @@ export const Payment = (props) => {
         <TableBody>
           
         {
-            payments ?
+            mypayments ?
           // category.length > 0 ?
-          payments.map((row,index) => (
+          mypayments.map((row,index) => (
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -49,6 +53,7 @@ export const Payment = (props) => {
               <TableCell align="center">
               {row.user[0].username}
               </TableCell>
+              <TableCell align="center">{row.courses[0].courseid._id}</TableCell>
               <TableCell align="center">${row.paidAmount}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               </TableRow>

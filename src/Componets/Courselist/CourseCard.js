@@ -3,7 +3,7 @@ import './Courselist.scss';
 import { Link } from 'react-router-dom';
 const img = require('../../asset/test2.jpg');
 
-const CourseCard = ({id,title,price,author,courseimg}) => {
+const CourseCard = ({id,title,price,rating,author,courseimg}) => {
     
   return (
     <>
@@ -24,11 +24,11 @@ const CourseCard = ({id,title,price,author,courseimg}) => {
                     </div>
                     <div className='c-card-rating'>
                         <i className="fa-solid fa-star"></i>
-                        <p>4.9</p>
+                        <p>{rating && rating}</p>
                         {/* <p>(<span>33</span> reviews)</p> */}
                     </div>
                     <div className='c-card-price'>
-                        <span>₹</span><p>{price && price}</p>
+                        <span>$</span><p>{price && price}</p>
                     </div>
                 </div>
                 </Link>

@@ -17,7 +17,7 @@ export const Payment = (props) => {
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
       <Box sx={{ width: '100%' }}>
-      <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>category</Typography>
+      <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Payments</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
         {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
         {/* <Link to={"/admin/dashboard/category/addcategory"}><Button variant="contained" sx={{mY:5}} >Add category</Button></Link> */}

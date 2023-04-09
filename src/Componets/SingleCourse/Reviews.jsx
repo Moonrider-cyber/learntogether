@@ -84,7 +84,7 @@ export const  Reviews = ({lecturespage}) => {
 
   function reviewbtnhandler(){
     if(value !== 0 && reviewtext !== " "){
-      console.log("created")
+      
       dispatch(createreview(value,reviewtext,courseid))
     }
   }
@@ -93,18 +93,18 @@ export const  Reviews = ({lecturespage}) => {
   return (
     <>
     {lecturespage ? 
-         <div className="container course_review_box" style={{marginTop:30}}>
+         <div className="container course_review_box" style={{marginTop:10}}>
           <Rating
               name="simple-controlled"
               value={value}
               onChange={(event, newValue) => {
                 setValue(newValue);
               }}
-              style={{fontSize:"50px",marginLeft:"25%",marginBottom:30}}
+              style={{fontSize:"50px",width:"100%",marginLeft:"32%",paddingBottom:29}}
           />
             <TextField
           id="outlined-multiline-static"
-          label="Enter your review"
+          label="Write your review"
           multiline
           value={reviewtext}
           onChange={(e)=>setReviewtext(e.target.value)} 
@@ -166,7 +166,7 @@ export const  Reviews = ({lecturespage}) => {
   )
 }
 
-export const Showreview = () => {
+export const Showreview = ({singlecourse}) => {
   
   const dispatch = useDispatch();
   const courseid = useParams();
@@ -176,9 +176,42 @@ export const Showreview = () => {
   }, [dispatch])
   
   const {reviews} = useSelector(state => state.courses)
-  console.log(reviews)
+ 
   return (
     <>
+    {singlecourse ?
+    <>
+      <div className="container course_review_box" style={{marginTop:20,p:0}}>
+        
+        <div className="course_review_list">
+          {reviews && reviews.length !== 0 ?
+          
+          reviews && reviews.map((review,key) => (
+            <Paper elevation={2} sx={{p:3,my:2}} key={key} >
+          <Grid container spacing={2}>
+            <Grid item xs={1} style={{paddingTop:20}}>
+            <Avatar sx={{ width: 50, height: 50 }} >{review.name}</Avatar>
+              
+            </Grid>
+            <Grid item xs={10} style={{marginLeft:20}}>
+              <Stack spacing={1}>
+              <Typography variant="span" sx={{fontSize:15}}>{review.name}</Typography>
+              <Rating name="read-only" value={review.rating} readOnly /> 
+              <Typography variant="p">{review.comment}</Typography>
+              </Stack>
+            </Grid>
+          </Grid>
+            </Paper>
+            ))
+            :
+            <>
+              <Typography variant="h6" style={{paddingTop:5}}>No Reviews Yet</Typography>
+            </>
+}        
+        </div>
+      </div>
+    </>
+    :
       <div className="container course_review_box" style={{marginTop:40,marginLeft:20}}>
         
         <div className="course_review_list">
@@ -203,6 +236,7 @@ export const Showreview = () => {
         </div>
 
       </div>
+      }
     </>
   );
 }

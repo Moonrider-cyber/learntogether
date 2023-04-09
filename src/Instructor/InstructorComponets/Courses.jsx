@@ -19,11 +19,12 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { getAllCoursesins } from '../../redux/actions/instructor';
 
-export const Courses = (courses) => {
+export const Courses = () => {
 
   const dispatch = useDispatch();
  
-  const { message,ins } = useSelector((state) => state.admin);
+  const { message } = useSelector((state) => state.admin);
+  const { courses } = useSelector((state) => state.courses);
 
   useEffect(() => {
     if(message){
@@ -48,7 +49,7 @@ export const Courses = (courses) => {
           <TableRow>
             <TableCell align="center">Title</TableCell>
             {/* <TableCell align="center">Description</TableCell> */}
-            <TableCell align="center">Price (₹)</TableCell>
+            <TableCell align="center">Price ($)</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
@@ -60,9 +61,9 @@ export const Courses = (courses) => {
           
 
           {
-            courses.courses ?
+            courses && courses ?
           // courses.length > 0 ?
-          courses.courses.map((row,index) => (
+          courses.map((row,index) => (
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
