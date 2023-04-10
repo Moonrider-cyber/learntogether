@@ -93,7 +93,7 @@ function Cartcomp() {
                         <h5>Total:</h5>
                     </div>
                     <div className='cart-total-price'>
-                        <p>₹{totalprice}</p>
+                        <p>${totalprice}</p>
                     </div>
                     <div className='cart-total-btn'>
                         {/* <button>Checkout</button> */}

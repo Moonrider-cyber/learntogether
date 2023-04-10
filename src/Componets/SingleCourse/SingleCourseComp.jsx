@@ -17,7 +17,7 @@ export function SingleCourseComp () {
 
   const {courses} = useSelector(state => state.courses);
   const { isAuthenticated,isenroll } = useSelector(state => state.user);
-
+  console.log(courses)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -66,6 +66,7 @@ export function SingleCourseComp () {
                   {/* <p>{course && course.description}</p> */}
                 </div>
                 <div className='course_landing_instructor'>
+                  
                   <p>Created by <a href='/'>{course && course.createBy[0].name}</a></p>
                 </div>
                 <div className='course_landing_meta'>

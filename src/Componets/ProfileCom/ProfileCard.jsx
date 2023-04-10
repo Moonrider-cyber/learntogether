@@ -9,7 +9,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const ProfileCard = ({course}) => {
-
+  
+  
+  const textoverflow = {
+    multilineEllipsis: {
+      overflow: 'hidden',
+      display: '-webkit-box',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: '2',
+      whiteSpace: 'pre-wrap'
+    }
+  };
+  
   return (
     <>
       <Link to={"/profile/lecture/" + course._id}>
@@ -21,10 +32,10 @@ export const ProfileCard = ({course}) => {
                   image={course && course.poster[0].url}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" style={textoverflow.multilineEllipsis}>
                     {course && course.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" style={textoverflow.multilineEllipsis}>
                     {course && course.description}
                   </Typography>
                 </CardContent>

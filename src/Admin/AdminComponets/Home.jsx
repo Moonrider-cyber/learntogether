@@ -73,12 +73,12 @@ export const Home = () => {
 
 
       <Box sx={{px:10,pt:7,width:"100%",height:"auto",display:"flex",gap:"40px",alignItems:"center",justifyContent:"Center"}}>
-        <Box sx={{width:"100%",width:"100%"}}>
+        <Box sx={{width:"100%"}}>
           <LineChart />
         </Box>
 
         
-        <Box sx={{width:"50%",width:"50%"}}>
+        <Box sx={{width:"60%"}}>
           <DoughutChart />
           </Box>
       </Box>

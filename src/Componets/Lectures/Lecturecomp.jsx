@@ -8,7 +8,7 @@ import { Reviews, Showreview } from '../SingleCourse/Reviews'
 
 export const Lecturecomp = () => {
   
-  let courseid = useParams().courseid;
+  let courseid = useParams().id;
   const dispatch = useDispatch()
   
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ export const Lecturecomp = () => {
                   <h4>Reviews</h4>
                   <Reviews lecturespage={true} />
 
-                  <Showreview/>
+                  <Showreview  singlecourse={true} />
                 </div>
 
               </div>

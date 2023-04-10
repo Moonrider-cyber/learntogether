@@ -29,6 +29,7 @@ export const Payment = (props) => {
           <TableRow>
             <TableCell align='center'>PaymentID</TableCell>
             <TableCell align="center">Learner Name</TableCell>
+            <TableCell align="center">Course Id</TableCell>
             <TableCell align="center">paidAmount</TableCell>
             <TableCell align="center">CreateAt</TableCell>
 
@@ -51,6 +52,18 @@ export const Payment = (props) => {
               <TableCell align="center">
               {row.user[0].username}
               </TableCell>
+              <TableCell align="center">
+  {row.courses.length > 1 ? (
+    <>
+      {row.courses.map((course) => (
+        <div key={course.courseid}>{course.courseid}</div>
+      ))}
+    </>
+  ) : (
+    <div>{row.courses[0].courseid}</div>
+  )}
+</TableCell>
+              {/* <TableCell align="center">{row.courses[0].courseid}</TableCell> */}
               <TableCell align="center">${row.paidAmount}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               {/* <TableCell align="center">{row.course}</TableCell> */}
