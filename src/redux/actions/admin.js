@@ -67,7 +67,7 @@ export const getAllPayments = () => async (dispatch) => {
             `${server}/admin/payments`,{},{
                 withCredentials:true,
         });
-        dispatch({type:"getAllPaymentSuccess",payload: data.payments});
+        dispatch({type:"getAllPaymentSuccess",payload: data});
     }catch(error){
         dispatch({type:"getAllPaymentFail"});
     }

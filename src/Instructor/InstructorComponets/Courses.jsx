@@ -47,7 +47,6 @@ export const Courses = () => {
       <Table sx={{ minWidth: 650,overflowX:"scroll" }}>
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
-            <TableCell align="center">Course Id</TableCell>
             <TableCell align="center">Title</TableCell>
             {/* <TableCell align="center">Description</TableCell> */}
             <TableCell align="center">Price ($)</TableCell>
@@ -70,9 +69,6 @@ export const Courses = () => {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
             >
-              <TableCell component="th" scope="row" align="center">
-                {row._id}
-              </TableCell>
               {/* <TableCell align="center">{row.description}</TableCell> */}
               <TableCell align="center" style={{ width:40,textOverflow: "ellipsis", whiteSpace: "nowrap",overflow: "hidden"}} >{row.title}</TableCell>
               <TableCell align="center">{row.price}</TableCell>

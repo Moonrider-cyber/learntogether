@@ -9,7 +9,7 @@ export const Navbar = ({admin}) => {
       <nav>
         <div className="sidebar-button">
           <i className=''></i>
-          <span className="dashboard">Dashboard</span>
+          <span className="dashboard">Admin Dashboard</span>
         </div>
         <div className="profile-details">
       <Avatar src={admin ? admin.avatar.url : null}/>

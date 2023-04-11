@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
+import { Button, Chip } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -53,6 +53,7 @@ export const Category = (props) => {
             <TableCell align="center">Description</TableCell>
             <TableCell align="center">CreateAt</TableCell>
             <TableCell align="center">CreateBy</TableCell>
+            <TableCell align="center">Status</TableCell>
             <TableCell align="center">Enable/Disable</TableCell>
             <TableCell align="center">Delete</TableCell>
 
@@ -84,6 +85,8 @@ export const Category = (props) => {
                 >{row.description}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name} </TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
+            
               <TableCell align="center"><Button onClick={()=> dispatch(activeDeactivecategory(row._id))}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
               <TableCell align="center"><IconButton aria-label="delete" onClick={() => dispatch(deletecategory(row._id)) }> <DeleteIcon/> </IconButton></TableCell>
               </TableRow>

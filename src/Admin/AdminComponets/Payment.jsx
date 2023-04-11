@@ -41,11 +41,14 @@ export const Payment = (props) => {
             payments ?
           // category.length > 0 ?
           payments.map((row,index) => (
+            
             <TableRow
-              key={index}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-
+            key={index}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            
             >
+              {console.log(row)}
+
               <TableCell component="th" scope="row" align="center">
                 {row.paymentID}
               </TableCell>
@@ -53,16 +56,16 @@ export const Payment = (props) => {
               {row.user[0].username}
               </TableCell>
               <TableCell align="center">
-  {row.courses.length > 1 ? (
-    <>
-      {row.courses.map((course) => (
-        <div key={course.courseid}>{course.courseid}</div>
-      ))}
-    </>
-  ) : (
-    <div>{row.courses[0].courseid}</div>
-  )}
-</TableCell>
+                {row.courses.length > 1 ? (
+                  <>
+                    {row.courses.map((course) => (
+                      <div key={course.courseid}>{course.courseid}</div>
+                    ))}
+                  </>
+                ) : (
+                  <div>{row.courses[0].courseid}</div>
+                )}
+              </TableCell>
               {/* <TableCell align="center">{row.courses[0].courseid}</TableCell> */}
               <TableCell align="center">${row.paidAmount}</TableCell>
               <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>

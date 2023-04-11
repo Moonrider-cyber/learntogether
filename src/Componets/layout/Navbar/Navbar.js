@@ -102,11 +102,12 @@ function Navbar({whitenav = true}) {
               <div className="category-menu">
                 <ul>
                   { category && category.map((cat,index) => (
+                    cat.active &&
                     <li key={index}>
                     <Link to={"/courses/" + category[index].name}>
                       <button>
                         <span>{category && category[index].name} </span>
-                        <i className="fa-solid fa-angle-right"></i>
+                        {/* <i className="fa-solid fa-angle-right"></i> */}
                       </button>
                     </Link>
                   </li>

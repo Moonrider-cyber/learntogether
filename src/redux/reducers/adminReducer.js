@@ -211,7 +211,8 @@ export const adminReducer = createReducer({
     },
     getAllPaymentSuccess:(state,action)=>{
         state.adminLoading=false;
-        state.payments=action.payload;
+        state.payments=action.payload.payments;
+        state.paymentsdata=action.payload.paymentsData;
     }  ,
     getAllPaymentFail:(state,action)=>{
         state.adminLoading = false;

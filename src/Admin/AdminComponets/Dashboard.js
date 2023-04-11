@@ -27,10 +27,10 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
     dispatch(getAllPayments());
   }, [dispatch])
   
-  const { users,admin,payments } = useSelector((state) => state.admin);
+  const { users,admin,payments,paymentsdata } = useSelector((state) => state.admin);
   const { courses,category } = useSelector((state) => state.courses);
 
-
+console.log(paymentsdata)
 
   return (
     <>

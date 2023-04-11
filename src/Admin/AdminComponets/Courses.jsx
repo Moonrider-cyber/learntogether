@@ -31,10 +31,28 @@ export const Courses = (courses) => {
     }
   }, [message]);
   
+
+  const textoverflow = {
+    multilineEllipsis: {
+      overflow: 'hidden',
+      display: '-webkit-box',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: '2',
+      whiteSpace: 'pre-wrap'
+    },
+    singlelineEllipsis: {
+      // display: 'ellipsis',
+      overflow: 'hidden',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: '1',
+      whiteSpace: 'pre-wrap',
+      width:"20%",
+    }
+  };
   
   return (
     <div className="home-content">
-      <Box sx={{paddingX:5,paddingTop:5}}>
+      <Box sx={{paddingX:5,paddingTop:"20px",pb:10}}>
       <Box sx={{ width: '100%' }}>
       <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Courses</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
@@ -49,14 +67,14 @@ export const Courses = (courses) => {
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
             {/* <TableCell align="center">Description</TableCell> */}
-            <TableCell align="center">Title</TableCell>
-            <TableCell align="center">Price ($)</TableCell>
-            <TableCell align="center">Category</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">CreateBy</TableCell>
-            {/* <TableCell align="center"></TableCell> */}
-            <TableCell align="center">Action</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:17}}>Title</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Category</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>instructor</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Price($)</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Total Purchase</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>CreateAt</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Status</TableCell>
+            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Action</TableCell>
 
           </TableRow>
         </TableHead>
@@ -70,20 +88,18 @@ export const Courses = (courses) => {
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-
             >
-              <TableCell component="th" scope="row" align="center">
+              <TableCell component="th" scope="row" align="center"  style={textoverflow.singlelineEllipsis} >
                 {row.title}
               </TableCell>
-              {/* <TableCell align="center">{row.description}</TableCell> */}
-              <TableCell align="center">{row.price}</TableCell>
+              
               <TableCell align="center">{row.catagory}</TableCell>
-              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
-              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name}</TableCell>
-              {/* <TableCell align="center"><Button dataid={row._id} onClick={adBtnHandler}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell> */}
-              {/* <TableCell align="center"><IconButton aria-label="delete" onClick={()=> dispatch(deleteCourse(row._id))}> <DeleteIcon/> </IconButton></TableCell> */}
-              {/* <TableCell align="center"><Button variant='outlined' >Edit Lecture</Button></TableCell> */}
+              <TableCell align="center">{row.price}</TableCell>
+              <TableCell align="center">{row.totalpurchase}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
+              
               <TableCell align="center">
                 <Stack flexDirection={'row'} justifyContent={"center"} >
               <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>

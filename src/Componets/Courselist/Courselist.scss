@@ -15,7 +15,7 @@ $lightfont: "Ubuntu", sans-serif;
   }
   .courses-cards{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     margin: 10px 0;
   }
 }
@@ -88,8 +88,7 @@ a{
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              width:211px;
-
+              width:281px;
             }
           }
           .c-card-instructor p{

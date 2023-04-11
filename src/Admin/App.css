@@ -55,9 +55,6 @@ ul{
   text-decoration: none;
   transition: all 0.4s ease;
 }
-.sidebar .nav-links li a.active{
-  background: #fff;
-}
 .sidebaractive{
   color: #fff;
 }
@@ -74,9 +71,7 @@ ul{
   color: white;
 }
 .sidebar .nav-links li a .links_name{
-  /* color: rgba(172,182,191,.5); */
-  
-  color: rgba(172,182,191,.5);
+  color: white;
   
   font-size: 15px;
   font-weight: 400;

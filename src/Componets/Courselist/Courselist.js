@@ -18,7 +18,7 @@ function Courselist() {
       <p>Choose from courses in English and many other languages</p>
       <div className="courses-cards">
 
-      {courses && courses.map((course,index) => (
+      {courses && courses.slice(0, 8).map((course,index) => (
         
         <CourseCard key={index} id={course._id} title={course.title} price={course.price} rating={course.rating}  author={course.createBy[0].name} courseimg={course.poster[0].url}  />
         

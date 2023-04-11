@@ -9,8 +9,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LogoutIcon from '@mui/icons-material/Logout';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 const Sidebar = () => {
   
@@ -73,7 +72,7 @@ const Sidebar = () => {
         </li>
         <li>
         <Link to={"/admin/dashboard/payment"}>
-            <i className='' ><CurrencyRupeeIcon/></i>
+            <i className='' ><AttachMoneyIcon/></i>
             <span className="links_name">Payment</span>
           </Link>
         </li>
