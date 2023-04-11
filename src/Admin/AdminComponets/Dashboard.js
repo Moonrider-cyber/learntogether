@@ -30,8 +30,6 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
   const { users,admin,payments,paymentsdata } = useSelector((state) => state.admin);
   const { courses,category } = useSelector((state) => state.courses);
 
-console.log(paymentsdata)
-
   return (
     <>
       <Sidebar/>
@@ -45,7 +43,7 @@ console.log(paymentsdata)
       { categorypage ? <Category category={category} /> : null }
       { adminspage ? <Admins users={users} /> : null }
       { instructorpage ? <Instructor users={users} /> : null }
-      { paymentpage ? <Payment payments={payments} /> : null }
+      { paymentpage ? <Payment paymentsdata={paymentsdata} /> : null }
 
       {/* <Home /> */}
         {/* <Routes>

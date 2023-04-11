@@ -67,14 +67,14 @@ export const Courses = (courses) => {
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
             {/* <TableCell align="center">Description</TableCell> */}
-            <TableCell align="center" style={{fontWeight:600,fontSize:17}}>Title</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Category</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>instructor</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Price($)</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Total Purchase</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>CreateAt</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Status</TableCell>
-            <TableCell align="center"style={{fontWeight:600,fontSize:17}}>Action</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Title</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Category</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>instructor</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Price($)</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Total Purchase</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>CreateAt</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Status</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Action</TableCell>
 
           </TableRow>
         </TableHead>

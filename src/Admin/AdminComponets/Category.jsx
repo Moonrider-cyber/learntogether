@@ -33,7 +33,12 @@ export const Category = (props) => {
       dispatch(getAllCategory());
     }
   }, [message]);
-
+  const styles = {
+    tableheading:{
+      fontWeight:600,
+        fontSize:"15px"
+    }
+  }
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
@@ -49,13 +54,13 @@ export const Category = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align='center'>Name</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">CreateBy</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">Enable/Disable</TableCell>
-            <TableCell align="center">Delete</TableCell>
+            <TableCell align='center'style={styles.tableheading}>Name</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Description</TableCell>
+            <TableCell align="center"style={styles.tableheading}>CreateAt</TableCell>
+            <TableCell align="center"style={styles.tableheading}>CreateBy</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Status</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Enable/Disable</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Delete</TableCell>
 
           </TableRow>
         </TableHead>

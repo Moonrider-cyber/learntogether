@@ -38,7 +38,12 @@ export const Admins = (props) => {
     dispatch(deleteUser(e.target.attributes.dataid.value));
   }
 // console.log("users",users);
-
+const styles = {
+  tableheading:{
+    fontWeight:600,
+      fontSize:"15px"
+  }
+}
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
@@ -55,14 +60,14 @@ export const Admins = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Avatar</TableCell>
-            <TableCell align="center">Name</TableCell>
-            <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Role</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">Active/Deactive</TableCell>
-            <TableCell align="center">Action</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Avatar</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Name</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Email</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Role</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Status</TableCell>
+            <TableCell align="center" style={styles.tableheading}>CreateAt</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Active/Deactive</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
