@@ -18,9 +18,12 @@ import AddInstructor from './AdminComponets/FormPage/AddInstructor';
 import AddCourse from './AdminComponets/FormPage/AddCourse';
 import AddCategory from './AdminComponets/FormPage/AddCategory';
 import {EditLecture} from './AdminComponets/FormPage/EditLecture';
+import {PurchaseCourses} from './AdminComponets/FormPage/PurchaseCourses';
 import AddLecture from './AdminComponets/FormPage/AddLecture';
 import Forgetpwd from '../Componets/layout/Forgetpwd';
 import Resetpwd from '../Componets/layout/Resetpwd';
+
+
 function AdminApp() {
 
   const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false, isaddlecture = false } = useSelector((state) => state.admin);
@@ -91,6 +94,7 @@ function AdminApp() {
           <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>   
           <Route path="/dashboard/payment" element={<Dashboard paymentpage={true} />}></Route>   
           <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   
+          <Route path="/dashboard/payments/courses" element={<PurchaseCourses />}></Route>   
         </Route>      
       
           

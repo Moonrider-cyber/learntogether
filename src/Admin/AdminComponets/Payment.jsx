@@ -62,8 +62,7 @@ export const Payment = (props) => {
               </TableCell>
               <TableCell align="center">${row.payments.paidAmount}</TableCell>
               <TableCell align="center" style={{width:300}}>
-
-              
+            
               <Link to={{pathname:`/admin/dashboard/payments/courses` }} state={row.course}>
                 <Button variant='outlined'>Purchase Courses</Button></Link>
               </TableCell>
