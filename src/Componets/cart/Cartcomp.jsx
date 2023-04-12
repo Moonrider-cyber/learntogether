@@ -68,8 +68,8 @@ function Cartcomp() {
                             </div>
                             <div className='card-desc-rating'>
                             <i className="fa-solid fa-star"></i>
-                                <p>4.9</p>
-                                <p>(<span>33</span> reviews)</p>
+                                <p>{data.rating}</p>
+                                <p>(<span>{data.numOfReviews}</span> reviews)</p>
                             </div>
                         </div>
                         <div className='card-action'>

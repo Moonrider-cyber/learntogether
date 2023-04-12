@@ -19,6 +19,7 @@ export const Payment = (props) => {
         fontSize:"15px"
     }
   }
+
   return (
     <div className="home-content">
       <Box sx={{paddingX:5,paddingTop:5}}>
@@ -60,7 +61,7 @@ export const Payment = (props) => {
               <TableCell align="center">
               {row.course.createBy[0].name}
               </TableCell>
-              <TableCell align="center">${row.payments.paidAmount}</TableCell>
+              <TableCell align="center">${row.course.price}</TableCell>
               <TableCell align="center" style={{width:300}}>
             
               <Link to={{pathname:`/admin/dashboard/payments/courses` }} state={row.course}>
