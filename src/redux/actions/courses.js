@@ -81,3 +81,17 @@ export const getAllReview = (courseid) => async (dispatch) => {
       dispatch({ type: "getAllReviewFail" });
     }
   };
+
+export const getAllReviewAdmin = (courseid) => async (dispatch) => {
+    try {
+      dispatch({ type: "getAllReviewRequest"});
+  
+      const { data } = await axios.get(`${server}/course/reviews/${courseid}`, {
+        withCredentials: true,
+      });
+
+      dispatch({ type: "getAllReviewSuccess", payload: data.reviews });
+    } catch (error) {
+      dispatch({ type: "getAllReviewFail" });
+    }
+  };

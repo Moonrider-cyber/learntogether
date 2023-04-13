@@ -218,4 +218,15 @@ export const adminReducer = createReducer({
         state.adminLoading = false;
         state.error = action.payload;
     },
+    deleteReviewRequest:(state)=>{
+        state.adminLoading=true;
+    },
+    deleteReviewSuccess:(state,action)=>{
+        state.adminLoading=false;
+        state.message=action.payload;
+    },
+    deleteReviewFail:(state,action)=>{
+        state.adminLoading = false;
+        state.message=action.payload;
+    },
 });

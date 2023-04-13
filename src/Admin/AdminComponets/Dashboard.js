@@ -5,7 +5,7 @@ import { getAllCoursesadmin, getAllPayments, getAllUsers } from '../../redux/act
 import { getAllCategory } from '../../redux/actions/courses';
 import { useSelector } from 'react-redux';
 
-import "../App.css";
+import "../App.scss";
 import { Home } from './Home';
 import { Navbar } from './Layout/Navbar';
 import { Users } from './Users';
@@ -27,7 +27,7 @@ function Dashboard({home,userspage,coursespage,categorypage,adminspage,instructo
     dispatch(getAllPayments());
   }, [dispatch])
   
-  const { users,admin,payments,paymentsdata } = useSelector((state) => state.admin);
+  const { users,admin,paymentsdata } = useSelector((state) => state.admin);
   const { courses,category } = useSelector((state) => state.courses);
 
   return (

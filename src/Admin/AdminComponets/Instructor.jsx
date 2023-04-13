@@ -14,7 +14,7 @@ import { Button,Chip,IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 export const Instructor = (props) => {
 
@@ -42,13 +42,17 @@ export const Instructor = (props) => {
         fontSize:"15px"
     }
   }
+  function handlerefresh(){
+    dispatch(getAllUsers());
+  }
   return (
     <div className="home-content">
-      <Box sx={{paddingX:5,paddingTop:5}}>
+      <Box sx={{paddingX:5,paddingTop:5,pb:10}}>
       <Box sx={{ width: '100%' }}>
       <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Instructor</Typography>
       <Box sx={{display:"flex",justifyContent:"right"}}>
-        {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
+      <Button onClick={handlerefresh}><RefreshIcon/></Button>
+        
         <Link to={"/admin/dashboard/instructors/addinstructor"}><Button variant="contained" sx={{mY:5}}>Add Instructor</Button></Link>
         </Box>      
         {admin ? admin.role === "super-admin" ?  

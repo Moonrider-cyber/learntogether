@@ -1,12 +1,11 @@
 import React from 'react'
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { ProtectedRoute } from './AdminProtectedRoute/ProtectedRoute';
-
 
 // project imports
 import Login from './AdminComponets/Login';
@@ -22,6 +21,7 @@ import {PurchaseCourses} from './AdminComponets/FormPage/PurchaseCourses';
 import AddLecture from './AdminComponets/FormPage/AddLecture';
 import Forgetpwd from '../Componets/layout/Forgetpwd';
 import Resetpwd from '../Componets/layout/Resetpwd';
+import { AllReviews } from './AdminComponets/Layout/AllReviews';
 
 
 function AdminApp() {
@@ -45,6 +45,7 @@ function AdminApp() {
     dispatch(loadAdmin())  
   }, [dispatch]);
   
+
   return (
   <>
   
@@ -91,6 +92,7 @@ function AdminApp() {
           <Route path="/dashboard/instructor" element={<Dashboard instructorpage={true} />}></Route>      
           <Route path="/dashboard/admins" element={<Dashboard adminspage={true} />}></Route>      
           <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>      
+          <Route path="/dashboard/courses/reviews" element={<AllReviews />}></Route>      
           <Route path="/dashboard/category" element={<Dashboard categorypage={true} />}></Route>   
           <Route path="/dashboard/payment" element={<Dashboard paymentpage={true} />}></Route>   
           <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   

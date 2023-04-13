@@ -1,22 +1,17 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-:root {
-  --lato: "Lato", sans-serif;
-  --ptfont: "PT Sans", sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@500&family=Ubuntu&display=swap");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+:root {
+  --primary-font: "Oswald", sans-serif;  /* BOLD */
+  --secondary-font: "Ubuntu", sans-serif; /* Light */
+  --tertiary-font: "Lato", sans-serif; /* Regular */
+
+  --dark : #1c1d1f;
 }
 
 a{
   text-decoration: none;
   color: black;
+}
+li{
+  list-style: none;
 }

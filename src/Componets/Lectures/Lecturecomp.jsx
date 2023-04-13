@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './lecture.scss'
-import { getAllLectures } from '../../redux/actions/courses'
+import { getAllLectures, getAllReview } from '../../redux/actions/courses'
 import { useParams,useNavigate, Link } from 'react-router-dom'
 import { checkenrolled } from '../../redux/actions/user'
 import { Reviews, Showreview } from '../SingleCourse/Reviews'
@@ -17,7 +17,7 @@ export const Lecturecomp = () => {
   useEffect(() => {
     dispatch(checkenrolled(courseid))
     dispatch(getAllLectures(courseid))
-    
+    dispatch(getAllReview(courseid))
   }, [dispatch,message])
 
   if(!isenroll){

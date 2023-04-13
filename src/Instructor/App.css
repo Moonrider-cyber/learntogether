@@ -79,6 +79,7 @@ ul{
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 .sidebar .nav-links  button a {
   color: #fff;

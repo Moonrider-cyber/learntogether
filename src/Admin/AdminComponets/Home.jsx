@@ -9,11 +9,12 @@ import { Box } from '@mui/system';
 
 export const Home = () => {
   
-  const { users,payments } = useSelector((state) => state.admin);
+  const { users,paymentsdata } = useSelector((state) => state.admin);
   const { courses } = useSelector((state) => state.courses);
 
   let usercount = 0;
   let inscount = 0;
+
   let coursecount = courses ? courses.length : 0;
   if(users){
     for (let i = 0; i < users.length; i++) {
@@ -25,8 +26,12 @@ export const Home = () => {
       }
     }
   }
+  
   let totalpayment =0;
-  payments && payments.map((payment) => totalpayment +=payment.paidAmount);
+  paymentsdata && paymentsdata.map((payment) =>{
+    totalpayment += payment.payments.paidAmount
+  });
+
   return (
     <div className="home-content">
            <div className="overview-boxes">

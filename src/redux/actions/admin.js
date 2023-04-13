@@ -249,3 +249,19 @@ export const getAllCoursesadmin = () => async (dispatch) => {
         dispatch({type:"getAllCoursesFail"});
     }
 }
+
+// delete reviews
+export const deleteReview = (courseid,reviewid) => async (dispatch) => {
+    try{
+        dispatch({type:"deleteReviewRequest"});
+        const {data} = await axios.delete(
+            `${server}/admin/review?courseid=${courseid}&reviewid=${reviewid}`,{},{
+                headers:{
+                    "Content-Type":"application/json",
+                },withCredentials:true,
+            });
+        dispatch({type:"deleteReviewSuccess",payload: data.message});
+    }catch(error){
+        dispatch({type:"deleteReviewFail",payload:error.response.data.message});
+    }
+}

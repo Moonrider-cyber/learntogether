@@ -1,9 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Ubuntu&display=swap");
-
-$dark: #1c1d1f;
-$boldfont: "Oswald", sans-serif;
-$lightfont: "Ubuntu", sans-serif;
-
 .hero {
   position: relative;
   height: 80vh;
@@ -48,11 +42,10 @@ $lightfont: "Ubuntu", sans-serif;
         text-transform: uppercase;
         font-size: 50px;
         font-weight: 700;
-        // width: 60px;
       }
       p {
         padding-top: 20px;
-        font-family: $lightfont;
+        font-family:var(--secondary-font);
         font-size: 18px;
       }
     }
@@ -62,7 +55,7 @@ $lightfont: "Ubuntu", sans-serif;
         width: 180px;
         height: 45px;
         border: none;
-        background-color: $dark;
+        background-color: var(--dark);
         color: white;
         font-weight: 600;
         transition: 0.4s ease all;

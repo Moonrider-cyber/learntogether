@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,29 +8,35 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getAllPayments} from '../../redux/actions/admin';
+import RefreshIcon  from '@mui/icons-material/Refresh';
 
 export const Payment = (props) => {
 
   let payments = props.paymentsdata ? props.paymentsdata : [];
-  // const { payments } = useSelector((state) => state.admin);
+  
   const styles = {
     tableheading:{
       fontWeight:600,
         fontSize:"15px"
     }
   }
+  const dispatch = useDispatch();
 
+  function handlerefresh(){
+    dispatch(getAllPayments());
+  }
   return (
     <div className="home-content">
-      <Box sx={{paddingX:5,paddingTop:5}}>
+      <Box sx={{paddingX:5,paddingTop:5,pb:10}}>
       <Box sx={{ width: '100%' }}>
       <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Payments</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
-        {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
-        {/* <Link to={"/admin/dashboard/category/addcategory"}><Button variant="contained" sx={{mY:5}} >Add category</Button></Link> */}
+        <Button onClick={handlerefresh}><RefreshIcon/></Button>
         </Box>
 
-      <Paper sx={{ width: '100%', mt: 9 }}>
+      <Paper sx={{ width: '100%', mt: 4 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>

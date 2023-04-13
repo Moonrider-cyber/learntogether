@@ -1,11 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Ubuntu&display=swap");
-
-$dark: #1c1d1f;
-$white: white;
-$gray: gray;
-$boldfont: "Oswald", sans-serif;
-$lightfont: "Ubuntu", sans-serif;
-
 nav {
   position: absolute;
   width: 100%;
@@ -64,7 +56,7 @@ nav {
       h1 {
         color: white;
         font-size: 37px;
-        font-family: $boldfont;
+        font-family: var(--primary-font);
       }
     }
     .nav-menu-wapper {
@@ -76,9 +68,9 @@ nav {
         background-color: transparent;
         border: none;
         width: 100%;
-        font-family: var($lightfont);
+        font-family: var(--secondary-font);
         span {
-          font-family: var($lightfont);
+          font-family: var(--secondary-font);
           cursor: pointer;
           font-size: 17px;
           color: white;
@@ -115,11 +107,11 @@ nav {
               display: flex;
               justify-content: space-between;
               font-size: 15px;
-              color: $dark;
+              color: var(--dark);
               width: 200px;
               padding: 12px 15px;
               border: none;
-              font-family: var($lightfont);
+              font-family: var(--secondary-font);
               font-weight: 400;
 
               span {
@@ -158,22 +150,22 @@ nav {
         position: absolute;
         font-size: 15px;
         padding: 14px 19px;
-        color: $gray;
+        color: gray;
         cursor: not-allowed;
       }
       input[type="text"] {
         width: 100%;
         border-radius: 20px;
-        border: 1px $gray solid;
+        border: 1px gray solid;
         padding: 9px;
         padding-left: 53px;
         font-size: 17px;
         transition: 0.5s;
         outline: none;
-        color: $gray;
+        color: gray;
       }
       input[type="text"]:focus {
-        border: 1px $gray solid;
+        border: 1px gray solid;
       }
     }
   }
@@ -184,7 +176,7 @@ nav {
       justify-content: right;
       align-items: center;
       padding-right: 40px;
-      font-family: $lightfont;
+      font-family: var(--secondary-font);
       ul {
         display: flex;
         align-items: center;
@@ -198,7 +190,7 @@ nav {
           a {
             font-weight: 400;
             text-decoration: none;
-            color: $white;
+            color: white;
             position: relative;
             .cart-num{
               position: absolute;
@@ -237,7 +229,7 @@ nav {
         }
 
         .signupbtn:hover {
-          background-color: $dark;
+          background-color: var(--dark);
         }
         .signupbtnwhite{
           color: white;
@@ -344,13 +336,13 @@ nav {
       input[type="text"] {
         width: 80%;
         border-radius: 20px;
-        border: 1px $gray solid;
+        border: 1px gray solid;
         padding: 9px;
         padding-left: 53px;
         font-size: 15px;
         transition: 0.5s;
         outline: none;
-        color: $gray;
+        color: gray;
       }
     }
     .res-links {
@@ -392,7 +384,7 @@ nav {
       }
       button {
         color: #0056d2;
-        font-family: $lightfont;
+        font-family: var(--secondary-font);
         font-weight: 600;
         height: 48px;
         width: 100%;
@@ -420,7 +412,7 @@ nav {
     position: fixed;
     transition: 0.5s;
     z-index: 9999;
-    background-color: $dark;
+    background-color: var(--dark);
     #nav-bars {
       display: none;
     }

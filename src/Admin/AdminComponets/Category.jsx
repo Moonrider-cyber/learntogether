@@ -17,6 +17,7 @@ import { activeDeactivecategory } from '../../redux/actions/admin';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deletecategory } from '../../redux/actions/admin';
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 export const Category = (props) => {
 
@@ -39,13 +40,18 @@ export const Category = (props) => {
         fontSize:"15px"
     }
   }
+  function handlerefresh(){
+    dispatch(getAllCategory());
+  }
   return (
     <div className="home-content">
-      <Box sx={{paddingX:5,paddingTop:5}}>
+      <Box sx={{paddingX:5,paddingTop:5,pb:10}}>
       <Box sx={{ width: '100%' }}>
       <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>category</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
-        {/* <Button onClick={RefreshPageBtn} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
+
+        <Button onClick={handlerefresh}><RefreshIcon/></Button>
+        
         <Link to={"/admin/dashboard/category/addcategory"}><Button variant="contained" sx={{mY:5}} >Add category</Button></Link>
         </Box>
 

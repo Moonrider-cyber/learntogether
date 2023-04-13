@@ -2,6 +2,7 @@ import React from 'react'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useDispatch } from 'react-redux';
 import { Payment } from '../../redux/actions/Payment';
+import { toast } from 'react-hot-toast';
 
 export const PayPalPayment = (props) => {
   
@@ -32,6 +33,7 @@ const dispatch = useDispatch();
                 onApprove={(data, actions) => {
                     return actions.order.capture().then((details) => {
                         dispatch(Payment(details.id,props.totalprice));
+                        toast.success("Payment Successfull");
                     });
                 }}
                 // onCancel={(data) => {

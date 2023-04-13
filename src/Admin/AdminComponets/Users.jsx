@@ -12,8 +12,8 @@ import { getAllUsers,deleteUser, activeDeactiveUser } from '../../redux/actions/
 import { useSelector } from 'react-redux';
 import { Button, Chip, IconButton, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import Loader from '../../Componets/layout/Loader/Loader';
 import DeleteIcon from '@mui/icons-material/Delete';
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 export const Users = (props) => {
 
@@ -39,14 +39,18 @@ export const Users = (props) => {
         fontSize:"15px"
     }
   }
+  function handlerefresh(){
+    dispatch(getAllUsers());
+  }
+  
   return (
     <div className="home-content">
       {/* <Loader/> */}
-      <Box sx={{paddingX:5,paddingTop:5}}>
+      <Box sx={{paddingX:5,paddingTop:5,pb:10}}>
       <Box sx={{ width: '100%' }}>
         <Typography variant='h4' sx={{position:"absolute",fontWeight:"bold",pt:1,pl:1}}>Users</Typography>
         <Box sx={{display:"flex",justifyContent:"right"}}>
-        {/* <Button onClick={() => <Navigate to={"/admin/dashboard/users"}/>} sx={{backgroundColor:"#008cff",color:"white",mx:1}}><RefreshIcon/></Button> */}
+        <Button onClick={handlerefresh}><RefreshIcon/></Button>
         <Link to={"/admin/dashboard/users/adduser"}><Button variant="contained" sx={{mY:5}}>Add User</Button></Link>
         </Box>
 

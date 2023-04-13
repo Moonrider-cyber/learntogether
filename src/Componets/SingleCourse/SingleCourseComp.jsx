@@ -1,12 +1,12 @@
 import React from 'react'
 import './SingleCourse.scss'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllCourses, getAllReview } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addtocart, checkenrolled, loadUser } from '../../redux/actions/user';
-import { Reviews, Showreview } from './Reviews';
+import { Showreview } from './Reviews';
 import toast from "react-hot-toast";
 
 
@@ -16,14 +16,18 @@ export function SingleCourseComp () {
   const id = useParams().id;
 
   const {courses} = useSelector(state => state.courses);
-  const { isAuthenticated,isenroll } = useSelector(state => state.user);
-  console.log(courses)
+  const { isAuthenticated,isenroll,message } = useSelector(state => state.user);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(checkenrolled(id))  
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [message])
 
   function addcartbtnhandler() {
     if(isAuthenticated){
