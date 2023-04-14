@@ -122,9 +122,9 @@ export const Courses = (courses) => {
                         vertical: 'top',
                         horizontal: 'center',
                       }}
-                    >
+                    > 
                       <Stack sx={{ p: 1 }}>
-                        <Link to={"/admin/dashboard/courses/reviews"} state={{id:row._id,rate:row.rating}}  ><Button sx={{ p: 1 }} >All Reviews</Button></Link>
+                        <Link to={"/admin/dashboard/courses/reviews"} state={{id:row._id}}  ><Button sx={{ p: 1 }} >All Reviews</Button></Link>
                         <Button sx={{ p: 1 }} onClick={()=> dispatch(activeDeactiveCourse(row._id))}>{row.active === true ? "Disable" : "Enable"}</Button>
                         <Button sx={{ p: 1 }} onClick={()=> dispatch(deleteCourse(row._id))}>Delete</Button>
                       </Stack>

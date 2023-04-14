@@ -6,13 +6,20 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const Payment = () => {
 
   const { mypayments } = useSelector((state) => state.Instructor);
 
+  const styles = {
+    tableheading:{
+      fontWeight:600,
+        fontSize:"15px"
+    } 
+  }
 
 return (
     <div className="home-content">
@@ -26,13 +33,13 @@ return (
 
       <Paper sx={{ width: '100%', mt: 9 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+      <TableHead>
           <TableRow>
-            <TableCell align='center'>PaymentID</TableCell>
-            <TableCell align="center">Learner Name</TableCell>
-            <TableCell align="center">Courses</TableCell>
-            <TableCell align="center">paidAmount</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Learner Name</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Instructor</TableCell>
+            <TableCell align="center" style={styles.tableheading}>paidAmount</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Purchase Courses</TableCell>
+            <TableCell align="center" style={styles.tableheading}>CreateAt</TableCell>
 
           </TableRow>
         </TableHead>
@@ -43,20 +50,29 @@ return (
           // category.length > 0 ?
           mypayments.map((row,index) => (
             <TableRow
-              key={index}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-
+            key={index}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            
             >
+
               <TableCell component="th" scope="row" align="center">
-                {row.paymentID}
+                {row.payments.user[0].username}
               </TableCell>
               <TableCell align="center">
-              {row.user[0].username}
+              {row.course.createBy[0].name}
               </TableCell>
-              <TableCell align="center">{row.courses[0].courseid._id}</TableCell>
-              <TableCell align="center">${row.paidAmount}</TableCell>
-              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
-              </TableRow>
+              <TableCell align="center">${row.course.price}</TableCell>
+              <TableCell align="center" style={{width:300}}>
+            
+              <Link to={{pathname:`/instructor/dashboard/payments/courses` }} state={row.course}>
+                <Button variant='outlined'>Purchase Courses</Button></Link>
+              </TableCell>
+              
+              <TableCell align="center">{row.payments.createAt.substring(0, 10)}</TableCell>
+
+              {/* <TableCell align="center">{row.courses[0].courseid}</TableCell> */}
+              {/* <TableCell align="center">{row.course}</TableCell> */}
+              </TableRow> 
           ))
          
         : null

@@ -20,7 +20,7 @@ export const Payment = (props) => {
     tableheading:{
       fontWeight:600,
         fontSize:"15px"
-    }
+    } 
   }
   const dispatch = useDispatch();
 

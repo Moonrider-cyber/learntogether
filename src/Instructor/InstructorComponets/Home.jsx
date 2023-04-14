@@ -8,22 +8,17 @@ import { Box } from '@mui/system';
 
 export const Home = () => {
   
-  const { users } = useSelector((state) => state.admin);
   const { courses } = useSelector((state) => state.courses);
   const { mypayments } = useSelector((state) => state.Instructor);
 
-  let totalpayment = 0;
-  mypayments && mypayments.map((payment) => totalpayment +=payment.paidAmount);
-
-  let usercount = 0;
+  let usercount = mypayments ? mypayments.length : 0;
   let coursecount = courses ? courses.length : 0;
-  if(users){
-    for (let i = 0; i < users.length; i++) {
-      if(users[i].role === "user"){
-        usercount++;
-      }
-    }
-  }
+  
+  
+  let totalpayment =0;
+  mypayments && mypayments.map((payment) =>{
+    totalpayment += payment.payments.paidAmount
+  });
   return (
     <div className="home-content">
            <div className="overview-boxes">

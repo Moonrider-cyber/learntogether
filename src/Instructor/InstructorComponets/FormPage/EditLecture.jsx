@@ -105,7 +105,11 @@ export const EditLecture = () => {
               </TableCell>
             </TableRow> 
            ))
-        : <Typography>No Lectures Found</Typography>
+        : <TableRow>
+            <TableCell>
+              No Lectures Found
+            </TableCell>
+          </TableRow>
         } 
         </TableBody>
       </Table>

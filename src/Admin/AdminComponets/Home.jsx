@@ -2,7 +2,7 @@ import React from 'react'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SchoolIcon from '@mui/icons-material/School';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useSelector } from 'react-redux';
 import { LineChart,DoughutChart } from './Chart';
 import { Box } from '@mui/system';
@@ -64,7 +64,7 @@ export const Home = () => {
         </div>
 
         <div className="box">
-        <CurrencyRupeeIcon sx={{fontSize:70 , mr:4,ml:0}} />            
+        <AttachMoneyIcon sx={{fontSize:70 , mr:4,ml:0}} />            
 
           <div className="right-side">
             <div className="box-topic">Total Payments</div>

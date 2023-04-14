@@ -118,7 +118,7 @@ export const Showreview = ({singlecourse,hascourseid}) => {
     if(hascourseid){
       dispatch(getAllReviewAdmin(courseid))
     }else{
-      
+      console.log("review")
       dispatch(getAllReview(courseid))
     }
   }, [dispatch,message])

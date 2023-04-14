@@ -16,6 +16,9 @@ import Dashboard from './InstructorComponets/Dashboard';
 import Addcourse from './InstructorComponets/FormPage/AddCourse';
 import {EditLecture} from './InstructorComponets/FormPage/EditLecture';
 import AddLecture from './InstructorComponets/FormPage/AddLecture';
+import { AllReviews } from '../Admin/AdminComponets/Layout/AllReviews';
+import { PurchaseCourses } from '../Admin/AdminComponets/FormPage/PurchaseCourses';
+
 
 function InstructorApp() {
 
@@ -58,13 +61,15 @@ function InstructorApp() {
           <Dashboard home={true} />
           </ProtectedRoute>
         }></Route>      
-
+ 
 
         <Route element={<ProtectedRoute isInstructor={isinstructor} redirect={"/instructor"} />}>
           <Route path="/dashboard/users" element={<Dashboard userspage={true} />}></Route>        
           <Route path="/dashboard/courses" element={<Dashboard coursespage={true} />}></Route>     
           <Route path="/dashboard/payment" element={<Dashboard paymentpage={true} />}></Route>   
           <Route path="/dashboard/courses/editcourse" element={<EditLecture />}></Route>   
+          <Route path="/dashboard/courses/reviews" element={<AllReviews />}></Route>   
+          <Route path="/dashboard/payments/courses" element={<PurchaseCourses />}></Route>   
         </Route>      
       
           

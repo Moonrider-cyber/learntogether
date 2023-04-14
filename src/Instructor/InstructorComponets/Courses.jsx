@@ -19,7 +19,7 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { getAllCoursesins } from '../../redux/actions/instructor';
 import RefreshIcon from '@mui/icons-material/Refresh';
-
+ 
 export const Courses = () => {
 
   const dispatch = useDispatch();
@@ -104,7 +104,7 @@ function handlerefresh(){
               
               <TableCell align="center">
                 <Stack flexDirection={'row'} justifyContent={"center"} >
-              <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
+              <Link to={{pathname:`/instructor/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
               <PopupState variant="popover" popupId="demo-popup-popover">
                 {(popupState) => (
                   <div>
@@ -123,6 +123,7 @@ function handlerefresh(){
                       }}
                     >
                       <Stack sx={{ p: 1 }}>
+                        <Link to={"/instructor/dashboard/courses/reviews"} state={{id:row._id}}><Button sx={{ p: 1 }} >All Reviews</Button></Link>
                         <Button sx={{ p: 1 }} onClick={()=> dispatch(activeDeactiveCourse(row._id))}>{row.active === true ? "Disable" : "Enable"}</Button>
                         <Button sx={{ p: 1 }} onClick={()=> dispatch(deleteCourse(row._id))}>Delete</Button>
                       </Stack>
