@@ -23,7 +23,6 @@ import Forgetpwd from '../Componets/layout/Forgetpwd';
 import Resetpwd from '../Componets/layout/Resetpwd';
 import { AllReviews } from './AdminComponets/Layout/AllReviews';
 
-
 function AdminApp() {
 
   const { isAdmin,isadduser = false,message,error,isaddcategory = false,isaddcourse = false, isaddlecture = false } = useSelector((state) => state.admin);

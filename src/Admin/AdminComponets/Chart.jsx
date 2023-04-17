@@ -55,11 +55,11 @@ export const LineChart = () => {
 export const DoughutChart = () => {
   
     const data = {
-        labels : [ "subscribed","unsubscribed"],
+        labels : [ "Vistor","User"],
         datasets: [
         {   
             lable: 'views',
-            data: [3, 1],   
+            data: [4, 6],   
             backgroundColor: ['rgb(62,12,171,0.3)',"rgb(214, 43, 129)"],
             borderColor: ['rgb(62,12,171)',"rgb(214, 43, 129,0.3)"],
             borrderWidth: 1,
