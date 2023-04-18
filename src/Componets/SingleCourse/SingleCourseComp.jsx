@@ -56,6 +56,8 @@ export function SingleCourseComp () {
       }
     }
   });
+
+  
   return (
     <>
       <div style={{paddingTop:70}}>

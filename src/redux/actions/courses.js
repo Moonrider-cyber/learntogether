@@ -72,7 +72,7 @@ export const getAllReview = (courseid) => async (dispatch) => {
     try {
       dispatch({ type: "getAllReviewRequest"});
   
-      const { data } = await axios.get(`${server}/course/reviews/${courseid.id}`, {
+      const { data } = await axios.get(`${server}/course/reviews/${courseid}`, {
         withCredentials: true,
       });
 

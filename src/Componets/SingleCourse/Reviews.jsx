@@ -109,17 +109,17 @@ export const  Reviews = ({lecturespage}) => {
 export const Showreview = ({singlecourse,hascourseid}) => {
   
   const dispatch = useDispatch();
+  
   const courseid = hascourseid ? hascourseid : useParams();
- 
-  const {message} = useSelector(state => state.admin)
-  const {reviews} = useSelector(state => state.courses)
+
+  const {reviews,message} = useSelector(state => state.courses)
   
   useEffect(() => {
     if(hascourseid){
+
       dispatch(getAllReviewAdmin(courseid))
     }else{
-      console.log("review")
-      dispatch(getAllReview(courseid))
+      dispatch(getAllReview(courseid.id))
     }
   }, [dispatch,message])
   
@@ -130,10 +130,10 @@ export const Showreview = ({singlecourse,hascourseid}) => {
     <>
       <div className="container course_review_box" style={{marginTop:20,p:0}}>
         
-        <div className="course_review_list">
+        <div className="course_review_list" style={{width:"100%"}}>
           {reviews && reviews.length !== 0 ?
           reviews && reviews.map((review,key) => (
-            <Paper elevation={2} sx={{p:3,my:2}} key={key} >
+            <Paper elevation={2} sx={{p:3,my:2}} key={key}>
               
           <Grid container spacing={2}>
             <Grid item xs={1} style={{paddingTop:20}}>
