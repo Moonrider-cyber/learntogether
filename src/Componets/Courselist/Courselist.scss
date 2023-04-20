@@ -18,6 +18,14 @@
 }
 
 
+@media only screen and (max-width: 1400px) {
+  .courselist {
+    .courses-cards{
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .courselist {
     padding: 40px 20px;

@@ -2,10 +2,6 @@ import React from "react";
 import "./Courselist.scss";
 import CourseCard from "./CourseCard";
 import { useSelector } from "react-redux";
-const img = require('../../asset/test1.jpg');
-const img1 = require('../../asset/test2.jpg');
-const img2 = require('../../asset/test3.jpg');
-const img3 = require('../../asset/test4.jpg');
 
 
 function Courselist() {
