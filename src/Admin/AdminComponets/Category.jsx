@@ -113,11 +113,12 @@ export const Category = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align='center'>Name</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">CreateBy</TableCell>
-            <TableCell align="center">Enable/Disable</TableCell>
+          <TableCell align='center'style={styles.tableheading}>Name</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Description</TableCell>
+            <TableCell align="center"style={styles.tableheading}>CreateAt</TableCell>
+            <TableCell align="center"style={styles.tableheading}>CreateBy</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Status</TableCell>
+            <TableCell align="center"style={styles.tableheading}>Enable/Disable</TableCell>
 
           </TableRow>
         </TableHead>
@@ -147,6 +148,8 @@ export const Category = (props) => {
                 >{row.description}</TableCell>
               <TableCell align="center">{row.createAt}</TableCell>
               <TableCell align="center">{row.createBy[0].name} </TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
+
               <TableCell align="center"><Button onClick={()=> dispatch(activeDeactivecategory(row._id))}> {row.active === true ? "Disable" : "Enable"} </Button></TableCell>
               </TableRow>
           ))

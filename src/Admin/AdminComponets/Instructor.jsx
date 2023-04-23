@@ -105,12 +105,12 @@ export const Instructor = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Profile photo</TableCell>
-            <TableCell align="center">Name</TableCell>
-            <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">Enable/Disable</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Profile photo</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Name</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Email</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Status</TableCell>
+            <TableCell align="center" style={styles.tableheading}>CreateAt</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Enable/Disable</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

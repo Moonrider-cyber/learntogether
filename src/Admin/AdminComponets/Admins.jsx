@@ -117,11 +117,11 @@ function handlerefresh(){
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Avatar</TableCell>
-            <TableCell align="center">Name</TableCell>
-            <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Role</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Avatar</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Name</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Email</TableCell>
+            <TableCell align="center" style={styles.tableheading}>Role</TableCell>
+            <TableCell align="center" style={styles.tableheading}>CreateAt</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

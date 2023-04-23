@@ -55,7 +55,7 @@ export const LineChart = () => {
 export const DoughutChart = () => {
   
     const data = {
-        labels : [ "subscribed","unsubscribed"],
+        labels : [ "popular","unpopular"],
         datasets: [
         {   
             lable: 'views',

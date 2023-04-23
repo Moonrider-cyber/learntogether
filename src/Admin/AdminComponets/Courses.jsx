@@ -149,14 +149,14 @@ export const Courses = (courses) => {
       <Table sx={{ minWidth: 650,overflowX:"scroll" }}>
         <TableHead sx={{overflowX:"scroll" }}>
           <TableRow>
-            <TableCell align="center">Title</TableCell>
-            {/* <TableCell align="center">Description</TableCell> */}
-            <TableCell align="center">Price ($)</TableCell>
-            <TableCell align="center">Category</TableCell>
-            <TableCell align="center">CreateAt</TableCell>
-            <TableCell align="center">CreateBy</TableCell>
-            {/* <TableCell align="center"></TableCell> */}
-            <TableCell align="center">Action</TableCell>
+          <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Title</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Category</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>instructor</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Price</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Total Purchase</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>CreateAt</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Status</TableCell>
+            <TableCell align="center" style={{fontWeight:600,fontSize:15}}>Action</TableCell>
 
           </TableRow>
         </TableHead>
@@ -169,15 +169,19 @@ export const Courses = (courses) => {
           courses.courses.map((row,index) => (
             <TableRow
               key={index}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-              <TableCell component="th" scope="row" align="center">
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row" align="center"  style={textoverflow.singlelineEllipsis} >
                 {row.title}
               </TableCell>
-              {/* <TableCell align="center">{row.description}</TableCell> */}
-              <TableCell align="center">{row.price}</TableCell>
+              
               <TableCell align="center">{row.catagory}</TableCell>
-              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
               <TableCell align="center">{row.createBy[0].name}</TableCell>
+              <TableCell align="center">${row.price}</TableCell>
+              <TableCell align="center">{row.totalpurchase}</TableCell>
+              <TableCell align="center">{row.createAt.substring(0, 10)}</TableCell>
+              <TableCell align="center">{row.active ? (<Chip label="Active" color="primary"  />) : (<Chip label="Deactive" color="success"   />)}</TableCell>
+              
               <TableCell align="center">
                 <Stack flexDirection={'row'} justifyContent={"center"} >
               <Link to={{pathname:`/admin/dashboard/courses/editcourse` }} state={row._id}><Button variant='outlined'>Edit Lecture</Button></Link>
@@ -197,8 +201,9 @@ export const Courses = (courses) => {
                         vertical: 'top',
                         horizontal: 'center',
                       }}
-                    >
+                    > 
                       <Stack sx={{ p: 1 }}>
+                        <Link to={"/admin/dashboard/courses/reviews"} state={{id:row._id}}  ><Button sx={{ p: 1 }} >All Reviews</Button></Link>
                         <Button sx={{ p: 1 }} onClick={()=> dispatch(activeDeactiveCourse(row._id))}>{row.active === true ? "Disable" : "Enable"}</Button>
                       </Stack>
                     </Popover>
