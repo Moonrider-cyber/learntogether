@@ -4,9 +4,36 @@
 Welcome to our e-learning platform! Our platform is designed to help you learn the skills and knowledge you need to succeed in the business world. We offer a wide range of business-related courses, both from our own library and from instructors who have uploaded their own content.
 
 
-<h3>📝 Description:</h3>
+<h2>🚀 Quick Start:</h2>
 
-Our web-based application allows users to access courses and learning materials related to starting and growing a business. The platform also allows instructors to upload and share their own business-related courses. Our goal is to provide a convenient and effective way for users to learn the skills and knowledge they need to succeed in the business world, such as marketing, financial management, and leadership.
+1.  &nbsp; **Clone the project**
+    ```sh
+    git clone https://github.com/Jainex17/Busilearn.git
+    ```
+    
+1. &nbsp; **Clone the backend of this project**
+    ```sh
+    git clone https://github.com/Jainex17/Busilearn_Backend.git
+    ```
+    
+1. &nbsp; **Run the app**
+   
+   Open two separate terminals and run the following commands in each:
+   
+      ```sh
+      # In first terminal
+      cd busilearn
+      npm i
+      npm start
+      ```
+      
+      ```sh
+      # In second terminal
+      cd busilearn_backend
+      npm i
+      npm run dev
+      ```
+
 
 <h3>💡 Features:</h3>
 
