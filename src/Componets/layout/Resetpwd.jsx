@@ -21,10 +21,10 @@ export default function Resetpwd() {
     const parms = useParams();
     const Navigate = useNavigate();
     const disatch = useDispatch();
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const handleSubmit = (event) => {
+      event.preventDefault();
 
-    const data = new FormData(event.currentTarget);
+       const data = new FormData(event.currentTarget);
 
     if (!data.get("password")) {
       toast.error("Enter Password");
@@ -38,11 +38,12 @@ export default function Resetpwd() {
   };
 
   const { message } = useSelector((state) => state.user);
+  
   React.useEffect(() => {
     if(message){
       <Navigate to="/login" />
     }
-  }, [disatch])
+  }, [disatch,message])
 
 
   return (

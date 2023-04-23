@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { forgetpwd } from '../../redux/actions/user';
 const theme = createTheme();
 
-export default function Forgetpwd() {
+export default function Forgetpwd(props) {
 
   const disatch = useDispatch();
 
@@ -25,7 +25,12 @@ export default function Forgetpwd() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    disatch(forgetpwd(data.get('email'),false));
+    if(props.user){
+      disatch(forgetpwd(data.get('email'),true));
+    }
+    else{
+      disatch(forgetpwd(data.get('email'),false));
+    }
   };
 
   return (

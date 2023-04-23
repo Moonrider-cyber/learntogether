@@ -21,6 +21,8 @@ import { getAllCategory, getAllCourses } from "./redux/actions/courses";
 import ScrollToTop  from "./Componets/ScrollToTop";
 import AllCourses from "./Pages/AllCourses";
 import { Lecture } from "./Pages/Lecture";
+import Forgetpwd from "./Componets/layout/Forgetpwd";
+import Resetpwd from "./Componets/layout/Resetpwd";
 
 function App() {
 
@@ -74,6 +76,8 @@ function App() {
           </Route>   
           
           <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="/forgetpwd" element={<Forgetpwd user={true} />}></Route>
+          <Route path="/resetpassword/:token" element={<Resetpwd />}></Route>
           <Route path="/courses" element={<AllCourses/>}></Route>
           <Route path="/courses/:category" element={<AllCourses fillter={true} />}></Route>
           <Route path="/course/:id" element={<Singlecourse/>}></Route>

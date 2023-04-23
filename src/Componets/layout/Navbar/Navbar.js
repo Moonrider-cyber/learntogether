@@ -217,10 +217,7 @@ function Navbar({whitenav = true}) {
                           
                         </MenuItem> */}
                         <Divider />
-                        <MenuItem onClick={handleClose}>
-                          
-                          Settings
-                        </MenuItem>
+                        
                         <MenuItem onClick={handleClose}>
                         <Button color="error" variant="outlined" fullWidth sx={{mt:1}} onClick={logoutHandler}>Logout</Button>
                         </MenuItem>

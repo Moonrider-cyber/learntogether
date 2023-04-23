@@ -16,6 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
 import { loadUser, updatename } from "../../redux/actions/user";
 import { enrollcourse } from "../../redux/actions/user";
+import { Link } from "react-router-dom";
 
 const Profile_head = () => {
   const { user,message } = useSelector((state) => state.user);
@@ -23,7 +24,7 @@ const Profile_head = () => {
   // Tab
   const [value, setValue] = React.useState(0);
   const [Editname, setEditname] = React.useState(false);
-  const [name, setname] = React.useState();
+  const [name, setname] = React.useState(user ? user.name : "");
   
 
   const dispatch = useDispatch();
@@ -96,10 +97,14 @@ const Profile_head = () => {
             <Typography variant="body1" sx={{ textAlign: "center", mt: 1 }}>
               {user.email}  
             </Typography>
-            {/* <Link to={"/profile/editprofile"} state={user._id}>
-              <Button variant="outlined" sx={{ width: 150, mt: 2 }}>
-              Edit Profile
-            </Button></Link> */}
+            <Typography variant="body1" sx={{ textAlign: "center", mt: 1 }}>
+              <Link to="/forgetpwd"> 
+                <Button variant="outlined" sx={{ width: 170, mt: 1 }}>
+                  Reset Password
+                </Button>
+              </Link>  
+            
+            </Typography>
           </Box>
         </Box>
           <Box sx={{ width: "100%", py: 4 }}>
