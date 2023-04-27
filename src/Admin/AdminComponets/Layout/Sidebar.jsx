@@ -40,7 +40,7 @@ const Sidebar = () => {
         <li>
           <Link to="/admin/dashboard/users">
             <i><PeopleIcon/></i>
-            <span className="links_name">Users</span>
+            <span className="links_name">Learner</span>
           </Link>
         </li>
         

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import './lecture.scss'
 import { getAllLectures, getAllReview } from '../../redux/actions/courses'
 import { useParams,useNavigate, Link } from 'react-router-dom'
 import { checkenrolled } from '../../redux/actions/user'
 import { Reviews, Showreview } from '../SingleCourse/Reviews'
+import './lecture.scss'
 
 export const Lecturecomp = () => {
   

@@ -3,10 +3,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
-const img = require('../Courselist/asset/musk.jpg');
 import {Typography} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+const img = require('../Courselist/asset/musk.jpg');
 
 export const ProfileCard = ({course}) => {
   

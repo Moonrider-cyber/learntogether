@@ -1,7 +1,6 @@
 import React from 'react';
-import './Courselist.scss';
 import { Link } from 'react-router-dom';
-const img = require('../../asset/test2.jpg');
+import './Courselist.scss';
 
 const CourseCard = ({id,title,price,rating,author,courseimg}) => {
     

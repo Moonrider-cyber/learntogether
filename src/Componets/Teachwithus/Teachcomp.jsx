@@ -1,4 +1,5 @@
 import React from 'react'
+import './Teachcomp.scss'
 const billboardimg = require('./asset/billboard-desktop-v4.jpg')
 const billboardimgv3 = require('./asset/billboard-mobile-v3.jpg')
 const whyteachimg1 = require('./asset/why-teach-img1.jpg')
@@ -7,7 +8,6 @@ const whyteachimg3 = require('./asset/why-teach-img3.jpg')
 const howstartimg1 = require('./asset/howstartimg1.jpg')
 const howstartimg2 = require('./asset/howstartimg2.jpg')
 const howstartimg3 = require('./asset/howstartimg3.jpg')
-import './Teachcomp.scss'
 
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';

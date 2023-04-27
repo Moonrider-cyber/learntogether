@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getcartcourses, loadUser, removefromcart } from '../../redux/actions/user';
-import './cart.scss'
-const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
 import { useDispatch } from 'react-redux';
 import { PayPalPayment } from './PayPalPayment';
+import './cart.scss'
+const emptycartimg = require('./asset/empty-shopping-cart-v2.jpg')
 
 function Cartcomp() {
    
