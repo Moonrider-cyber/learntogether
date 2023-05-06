@@ -10,9 +10,6 @@ import { toast } from 'react-hot-toast';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteReview } from '../../redux/actions/admin';
 
-
-
-
 export const  Reviews = ({lecturespage}) => {
 
   const courseid = useParams();

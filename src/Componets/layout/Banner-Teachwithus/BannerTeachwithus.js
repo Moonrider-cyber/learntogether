@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Teachwithus.scss";
+
 const instructor = require("./asset/instructor.jpg");
 const joinfree = require("./asset/joinus.jpg");
-import { Link } from "react-router-dom";
 
 function BannerTeachwithus({onlytext=false}) {
   return (

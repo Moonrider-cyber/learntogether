@@ -1,11 +1,11 @@
 import React from 'react'
-import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { ProtectedRoute } from './AdminProtectedRoute/ProtectedRoute';
+import './App.scss';
 
 // project imports
 import Login from './AdminComponets/Login';

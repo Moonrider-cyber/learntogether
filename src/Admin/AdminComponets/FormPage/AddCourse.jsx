@@ -5,7 +5,7 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Container, FormLabel, IconButton, InputAdornment, InputLabel, MenuItem, OutlinedInput, Select, TextField } from '@mui/material';
+import { Container, FormLabel, MenuItem, Select, TextField } from '@mui/material';
 import { FormControl } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCategory } from '../../../redux/actions/courses';

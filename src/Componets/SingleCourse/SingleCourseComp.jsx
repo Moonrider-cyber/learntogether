@@ -2,7 +2,6 @@ import React from 'react'
 import './SingleCourse.scss'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getAllCourses, getAllReview } from '../../redux/actions/courses';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { addtocart, checkenrolled, loadUser } from '../../redux/actions/user';

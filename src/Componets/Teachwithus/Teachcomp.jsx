@@ -1,5 +1,10 @@
 import React from 'react'
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { Link } from 'react-router-dom';
 import './Teachcomp.scss'
+
 const billboardimg = require('./asset/billboard-desktop-v4.jpg')
 const billboardimgv3 = require('./asset/billboard-mobile-v3.jpg')
 const whyteachimg1 = require('./asset/why-teach-img1.jpg')
@@ -9,10 +14,6 @@ const howstartimg1 = require('./asset/howstartimg1.jpg')
 const howstartimg2 = require('./asset/howstartimg2.jpg')
 const howstartimg3 = require('./asset/howstartimg3.jpg')
 
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { Link } from 'react-router-dom';
 
 export const Teachcomp = () => {
 

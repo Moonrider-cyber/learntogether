@@ -1,8 +1,8 @@
 import React from "react";
-import { addLecture, addWithRole } from "../../../redux/actions/admin";
+import { addLecture } from "../../../redux/actions/admin";
+import { useLocation } from 'react-router-dom'
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
-import { useLocation } from 'react-router-dom'
 
 function AddLecture() {
     

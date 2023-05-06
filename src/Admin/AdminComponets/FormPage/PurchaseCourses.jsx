@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { CoursesList } from './CoursesList'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams,useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 export const PurchaseCourses = () => {
   

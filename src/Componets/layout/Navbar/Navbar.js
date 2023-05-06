@@ -1,13 +1,11 @@
 import React from "react";
 import { Link, useNavigate  } from "react-router-dom";
-import "./Navbar.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {  logout } from "../../../redux/actions/user";
-const testimg = require("./asset/avatar.png");
-
 import Avatar from '@mui/material/Avatar';
 import { Box, Divider, Button, Tooltip, IconButton, MenuItem, Menu } from "@mui/material";
+import "./Navbar.scss";
 
 
 function Navbar({whitenav = true}) {
@@ -168,7 +166,7 @@ function Navbar({whitenav = true}) {
                           aria-expanded={open ? 'true' : undefined}
                         >
 
-                        <Avatar alt="Profile pic" src={user ? user.avatar.url : testimg} sx={{ width: 32, height: 32 }}  />
+                        <Avatar alt="Profile pic" src={user && user.avatar.url} sx={{ width: 32, height: 32 }}  />
                       </IconButton>
                     </Tooltip>
                     <Menu

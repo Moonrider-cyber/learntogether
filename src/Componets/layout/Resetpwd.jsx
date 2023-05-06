@@ -9,10 +9,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
-const { Adminlogin } = require('../../redux/actions/admin');
 import { useNavigate, useParams } from 'react-router-dom';
 import { resetpwd } from '../../redux/actions/user';
-import toast,{Toaster} from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const theme = createTheme();
 

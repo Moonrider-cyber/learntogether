@@ -1,10 +1,11 @@
 import React from "react";
-import "./Logincom.scss";
 import { Link } from "react-router-dom";
-const loginimg = require("./Asset/loginbg.png");
+import "./Logincom.scss";
+
 const { login } = require("../../redux/actions/user");
 const { useDispatch } = require("react-redux");
 const { useState } = require("react");
+const loginimg = require("./Asset/loginbg.png");
 
 function Logincom() {
   

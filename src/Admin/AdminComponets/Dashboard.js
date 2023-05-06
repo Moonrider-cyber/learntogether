@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch} from 'react-redux';
 import { getAllCoursesadmin, getAllPayments, getAllUsers } from '../../redux/actions/admin';
 import { getAllCategory } from '../../redux/actions/courses';
-import { useSelector } from 'react-redux';
 
 import "../App.scss";
 import { Home } from './Home';

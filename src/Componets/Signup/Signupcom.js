@@ -1,6 +1,7 @@
 import React from "react";
 import "./Signupcom.scss";
 import { Link } from "react-router-dom";
+
 const loginimg = require("../Login/Asset/loginbg.png");
 const { signup } = require("../../redux/actions/user");
 const { useDispatch } = require("react-redux");
