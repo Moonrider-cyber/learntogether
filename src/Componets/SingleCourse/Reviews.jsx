@@ -107,14 +107,13 @@ export const Showreview = ({singlecourse,hascourseid}) => {
   
   const dispatch = useDispatch();
   
-  const courseid = hascourseid ? hascourseid : useParams();
+  const courseid = useParams();
 
   const {reviews,message} = useSelector(state => state.courses)
   
   useEffect(() => {
     if(hascourseid){
-
-      dispatch(getAllReviewAdmin(courseid))
+      dispatch(getAllReviewAdmin(hascourseid))
     }else{
       dispatch(getAllReview(courseid.id))
     }

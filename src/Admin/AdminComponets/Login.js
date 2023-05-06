@@ -29,15 +29,15 @@ function Copyright(props) {
  
 const theme = createTheme();
 
-export default function login() {
-
-  const disatch = useDispatch();
-
+export default function Login() {
+  
+  const dispatch = useDispatch();
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
   
-    disatch(Adminlogin(data.get('email'),data.get('password')));
+    dispatch(Adminlogin(data.get('email'),data.get('password')));
 
   };
 
