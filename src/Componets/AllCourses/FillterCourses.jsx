@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { CoursesList } from './CoursesList'
-import './AllCourses.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams,useLocation } from 'react-router-dom'
 import { getFilterCourses } from '../../redux/actions/courses'
