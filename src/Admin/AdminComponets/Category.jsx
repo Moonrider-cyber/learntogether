@@ -33,7 +33,7 @@ export const Category = (props) => {
     if(message){
       dispatch(getAllCategory());
     }
-  }, [message]);
+  }, [message,dispatch]);
   const styles = {
     tableheading:{
       fontWeight:600,

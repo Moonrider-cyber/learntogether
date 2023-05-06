@@ -30,6 +30,7 @@ export const Home = () => {
   let totalpayment =0;
   paymentsdata && paymentsdata.map((payment) =>{
     totalpayment += payment.payments.paidAmount
+    return
   });
 
   return (

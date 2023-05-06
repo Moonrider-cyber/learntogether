@@ -10,8 +10,6 @@ function AddLecture() {
     let id = state;
   const [Title, setTitle] = useState();
   const [desc, setdesc] = useState();
-  const [password, setPassword] = useState();
-  const [ImgPrev, setImgPrev] = useState();
   const [Img , setImg] = useState();
 
   function changevideoHandler(e){
@@ -20,7 +18,6 @@ function AddLecture() {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      setImgPrev(reader.result);
       setImg(file);
     }
   } 

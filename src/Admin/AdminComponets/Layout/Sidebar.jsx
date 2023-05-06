@@ -87,7 +87,7 @@ const Sidebar = () => {
         <li className="log_out">
           
           <button onClick={logoutHandler}>
-            <a>
+            <a href="#">
                 <i className=''><LogoutIcon/></i>
                 <span className="links_name">Log out</span>
             </a>

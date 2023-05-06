@@ -27,7 +27,7 @@ export const Instructor = (props) => {
     if(message){
       dispatch(getAllUsers());
     }
-  }, [message]);
+  }, [message,dispatch]);
  
   function deleteBtnHandler(e){
     dispatch(deleteUser(e.target.attributes.dataid.value));

@@ -26,7 +26,7 @@ import Resetpwd from "./Componets/layout/Resetpwd";
 
 function App() {
 
-  const { isAuthenticated = true,message,error,loading} = useSelector((state) => state.user);
+  const { isAuthenticated = true,message,error} = useSelector((state) => state.user);
   // const { msg } = useSelector((state) => state.payment);
   const { adminLoading } = useSelector((state) => state.admin);
   const { paymentmessage } = useSelector((state) => state.Payment);
@@ -43,7 +43,7 @@ function App() {
       toast.success(message);
       dispatch({type:'clearMessage'})
     }
-  }, [dispatch,error,message]);
+  }, [dispatch,error,message,paymentmessage]);
   
   // load user when app starts
   useEffect(() => {

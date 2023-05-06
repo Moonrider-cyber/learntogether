@@ -29,7 +29,7 @@ export const Admins = (props) => {
     if(message){
       dispatch(getAllUsers());
     }
-  }, [message]);
+  }, [message,dispatch]);
   
   function adBtnHandler(e){
     dispatch(activeDeactiveUser(e.target.attributes.dataid.value));

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { Showreview } from '../../../Componets/SingleCourse/Reviews';
-import { Box, IconButton, Rating, Typography } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useDispatch } from 'react-redux';
 import { getAllReviewAdmin } from '../../../redux/actions/courses';

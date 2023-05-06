@@ -78,7 +78,7 @@ function AddCourse() {
       handleNext();
     };
   
-    const [ImgPrev, setImgPrev] = React.useState();
+    
     const [Img , setImg] = React.useState();
     const [Title, setTitle] = useState('');
     const [Desc, setDesc] = useState('');
@@ -113,7 +113,6 @@ function AddCourse() {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      setImgPrev(reader.result);
       setImg(file);
     }
   } 
@@ -244,7 +243,7 @@ function AddCourse() {
                         Back
                       </Button>
                       <Box sx={{ flex: '1 1 auto' }} />
-                        { activeStep != steps.length ? (
+                        { activeStep !== steps.length ? (
                           activeStep === steps.length - 1 && Price !== "" && Img !== undefined  ?  (
                             <>
                             <Button onClick={submitbtnhandler} type={"submit"}>

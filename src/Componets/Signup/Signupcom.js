@@ -12,7 +12,6 @@ function Signupcom() {
   const [Name, setName] = useState();
   const [Email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [ImgPrev, setImgPrev] = useState();
   const [Img , setImg] = useState();
 
 
@@ -22,7 +21,6 @@ function Signupcom() {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      setImgPrev(reader.result);
       setImg(file);
     }
   } 
@@ -49,7 +47,7 @@ function Signupcom() {
               <div className="content">
                 <h1>BUSILEARN</h1>
                 <h5>Learn with confidence</h5>
-                <img src={loginimg} width="300" />
+                <img src={loginimg} width="300" alt="signup img" />
               </div>
               <div className="social">
                 <ul className="social-icons">

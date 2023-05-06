@@ -31,7 +31,7 @@ export const Users = (props) => {
     if(message){
       dispatch(getAllUsers());
     }
-  }, [message]);
+  }, [message,dispatch]);
   
   const styles = {
     tableheading:{

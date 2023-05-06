@@ -27,19 +27,19 @@ export const EditLecture = () => {
 
   useEffect(() => {
       dispatch(getAllLectures(state));
-  }, [dispatch]);
+  }, [dispatch,dispatch]);
 
   useEffect(() => {
     if(message){
       dispatch(getAllLectures(state));
     }
-  }, [message]);
+  }, [message,dispatch]);
   
   
   return (
     <div style={{backgroundColor:"whitesmoke",width:"100vw",height:"100vh"}}>
         <Box>
-            <Typography variant="h3" sx={{width:"100%",textAlign:"center",fontWeight:"bold",mt: 2, mb: 1, py: 3,mt:0 }}>Edit Lecture</Typography>
+            <Typography variant="h3" sx={{width:"100%",textAlign:"center",fontWeight:"bold" ,mb: 1, py: 3,mt:0 }}>Edit Lecture</Typography>
         </Box>
 
         <Container>

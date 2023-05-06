@@ -68,7 +68,7 @@ function Logincom() {
               <div className="content">
                 <h1>BUSILEARN</h1>
                 <h5>Learn with confidence</h5>
-                <img src={loginimg} width="300" />
+                <img src={loginimg} width="300" alt="img" />
               </div>
               <div className="social">
                 <ul className="social-icons">

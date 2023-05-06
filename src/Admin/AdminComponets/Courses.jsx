@@ -29,7 +29,7 @@ export const Courses = (courses) => {
     if(message){
       dispatch(getAllCoursesadmin(true));
     }
-  }, [message]);
+  }, [message,dispatch]);
   
 
   const textoverflow = {

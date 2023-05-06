@@ -18,7 +18,7 @@ export const Lecturecomp = () => {
     dispatch(checkenrolled(courseid))
     dispatch(getAllLectures(courseid))
     dispatch(getAllReview(courseid))
-  }, [dispatch,message])
+  }, [dispatch,message,isenroll])
 
   if(!isenroll){
     navigate("/");

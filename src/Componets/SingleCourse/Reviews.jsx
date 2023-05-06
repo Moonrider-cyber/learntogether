@@ -117,7 +117,7 @@ export const Showreview = ({singlecourse,hascourseid}) => {
     }else{
       dispatch(getAllReview(courseid.id))
     }
-  }, [dispatch,message])
+  }, [dispatch,message,hascourseid])
   
   
   return (

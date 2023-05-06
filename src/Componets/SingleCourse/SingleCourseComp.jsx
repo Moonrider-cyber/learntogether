@@ -22,7 +22,7 @@ export function SingleCourseComp () {
 
   useEffect(() => {
     dispatch(checkenrolled(id))  
-  }, [dispatch])
+  }, [dispatch,id])
 
   useEffect(() => {
     dispatch(loadUser());

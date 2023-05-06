@@ -8,7 +8,6 @@ function AddInstructor() {
   const [Name, setName] = useState();
   const [Email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [ImgPrev, setImgPrev] = useState();
   const [Img , setImg] = useState();
 
   function changeimgHandler(e){
@@ -17,7 +16,6 @@ function AddInstructor() {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      setImgPrev(reader.result);
       setImg(file);
     }
   } 
