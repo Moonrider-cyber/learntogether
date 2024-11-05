@@ -18,7 +18,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link to={"https://jainex.me"} style={{color:"rgba(0, 0, 0, 0.6)"}}>
+      <Link to={"https://tanner.me"} style={{color:"rgba(0, 0, 0, 0.6)"}}>
         Busilearn
       </Link>{' '}
       {new Date().getFullYear()}
